@@ -18,8 +18,7 @@ export const site = {
     url: "https://www.amazon.it/12-passi-Amore-trasformare-opportunit%C3%A0/dp/B0FCXZV42R",
   },
 
-  // Da sostituire con il link "Condividi" di Google Maps se questo smette di funzionare.
-  schedaGoogle: "https://www.google.com/searchviewer/10?svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVhwNGJYTnROall5GAo",
+  schedaGoogle: "https://share.google/QAlK9P82l5Ha89t4s",
 
   privacy: "https://www.iubenda.com/privacy-policy/12385559/full-legal",
   cookie: "https://www.iubenda.com/privacy-policy/12385559/cookie-policy",
