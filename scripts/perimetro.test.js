@@ -57,7 +57,23 @@ for (const vietato of [
 }
 
 test("non scambia parole simili per vietate", () => {
-  assert.deepEqual(errori("<p>Hamerson, l'apostrofo, 90 minuti, a differenza delle costellazioni…</p>"), []);
+  assert.deepEqual(
+    errori("<p>Hamerson, l’apostrofo, 90 minuti, a differenza delle costellazioni, 15 leggi, più veloce dire, il percorso spirituale di Unity Connection, 50% di sconto</p>"),
+    [],
+  );
+});
+
+test("trova le formule anche se le parole vanno a capo o sono separate da uno spazio fisso", () => {
+  assert.equal(errori("<p>a differenza&nbsp;della\n terapia</p>").length, 1);
+  assert.equal(errori("<p>nuova<br>medicina</p>").length, 1);
+});
+
+test("controlla anche alt, og, aria-label e dati strutturati", () => {
+  const e = errori(
+    '<img alt="tarocchi"><button aria-label="Hamer">x</button><script type="application/ld+json">{"text":"numerologia"}</script>',
+    '<title>ok</title><meta property="og:description" content="nuova medicina">',
+  );
+  assert.equal(e.length, 4, e.join("\n"));
 });
 
 test("controlla anche title e meta description", () => {
@@ -69,11 +85,14 @@ test("ignora script e attributi, dove non c'è testo per il visitatore", () => {
 });
 
 test("costellazioni familiari: ammesse solo nel corpo della FAQ di Armonizzazioni", () => {
-  const ok = page('<h1>Armonizzazioni</h1><div data-faq-risposta><p>Non sono costellazioni familiari.</p></div>');
+  const ok = page(
+    '<h1>Armonizzazioni</h1><div data-faq-risposta><p>Non sono costellazioni familiari.</p></div>' +
+      '<script type="application/ld+json">{"text":"Non sono costellazioni familiari."}</script>',
+  );
   const noFaq = page("<p>Come le costellazioni familiari.</p>");
   const titolo = page('<h2>Costellazioni familiari</h2><div data-faq-risposta><h3>costellazioni familiari?</h3></div>');
   const meta = page("<p>ok</p>", '<title>Costellazioni familiari</title><meta name="description" content="costellazioni familiari">');
-  const altraPagina = page('<div data-faq-risposta>costellazioni familiari</div>');
+  const altraPagina = page('<script type="application/ld+json">{"text":"costellazioni familiari"}</script>');
   const dir = site({ [ARMONIZZAZIONI]: ok, "a.html": noFaq, "b.html": titolo, "c.html": meta, "d.html": altraPagina });
   const e = checkPerimetro(dir, { pages: [ARMONIZZAZIONI, "a.html", "b.html", "c.html", "d.html"], regole, armonizzazioni: ARMONIZZAZIONI });
   assert.deepEqual(e.map((x) => x.split(":")[0]), ["a.html", "b.html", "c.html", "c.html", "d.html"]);
@@ -86,7 +105,7 @@ test("costellazioni familiari mai nell'indirizzo di una pagina", () => {
 
 test("trova i segnaposto IN SOSPESO nel testo e nei link WhatsApp", () => {
   const dir = site({
-    "index.html": page('<p>Incontro di mappatura [IN SOSPESO: nome]</p><a href="https://wa.me/39?text=%5BIN%20SOSPESO%3A%207.5%5D">x</a>'),
+    "index.html": page('<p style="width:50%">Incontro di mappatura [IN SOSPESO: nome]</p><a href="https://wa.me/39?text=%5BIN+SOSPESO%3A+7.5%5D">x</a>'),
   });
   assert.deepEqual(trovaInSospeso(dir, ["index.html"]), ["index.html: [IN SOSPESO: nome]", "index.html: [IN SOSPESO: 7.5]"]);
 });

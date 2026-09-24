@@ -3,7 +3,9 @@
 # senza distinguere maiuscole e minuscole.
 #
 # Una regola per riga. Dopo " # " si scrive il motivo, che compare nel messaggio d'errore.
-# Le righe che iniziano con # sono commenti.
+# Le righe che iniziano con # sono commenti. Uno spazio vale anche per un a capo.
+#
+# Le maiuscole di reverenza non si controllano in automatico: restano una revisione a mano.
 #
 # «costellazioni familiari» ha una regola a parte, dentro scripts/perimetro.js: è ammessa
 # solo nel corpo della FAQ di Armonizzazioni di Gruppo (elemento con data-faq-risposta).
@@ -22,13 +24,13 @@ guarit\w* dal (cancro|tumore) # promessa sulla salute
 sergio signori # libro da non citare sul sito
 
 # Confronti con la terapia
-più veloce d(i|el\w*|ello) # confronto con la terapia
+più veloce (di|del\w*) # confronto con la terapia
 a differenza della (psico)?terapia # confronto con la terapia
 prima di andare dallo psicologo # confronto con la terapia
 
 # Nomi e promesse
 conoscitiva # nome vecchio del primo incontro
-\d+ ?% (dei|delle|di) # percentuali di risultato
+\d+\s?% (dei|delle) # percentuali di risultato, tipo «nel 90% dei casi»
 
 # Tipografia
 — # trattino lungo
