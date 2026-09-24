@@ -10,6 +10,7 @@ module.exports = {
     "./percorsi-reiki.html",
     "./contatti.html",
     "./assets/js/**/*.js",
+    "./src/**/*.js",
   ],
 
   theme: {

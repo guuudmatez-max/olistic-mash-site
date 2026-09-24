@@ -49,7 +49,7 @@
                 <a
                   href="#"
                   class="underline underline-offset-4 decoration-[var(--color-accent-strong)]"
-                  data-wa-key="events_generic"
+                  data-wa-key="armonizzazioni"
                 >
                   scrivimi su WhatsApp se cerchi qualcosa di specifico
                 </a>.
@@ -143,7 +143,7 @@
                   <a
                     href="#"
                     class="btn btn-primary w-full md:w-auto"
-                    data-wa-key="event_event_aurora_cerchio_maggio"
+                    data-wa-key="armonizzazioni"
                   >
                     Chiedi info e prenota su WhatsApp
                   </a>
@@ -167,67 +167,9 @@
               </h2>
             </div>
 
-            <!-- Barra filtri (UI) -->
-            <div class="mx-auto mt-6 flex max-w-3xl flex-col items-center gap-4 md:flex-row md:justify-between">
-              <!-- Toggle categorie -->
-              <div class="flex flex-wrap justify-center gap-2 text-sm js-events-filters">
-                <button
-                  type="button"
-                  class="js-events-filter rounded-full bg-[var(--color-accent-soft)] px-4 py-1.5 font-medium text-[var(--color-accent-strong)]"
-                  data-filter="tutti"
-                >
-                  Tutti
-                </button>
-                <button
-                  type="button"
-                  class="js-events-filter rounded-full border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-4 py-1.5 text-[var(--color-text-muted)]"
-                  data-filter="armonizzazione"
-                >
-                  Armonizzazioni
-                </button>
-                <button
-                  type="button"
-                  class="js-events-filter rounded-full border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-4 py-1.5 text-[var(--color-text-muted)]"
-                  data-filter="cerchio"
-                >
-                  Cerchi
-                </button>
-                <button
-                  type="button"
-                  class="js-events-filter rounded-full border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-4 py-1.5 text-[var(--color-text-muted)]"
-                  data-filter="speciale"
-                >
-                  Speciali
-                </button>
-              </div>
-
-              <!-- Mini switch solo online -->
-              <label class="inline-flex cursor-pointer items-center gap-2 text-xs font-medium text-[var(--color-text-muted)]">
-                <span>Solo online</span>
-                <span class="relative inline-flex h-5 w-9 items-center rounded-full bg-[var(--color-border-soft)]">
-                  <input
-                    type="checkbox"
-                    class="js-events-online-only peer absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                  />
-                  <span
-                    class="absolute left-0.5 h-4 w-4 rounded-full bg-[var(--color-surface)] shadow-sm transition-transform peer-checked:translate-x-4"
-                  ></span>
-                </span>
-              </label>
-            </div>
-
-            <!-- Griglia eventi, popolata via JS -->
+            <!-- Date delle Armonizzazioni, scritte al build da src/data/site.js -->
             <div id="events-list" class="mx-auto mt-8 grid max-w-5xl gap-5 md:grid-cols-2"></div>
             
-            <div class="mx-auto mt-6 max-w-5xl text-center">
-              <button
-                id="events-show-more"
-                type="button"
-                class="inline-flex items-center justify-center rounded-full border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-5 py-2 text-sm text-[var(--color-text-muted)] hover:bg-[var(--color-bg)]"
-              >
-                Mostra tutti gli eventi
-              </button>
-            </div>
 
           </div>
         </section>
@@ -275,7 +217,7 @@
                   <a
                     href="#"
                     class="btn w-full justify-center border border-[var(--color-accent-soft)] bg-[var(--color-surface)] text-[var(--color-accent-strong)] hover:bg-[var(--color-accent-soft)]"
-                    data-wa-key="events_group_format_cerchio_luna_nuova"
+                    data-wa-key="armonizzazioni"
                   >
                     Scrivimi per le prossime date
                   </a>
@@ -308,7 +250,7 @@
                   <a
                     href="#"
                     class="btn w-full justify-center border border-[var(--color-accent-soft)] bg-[var(--color-surface)] text-[var(--color-accent-strong)] hover:bg-[var(--color-accent-soft)]"
-                    data-wa-key="events_group_format_armonizzazione_mensile"
+                    data-wa-key="armonizzazioni"
                   >
                     Scrivimi per le prossime date
                   </a>
@@ -341,7 +283,7 @@
                   <a
                     href="#"
                     class="btn w-full justify-center border border-[var(--color-accent-soft)] bg-[var(--color-surface)] text-[var(--color-accent-strong)] hover:bg-[var(--color-accent-soft)]"
-                    data-wa-key="events_group_format_cerchio_venezia"
+                    data-wa-key="armonizzazioni"
                   >
                     Scrivimi per le prossime date
                   </a>
@@ -405,7 +347,7 @@
               <!-- Micro testo finale -->
               <p class="mt-8 text-xs md:text-sm text-[var(--color-text-muted)]">
                 Per leggere altre testimonianze, visita la pagina
-                <a href="/unity-connection.html" class="underline underline-offset-4">
+                <a href="/consulenze-unity.html" class="underline underline-offset-4">
                   Unity Connection
                 </a>.
               </p>
@@ -553,7 +495,7 @@
                 <a
                   href="#"
                   class="btn btn-primary w-full md:w-auto"
-                  data-wa-key="events_help_me_choose"
+                  data-wa-key="armonizzazioni"
                 >
                   Chiedi un consiglio su WhatsApp
                 </a>
@@ -569,7 +511,6 @@
 
     <script type="module" src="/assets/js/main.js"></script>
     <!-- in eventi.html, prima della chiusura di </body>, versione buildata -->
-    <script type="module" src="/src/js/eventsPage.js"></script>
 
   </body>
 </html>

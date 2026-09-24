@@ -2,14 +2,13 @@
   "name": "olistic-mash-site",
   "version": "1.0.0",
   "description": "",
-  "main": "postcss.config.js",
+  "main": "index.html",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-
-    "tw:watch": "tailwindcss -i ./assets/css/main.css -o ./assets/css/main.build.css --watch",
-    "tw:build": "tailwindcss -i ./assets/css/main.css -o ./assets/css/main.build.css --minify"
+    "check": "node scripts/check-site.js",
+    "test": "node --test scripts/*.test.js",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -18,13 +17,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/fpglanza/olistic-mash-site/issues"
   },
   "homepage": "https://github.com/fpglanza/olistic-mash-site#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.22",
+    "node-html-parser": "^9.0.4",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.18",
     "vite": "^7.2.4"

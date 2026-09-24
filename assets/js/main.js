@@ -3,107 +3,6 @@
 // ----------------------------
 import "../css/main.css";
 
-import { siteHeader } from "./layout/header.js";
-import { siteFooter } from "./layout/footer.js";
-import { eventsData } from "../../src/data/eventsData.js";
-
-
-// ----------------------------
-// WHATSAPP CONFIG
-// ----------------------------
-const WHATSAPP_PHONE = "+393494157836";
-
-const whatsappMessages = {
-  home_general: "Ciao! Vorrei avere più informazioni sui tuoi percorsi e consulenze.",
-  home_services: "Ciao! Vorrei scoprire meglio i tuoi servizi.",
-  home_micro_fit: "Ciao! Vorrei capire se il tuo percorso è giusto per me.",
-  home_unity: "Ciao! Vorrei prenotare o avere informazioni su Unity Connection.",
-  home_testimonials: "Ciao! Vorrei iniziare il mio percorso con te.",
-  home_final: "Ciao! Voglio iniziare il mio percorso verso più presenza e centratura.",
-  eventi_generic: "Ciao! Vorrei informazioni sui prossimi eventi e cerchi.",
-  event_generic: "Ciao! Vorrei partecipare a uno dei tuoi eventi.",
-  chi_sono_generic: "Ciao! Ho letto la tua storia e vorrei capire come puoi aiutarmi.",
-  unity_info: "Ciao! Vorrei informazioni su Unity Connection.",
-  unity_booking: "Ciao! Vorrei prenotare una sessione Unity Connection.",
-  percorsi_guide: "Ciao! Vorrei una guida per capire qual è il percorso più adatto a me.",
-  reiki_info: "Ciao! Vorrei avere maggiori informazioni sui percorsi e trattamenti Reiki.",
-  contatti_generic: "Ciao! Vorrei maggiori informazioni sui tuoi servizi e disponibilità.",
-  chi_sono_percorso: "Ciao, ti scrivo dalla pagina Chi sono, sezione Il mio percorso.",
-  chi_sono_approccio: "Ciao, ti scrivo dalla pagina Chi sono, sezione approccio olistico.",
-  chi_sono_missione: "Ciao, ti scrivo dalla pagina Chi sono, sezione La mia missione.",
-};
-
-
-// ----------------------------
-// WHATSAPP CTA HANDLER
-// ----------------------------
-function initWhatsAppCTAs() {
-  const buttons = document.querySelectorAll("[data-wa-key]");
-
-  buttons.forEach((btn) => {
-    const key = btn.getAttribute("data-wa-key");
-    const customText = btn.getAttribute("data-wa-text");
-    const baseMessage = whatsappMessages[key] || "";
-    const message = customText
-      ? `${baseMessage} ${customText}`.trim()
-      : baseMessage;
-
-    const encoded = encodeURIComponent(message || "Ciao!");
-
-    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`;
-
-    if (btn.tagName.toLowerCase() === "a") {
-      btn.href = url;
-      btn.target = "_blank";
-      btn.rel = "noopener noreferrer";
-    } else {
-      btn.addEventListener("click", () =>
-        window.open(url, "_blank", "noopener,noreferrer")
-      );
-    }
-  });
-}
-
-
-// ----------------------------
-// EVENTI — HOME PREVIEW
-// ----------------------------
-function renderHomeEventsPreview() {
-  const container = document.getElementById("home-events-list");
-  if (!container || !Array.isArray(eventsData)) return;
-
-  const preview = eventsData.slice(0, 3);
-  container.innerHTML = "";
-
-  preview.forEach((event) => {
-    const description = event.shortDescription || event.description || "";
-    const location =
-      event.locationLabel ||
-      [event.city, event.location].filter(Boolean).join(" · ");
-
-    const card = document.createElement("article");
-    card.className = "card event-card";
-
-    card.innerHTML = `
-      <div class="event-card__header">
-        <div class="event-card__date">
-          <span class="event-card__day">${event.date.slice(8, 10)}</span>
-          <span class="event-card__month">${event.date.slice(5, 7)}</span>
-        </div>
-      </div>
-      <h3>${event.title}</h3>
-      <p>${description}</p>
-      <p class="small event-card__meta">${location}</p>
-      <a class="btn btn-secondary mt-24"
-         data-wa-key="${event.whatsappKey}"
-         data-wa-text="Mi interessa l'evento: ${event.title} del ${event.date}.">
-        Prenota su WhatsApp
-      </a>
-    `;
-
-    container.appendChild(card);
-  });
-}
 
 
 // ----------------------------
@@ -198,19 +97,7 @@ function initLazyVideos() {
 // ON LOAD — BOOTSTRAP EVERYTHING
 // ----------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  // Inject header and footer
-  const headerSlot = document.querySelector("[data-site-header]");
-  if (headerSlot) headerSlot.outerHTML = siteHeader;
-
-  const footerSlot = document.querySelector("[data-site-footer]");
-  if (footerSlot) footerSlot.outerHTML = siteFooter;
-
-  // Re-init navbar AFTER injection
   initMobileNav();
-
-  // Page features
-  renderHomeEventsPreview();
-  initWhatsAppCTAs();
   initTestimonialCarousels();
   initLazyVideos();
 });

@@ -4,19 +4,29 @@ Sito statico multipagina: Vite + Tailwind 3 + PostCSS. Nessun CMS: si modifica c
 
 ## In locale
 
-Serve Node 20.
+Serve Node 22.
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
 npm run build      # genera dist/
+npm run check      # controlla il sito in dist/ (pagine, link, header, footer, WhatsApp)
+npm test           # verifica che il controllo funzioni
 npm run preview    # serve dist/ per controllare il build
 ```
+
+## Dove si cambiano i dati
+
+Nomi dei prodotti, prezzi, durate, WhatsApp, mail, zona, link al libro e date delle
+Armonizzazioni stanno tutti in `src/data/site.js`. Nelle pagine si scrive
+`{{ percorso.prezzo }}` e al build diventa il valore del file. Header, footer e date
+sono generati al build da `src/build/layout.js`: nelle pagine basta
+`<header data-site-header></header>` e `<footer data-site-footer></footer>`.
 
 ## Pubblicazione
 
 Il progetto Netlify `giorgia-unity-connection` pubblica da questo repository
-(`npm run build`, cartella `dist`, vedi `netlify.toml`).
+(vedi `netlify.toml`). Se il controllo trova errori, la pubblicazione si ferma.
 
 Questo repository è una copia (fork) di `fpglanza/olistic-mash-site`, il sito di Filo:
 `origin` è la copia di Tommaso, `upstream` quella di Filo.

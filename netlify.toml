@@ -1,9 +1,9 @@
 [build]
-  command = "npm run build"
+  command = "npm test && npm run build && npm run check"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
 
 # (opzionale) redirect base per sicurezza, se mai userai una SPA
 #[[redirects]]
