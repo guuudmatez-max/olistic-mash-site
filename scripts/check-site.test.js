@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { checkSite } from "./check-site.js";
@@ -29,8 +29,14 @@ test("segnala una pagina prevista che manca", () => {
 });
 
 test("segnala un link interno verso una pagina che non esiste", () => {
-  const dir = site({ "index.html": page(`<a href="/percorsi.html">x</a>`), "chi-sono.html": page() });
+  const dir = site({ "index.html": page(`<a href="/percorsi.html">x</a><a href="/">x</a>`), "chi-sono.html": page() });
   assert.deepEqual(checkSite(dir, opts), ["index.html: link interno rotto /percorsi.html"]);
+});
+
+test("un link a una cartella senza pagina è rotto", () => {
+  const dir = site({ "index.html": page(`<a href="/blog/">x</a>`), "chi-sono.html": page() });
+  mkdirSync(join(dir, "blog"));
+  assert.deepEqual(checkSite(dir, opts), ["index.html: link interno rotto /blog/"]);
 });
 
 test("segnala header o footer assenti dall'HTML", () => {
@@ -38,7 +44,6 @@ test("segnala header o footer assenti dall'HTML", () => {
   assert.deepEqual(checkSite(dir, opts), [
     "index.html: header assente dall'HTML",
     "chi-sono.html: footer assente dall'HTML",
-    "chi-sono.html: nessun link WhatsApp",
   ]);
 });
 

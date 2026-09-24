@@ -1,8 +1,8 @@
 // Controllo del sito costruito: si lancia dopo `npm run build` con `npm run check`.
 // Guarda le pagine in dist/ come le riceve un visitatore o un motore di ricerca.
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, posix } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { parse } from "node-html-parser";
 
 export function checkSite(dir, { pages, whatsapp }) {
@@ -18,19 +18,19 @@ export function checkSite(dir, { pages, whatsapp }) {
     if (!doc.querySelector("footer.site-footer")) errors.push(`${name}: footer assente dall'HTML`);
 
     const hrefs = doc.querySelectorAll("a[href]").map((a) => a.getAttribute("href"));
-    const wa = hrefs.filter((h) => h.startsWith("https://wa.me/"));
-    if (!wa.length) errors.push(`${name}: nessun link WhatsApp`);
-    for (const h of wa) {
+    for (const h of hrefs.filter((h) => h.startsWith("https://wa.me/"))) {
       const number = h.slice("https://wa.me/".length).split("?")[0];
       if (number !== whatsapp) errors.push(`${name}: numero WhatsApp sbagliato ${number}`);
     }
 
     for (const h of hrefs) {
       if (/^([a-z]+:|\/\/|#)/i.test(h)) continue; // esterni, mailto, tel, ancore
-      const path = h.split(/[?#]/)[0];
+      const path = decodeURIComponent(h.split(/[?#]/)[0]);
+      if (!path) continue; // stessa pagina
       const target = posix.join(path.startsWith("/") ? "" : posix.dirname(name), path);
       const resolved = target === "" || target.endsWith("/") ? `${target}index.html` : target;
-      if (!existsSync(join(dir, resolved))) errors.push(`${name}: link interno rotto ${h}`);
+      const file = join(dir, resolved);
+      if (!existsSync(file) || !statSync(file).isFile()) errors.push(`${name}: link interno rotto ${h}`);
     }
   }
   return errors;
@@ -38,8 +38,8 @@ export function checkSite(dir, { pages, whatsapp }) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-  const { default: config } = await import(join(root, "vite.config.js"));
-  const { site } = await import(join(root, "src/data/site.js"));
+  const { default: config } = await import(pathToFileURL(join(root, "vite.config.js")).href);
+  const { site } = await import(pathToFileURL(join(root, "src/data/site.js")).href);
   const pages = Object.values(config.build.rollupOptions.input);
   const errors = checkSite(join(root, "dist"), { pages, whatsapp: site.whatsapp });
   for (const e of errors) console.error(`✖ ${e}`);

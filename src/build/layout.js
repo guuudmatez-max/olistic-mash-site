@@ -27,7 +27,7 @@ export function renderHeader() {
   return `<header class="site-header">
   <div class="nav container">
     <div class="nav__mobile flex items-center justify-center gap-4 w-full md:hidden">
-      <a href="/" class="nav__logo"><img src="/assets/img/gold.png" alt="${site.nome}" class="nav__logo-img" /></a>
+      <a href="/" class="nav__logo"><img src="/assets/img/gold.png" alt="${escapeHtml(site.nome)}" class="nav__logo-img" /></a>
       <button class="nav__toggle" type="button" aria-label="Apri il menu" aria-expanded="false">
         <span class="nav__toggle-lines">
           <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span class="nav__toggle-line"></span>
@@ -36,7 +36,7 @@ export function renderHeader() {
     </div>
     <nav class="nav__desktop hidden md:flex items-center justify-center w-full" aria-label="Menu principale">
       <ul class="nav__desktop-left flex items-center gap-6">${menuLinks(MENU.slice(0, 2))}</ul>
-      <a href="/" class="nav__logo mx-10"><img src="/assets/img/gold.png" alt="${site.nome}" class="nav__logo-img" /></a>
+      <a href="/" class="nav__logo mx-10"><img src="/assets/img/gold.png" alt="${escapeHtml(site.nome)}" class="nav__logo-img" /></a>
       <ul class="nav__desktop-right flex items-center gap-6">${menuLinks(MENU.slice(2))}</ul>
     </nav>
     <ul class="nav__links md:hidden">${menuLinks(MENU)}</ul>
@@ -51,7 +51,7 @@ export function renderFooter() {
     <p>
       <a href="${whatsappUrl("generico")}" target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp</a>
       · <a href="/contatti.html">Contatti</a>
-      · <a href="${site.libroAmazon.url}" target="_blank" rel="noopener noreferrer">Il libro «${site.libroAmazon.titolo}» su Amazon</a>
+      · <a href="${site.libroAmazon.url}" target="_blank" rel="noopener noreferrer">Il libro «${escapeHtml(site.libroAmazon.titolo)}» su Amazon</a>
     </p>
     <p class="small">${escapeHtml(site.disclaimer)}</p>
     <p class="small opacity-80">
@@ -63,20 +63,20 @@ export function renderFooter() {
 </footer>`;
 }
 
-export function renderEvents(date = site.armonizzazioni.date) {
-  if (!date.length) {
+export function renderEvents(eventi = site.armonizzazioni.date) {
+  if (!eventi.length) {
     return `<p class="col-span-full text-center text-sm text-[var(--color-text-muted)]">
   Le prossime date sono in arrivo. <a href="${whatsappUrl("armonizzazioni")}" target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp</a> per sapere quando.
 </p>`;
   }
-  const a = site.armonizzazioni;
-  return date
+  const { orario, prezzo, posti } = site.armonizzazioni;
+  return eventi
     .map((ev) => {
       const [y, m, d] = ev.data.split("-");
       const label = `${Number(d)} ${MESI[Number(m) - 1]} ${y}`;
       return `<article class="rounded-[24px] border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-6 shadow-sm">
   <h3 class="text-base font-semibold"><time datetime="${ev.data}">${label}</time> · ${escapeHtml(ev.luogo)}</h3>
-  <p class="mt-2 text-sm text-[var(--color-text-muted)]">${a.orario} · ${a.prezzo} · ${a.posti}</p>
+  <p class="mt-2 text-sm text-[var(--color-text-muted)]">${escapeHtml(`${orario} · ${prezzo} · ${posti}`)}</p>
   <a class="btn mt-4" href="${whatsappUrl("armonizzazioni", `Mi interessa la data del ${label}.`)}" target="_blank" rel="noopener noreferrer">Prenota su WhatsApp</a>
 </article>`;
     })
@@ -92,6 +92,7 @@ function lookup(path) {
 // Trasforma una pagina HTML sorgente nella pagina con le parti comuni già scritte.
 export function renderPage(html) {
   return html
+    .replace(/\{\{\s*([\w.]+)\s*\}\}/g, (_, path) => lookup(path))
     .replace(/<header data-site-header><\/header>/, renderHeader)
     .replace(/<footer data-site-footer><\/footer>/, renderFooter)
     .replace(/(<div id="events-list"[^>]*>)(<\/div>)/, (_, open, close) => open + renderEvents() + close)
@@ -100,6 +101,5 @@ export function renderPage(html) {
       const extra = attrs.match(/\sdata-wa-text="([^"]*)"/)?.[1] ?? "";
       const rest = attrs.replace(/\sdata-wa-text="[^"]*"/, "");
       return `<a${rest} href="${whatsappUrl(key, extra)}" target="_blank" rel="noopener noreferrer">`;
-    })
-    .replace(/\{\{\s*([\w.]+)\s*\}\}/g, (_, path) => lookup(path));
+    });
 }
