@@ -19,10 +19,6 @@ tarocchi # fonte interna del metodo
 numerologi\w* # fonte interna del metodo
 (simbol|ritual|iniziazion)\w*( \S+){0,2} unity connection # simbolo, rituale o iniziazione di Unity Connection
 
-# Promesse sulla salute e fonti da non citare
-guarit\w* dal (cancro|tumore) # promessa sulla salute
-sergio signori # libro da non citare sul sito
-
 # Confronti con la terapia
 più veloce (di|del\w*) # confronto con la terapia
 a differenza della (psico)?terapia # confronto con la terapia

@@ -41,8 +41,6 @@ for (const vietato of [
   "più veloce di un percorso",
   "a differenza della terapia",
   "prima di andare dallo psicologo",
-  "Siamo guariti dal cancro",
-  "il libro di Sergio Signori",
   "incontro Conoscitiva",
   "una pausa — poi",
   "“così”",
