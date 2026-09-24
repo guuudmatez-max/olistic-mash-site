@@ -7,19 +7,22 @@ import { parse } from "node-html-parser";
 const COSTELLAZIONI = /costellazion\w*\s+familiar\w*/iu;
 const HEADINGS = "h1,h2,h3,h4,h5,h6";
 
-// Una regola per riga: "espressione # motivo". Uno spazio vale per qualsiasi spazio o a
+// Una regola per riga: "espressione # motivo", con in fondo "| solo in: pagina.html"
+// se è ammessa in alcune pagine e vietata nelle altre. Uno spazio vale per qualsiasi spazio o a
 // capo. Dove la regola inizia o finisce con una parola, deve combaciare con parole intere
 // (così "hamer" non trova "Hamerson" e "5 leggi" non trova "15 leggi").
 export function leggiRegole(text) {
   return text.split("\n").flatMap((line, i) => {
     line = line.trim();
     if (!line || line.startsWith("#")) return [];
-    const [pattern, motivo = "parola vietata"] = line.split(" # ").map((s) => s.trim());
+    const [pattern, resto = "parola vietata"] = line.split(" # ").map((s) => s.trim());
+    const [motivo, pagine] = resto.split(/\s*\|\s*solo in:\s*/);
+    const soloIn = pagine ? pagine.split(",").map((p) => p.trim()) : [];
     const start = /^[\p{L}\d(\\]/u.test(pattern) ? "(?<![\\p{L}\\d])" : "";
     const end = /[\p{L})]$/u.test(pattern) ? "(?![\\p{L}\\d])" : "";
     const body = pattern.replace(/ (?![?*+{])/g, "\\s+");
     try {
-      return [{ re: new RegExp(`${start}(?:${body})${end}`, "iu"), motivo }];
+      return [{ re: new RegExp(`${start}(?:${body})${end}`, "iu"), motivo, soloIn }];
     } catch (e) {
       throw new Error(`parole-vietate.txt, riga ${i + 1}: regola non valida «${pattern}» (${e.message})`);
     }
@@ -62,9 +65,11 @@ export function checkPerimetro(dir, { pages, regole, armonizzazioni }) {
     const { body, title, meta, attributi, datiStrutturati } = leggiPagina(dir, name);
     const testo = [title, meta, attributi, datiStrutturati, body.structuredText].join("\n");
 
-    for (const { re, motivo } of regole) {
+    for (const { re, motivo, soloIn = [] } of regole) {
+      if (soloIn.includes(name)) continue;
       const m = testo.match(re);
-      if (m) errors.push(`${name}: «${m[0].replace(/\s+/g, " ")}» (${motivo})`);
+      const dove = soloIn.length ? `; ammesso solo in ${soloIn.join(", ")}` : "";
+      if (m) errors.push(`${name}: «${m[0].replace(/\s+/g, " ")}» (${motivo}${dove})`);
     }
 
     // «costellazioni familiari»: mai in title, meta, titoli, indirizzi; nel testo solo

@@ -3,6 +3,9 @@
 # senza distinguere maiuscole e minuscole.
 #
 # Una regola per riga. Dopo " # " si scrive il motivo, che compare nel messaggio d'errore.
+# Se una cosa è ammessa solo in alcune pagine, in fondo alla riga si scrive
+# "| solo in: chi-sono.html": lì passa, nelle altre pagine resta un errore.
+#
 # Le righe che iniziano con # sono commenti. Uno spazio vale anche per un a capo.
 #
 # Le maiuscole di reverenza non si controllano in automatico: restano una revisione a mano.
@@ -19,9 +22,15 @@ tarocchi # fonte interna del metodo
 numerologi\w* # fonte interna del metodo
 (simbol|ritual|iniziazion)\w*( \S+){0,2} unity connection # simbolo, rituale o iniziazione di Unity Connection
 
-# Promesse sulla salute e fonti da non citare
-guarit\w* dal (cancro|tumore) # promessa sulla salute
-sergio signori # libro da non citare sul sito
+# La guarigione di Giorgia (decisione di Tommaso, 2026-09-24)
+# È una storia vera: Giorgia ha avuto la leucemia ed è guarita, e la sua testimonianza è nel libro
+# di Sergio Signori «Siamo guariti dal cancro», su YouTube e in un'intervista con Marcello Pamio
+# (Radio Gamma 5). Raccontata come esperienza vissuta non è una promessa di guarigione, e va tenuta.
+# Però va incorniciata bene: solo nella storia della pagina Chi sono, mai in Home né altrove,
+# dove suonerebbe come una promessa sulla salute o un'alternativa alle cure.
+guarit\w* dal (cancro|tumore) # storia di guarigione di Giorgia: fuori da Chi sono sembra una promessa sulla salute | solo in: chi-sono.html
+sergio signori # libro con la testimonianza di Giorgia: si cita solo nella sua storia | solo in: chi-sono.html
+pamio # intervista a Giorgia: si cita solo nella sua storia | solo in: chi-sono.html
 
 # Confronti con la terapia
 più veloce (di|del\w*) # confronto con la terapia

@@ -24,6 +24,20 @@ test("il file delle regole si legge: una regola per riga, motivo dopo #, comment
   assert.ok(r[0].re.test("I Tarocchi"));
 });
 
+test("una regola può essere ammessa solo in alcune pagine", () => {
+  const [r] = leggiRegole("pamio # motivo lungo | solo in: chi-sono.html, contatti.html\n");
+  assert.equal(r.motivo, "motivo lungo");
+  assert.deepEqual(r.soloIn, ["chi-sono.html", "contatti.html"]);
+});
+
+test("la storia della guarigione è ammessa in Chi sono e bloccata altrove", () => {
+  const storia = "<p>La mia guarigione è nel libro «Siamo guariti dal cancro» di Sergio Signori, intervista con Marcello Pamio.</p>";
+  const dir = site({ "chi-sono.html": page(storia), "index.html": page(storia) });
+  const e = checkPerimetro(dir, { pages: ["chi-sono.html", "index.html"], regole, armonizzazioni: ARMONIZZAZIONI });
+  assert.deepEqual(e.map((x) => x.split(":")[0]), ["index.html", "index.html", "index.html"]);
+  assert.match(e[0], /solo in Chi sono|chi-sono\.html/);
+});
+
 test("un testo pulito non ha errori", () => {
   assert.deepEqual(errori("<p>Un incontro per capire cosa si ripete nelle tue relazioni.</p>"), []);
 });
