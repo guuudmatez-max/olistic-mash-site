@@ -10,7 +10,7 @@ Serve Node 22.
 npm install
 npm run dev        # http://localhost:5173
 npm run build      # genera dist/
-npm run check      # controlla il sito in dist/ (pagine, link, header, footer, WhatsApp)
+npm run check      # controlla il sito in dist/: pagine, link, WhatsApp, parole vietate
 npm test           # verifica che il controllo funzioni
 npm run preview    # serve dist/ per controllare il build
 ```
@@ -22,6 +22,16 @@ Armonizzazioni stanno tutti in `src/data/site.js`. Nelle pagine si scrive
 `{{ percorso.prezzo }}` e al build diventa il valore del file. Header, footer e date
 sono generati al build da `src/build/layout.js`: nelle pagine basta
 `<header data-site-header></header>` e `<footer data-site-footer></footer>`.
+
+## Parole vietate e segnaposto
+
+L'elenco delle parole e formule che non possono comparire sul sito sta in
+`src/data/parole-vietate.txt`: una per riga, con il motivo. Si aggiorna lì.
+«costellazioni familiari» è ammesso solo dentro le risposte della FAQ di Armonizzazioni
+(elementi con `data-faq-risposta`), mai in title, meta description, titoli o indirizzi.
+
+I dati che aspettano una conferma sono scritti `[IN SOSPESO: …]`. `npm run check` li
+elenca come avvisi; `npm run check -- --pubblicazione` li tratta come errori.
 
 ## Pubblicazione
 

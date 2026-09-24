@@ -1,4 +1,7 @@
 [build]
+  # Se il controllo trova errori (link rotti, parole vietate…) la pubblicazione si ferma.
+  # Al passaggio al dominio vero, aggiungere "-- --pubblicazione" al check:
+  # da lì anche i segnaposto [IN SOSPESO: …] fermano la pubblicazione.
   command = "npm test && npm run build && npm run check"
   publish = "dist"
 

@@ -1,9 +1,11 @@
 // Controllo del sito costruito: si lancia dopo `npm run build` con `npm run check`.
 // Guarda le pagine in dist/ come le riceve un visitatore o un motore di ricerca.
+// Con `npm run check -- --pubblicazione` i segnaposto [IN SOSPESO: …] diventano errori.
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, posix } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parse } from "node-html-parser";
+import { checkPerimetro, leggiRegole, trovaInSospeso } from "./perimetro.js";
 
 export function checkSite(dir, { pages, whatsapp }) {
   const errors = [];
@@ -41,7 +43,16 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const { default: config } = await import(pathToFileURL(join(root, "vite.config.js")).href);
   const { site } = await import(pathToFileURL(join(root, "src/data/site.js")).href);
   const pages = Object.values(config.build.rollupOptions.input);
-  const errors = checkSite(join(root, "dist"), { pages, whatsapp: site.whatsapp });
+  const dist = join(root, "dist");
+  const regole = leggiRegole(readFileSync(join(root, "src/data/parole-vietate.txt"), "utf8"));
+  const inSospeso = trovaInSospeso(dist, pages);
+  const pubblicazione = process.argv.includes("--pubblicazione");
+  const errors = [
+    ...checkSite(dist, { pages, whatsapp: site.whatsapp }),
+    ...checkPerimetro(dist, { pages, regole, armonizzazioni: "eventi-gruppi.html" }),
+    ...(pubblicazione ? inSospeso : []),
+  ];
+  if (!pubblicazione) for (const w of inSospeso) console.warn(`⚠ in sospeso: ${w}`);
   for (const e of errors) console.error(`✖ ${e}`);
   console.log(errors.length ? `\n${errors.length} errori.` : `✓ ${pages.length} pagine controllate, nessun errore.`);
   process.exit(errors.length ? 1 : 0);

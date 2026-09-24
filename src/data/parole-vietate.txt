@@ -1,0 +1,35 @@
+# Parole e formule che non possono comparire sul sito.
+# Il controllo le cerca nel testo delle pagine, nei title e nelle meta description,
+# senza distinguere maiuscole e minuscole.
+#
+# Una regola per riga. Dopo " # " si scrive il motivo, che compare nel messaggio d'errore.
+# Le righe che iniziano con # sono commenti.
+#
+# «costellazioni familiari» ha una regola a parte, dentro scripts/perimetro.js: è ammessa
+# solo nel corpo della FAQ di Armonizzazioni di Gruppo (elemento con data-faq-risposta).
+
+# Fonti del metodo che restano interne
+hamer # fonte vietata, non compare mai
+(cinque|5) leggi|leggi biologiche # perifrasi delle 5 leggi biologiche
+nuova medicina # perifrasi della Nuova Medicina Germanica
+hellinger # fonte interna del metodo
+tarocchi # fonte interna del metodo
+numerologi\w* # fonte interna del metodo
+(simbol|ritual|iniziazion)\w*( \S+){0,2} unity connection # simbolo, rituale o iniziazione di Unity Connection
+
+# Promesse sulla salute e fonti da non citare
+guarit\w* dal (cancro|tumore) # promessa sulla salute
+sergio signori # libro da non citare sul sito
+
+# Confronti con la terapia
+più veloce d(i|el\w*|ello) # confronto con la terapia
+a differenza della (psico)?terapia # confronto con la terapia
+prima di andare dallo psicologo # confronto con la terapia
+
+# Nomi e promesse
+conoscitiva # nome vecchio del primo incontro
+\d+ ?% (dei|delle|di) # percentuali di risultato
+
+# Tipografia
+— # trattino lungo
+[“”"] # virgolette inglesi: usare « »
