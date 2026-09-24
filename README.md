@@ -18,7 +18,10 @@ npm run preview    # serve dist/ per controllare il build
 Il progetto Netlify `giorgia-unity-connection` pubblica da questo repository
 (`npm run build`, cartella `dist`, vedi `netlify.toml`).
 
-- Push su `main` → pubblicazione in produzione.
+Questo repository è una copia (fork) di `fpglanza/olistic-mash-site`, il sito di Filo:
+`origin` è la copia di Tommaso, `upstream` quella di Filo.
+
+- Push su `redesign-2026-09` → pubblicazione su Netlify.
 - Push su un altro branch o pull request → anteprima Netlify (deploy preview).
 
 `node_modules/` e `dist/` non si committano: li genera Netlify a ogni build.
