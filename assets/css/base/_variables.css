@@ -22,7 +22,11 @@
   /* TEXT */
   --color-text: #2F2417;
   --color-text-soft: #6B5A45;
-  --color-muted: #9B8A77;
+  --color-muted: #7D6B57;      /* 4.6:1 su carta: leggibile */
+  --color-gold-ink: #8A6526;   /* oro per il testo su fondo chiaro (4.8:1) */
+  --color-earth: #2F2417;      /* fascia scura piena */
+  --color-on-earth: #F7F3EB;
+  --color-on-earth-soft: #D8C8B0;
 
   /* NEUTRAL ALIASES (for legacy selectors) */
   --color-black: var(--color-text);
@@ -38,8 +42,21 @@
   --color-error:   #C8615C;
 
   /* TYPOGRAPHY */
-  --font-heading: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Bodoni Moda Variable", "Bodoni 72", Didot, Georgia, serif;
+  --font-body: "Inter Variable", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* SCALA DEI TESTI (mobile → desktop, fluida) */
+  --text-display: clamp(2.3rem, 1.6rem + 3.5vw, 4.1rem);
+  --text-h2: clamp(2rem, 1.45rem + 2.4vw, 3.4rem);
+  --text-h3: clamp(1.35rem, 1.2rem + 0.6vw, 1.7rem);
+  --text-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-label: 0.8125rem;
+
+  /* RITMO VERTICALE DELLE SEZIONI */
+  --section-y: clamp(5rem, 3.5rem + 6vw, 9.5rem);
+  --gutter: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
 
   /* SPACING SCALE */
   --space-4: 4px;
@@ -63,10 +80,13 @@
   --radius-card: 1.5rem;
 
   --shadow-soft: 0 8px 24px rgba(38, 20, 21, 0.08);
+  --shadow-card: 0 1px 2px rgba(47, 36, 23, 0.05), 0 18px 40px -18px rgba(47, 36, 23, 0.22);
+  --shadow-lift: 0 2px 4px rgba(47, 36, 23, 0.06), 0 28px 56px -22px rgba(47, 36, 23, 0.3);
   --shadow-subtle: 0 4px 12px rgba(38, 20, 21, 0.04);
 
   /* LAYOUT */
-  --container-max-width: 1120px;
+  --container-max-width: 1180px;
+  --measure: 64ch;
 
   /* ACCESSIBILITY */
   --color-focus-ring: rgba(236, 178, 62, 0.8);

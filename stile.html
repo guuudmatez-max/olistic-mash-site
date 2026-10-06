@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prova del design · Giorgia Boccadifuoco</title>
+    <meta name="description" content="Pagina di prova del sistema di design: tutti i pezzi ricorrenti del sito." />
+    <meta name="robots" content="noindex, nofollow" />
+    <script>document.documentElement.classList.add("js");</script>
+    <script type="module" src="/assets/js/main.js"></script>
+  </head>
+  <body>
+    <div class="site">
+      <header data-site-header></header>
+
+      <main class="site-main">
+        <p class="avviso-prova">Pagina di prova del design, non indicizzata. I testi sono provvisori: servono a vedere i pezzi con parole vere.</p>
+
+        <!-- APERTURA: filone professionale -->
+        <section class="sezione apertura">
+          <div class="contenitore apertura__griglia">
+            <div class="apertura__testo">
+              <h1 class="titolo-display">Quando una relazione pesa e si ripete, <em>si può uscirne.</em></h1>
+              <p class="testo-lead">Lavoro con una persona alla volta, in presenza o online. Si parte da quello che senti tu, con le tue parole.</p>
+              <div class="apertura__azioni">
+                <a class="btn btn-primary" data-wa-key="consulenze">Scrivimi su WhatsApp</a>
+                <a class="link" href="#prezzi">Vedi come si lavora e i prezzi</a>
+              </div>
+            </div>
+            <figure class="foto apertura__foto">
+              <img
+                src="/assets/img/foto/giorgia-studio-sorriso-800.webp"
+                srcset="/assets/img/foto/giorgia-studio-sorriso-800.webp 800w, /assets/img/foto/giorgia-studio-sorriso-1600.webp 1600w"
+                sizes="(min-width: 900px) 55vw, 100vw"
+                width="800" height="1200"
+                alt="Giorgia Boccadifuoco sorride, giacca beige, ritratto in studio"
+                fetchpriority="high"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <!-- CHI È: filone sacerdotessa, in profondità -->
+        <section class="sezione sezione--carta-scura">
+          <div class="contenitore chi__griglia">
+            <figure class="foto chi__foto">
+              <img
+                src="/assets/img/foto/giorgia-tramonto-braccia-800.webp"
+                srcset="/assets/img/foto/giorgia-tramonto-braccia-800.webp 800w, /assets/img/foto/giorgia-tramonto-braccia-1600.webp 1600w"
+                sizes="(min-width: 900px) 40vw, 100vw"
+                width="800" height="1200" loading="lazy"
+                alt="Giorgia in abito bianco al tramonto, le braccia alzate verso la luce"
+              />
+            </figure>
+            <div class="chi__testo">
+              <hr class="filetto" />
+              <h2 class="titolo-sezione">Vent'anni di pratica, <em>una persona alla volta.</em></h2>
+              <p class="testo">Nel 2015 ho fondato Unity Connection, che chiamo anche La Via dell'Amore. Prima ci sono stati vent'anni di pratica e la formazione come Reiki Master.</p>
+              <p class="testo">Quasi sempre si parte da qualcosa che pesa e non si sposta, anche quando intorno sembra tutto in ordine.</p>
+              <figure class="foto chi__foto-piccola">
+                <img
+                  src="/assets/img/foto/giorgia-studio-ritratto-800.webp"
+                  width="800" height="1200" loading="lazy"
+                  alt="Ritratto di Giorgia in studio, sguardo diretto"
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- STACCO A TUTTA LARGHEZZA -->
+        <figure class="stacco" data-apri>
+          <img
+            src="/assets/img/foto/lago-tramonto-1200.webp"
+            srcset="/assets/img/foto/lago-tramonto-1200.webp 1200w, /assets/img/foto/lago-tramonto-2400.webp 2400w"
+            sizes="100vw"
+            width="1200" height="800" loading="lazy"
+            alt="Giorgia in piedi sulla riva di un lago al tramonto, tra l'erba alta"
+          />
+          <figcaption class="stacco__frase">Il primo passo è piccolo: un incontro.</figcaption>
+        </figure>
+
+        <!-- PREZZI -->
+        <section class="sezione" id="prezzi">
+          <div class="contenitore">
+            <hr class="filetto" />
+            <h2 class="titolo-sezione">Come si lavora insieme</h2>
+            <p class="testo-lead">Puoi iniziare con un solo incontro. Se senti che serve andare più a fondo, si continua con un percorso.</p>
+
+            <ul class="listino">
+              <li class="listino__voce">
+                <h3 class="listino__nome">{{ mappatura.nome }}</h3>
+                <p class="listino__cifra">{{ mappatura.presenza.prezzo }}</p>
+                <p class="listino__nota">In presenza, {{ mappatura.presenza.durata }}. Online {{ mappatura.online.prezzo }}, {{ mappatura.online.durata }}. È una seduta come le altre: si lavora già.</p>
+              </li>
+              <li class="listino__voce">
+                <h3 class="listino__nome">{{ percorso.nome }}</h3>
+                <p class="listino__cifra">{{ percorso.prezzo }}</p>
+                <p class="listino__nota">Prezzo unico, {{ percorso.incontri }}. Comprende il primo incontro, la risposta ai messaggi tra un incontro e l'altro e i controlli lungo la strada.</p>
+                <p class="listino__consiglio">La strada che consiglio quando senti che serve andare a fondo.</p>
+              </li>
+              <li class="listino__voce">
+                <h3 class="listino__nome">{{ sedutaSingola.nome }}</h3>
+                <p class="listino__cifra">{{ sedutaSingola.prezzo }}</p>
+                <p class="listino__nota">Per un tema preciso, senza impegno successivo.</p>
+              </li>
+            </ul>
+            <div class="listino__azione">
+              <a class="btn btn-primary" data-wa-key="consulenze">Chiedi una data su WhatsApp</a>
+              <a class="link" href="#porte">Prima preferisco leggere la guida</a>
+            </div>
+
+            <div class="disclaimer" role="note" style="margin-top: 3rem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 16v-4.5M12 8h.01"/></svg>
+              <p><strong>Il mio lavoro non è terapia psicologica.</strong> Non sostituisce percorsi psicologici, psicoterapeutici o cure mediche: sta accanto a loro.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIANZE -->
+        <section class="sezione sezione--carta-scura">
+          <div class="contenitore">
+            <hr class="filetto" />
+            <h2 class="titolo-sezione">Chi ci è già passato</h2>
+            <p class="testo-lead">Qui andranno le testimonianze vere, con il solo nome. Questi tre testi sono di esempio, per vedere le card.</p>
+            <figure class="citazione">
+              <blockquote>Testo di esempio. Ero arrivata con un peso che mi portavo dietro da anni; già dopo il primo incontro qualcosa si è mosso.</blockquote>
+              <figcaption>Nome (esempio)</figcaption>
+            </figure>
+            <div class="testimonianze">
+              <figure class="card-base testimonianza">
+                <blockquote>Testo di esempio di media lunghezza: serve a vedere come stanno le card quando hanno altezze diverse.</blockquote>
+                <figcaption>Nome (esempio)</figcaption>
+              </figure>
+              <figure class="card-base testimonianza">
+                <blockquote>Testo di esempio. Mi sono sentita ascoltata senza fretta.</blockquote>
+                <figcaption>Nome (esempio)</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="sezione">
+          <div class="contenitore">
+            <hr class="filetto" />
+            <h2 class="titolo-sezione">Domande frequenti</h2>
+            <div class="faq" style="margin-top: 2.5rem">
+              <details open>
+                <summary>Quanto dura un incontro?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>In presenza {{ mappatura.presenza.durata }}, online {{ mappatura.online.durata }}.</p></div>
+              </details>
+              <details>
+                <summary>Funziona anche online?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Sì. In presenza il lavoro è più pieno, e spesso dopo qualche incontro online le persone scelgono di venire di persona.</p></div>
+              </details>
+              <details>
+                <summary>È una terapia?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>No. Non è terapia psicologica e non sostituisce percorsi psicologici, psicoterapeutici o cure mediche.</p></div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- LE DUE PORTE -->
+        <section class="sezione porte" id="porte">
+          <div class="contenitore">
+            <h2 class="titolo-sezione">Da dove vuoi <em>iniziare?</em></h2>
+            <p class="testo-lead">Puoi prenderti tempo con una guida gratuita, oppure scrivermi subito.</p>
+            <div class="porte__griglia">
+              <div class="porta">
+                <h3>Leggi la guida, con calma</h3>
+                <p>Lasci solo la mail e la ricevi subito. Nessuno lo viene a sapere.</p>
+                <form class="porta__campo" action="#" onsubmit="return false">
+                  <label for="mail-guida">La tua mail</label>
+                  <input id="mail-guida" type="email" name="email" placeholder="nome@esempio.it" autocomplete="email" required />
+                  <label class="porta__consenso"><input type="checkbox" required /> Acconsento a ricevere la guida e poche mail utili.</label>
+                  <button class="btn btn-chiaro" type="submit">Mandami la guida</button>
+                </form>
+              </div>
+              <div class="porta">
+                <h3>Scrivimi su WhatsApp</h3>
+                <p>Un messaggio, anche breve. Ti rispondo io, di persona.</p>
+                <a class="btn btn-primary" data-wa-key="generico">
+                  <svg class="icona" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5Z"/></svg>
+                  Apri WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- I DUE FILONI DI FOTO INSIEME -->
+        <section class="sezione sezione--carta-scura">
+          <div class="contenitore">
+            <hr class="filetto" />
+            <h2 class="titolo-sezione">I due filoni di foto</h2>
+            <p class="testo-lead">Professionale in apertura e dove si decide; sacerdotessa e tramonto in profondità e negli stacchi.</p>
+            <div class="filoni">
+              <figure class="foto"><img src="/assets/img/foto/giorgia-studio-ciondolo-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia in studio con abito bianco e ciondolo dorato" /></figure>
+              <figure class="foto"><img src="/assets/img/foto/giorgia-lago-scialle-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia sulla riva del lago con scialle rosso, luce calda" /></figure>
+              <figure class="foto"><img src="/assets/img/foto/giorgia-tramonto-profilo-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia di profilo controluce al tramonto" /></figure>
+            </div>
+          </div>
+        </section>
+
+        <figure class="stacco" data-apri>
+          <img
+            src="/assets/img/foto/sentiero-1200.webp"
+            srcset="/assets/img/foto/sentiero-1200.webp 1200w, /assets/img/foto/sentiero-2400.webp 2400w"
+            sizes="100vw"
+            width="1200" height="800" loading="lazy"
+            alt="Giorgia cammina su un sentiero di campagna con uno scialle rosso"
+          />
+        </figure>
+      </main>
+
+      <footer data-site-footer></footer>
+    </div>
+  </body>
+</html>

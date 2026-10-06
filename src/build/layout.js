@@ -26,7 +26,7 @@ const menuLinks = (items) => items.map((l) => `<li><a class="nav__link" href="${
 export function renderHeader() {
   return `<header class="site-header">
   <div class="nav container">
-    <div class="nav__mobile flex items-center justify-center gap-4 w-full md:hidden">
+    <div class="nav__mobile md:hidden">
       <a href="/" class="nav__logo"><img src="/assets/img/gold.png" alt="${escapeHtml(site.nome)}" class="nav__logo-img" /></a>
       <button class="nav__toggle" type="button" aria-label="Apri il menu" aria-expanded="false">
         <span class="nav__toggle-lines">

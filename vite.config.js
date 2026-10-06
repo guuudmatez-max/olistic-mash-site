@@ -18,6 +18,7 @@ export default defineConfig({
         eventiGruppi: "eventi-gruppi.html",
         percorsiReiki: "percorsi-reiki.html",
         contatti: "contatti.html",
+        stile: "stile.html",
       },
     },
   },

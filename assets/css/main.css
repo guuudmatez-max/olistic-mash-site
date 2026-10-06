@@ -10,6 +10,7 @@
 @import "./base/_components.css";
 @import "./base/_utilities.css";
 @import "./base/_tailwind-components.css";
+@import "./base/_sistema.css";
 
 /* CSS specifico della Home (hero con background, testimonials layout, ecc.) */
 @import "./pages/home.css";

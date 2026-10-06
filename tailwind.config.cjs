@@ -11,6 +11,7 @@ module.exports = {
     "./contatti.html",
     "./assets/js/**/*.js",
     "./src/**/*.js",
+    "./stile.html",
   ],
 
   theme: {
@@ -43,8 +44,8 @@ module.exports = {
       },
 
       fontFamily: {
-        heading: ["Poppins", "system-ui", "sans-serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
+        heading: ["\"Bodoni Moda Variable\"", "Georgia", "serif"],
+        body: ["\"Inter Variable\"", "system-ui", "sans-serif"],
       },
 
       borderRadius: {

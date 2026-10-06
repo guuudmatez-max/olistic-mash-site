@@ -1,6 +1,9 @@
 // ----------------------------
 // IMPORTS VITE
 // ----------------------------
+import "@fontsource-variable/inter";
+import "@fontsource-variable/bodoni-moda/opsz.css";
+import "@fontsource-variable/bodoni-moda/opsz-italic.css";
 import "../css/main.css";
 
 
@@ -96,7 +99,29 @@ function initLazyVideos() {
 // ----------------------------
 // ON LOAD — BOOTSTRAP EVERYTHING
 // ----------------------------
+// ----------------------------
+// STACCO FOTOGRAFICO: si apre una volta quando entra nello schermo
+// ----------------------------
+function initStacchi() {
+  const stacchi = document.querySelectorAll(".stacco[data-apri]");
+  if (!("IntersectionObserver" in window)) {
+    stacchi.forEach((s) => s.classList.add("aperto"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("aperto");
+        io.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.25 },
+  );
+  stacchi.forEach((s) => io.observe(s));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initStacchi();
   initMobileNav();
   initTestimonialCarousels();
   initLazyVideos();
