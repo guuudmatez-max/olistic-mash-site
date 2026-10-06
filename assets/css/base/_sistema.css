@@ -206,7 +206,7 @@ p { text-wrap: pretty; }
 .btn-secondary { --tinta-btn: var(--tinta-cipria); }
 
 /* Bottone accento: vino rosato pieno per l'azione che conta. A riposo il cerchio è bianco;
-   al passaggio si allarga in oro e il testo diventa grafite */
+   al passaggio il bianco si allarga e il bottone si inverte: fondo bianco, filo e testo vino */
 .btn-accento {
   --fondo-btn: var(--color-bordeaux);
   --filo-btn: transparent;
@@ -214,7 +214,7 @@ p { text-wrap: pretty; }
   --freccia-btn: var(--color-bordeaux);
   color: #FFFFFF;
 }
-.btn-accento:is(:hover, :focus-visible) { --tinta-btn: var(--color-primary); --freccia-btn: var(--color-text); color: var(--color-text); }
+.btn-accento:is(:hover, :focus-visible) { color: var(--color-bordeaux); box-shadow: inset 0 0 0 1px var(--color-bordeaux); }
 
 /* Bottone fine: sopra le foto, solo un filo bianco leggero */
 .btn-fine {
@@ -747,55 +747,26 @@ p { text-wrap: pretty; }
 }
 .porte .testo-lead { color: var(--color-text-soft); }
 
-.porte__griglia { display: grid; gap: 1rem; margin-top: 3rem; }
-@media (min-width: 900px) { .porte__griglia { grid-template-columns: 1.15fr 1fr; gap: 1.25rem; align-items: end; } }
-
-.porta {
-  border-radius: 20px;
-  padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.porta h3 { font-size: var(--text-h3); margin: 0; }
-.porta p { color: var(--color-text-soft); margin: 0 0 0.5rem; }
-.porta .btn { align-self: flex-start; }
-
-/* La porta principale: WhatsApp, chiara e grande, con Giorgia che esce dalla scheda con la testa */
-.porta--principale {
-  position: relative;
-  min-height: 17rem;
-  margin-top: 3.5rem;
-  background: #FFFFFF;
-  box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 30px 60px -36px rgba(46, 47, 51, 0.45);
-  flex-direction: row;
-  align-items: center;
-}
-.porta--principale .porta__corpo { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 0.75rem; max-width: 21rem; }
-.porta--principale h3 { font-size: clamp(1.7rem, 1.4rem + 1vw, 2.2rem); line-height: 1.05; }
-.porta--principale .btn { margin-top: 0.75rem; }
-.porta__figura {
-  position: absolute;
-  right: 1rem;
-  bottom: 0;
-  height: calc(100% + 3.5rem);
+/* Invito finale: testo e un solo bottone a sinistra, Giorgia grande a destra appoggiata sul piede */
+.porte { padding-bottom: 0; }
+.porte__griglia { display: grid; gap: 2rem; }
+.porte__testo { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; padding-bottom: clamp(2rem, 5vw, 4rem); }
+.porte__testo .testo-lead { max-width: 30rem; margin: 0 0 0.5rem; }
+.porte__guida { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(138, 101, 38, 0.2); width: min(100%, 30rem); }
+.porte__guida p { font-size: var(--text-small); color: var(--color-text-soft); margin: 0 0 0.75rem; }
+.porte__figura {
+  justify-self: center;
+  height: clamp(24rem, 30rem + 6vw, 40rem);
   width: auto;
-  max-width: 50%;
   object-fit: contain;
-  object-position: right bottom;
+  object-position: bottom;
   filter: var(--grado-foto);
-  pointer-events: none;
 }
-@media (max-width: 600px) {
-  .porta--principale { flex-direction: column; align-items: flex-start; padding-bottom: 0; margin-top: 4.5rem; }
-  .porta__figura { position: relative; right: auto; height: 17rem; max-width: none; align-self: flex-end; margin-top: -4rem; }
+@media (min-width: 900px) {
+  .porte__griglia { grid-template-columns: 1.1fr 1fr; align-items: end; gap: clamp(2rem, 5vw, 5rem); }
+  .porte__testo { align-self: center; padding-bottom: 0; }
 }
-
-/* La porta leggera: la guida, chiara e quieta */
-.porta--leggera { background: transparent; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.25); }
-.porta--leggera { min-height: 17rem; }
-.porta--leggera h3 { font-size: 1.4rem; }
-.porta--leggera form { margin-top: auto; }
+@media (max-width: 899px) { .porte__figura { height: 24rem; } }
 
 /* Campo mail a pillola con il bottone dentro */
 .campo-mail {
@@ -834,7 +805,7 @@ p { text-wrap: pretty; }
   width: 1.15rem;
   height: 1.15rem;
   margin: 0.1rem 0 0;
-  border: 1.5px solid var(--color-gold-ink);
+  border: 1.5px solid var(--color-bordeaux);
   border-radius: 4px;
   display: grid;
   place-content: center;
@@ -844,12 +815,13 @@ p { text-wrap: pretty; }
   content: "";
   width: 0.35rem;
   height: 0.6rem;
-  border-right: 2px solid var(--color-bordeaux-scuro);
-  border-bottom: 2px solid var(--color-bordeaux-scuro);
+  border-right: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
   transform: rotate(45deg) translate(-1px, -1px);
   opacity: 0;
 }
-.porta__consenso input:checked { background: var(--color-primary); }
+.porta__consenso input:checked { background: var(--color-bordeaux); }
+.porta__consenso input:focus-visible { outline: 2px solid var(--color-bordeaux); outline-offset: 2px; }
 .porta__consenso input:checked::after { opacity: 1; }
 
 /* ---------- Foto ---------- */
@@ -972,13 +944,13 @@ p { text-wrap: pretty; }
 }
 
 .chi__griglia { display: grid; gap: 2.5rem; }
-.chi__testo { position: relative; }
+.chi__sinistra { position: relative; }
 
 /* Timbro: un sigillo di testo in Bodoni che ruota piano tra le due foto */
 .timbro {
   position: absolute;
-  right: calc(42% - 4.5rem);
-  bottom: 14rem;
+  right: clamp(-5rem, -4vw, -2rem);
+  bottom: clamp(-6rem, -5vw, -3rem);
   width: clamp(8.5rem, 11vw, 10.5rem);
   z-index: 3;
   aspect-ratio: 1;
@@ -1005,14 +977,11 @@ p { text-wrap: pretty; }
   border: 1px solid rgba(201, 161, 92, 0.6);
   font-family: var(--font-heading);
   font-variation-settings: "opsz" 11;
-  font-style: italic;
-  font-weight: 550;
-  font-size: 1.1rem;
-  color: var(--color-gold-ink);
 }
+.timbro__centro img { width: 64%; height: auto; }
 @keyframes timbro-gira { to { transform: rotate(360deg); } }
-@media (max-width: 899px) { .timbro { right: calc(42% - 3.5rem); bottom: 6rem; } }
-.chi__foto { aspect-ratio: 4 / 5; margin: 0; }
+@media (max-width: 899px) { .timbro { right: 1rem; bottom: -3.5rem; } .chi__sinistra { margin-bottom: 2.5rem; } }
+.chi__foto { aspect-ratio: 1; margin: 0; }
 .chi__foto-piccola { width: 42%; aspect-ratio: 3 / 4; margin: 2.5rem 0 0 auto; }
 @media (min-width: 900px) {
   .chi__griglia { grid-template-columns: 5fr 6fr; gap: clamp(3rem, 6vw, 7rem); align-items: start; }
@@ -1124,7 +1093,11 @@ p { text-wrap: pretty; }
   overflow: hidden;
 }
 .piede__griglia { max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 3.5rem clamp(2.5rem, 5vw, 5rem); }
-@media (min-width: 860px) { .piede__griglia { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
+@media (min-width: 860px) {
+  .piede__griglia { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; }
+  /* i menu partono all'altezza del bottone, sotto il titolo dell'invito: più aria in alto */
+  .piede__griglia > :not(.piede__invito) { margin-top: calc(clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem) * 2.4 + 1.25rem); }
+}
 .piede__titolo { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem); line-height: 1.2; color: var(--color-on-earth); margin: 0 0 1.25rem; max-width: 20ch; }
 .piede__colonna { display: flex; flex-direction: column; gap: 0.9rem; }
 .piede__colonna a { color: var(--color-on-earth); }
@@ -1139,7 +1112,7 @@ p { text-wrap: pretty; }
 .piede__icone svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
 .piede__disclaimer { color: var(--color-on-earth-soft); }
 .piede__firma {
-  margin: clamp(3.5rem, 2rem + 5vw, 7rem) 0 -0.12em;
+  margin: clamp(5rem, 3rem + 6vw, 9.5rem) 0 -0.12em;
   text-align: center;
   font-family: var(--font-heading);
   font-variation-settings: "opsz" 11;
