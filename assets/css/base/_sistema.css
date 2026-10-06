@@ -954,17 +954,21 @@ p { text-wrap: pretty; }
 @media (min-width: 900px) {
   .apertura--specchio .apertura__scena {
     grid-template-areas: "figura titolo" "figura testo";
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: auto minmax(0, 1fr);
     grid-template-rows: auto 1fr;
+    max-width: 84rem;
   }
   .apertura--specchio .apertura__titolo { font-size: clamp(2.6rem, 0.9rem + 2.9vw, 3.9rem); line-height: 1.04; }
   .apertura--specchio .apertura__titolo { align-self: start; margin-top: calc(min(calc(100svh - 7.5rem), 52rem) * 0.22); }
   /* più grande della fascia: il bordo sotto la taglia sopra i fianchi (resta visibile l'80% della foto) */
   .apertura--specchio .apertura__figura {
-    --alta: calc((min(calc(100svh - 7.5rem), 52rem) - 1.5rem) / 0.8);
-    justify-self: center;
+    /* la colonna prende la larghezza della foto: mai deformata. Su schermi stretti cala con la larghezza */
+    --alta: min(calc((min(calc(100svh - 7.5rem), 52rem) - 1.5rem) / 0.8), 85vw);
+    justify-self: start;
     height: var(--alta);
+    width: auto;
     max-height: none;
+    max-width: none;
     margin: 1.5rem 0 calc(var(--alta) * -0.2);
   }
 }
