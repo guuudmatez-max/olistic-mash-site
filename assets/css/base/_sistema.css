@@ -31,7 +31,6 @@ body {
 
 /* Bodoni con l'ottica «testo» (opsz 11): filetti più spessi, si legge meglio a schermo */
 h1, h2, h3,
-.prezzo__nome, .listino__nome, .listino__cifra, .listino__consiglio,
 .citazione blockquote, .stacco__frase {
   font-optical-sizing: none;
   font-variation-settings: "opsz" 11;
@@ -39,7 +38,7 @@ h1, h2, h3,
 
 h1, h2, h3 {
   font-family: var(--font-heading);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--color-text);
   text-wrap: balance;
@@ -49,8 +48,8 @@ p { text-wrap: pretty; }
 
 .titolo-display {
   font-size: var(--text-display);
-  line-height: 1.06;
-  font-weight: 500;
+  line-height: 1.04;
+  font-weight: 650;
   letter-spacing: -0.02em;
   margin: 0;
 }
@@ -58,7 +57,7 @@ p { text-wrap: pretty; }
 .titolo-display em,
 .titolo-sezione em {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 550;
   color: var(--color-gold-ink);
 }
 
@@ -120,91 +119,64 @@ p { text-wrap: pretty; }
   margin: 0 0 1.75rem;
 }
 
-/* ---------- Bottoni ---------- */
+/* ---------- Bottoni ----------
+   Sobri: un colore pieno, niente sfumature né riflessi.
+   Al passaggio la freccia avanza di poco. */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
   min-height: 3.25rem;
-  padding: 0.85rem 1.75rem;
+  padding: 0.85rem 1.6rem;
   border-radius: var(--radius-pill);
   border: 1px solid transparent;
   font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 550;
-  letter-spacing: 0.005em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   text-align: center;
   cursor: pointer;
-  transition: background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              color 220ms ease;
+  transition: background-color 240ms ease, color 240ms ease, border-color 240ms ease;
 }
 
-.btn:active { transform: translateY(1px); }
-
-.btn[aria-disabled="true"], .btn:disabled {
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-/* Oro pieno, testo terra: l'azione principale, una per schermata.
-   Al passaggio del mouse un riflesso dorato attraversa il bottone, una volta. */
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background: linear-gradient(180deg, #DDB874 0%, #C9A15C 55%, #B98F48 100%);
-  color: var(--color-earth);
-  font-weight: 600;
-  box-shadow: inset 0 1px 0 rgba(255, 244, 214, 0.65),
-              inset 0 -1px 0 rgba(122, 90, 32, 0.35),
-              0 1px 2px rgba(47, 36, 23, 0.18),
-              0 12px 26px -12px rgba(162, 124, 53, 0.85);
-}
-.btn-primary::after {
+.btn::after {
   content: "";
-  position: absolute;
-  inset: -20% auto -20% -60%;
-  width: 45%;
-  z-index: -1;
-  background: linear-gradient(100deg, rgba(255, 248, 225, 0) 0%, rgba(255, 248, 225, 0.85) 50%, rgba(255, 248, 225, 0) 100%);
-  transform: translateX(0) skewX(-18deg);
-  pointer-events: none;
+  width: 0.95rem;
+  height: 0.6rem;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Cpath d='M0 5h14M10 1l4 4-4 4' fill='none' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Cpath d='M0 5h14M10 1l4 4-4 4' fill='none' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-.btn-primary:hover::after,
-.btn-primary:focus-visible::after {
-  animation: bagliore 900ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-primary:hover {
-  box-shadow: inset 0 1px 0 rgba(255, 244, 214, 0.75),
-              inset 0 -1px 0 rgba(122, 90, 32, 0.35),
-              0 1px 2px rgba(47, 36, 23, 0.18),
-              0 18px 34px -12px rgba(162, 124, 53, 0.95);
-  transform: translateY(-1px);
-}
-@keyframes bagliore {
-  from { transform: translateX(0) skewX(-18deg); }
-  to   { transform: translateX(420%) skewX(-18deg); }
-}
+.btn:hover::after { transform: translateX(4px); }
+.btn.btn--senza-freccia::after { display: none; }
 
-/* Contorno: l'alternativa calma accanto alla principale */
-.btn-secondary {
-  background: transparent;
-  color: var(--color-text);
-  border-color: var(--color-gold-ink);
-  font-weight: 600;
-}
-.btn-secondary:hover {
+.btn[aria-disabled="true"], .btn:disabled { opacity: 0.45; pointer-events: none; }
+
+/* Terra piena, testo carta: l'azione principale */
+.btn-primary {
   background: var(--color-earth);
   color: var(--color-on-earth);
+  box-shadow: none;
 }
+.btn-primary:hover { background: #4A3824; }
+
+/* Bordo marrone sottile: l'alternativa */
+.btn-secondary {
+  box-shadow: none;
+  background: transparent;
+  color: var(--color-earth);
+  border-color: rgba(47, 36, 23, 0.55);
+}
+.btn-secondary:hover { border-color: var(--color-earth); background: rgba(47, 36, 23, 0.05); }
 
 /* Su fondo scuro */
 .btn-chiaro {
+  box-shadow: none;
   background: var(--color-on-earth);
   color: var(--color-earth);
 }
@@ -216,88 +188,10 @@ p { text-wrap: pretty; }
 
 .card-base {
   background: var(--color-surface);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
+  border-radius: 18px;
+  box-shadow: 0 1px 2px rgba(47, 36, 23, 0.04), 0 12px 32px -20px rgba(47, 36, 23, 0.18);
   padding: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
 }
-
-/* ---------- Prezzi: listino editoriale ---------- */
-
-.listino {
-  list-style: none;
-  margin: 3rem 0 0;
-  padding: 0;
-  max-width: 52rem;
-  border-top: 1px solid var(--color-primary);
-}
-
-.listino__voce {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.35rem 1.5rem;
-  align-items: baseline;
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--color-primary);
-}
-
-.listino__nome {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: var(--text-h3);
-  line-height: 1.2;
-  margin: 0;
-}
-
-.listino__cifra {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 1.8rem + 1.6vw, 3.4rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  font-variant-numeric: lining-nums;
-  margin: 0;
-  color: var(--color-text);
-}
-
-.listino__prezzi { display: flex; align-items: baseline; gap: 0.75rem; justify-self: end; }
-
-/* Il prezzo di riferimento, barrato: fa vedere quanto si risparmia senza dirlo a voce alta */
-.listino__invece {
-  font-family: var(--font-heading);
-  font-optical-sizing: none;
-  font-variation-settings: "opsz" 11;
-  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.45rem);
-  color: var(--color-muted);
-  text-decoration: line-through;
-  text-decoration-color: var(--color-primary);
-  text-decoration-thickness: 1.5px;
-}
-
-.listino__risparmio {
-  grid-column: 1 / -1;
-  margin: 0.15rem 0 0.25rem;
-  font-size: var(--text-small);
-  font-weight: 600;
-  color: var(--color-gold-ink);
-}
-
-.listino__nota {
-  grid-column: 1 / -1;
-  margin: 0;
-  color: var(--color-text-soft);
-  max-width: var(--measure);
-}
-
-/* Il Percorso si distingue con una frase, non con un riquadro */
-.listino__consiglio {
-  grid-column: 1 / -1;
-  margin: 0.5rem 0 0;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: 1.2rem;
-  color: var(--color-gold-ink);
-}
-
-.listino__azione { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem 1.75rem; align-items: center; }
 
 /* ---------- Testimonianze ---------- */
 
@@ -346,19 +240,12 @@ p { text-wrap: pretty; }
   color: var(--color-gold-ink);
 }
 
-/* Screenshot vero dentro la card */
-.testimonianza__screenshot {
-  border-radius: 14px;
-  border: 1px solid var(--color-border-soft);
-  width: 100%;
-  height: auto;
-}
 
 /* ---------- FAQ (details nativo, niente JavaScript) ---------- */
 
-.faq { border-top: 1px solid var(--color-border-soft); max-width: 52rem; }
+.faq { border-top: 1px solid rgba(47, 36, 23, 0.1); max-width: 52rem; }
 
-.faq details { border-bottom: 1px solid var(--color-border-soft); }
+.faq details { border-bottom: 1px solid rgba(47, 36, 23, 0.1); }
 
 .faq summary {
   list-style: none;
@@ -381,8 +268,8 @@ p { text-wrap: pretty; }
   width: 0.75rem;
   height: 0.75rem;
   margin-top: 0.45rem;
-  border-right: 1.5px solid var(--color-gold-ink);
-  border-bottom: 1.5px solid var(--color-gold-ink);
+  border-right: 1.25px solid var(--color-earth);
+  border-bottom: 1.25px solid var(--color-earth);
   transform: rotate(45deg);
   transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -414,9 +301,8 @@ p { text-wrap: pretty; }
   align-items: start;
   max-width: 46rem;
   padding: 1.5rem 1.75rem;
-  border: 1px solid var(--color-primary);
-  border-radius: var(--radius-card);
-  background: var(--color-bg-soft);
+  border-radius: 18px;
+  background: var(--color-surface-soft);
 }
 
 .disclaimer svg {
@@ -433,8 +319,8 @@ p { text-wrap: pretty; }
 
 .porte {
   background:
-    linear-gradient(rgba(47, 36, 23, 0.86), rgba(47, 36, 23, 0.93)),
-    url("/assets/img/foto/sfondo-bagliore-oro-1200.webp") center / cover,
+    linear-gradient(rgba(36, 27, 17, 0.72), rgba(36, 27, 17, 0.9)),
+    url("/assets/img/foto/sfondo-albero-notte-1200.webp") center 30% / cover,
     var(--color-earth);
   color: var(--color-on-earth);
 }
@@ -451,8 +337,8 @@ p { text-wrap: pretty; }
 @media (min-width: 860px) { .porte__griglia { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
 
 .porta {
-  border: 1px solid rgba(216, 200, 176, 0.25);
-  border-radius: var(--radius-card);
+  background: rgba(247, 243, 235, 0.06);
+  border-radius: 18px;
   padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
   display: flex;
   flex-direction: column;
@@ -531,6 +417,11 @@ p { text-wrap: pretty; }
 }
 .foto img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Una sola resa per tutte le foto: un filo più calde e meno sature, così stanno insieme */
+.foto img, .stacco img, .apertura__foto img, .strada img {
+  filter: var(--grado-foto);
+}
+
 /* Stacco a tutta larghezza: si apre dal centro quando entra nello schermo */
 .stacco {
   position: relative;
@@ -560,9 +451,8 @@ p { text-wrap: pretty; }
 .js .stacco[data-apri].aperto { clip-path: inset(0 0 round 0); }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn-primary:hover::after, .btn-primary:focus-visible::after { animation: none; }
   .js .stacco[data-apri] { clip-path: none; transition: none; }
-  .faq summary::after, .btn { transition: none; }
+  .faq summary::after, .btn, .btn::after { transition: none; }
 }
 
 /* ---------- Composizioni (apertura, chi sono, filoni) ---------- */
@@ -576,39 +466,67 @@ p { text-wrap: pretty; }
   text-align: center;
 }
 
-.apertura { padding-top: clamp(1rem, 0.5rem + 3vw, 4rem); }
-
-.apertura__griglia {
-  display: grid;
-  gap: 1.75rem;
+/* Apertura a tutto schermo: Giorgia scontornata davanti a un titolo grande.
+   Niente scheda, niente riquadro: carta, titolo, persona. */
+.apertura {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 70% at 75% 100%, rgba(201, 161, 92, 0.22), rgba(201, 161, 92, 0) 60%),
+    var(--color-surface-soft);
 }
 
-/* Mobile: titolo, bottone, poi il testo; così il bottone sta nel primo schermo */
-.apertura__testo { display: flex; flex-direction: column; }
-.apertura__testo .titolo-display { order: 1; }
-.apertura__azioni { order: 2; margin-top: 1.5rem; }
-.apertura__testo .testo-lead { order: 3; margin: 1.5rem 0 0; }
+.apertura__scena {
+  position: relative;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding: 2rem var(--gutter) 0;
+  display: grid;
+  grid-template-areas: "titolo" "testo" "figura";
+}
 
-/* Mobile: la foto viene prima e prende la scena */
-.apertura__foto { order: -1; aspect-ratio: 4 / 5; max-height: 44svh; width: 100%; margin: 0; }
-.apertura__foto img { object-position: 50% 18%; }
+.apertura__titolo { grid-area: titolo; position: relative; z-index: 1; }
 
-.apertura__azioni {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.25rem 1.75rem;
+.apertura__testo { grid-area: testo; position: relative; z-index: 3; }
+.apertura__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; margin-top: 1.5rem; }
+.apertura__testo .testo-lead { margin: 1.5rem 0 0; }
+
+.apertura__figura {
+  grid-area: figura;
+  position: relative;
+  z-index: 2;
+  justify-self: center;
+  width: min(78%, 22rem);
+  height: auto;
+  margin-top: 1.5rem;
+  filter: var(--grado-foto);
 }
 
 @media (min-width: 900px) {
-  .apertura__griglia {
+  .apertura__scena {
+    min-height: calc(100svh - 5.5rem);
+    grid-template-areas:
+      "titolo titolo"
+      "testo  figura";
     grid-template-columns: 5fr 7fr;
-    align-items: center;
-    gap: clamp(2.5rem, 4vw, 4.5rem);
+    grid-template-rows: auto 1fr;
+    padding-top: clamp(3rem, 6vh, 5rem);
   }
-  .apertura__testo .testo-lead { order: 2; margin: 1.75rem 0 2.25rem; }
-  .apertura__azioni { order: 3; margin-top: 0; }
-  .apertura__foto { order: 0; aspect-ratio: 4 / 5; max-height: none; }
+  /* Il titolo è grande e passa dietro a Giorgia */
+  .apertura__titolo {
+    font-size: clamp(4.25rem, 1rem + 5.6vw, 7.5rem);
+    line-height: 0.98;
+    max-width: 12ch;
+  }
+  .apertura__figura {
+    position: absolute;
+    right: max(0rem, calc((100vw - var(--container-max-width)) / 2 - 4rem));
+    bottom: 0;
+    width: auto;
+    height: min(calc(100svh - 7rem), 58rem);
+    margin: 0;
+  }
+  .apertura__testo { align-self: end; padding-bottom: clamp(3rem, 8vh, 6rem); max-width: 26rem; }
 }
 
 .chi__griglia { display: grid; gap: 2.5rem; }
@@ -629,15 +547,6 @@ p { text-wrap: pretty; }
 .filoni .foto { aspect-ratio: 3 / 4; margin: 0; }
 @media (min-width: 900px) { .filoni { gap: 1.5rem; } }
 
-/* Didascalia sotto una foto, come in rivista */
-.foto-con-didascalia { margin-block: 0; }
-.chi__foto-piccola.foto-con-didascalia { margin: 2.5rem 0 0 auto; }
-.foto-con-didascalia figcaption {
-  margin-top: 0.75rem;
-  font-size: var(--text-label);
-  color: var(--color-muted);
-  letter-spacing: 0.01em;
-}
 
 /* Le due strade: consulenze e gruppo, ognuna con la sua foto */
 .strade { display: grid; gap: 1.5rem; margin-top: 3rem; }
@@ -647,3 +556,27 @@ p { text-wrap: pretty; }
 .strada h3 { margin: 0.5rem 0 0; font-size: var(--text-h3); }
 .strada p { margin: 0; color: var(--color-text-soft); max-width: 40ch; }
 .strada .link { margin-top: 0.25rem; align-self: flex-start; }
+
+/* Sezione scura con immagine di sfondo: un concetto, una frase grande */
+.sezione-scura {
+  position: relative;
+  isolation: isolate;
+  color: var(--color-on-earth);
+  background: var(--color-earth);
+  overflow: hidden;
+}
+.sezione-scura__sfondo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.sezione-scura__sfondo img { width: 100%; height: 100%; object-fit: cover; filter: var(--grado-foto) brightness(0.62); }
+.sezione-scura__sfondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(36, 27, 17, 0.88) 0%, rgba(36, 27, 17, 0.55) 60%, rgba(36, 27, 17, 0.25) 100%);
+}
+.sezione-scura .titolo-sezione { color: var(--color-on-earth); max-width: 18ch; }
+.sezione-scura .titolo-sezione em { color: var(--color-primary); }
+.sezione-scura .testo-lead { color: var(--color-on-earth-soft); max-width: 46ch; }

@@ -26,22 +26,12 @@ export const site = {
   disclaimer:
     "Il mio lavoro non è terapia psicologica e non sostituisce percorsi psicologici, psicoterapeutici o cure mediche.",
 
-  // Offerta
-  mappatura: {
-    nome: "Primo incontro",
-    presenza: { prezzo: "110 €", durata: "90 minuti" },
-    online: { prezzo: "75 €", durata: "60 minuti" },
-  },
-  percorso: {
-    nome: "Percorso",
-    prezzo: "600 €",
-    incontri: "di solito 4-5 incontri",
-    // Cinque sedute singole prese una per una (5 × 140 €): il confronto mostrato accanto al prezzo
-    valoreSingole: "700 €",
-  },
-  sedutaSingola: {
-    nome: "Seduta singola",
-    prezzo: "140 €",
+  // Consulenze individuali. I prezzi NON si pubblicano: li dice Giorgia su WhatsApp
+  // (vault: decisions/prezzi-non-pubblicati.md, prezzi in struttura-offerta-2026-09.md).
+  consulenze: {
+    durataPresenza: "90 minuti",
+    durataOnline: "60 minuti",
+    incontriPercorso: "di solito 4-5 incontri",
   },
   armonizzazioni: {
     nome: "Armonizzazioni di Gruppo",
