@@ -13,7 +13,7 @@ html {
 
 body {
   font-size: var(--text-body);
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--color-text);
   background: var(--color-bg);
   caret-color: var(--color-bordeaux);
@@ -71,6 +71,8 @@ p { text-wrap: pretty; }
 .testo-lead {
   font-size: var(--text-lead);
   line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.003em;
   color: var(--color-text-soft);
   max-width: var(--measure);
 }
@@ -119,11 +121,23 @@ p { text-wrap: pretty; }
 }
 
 /* Fondo sfumato leggero: oro chiaro e cipria che sfumano nel bianco */
-.sfumato {
+/* Sfumato: macchie di colore morbide, più sature, di forma irregolare;
+   sfuma nel bianco in alto e in basso, così non c'è una riga tra le sezioni */
+.sfumato { position: relative; isolation: isolate; background: transparent; }
+.sfumato::before {
+  content: "";
+  position: absolute;
+  inset: -6rem 0;
+  z-index: -1;
+  pointer-events: none;
   background:
-    radial-gradient(50% 60% at 12% 30%, rgba(246, 236, 211, 0.95), transparent 70%),
-    radial-gradient(45% 55% at 88% 70%, rgba(244, 227, 230, 0.9), transparent 70%),
-    var(--color-bg);
+    radial-gradient(38% 46% at 10% 22%, rgba(236, 196, 120, 0.55), transparent 70%),
+    radial-gradient(30% 34% at 26% 70%, rgba(232, 170, 140, 0.35), transparent 70%),
+    radial-gradient(34% 40% at 86% 62%, rgba(214, 140, 168, 0.42), transparent 70%),
+    radial-gradient(26% 30% at 70% 18%, rgba(205, 190, 230, 0.4), transparent 70%);
+  filter: blur(40px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+          mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
 }
 
 /* ---------- Bottoni leggeri ----------
@@ -150,7 +164,7 @@ p { text-wrap: pretty; }
   box-shadow: inset 0 0 0 1px var(--filo-btn);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 0.975rem;
+  font-size: 0.9375rem;
   font-weight: 550;
   line-height: 1.2;
   text-align: left;
@@ -190,6 +204,17 @@ p { text-wrap: pretty; }
 
 .btn-primary { --tinta-btn: var(--tinta-oro); --filo-btn: rgba(138, 101, 38, 0.45); --freccia-btn: var(--color-gold-ink); }
 .btn-secondary { --tinta-btn: var(--tinta-cipria); }
+
+/* Bottone accento: vino rosato pieno per l'azione che conta. A riposo il cerchio è bianco;
+   al passaggio si allarga in vino scuro e il testo resta bianco */
+.btn-accento {
+  --fondo-btn: var(--color-bordeaux);
+  --filo-btn: transparent;
+  --tinta-btn: #FFFFFF;
+  --freccia-btn: var(--color-bordeaux);
+  color: #FFFFFF;
+}
+.btn-accento:is(:hover, :focus-visible) { --tinta-btn: var(--color-bordeaux-scuro); --freccia-btn: #FFFFFF; color: #FFFFFF; }
 
 /* Bottone fine: sopra le foto, solo un filo bianco leggero */
 .btn-fine {
@@ -297,13 +322,38 @@ p { text-wrap: pretty; }
   margin: 2.5rem auto 0;
   max-width: 64rem;
 }
+.figura-centrale__scena::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  width: min(80%, 30rem);
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214, 140, 168, 0.35), rgba(236, 196, 120, 0.22) 45%, transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+}
+.figura-centrale__scena { isolation: isolate; }
 .figura-centrale__scena img {
-  width: min(70%, 22rem);
+  width: min(78%, 24rem);
   height: auto;
   filter: var(--grado-foto);
-  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
-          mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
 }
+.occhiello {
+  margin: 0 0 1rem;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+.figura-centrale .titolo-sezione { max-width: 16ch; margin-inline: auto; }
+.figura-centrale .testo-due { max-width: 46rem; margin: 2rem auto 0; color: var(--color-text-soft); }
+.figura-centrale .testo-due p { margin: 0 0 0.75rem; }
 
 .temi {
   list-style: none;
@@ -315,25 +365,31 @@ p { text-wrap: pretty; }
   gap: 0.6rem;
 }
 .tema {
-  padding: 0.7rem 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.15rem 0.65rem 0.85rem;
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-text);
   background: #FFFFFF;
   box-shadow: 0 1px 2px rgba(46, 47, 51, 0.06), 0 12px 26px -14px rgba(46, 47, 51, 0.4);
 }
 .tema strong { font-weight: 650; }
-.tema--oro { background: var(--tinta-oro); }
-.tema--cipria { background: var(--tinta-cipria); }
+.tema svg { width: 1.2rem; height: 1.2rem; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.tema--oro { background: #F6E7C3; }
+.tema--cipria { background: #F2D9E0; }
+.tema--lilla { background: #E6E1F0; }
+.tema--salvia { background: #E1EADF; }
 
 @media (min-width: 900px) {
   .figura-centrale__scena img { width: 24rem; }
   .temi { position: absolute; inset: 0; margin: 0; display: block; pointer-events: none; }
   .tema { position: absolute; white-space: nowrap; }
-  .tema:nth-child(1) { right: 64%; top: 56%; }
-  .tema:nth-child(2) { right: 66%; top: 72%; }
-  .tema:nth-child(3) { left: 64%; top: 56%; }
-  .tema:nth-child(4) { left: 66%; top: 72%; }
+  .tema:nth-child(1) { right: 61%; top: 60%; }
+  .tema:nth-child(2) { right: 64%; top: 76%; }
+  .tema:nth-child(3) { left: 61%; top: 60%; }
+  .tema:nth-child(4) { left: 64%; top: 76%; }
 }
 
 .sottotitolo-fine {
@@ -460,10 +516,10 @@ p { text-wrap: pretty; }
 
 @media (min-width: 900px) {
   .ventaglio {
-    --passo: clamp(5.5rem, 8vw, 9rem);
+    --scala: clamp(0.62, calc(100vw / 1440px), 1);
     position: relative;
     overflow: visible;
-    height: 29rem;
+    height: 31rem;
     margin-inline: 0;
     padding: 0;
   }
@@ -473,18 +529,18 @@ p { text-wrap: pretty; }
     left: 50%;
     width: 18.5rem;
     margin-left: -9.25rem;
-    transform: translateX(calc(var(--passo) * var(--k))) rotate(var(--r));
+    transform: translateX(calc(var(--x) * var(--scala))) rotate(var(--r));
     z-index: var(--z);
   }
-  .t-card:nth-child(1) { --k: -2.5; --r: -8deg; --z: 1; }
-  .t-card:nth-child(2) { --k: -1.5; --r: -5deg; --z: 2; }
-  .t-card:nth-child(3) { --k: -0.5; --r: -1.5deg; --z: 3; }
-  .t-card:nth-child(4) { --k: 0.5; --r: 0deg; --z: 4; top: 1rem; }
-  .t-card:nth-child(5) { --k: 1.5; --r: 4deg; --z: 2; }
-  .t-card:nth-child(6) { --k: 2.5; --r: 8deg; --z: 1; }
+  .t-card:nth-child(1) { --x: -24rem; --r: -7deg; --z: 1; top: 3rem; }
+  .t-card:nth-child(2) { --x: -16.5rem; --r: -4deg; --z: 2; top: 3.25rem; }
+  .t-card:nth-child(3) { --x: -9.25rem; --r: -2.5deg; --z: 3; top: 3.5rem; }
+  .t-card:nth-child(4) { --x: 3rem; --r: 0deg; --z: 6; top: 1.5rem; }
+  .t-card:nth-child(5) { --x: 15.5rem; --r: 5deg; --z: 4; top: 3rem; }
+  .t-card:nth-child(6) { --x: 22rem; --r: 4.5deg; --z: 5; top: 3.25rem; }
   .t-card:hover {
     z-index: 6;
-    transform: translateX(calc(var(--passo) * var(--k))) translateY(-16px) rotate(0deg);
+    transform: translateX(calc(var(--x) * var(--scala))) translateY(-16px) rotate(0deg);
     box-shadow: 0 2px 4px rgba(46, 47, 51, 0.06), 0 40px 64px -30px rgba(46, 47, 51, 0.5);
   }
 }
@@ -608,7 +664,7 @@ p { text-wrap: pretty; }
 .porte .testo-lead { color: var(--color-text-soft); }
 
 .porte__griglia { display: grid; gap: 1rem; margin-top: 3rem; }
-@media (min-width: 900px) { .porte__griglia { grid-template-columns: 1.55fr 1fr; gap: 1.25rem; align-items: end; } }
+@media (min-width: 900px) { .porte__griglia { grid-template-columns: 1.15fr 1fr; gap: 1.25rem; align-items: end; } }
 
 .porta {
   border-radius: 20px;
@@ -624,7 +680,7 @@ p { text-wrap: pretty; }
 /* La porta principale: WhatsApp, chiara e grande, con Giorgia che esce dalla scheda con la testa */
 .porta--principale {
   position: relative;
-  min-height: 22rem;
+  min-height: 17rem;
   margin-top: 3.5rem;
   background: #FFFFFF;
   box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 30px 60px -36px rgba(46, 47, 51, 0.45);
@@ -632,7 +688,7 @@ p { text-wrap: pretty; }
   align-items: center;
 }
 .porta--principale .porta__corpo { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 0.75rem; max-width: 21rem; }
-.porta--principale h3 { font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem); line-height: 1.05; }
+.porta--principale h3 { font-size: clamp(1.7rem, 1.4rem + 1vw, 2.2rem); line-height: 1.05; }
 .porta--principale .btn { margin-top: 0.75rem; }
 .porta__figura {
   position: absolute;
@@ -653,6 +709,7 @@ p { text-wrap: pretty; }
 
 /* La porta leggera: la guida, chiara e quieta */
 .porta--leggera { background: transparent; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.25); }
+.porta--leggera { min-height: 17rem; }
 .porta--leggera h3 { font-size: 1.4rem; }
 .porta--leggera form { margin-top: auto; }
 
@@ -838,6 +895,23 @@ p { text-wrap: pretty; }
   .chi__testo { padding-top: 4rem; }
 }
 
+/* Dopo l'invio della mail: il modulo si restringe e lascia il posto a un grazie */
+.modulo-guida { transition: opacity 260ms ease, transform 420ms cubic-bezier(0.65, 0, 0.35, 1); transform-origin: left center; }
+.modulo-guida.inviato { opacity: 0; transform: scale(0.94); }
+.grazie {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 18px;
+  background: var(--tinta-oro);
+  color: var(--color-text);
+  font-weight: 500;
+  animation: grazie-entra 480ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+.grazie svg { width: 1.4rem; height: 1.4rem; flex: none; fill: none; stroke: var(--color-gold-ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes grazie-entra { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }
+
 /* ---------- Invito alla guida: finestra centrale di media misura, una volta a metà pagina ---------- */
 
 .invito-guida {
@@ -926,28 +1000,21 @@ p { text-wrap: pretty; }
   overflow: hidden;
 }
 .piede__griglia { max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 3.5rem; }
-@media (min-width: 860px) { .piede__griglia { grid-template-columns: 1.6fr 1fr 1fr 1.1fr; } }
+@media (min-width: 860px) { .piede__griglia { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .piede__griglia { grid-template-columns: 1.5fr 1fr 0.9fr 0.9fr 1.3fr; } }
 .piede__titolo { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem); line-height: 1.2; color: var(--color-on-earth); margin: 0 0 1.25rem; max-width: 20ch; }
 .piede__colonna { display: flex; flex-direction: column; gap: 0.9rem; }
 .piede__colonna a { color: var(--color-on-earth); }
 .piede__colonna a:hover { color: var(--oro-su-scuro); }
 .piede__etichetta { margin: 0 0 0.5rem; font-weight: 600; color: var(--oro-su-scuro); }
 .piede__dati { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem 1.4rem; border-radius: 16px; background: rgba(255, 255, 255, 0.06); align-self: start; }
-.piede__dati p { margin: 0; color: var(--color-on-earth-soft); }
-.piede__social { max-width: var(--container-max-width); margin: 3.5rem auto 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
-.piede__social a {
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--color-on-earth);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
-  transition: background-color 300ms ease, color 300ms ease;
-}
-.piede__social a:hover { background: var(--oro-su-scuro); color: var(--color-bordeaux-scuro); }
-.piede__social svg { width: 1.05rem; height: 1.05rem; fill: currentColor; }
-.piede__disclaimer { margin: 1.75rem 0 0; max-width: 34ch; color: var(--color-on-earth-soft); font-size: var(--text-label); }
+.piede__dati p { margin: 0; color: var(--color-on-earth-soft); font-size: var(--text-label); line-height: 1.55; }
+.piede__dati .piede__disclaimer { margin-top: 0.5rem; padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.piede__icone { display: flex; flex-wrap: wrap; align-items: center; gap: 1.1rem; margin-top: 1.75rem; }
+.piede__icone a { display: grid; place-items: center; width: 1.25rem; height: 1.25rem; color: var(--color-on-earth); opacity: 0.85; transition: color 250ms ease, opacity 250ms ease; }
+.piede__icone a:hover { color: var(--oro-su-scuro); opacity: 1; }
+.piede__icone svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
+.piede__disclaimer { color: var(--color-on-earth-soft); }
 .piede__firma {
   margin: clamp(3.5rem, 2rem + 5vw, 7rem) 0 -0.12em;
   text-align: center;
@@ -968,9 +1035,5 @@ p { text-wrap: pretty; }
 }
 
 /* L'apertura è una fascia avorio con la sfumatura: il bordo si vede e il taglio della foto è voluto */
-.apertura.sfumato {
-  background:
-    radial-gradient(50% 60% at 12% 30%, rgba(246, 236, 211, 0.95), transparent 70%),
-    radial-gradient(45% 55% at 88% 70%, rgba(244, 227, 230, 0.9), transparent 70%),
-    var(--color-bg-soft);
-}
+.apertura.sfumato { background: var(--color-bg-soft); }
+.apertura.sfumato::before { inset: 0; -webkit-mask-image: none; mask-image: none; }

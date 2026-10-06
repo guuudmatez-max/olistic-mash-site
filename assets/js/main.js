@@ -160,8 +160,32 @@ function initMenuServizi() {
   });
 }
 
+// ----------------------------
+// MODULO GUIDA: dopo l'invio un grazie al posto del modulo; nel popup si chiude da solo
+// ponytail: l'invio vero (servizio di email) arriva nel ticket della guida PDF
+// ----------------------------
+function initModuliGuida() {
+  document.querySelectorAll("form.modulo-guida").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      form.classList.add("inviato");
+      setTimeout(() => {
+        const grazie = document.createElement("p");
+        grazie.className = "grazie";
+        grazie.setAttribute("role", "status");
+        grazie.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Grazie! Spero che ti sia utile. Ti aspetto nella tua casella di posta.</span>';
+        form.replaceWith(grazie);
+        const finestra = grazie.closest("dialog");
+        if (finestra) setTimeout(() => finestra.close(), 2600);
+      }, 380);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initStacchi();
+  initModuliGuida();
   initInvitoGuida();
   initMenuServizi();
   initMobileNav();

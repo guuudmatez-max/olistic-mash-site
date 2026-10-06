@@ -62,7 +62,15 @@ export function renderFooter() {
       <div class="piede__invito">
         <p class="piede__titolo">Un messaggio basta, per iniziare.</p>
         <a class="btn btn-chiaro" href="${whatsappUrl("generico")}" ${esterno}>Scrivimi su WhatsApp</a>
-        <p class="piede__disclaimer">${escapeHtml(site.disclaimer)}</p>
+        <div class="piede__icone">
+          ${site.social
+            .map((p) => {
+              const i = icone[p.icona];
+              if (!i) throw new Error(`Icona sconosciuta: ${p.icona} (vedi simple-icons)`);
+              return `<a href="${p.url}" ${esterno} aria-label="${escapeHtml(p.nome)}" title="${escapeHtml(p.nome)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${i.path}"/></svg></a>`;
+            })
+            .join("")}
+        </div>
       </div>
       <nav class="piede__colonna" aria-label="Pagine">
         <p class="piede__etichetta">Il sito</p>
@@ -75,22 +83,17 @@ export function renderFooter() {
         <a href="${site.privacy}" ${esterno}>Privacy</a>
         <a href="${site.cookie}" ${esterno}>Cookie</a>
       </div>
+      <nav class="piede__colonna" aria-label="Social">
+        <p class="piede__etichetta">Menu social</p>
+        ${site.social.map((p) => `<a href="${p.url}" ${esterno}>${escapeHtml(p.nome)}</a>`).join("")}
+      </nav>
       <div class="piede__dati">
         <p class="piede__etichetta">Dati</p>
-        <p>${escapeHtml(site.nome)}</p>
-        <p>P.IVA ${site.piva}</p>
+        <p>${escapeHtml(site.nome)} · P.IVA ${site.piva}</p>
         ${site.sedeLegale ? `<p>${escapeHtml(site.sedeLegale)}</p>` : ""}
         <p>© ${year}</p>
+        <p class="piede__disclaimer">${escapeHtml(site.disclaimer)}</p>
       </div>
-    </div>
-    <div class="piede__social" aria-label="Profili social">
-      ${site.social
-        .map((p) => {
-          const i = icone[p.icona];
-          if (!i) throw new Error(`Icona sconosciuta: ${p.icona} (vedi simple-icons)`);
-          return `<a href="${p.url}" ${esterno} aria-label="${escapeHtml(p.nome)}" title="${escapeHtml(p.nome)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${i.path}"/></svg></a>`;
-        })
-        .join("")}
     </div>
     <p class="piede__firma" aria-hidden="true">Giorgia <em>Boccadifuoco</em></p>
   </div>

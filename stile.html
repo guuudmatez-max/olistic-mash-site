@@ -29,7 +29,7 @@
             />
             <div class="apertura__testo">
               <div class="apertura__azioni">
-                <a class="btn btn-primary" data-wa-key="consulenze">Scrivimi su WhatsApp</a>
+                <a class="btn btn-accento" data-wa-key="consulenze">Inizia subito</a>
                 <a class="link" href="#servizi">Come si lavora insieme</a>
               </div>
               <p class="testo-lead">Lavoro con una persona alla volta, in presenza o online. Si parte da quello che senti tu, con le tue parole.</p>
@@ -68,21 +68,20 @@
         <!-- FIGURA CENTRALE: i temi a cui risponde -->
         <section class="sezione sfumato figura-centrale">
           <div class="contenitore al-centro">
-            <h2 class="titolo-sezione">Meno peso da portare. <em>Più spazio per te.</em></h2>
-            <p class="sottotitolo-fine">Sottotitolo segnaposto, breve e leggero</p>
+            <p class="occhiello">Sottotitolo segnaposto, una riga</p>
+            <h2 class="titolo-sezione">Meno peso da portare.<br /><em>Più spazio per te.</em></h2>
             <div class="figura-centrale__scena">
-              <img src="/assets/img/foto/giorgia-bianco-mani-900.webp" srcset="/assets/img/foto/giorgia-bianco-mani-900.webp 1x, /assets/img/foto/giorgia-bianco-mani-1600.webp 2x" width="400" height="900" loading="lazy" alt="Giorgia in abito bianco sorride, una penna tra le mani" />
+              <img src="/assets/img/foto/giorgia-bianco-ciondolo-900.webp" srcset="/assets/img/foto/giorgia-bianco-ciondolo-900.webp 1x, /assets/img/foto/giorgia-bianco-ciondolo-1600.webp 2x" width="612" height="900" loading="lazy" alt="Giorgia in abito bianco con un grande ciondolo dorato, sorride e alza una penna" />
               <ul class="temi">
-                <li class="tema tema--oro">Relazioni che <strong>si ripetono</strong></li>
-                <li class="tema">Un peso che <strong>non passa</strong></li>
-                <li class="tema tema--cipria">Decisioni <strong>bloccate</strong></li>
-                <li class="tema">Qualcosa che <strong>non torna</strong></li>
+                <li class="tema tema--lilla"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg><span>Relazioni che <strong>si ripetono</strong></span></li>
+                <li class="tema tema--oro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.67 19a2 2 0 0 0 1.42-.59l6.15-6.17a6 6 0 0 0-8.49-8.49L5.59 9.91A2 2 0 0 0 5 11.33V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg><span>Un peso che <strong>non passa</strong></span></li>
+                <li class="tema tema--salvia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.17-2.87L3 3"/><path d="m15 9 6-6"/></svg><span>Decisioni <strong>bloccate</strong></span></li>
+                <li class="tema tema--cipria"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.8 5.41a2 2 0 0 1-1.27 1.27L7.76 16.24l1.8-5.41a2 2 0 0 1 1.27-1.27z"/></svg><span>Qualcosa che <strong>non torna</strong></span></li>
               </ul>
             </div>
-            <div class="tre-righe">
-              <p>Riga segnaposto uno: per chi sente che qualcosa si ripete.</p>
-              <p>Riga segnaposto due: cosa cambia lavorando insieme.</p>
-              <p>Riga segnaposto tre: il primo passo, piccolo e concreto.</p>
+            <div class="testo-due">
+              <p>Riga segnaposto uno: per chi sente che qualcosa si ripete, e vuole capire perché.</p>
+              <p>Riga segnaposto due: cosa cambia lavorando insieme, e il primo passo, piccolo e concreto.</p>
             </div>
           </div>
         </section>
@@ -238,14 +237,14 @@
                   <div class="porta__corpo">
                     <h3>Scrivimi su WhatsApp</h3>
                     <p>Un messaggio, anche breve. Ti rispondo io, di persona.</p>
-                    <a class="btn btn-primary" data-wa-key="generico">Apri WhatsApp</a>
+                    <a class="btn btn-accento" data-wa-key="generico">Apri WhatsApp</a>
                   </div>
                   <img class="porta__figura" src="/assets/img/foto/giorgia-scontornata-mani-900.webp" srcset="/assets/img/foto/giorgia-scontornata-mani-900.webp 1x, /assets/img/foto/giorgia-scontornata-mani-1600.webp 2x" width="448" height="900" loading="lazy" alt="Giorgia sorride con le mani giunte, giacca di pelle chiara" />
                 </div>
                 <div class="porta porta--leggera">
                   <h3>Non sei ancora pronta?</h3>
                   <p>Leggi la guida, con calma. Lasci solo la mail e la ricevi subito. Nessuno lo viene a sapere.</p>
-                  <form action="#" onsubmit="return false">
+                  <form class="modulo-guida" action="#" novalidate>
                     <div class="campo-mail">
                       <input id="mail-guida" type="email" name="email" placeholder="La tua mail" aria-label="La tua mail" autocomplete="email" required />
                       <button class="btn btn-primary" type="submit">Ricevi la guida</button>
@@ -265,7 +264,7 @@
         </button>
         <p class="invito-guida__titolo" id="invito-titolo">Una guida gratuita, <em>da leggere con calma.</em></p>
         <p class="invito-guida__testo">Lasci solo la mail e la ricevi subito.</p>
-        <form class="campo-mail" action="#" onsubmit="return false">
+        <form class="campo-mail modulo-guida" action="#" novalidate>
           <input type="email" name="email" placeholder="La tua mail" aria-label="La tua mail" autocomplete="email" required />
           <button class="btn btn-primary" type="submit">Ricevila</button>
         </form>
