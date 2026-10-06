@@ -12,21 +12,31 @@
   --color-accent: #D8B36E;
   --color-accent-light: #E7C890;
 
-  /* BACKGROUND / SURFACES */
-  --color-bg: #F7F3EB;          /* page background */
-  --color-bg-soft: #FFF8F1;     /* soft alt sections */
-  --color-surface: #FFFFFF;     /* cards / header */
-  --color-surface-soft: #F2E8DA;
-  --color-border-soft: #E3D7C3;
+  /* BACKGROUND / SURFACES — bianco e oro (palette D, ticket 04) */
+  --color-bg: #FFFFFF;          /* pagina */
+  --color-bg-soft: #FAF7F2;     /* avorio: sezioni alterne */
+  --color-surface: #FFFFFF;     /* card / header */
+  --color-surface-soft: #FAF7F2;
+  --color-border-soft: #EFE7DA;
+
+  /* TINTE PASTELLO per card e fondi sfumati */
+  --tinta-oro: #F6ECD3;
+  --tinta-cipria: #F4E3E1;
+  --tinta-salvia: #E2E9DD;
+  --tinta-lilla: #ECE7F0;
+
+  /* ACCENTO */
+  --color-bordeaux: #6E1F33;
+  --color-bordeaux-scuro: #5A1828;
 
   /* TEXT */
-  --color-text: #2F2417;
-  --color-text-soft: #6B5A45;
-  --color-muted: #7D6B57;      /* 4.6:1 su carta: leggibile */
-  --color-gold-ink: #8A6526;   /* oro per il testo su fondo chiaro (4.8:1) */
-  --color-earth: #2F2417;      /* fascia scura piena */
-  --color-on-earth: #F7F3EB;
-  --color-on-earth-soft: #D8C8B0;
+  --color-text: #2A2220;
+  --color-text-soft: #5E5450;
+  --color-muted: #7A6E69;      /* 4.9:1 su bianco */
+  --color-gold-ink: #8A6526;   /* oro per il testo su fondo chiaro */
+  --color-earth: #5A1828;      /* le fasce scure: vino */
+  --color-on-earth: #FBF8F3;
+  --color-on-earth-soft: #E9D6D8;
 
   /* NEUTRAL ALIASES (for legacy selectors) */
   --color-black: var(--color-text);

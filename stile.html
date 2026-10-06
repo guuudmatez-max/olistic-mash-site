@@ -16,8 +16,8 @@
       <main class="site-main">
         <p class="avviso-prova">Pagina di prova del design, non indicizzata. I testi sono provvisori: servono a vedere i pezzi con parole vere.</p>
 
-        <!-- APERTURA: Giorgia scontornata davanti al titolo, a tutto schermo -->
-        <section class="apertura">
+        <!-- APERTURA: Giorgia scontornata davanti al titolo -->
+        <section class="apertura sfumato">
           <div class="apertura__scena">
             <h1 class="titolo-display apertura__titolo">Quando una relazione pesa e si ripete, <em>si può uscirne.</em></h1>
             <img
@@ -32,15 +32,60 @@
             <div class="apertura__testo">
               <div class="apertura__azioni">
                 <a class="btn btn-primary" data-wa-key="consulenze">Scrivimi su WhatsApp</a>
-                <a class="link" href="#strade">Come si lavora insieme</a>
+                <a class="link" href="#servizi">Come si lavora insieme</a>
               </div>
               <p class="testo-lead">Lavoro con una persona alla volta, in presenza o online. Si parte da quello che senti tu, con le tue parole.</p>
             </div>
           </div>
         </section>
 
-        <!-- CHI È: filone sacerdotessa, in profondità -->
-        <section class="sezione sezione--carta-scura">
+        <!-- I DUE SERVIZI -->
+        <section class="sezione" id="servizi">
+          <div class="contenitore">
+            <div class="intesta">
+              <h2 class="titolo-sezione">Due strade. <em>Lo stesso passo avanti.</em></h2>
+              <p class="testo-lead">Da sola, più a fondo; oppure in un piccolo gruppo, più immediato. Scegli quella che senti tua.</p>
+            </div>
+            <div class="servizi">
+              <a class="servizio servizio--oro" href="/consulenze-unity.html">
+                <figure class="servizio__foto"><img src="/assets/img/foto/giorgia-parco-scialle-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia nel parco con uno scialle rosa, sorridente" style="object-position: 50% 22%" /></figure>
+                <div>
+                  <h3>Consulenze individuali</h3>
+                  <p>Una persona alla volta, più a fondo. In presenza o online.</p>
+                </div>
+                <span class="servizio__piede">Come funzionano</span>
+              </a>
+              <a class="servizio servizio--cipria" href="/eventi-gruppi.html">
+                <figure class="servizio__foto"><img src="/assets/img/foto/armonizzazione-gruppo-800.webp" width="800" height="1200" loading="lazy" alt="Un momento di un'Armonizzazione di Gruppo: persone sedute a terra in cerchio" style="object-position: 50% 40%" /></figure>
+                <div>
+                  <h3>Armonizzazioni di Gruppo</h3>
+                  <p>Un pomeriggio in un piccolo gruppo, più immediato e sostenuto.</p>
+                </div>
+                <span class="servizio__piede">Le prossime date</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- FIGURA CENTRALE: i temi a cui risponde -->
+        <section class="sezione sfumato figura-centrale">
+          <div class="contenitore al-centro">
+            <h2 class="titolo-sezione">Meno peso da portare. <em>Più spazio per te.</em></h2>
+            <div class="figura-centrale__scena">
+              <img src="/assets/img/foto/giorgia-scontornata-mani-900.webp" srcset="/assets/img/foto/giorgia-scontornata-mani-900.webp 448w, /assets/img/foto/giorgia-scontornata-mani-1600.webp 738w" sizes="(min-width: 900px) 24rem, 70vw" width="738" height="1484" loading="lazy" alt="Giorgia sorride con le mani giunte" />
+              <ul class="temi">
+                <li class="tema tema--oro">Relazioni che <strong>si ripetono</strong></li>
+                <li class="tema">Un peso che <strong>non passa</strong></li>
+                <li class="tema tema--cipria">Decisioni <strong>bloccate</strong></li>
+                <li class="tema">Qualcosa che <strong>non torna</strong></li>
+              </ul>
+            </div>
+            <p class="testo-lead" style="margin-top: 2rem">Testo provvisorio: due righe che dicono, con parole semplici, per chi è questo lavoro.</p>
+          </div>
+        </section>
+
+        <!-- CHI È -->
+        <section class="sezione sezione--avorio">
           <div class="contenitore chi__griglia">
             <figure class="foto chi__foto">
               <img
@@ -63,85 +108,68 @@
           </div>
         </section>
 
-        <!-- STACCO A TUTTA LARGHEZZA -->
-        <figure class="stacco" data-apri>
-          <img
-            src="/assets/img/foto/lago-tramonto-1200.webp"
-            srcset="/assets/img/foto/lago-tramonto-1200.webp 1200w, /assets/img/foto/lago-tramonto-2400.webp 2400w"
-            sizes="100vw"
-            width="1200" height="800" loading="lazy"
-            alt="Giorgia in piedi sulla riva di un lago al tramonto, tra l'erba alta"
-          />
-          <figcaption class="stacco__frase">Il primo passo è piccolo: un incontro.</figcaption>
-        </figure>
+        <!-- STACCO -->
+        <div style="padding-top: var(--section-y)">
+          <figure class="stacco banda" data-apri>
+            <img
+              src="/assets/img/foto/lago-tramonto-1200.webp"
+              srcset="/assets/img/foto/lago-tramonto-1200.webp 1200w, /assets/img/foto/lago-tramonto-2400.webp 2400w"
+              sizes="100vw"
+              width="1200" height="800" loading="lazy"
+              alt="Giorgia in piedi sulla riva di un lago al tramonto, tra l'erba alta"
+            />
+            <figcaption class="stacco__frase">Il primo passo è piccolo: un incontro.</figcaption>
+          </figure>
+        </div>
 
-        <!-- LE DUE STRADE -->
-        <section class="sezione" id="strade">
-          <div class="contenitore">
-            <hr class="filetto" />
-            <h2 class="titolo-sezione">Da sola, <em>o in gruppo</em></h2>
-            <div class="strade">
-              <article class="strada">
-                <figure class="foto"><img src="/assets/img/foto/giorgia-parco-scialle-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia nel parco con uno scialle rosa, sorridente" style="object-position: 50% 20%" /></figure>
-                <h3>Consulenze individuali</h3>
-                <p>Una persona alla volta, più a fondo. In presenza o online.</p>
-                <a class="link" href="/consulenze-unity.html">Come funzionano</a>
-              </article>
-              <article class="strada">
-                <figure class="foto"><img src="/assets/img/foto/armonizzazione-gruppo-800.webp" width="800" height="1200" loading="lazy" alt="Un momento di un'Armonizzazione di Gruppo: persone sedute a terra in cerchio" style="object-position: 50% 40%" /></figure>
-                <h3>Armonizzazioni di Gruppo</h3>
-                <p>Un pomeriggio in un piccolo gruppo, più immediato e sostenuto.</p>
-                <a class="link" href="/eventi-gruppi.html">Le prossime date</a>
-              </article>
-            </div>
-
-            <div class="disclaimer" role="note" style="margin-top: 3.5rem">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 16v-4.5M12 8h.01"/></svg>
-              <p><strong>Il mio lavoro non è terapia psicologica.</strong> Non sostituisce percorsi psicologici, psicoterapeutici o cure mediche: sta accanto a loro.</p>
-            </div>
+        <!-- TESTIMONIANZE -->
+        <section class="sezione">
+          <div class="contenitore al-centro">
+            <h2 class="titolo-sezione">Storie diverse. <em>Lo stesso sollievo.</em></h2>
+            <p class="testo-lead">Qui andranno le testimonianze vere, con il solo nome. Questi testi sono di esempio.</p>
+            <ul class="ventaglio">
+              <li class="v-avorio"><blockquote>Testo di esempio: mi sono sentita ascoltata senza fretta.</blockquote><span class="nome">Nome (esempio)</span></li>
+              <li class="v-oro"><blockquote>Testo di esempio: già dopo il primo incontro qualcosa si è mosso.</blockquote><span class="nome">Nome (esempio)</span></li>
+              <li class="v-scura"><blockquote>Testo di esempio: ho capito che non dovevo risolvere tutto da sola.</blockquote><span class="nome">Nome (esempio)</span></li>
+              <li class="v-cipria"><blockquote>Testo di esempio: un peso che portavo da anni è diventato più leggero.</blockquote><span class="nome">Nome (esempio)</span></li>
+              <li class="v-avorio"><blockquote>Testo di esempio: ora riesco a dire di no senza sentirmi in colpa.</blockquote><span class="nome">Nome (esempio)</span></li>
+            </ul>
           </div>
         </section>
 
         <!-- SEZIONE SCURA: il concetto della rete -->
-        <section class="sezione sezione-scura">
+        <section class="sezione sezione-scura banda">
           <figure class="sezione-scura__sfondo" aria-hidden="true">
             <img src="/assets/img/foto/sfondo-ragnatela-1200.webp" srcset="/assets/img/foto/sfondo-ragnatela-1200.webp 1200w, /assets/img/foto/sfondo-ragnatela-2400.webp 2400w" sizes="100vw" width="1200" height="1800" loading="lazy" alt="" style="object-position: 60% 40%" />
           </figure>
           <div class="contenitore">
             <h2 class="titolo-sezione">Ogni volta che rimandi, <em>la rete si stringe.</em></h2>
             <p class="testo-lead">Testo provvisorio: qui va il passaggio che dice perché vale la pena muoversi adesso, senza fretta e senza paura.</p>
+            <a class="btn btn-chiaro" data-wa-key="consulenze">Scrivimi su WhatsApp</a>
           </div>
         </section>
 
-        <!-- TESTIMONIANZE -->
-        <section class="sezione sezione--carta-scura">
+        <!-- VIDEO IN MOVIMENTO -->
+        <section class="sezione">
           <div class="contenitore">
-            <hr class="filetto" />
-            <h2 class="titolo-sezione">Chi ci è già passato</h2>
-            <p class="testo-lead">Qui andranno le testimonianze vere, con il solo nome. Questi tre testi sono di esempio, per vedere le card.</p>
-            <figure class="citazione">
-              <blockquote>Testo di esempio. Ero arrivata con un peso che mi portavo dietro da anni; già dopo il primo incontro qualcosa si è mosso.</blockquote>
-              <figcaption>Nome (esempio)</figcaption>
+            <figure class="video-movimento">
+              <div class="video-movimento__schermo">
+                <img src="/assets/img/foto/sentiero-1200.webp" srcset="/assets/img/foto/sentiero-1200.webp 1200w, /assets/img/foto/sentiero-2400.webp 2400w" sizes="(min-width: 1180px) 1180px, 100vw" width="1200" height="800" loading="lazy" alt="Giorgia cammina su un sentiero di campagna con uno scialle rosso" />
+                <span class="video-movimento__segnaposto">Qui il video delle testimonianze, in montaggio</span>
+              </div>
+              <figcaption>
+                <h2 class="titolo-sezione">Sentirlo raccontare <em>da chi c'è stato.</em></h2>
+                <p class="testo-lead" style="margin-inline: auto">Un video breve che parte da solo, senza audio, come una foto in movimento.</p>
+              </figcaption>
             </figure>
-            <div class="testimonianze">
-              <figure class="card-base testimonianza">
-                <blockquote>Testo di esempio di media lunghezza: serve a vedere come stanno le card quando hanno altezze diverse.</blockquote>
-                <figcaption>Nome (esempio)</figcaption>
-              </figure>
-              <figure class="card-base testimonianza">
-                <blockquote>Testo di esempio. Mi sono sentita ascoltata senza fretta.</blockquote>
-                <figcaption>Nome (esempio)</figcaption>
-              </figure>
-            </div>
           </div>
         </section>
 
         <!-- FAQ -->
-        <section class="sezione">
-          <div class="contenitore">
-            <hr class="filetto" />
-            <h2 class="titolo-sezione">Domande frequenti</h2>
-            <div class="faq" style="margin-top: 2.5rem">
+        <section class="sezione sezione--avorio">
+          <div class="contenitore faq-griglia">
+            <h2 class="titolo-sezione">Buone domande. <em>Risposte sincere.</em></h2>
+            <div class="faq">
               <details open>
                 <summary>Quanto dura un incontro?</summary>
                 <div class="faq__risposta" data-faq-risposta><p>In presenza {{ consulenze.durataPresenza }}, online {{ consulenze.durataOnline }}.</p></div>
@@ -156,59 +184,41 @@
               </details>
             </div>
           </div>
+          <div class="contenitore" style="margin-top: 3rem">
+            <div class="disclaimer" role="note" style="background: #FFFFFF">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 16v-4.5M12 8h.01"/></svg>
+              <p><strong>Il mio lavoro non è terapia psicologica.</strong> Non sostituisce percorsi psicologici, psicoterapeutici o cure mediche: sta accanto a loro.</p>
+            </div>
+          </div>
         </section>
 
         <!-- LE DUE PORTE -->
-        <section class="sezione porte" id="porte">
-          <div class="contenitore">
-            <h2 class="titolo-sezione">Da dove vuoi <em>iniziare?</em></h2>
-            <p class="testo-lead">Puoi prenderti tempo con una guida gratuita, oppure scrivermi subito.</p>
-            <div class="porte__griglia">
-              <div class="porta">
-                <h3>Leggi la guida, con calma</h3>
-                <p>Lasci solo la mail e la ricevi subito. Nessuno lo viene a sapere.</p>
-                <form class="porta__campo" action="#" onsubmit="return false">
-                  <label for="mail-guida">La tua mail</label>
-                  <input id="mail-guida" type="email" name="email" placeholder="nome@esempio.it" autocomplete="email" required />
-                  <label class="porta__consenso"><input type="checkbox" required /> Acconsento a ricevere la guida e poche mail utili.</label>
-                  <button class="btn btn-chiaro" type="submit">Mandami la guida</button>
-                </form>
-              </div>
-              <div class="porta">
-                <h3>Scrivimi su WhatsApp</h3>
-                <p>Un messaggio, anche breve. Ti rispondo io, di persona.</p>
-                <a class="btn btn-chiaro btn--senza-freccia" data-wa-key="generico">
-                  <svg class="icona" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5Z"/></svg>
-                  Apri WhatsApp
-                </a>
+        <div style="padding-block: var(--section-y)">
+          <section class="sezione porte banda" id="porte">
+            <div class="contenitore">
+              <h2 class="titolo-sezione">Da dove vuoi <em>iniziare?</em></h2>
+              <p class="testo-lead">Puoi prenderti tempo con una guida gratuita, oppure scrivermi subito.</p>
+              <div class="porte__griglia">
+                <div class="porta">
+                  <h3>Leggi la guida, con calma</h3>
+                  <p>Lasci solo la mail e la ricevi subito. Nessuno lo viene a sapere.</p>
+                  <form action="#" onsubmit="return false">
+                    <div class="campo-mail">
+                      <input id="mail-guida" type="email" name="email" placeholder="La tua mail" aria-label="La tua mail" autocomplete="email" required />
+                      <button class="btn btn-primary" type="submit">Mandami la guida</button>
+                    </div>
+                    <label class="porta__consenso"><input type="checkbox" required /> Acconsento a ricevere la guida e poche mail utili.</label>
+                  </form>
+                </div>
+                <div class="porta">
+                  <h3>Scrivimi su WhatsApp</h3>
+                  <p>Un messaggio, anche breve. Ti rispondo io, di persona.</p>
+                  <a class="btn btn-primary" data-wa-key="generico">Apri WhatsApp</a>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <!-- I DUE FILONI DI FOTO INSIEME -->
-        <section class="sezione sezione--carta-scura">
-          <div class="contenitore">
-            <hr class="filetto" />
-            <h2 class="titolo-sezione">I due filoni di foto</h2>
-            <p class="testo-lead">Professionale in apertura e dove si decide; sacerdotessa e tramonto in profondità e negli stacchi.</p>
-            <div class="filoni">
-              <figure class="foto"><img src="/assets/img/foto/giorgia-studio-ciondolo-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia in studio con abito bianco e ciondolo dorato" /></figure>
-              <figure class="foto"><img src="/assets/img/foto/giorgia-lago-scialle-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia sulla riva del lago con scialle rosso, luce calda" /></figure>
-              <figure class="foto"><img src="/assets/img/foto/giorgia-tramonto-profilo-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia di profilo controluce al tramonto" /></figure>
-            </div>
-          </div>
-        </section>
-
-        <figure class="stacco" data-apri>
-          <img
-            src="/assets/img/foto/sentiero-1200.webp"
-            srcset="/assets/img/foto/sentiero-1200.webp 1200w, /assets/img/foto/sentiero-2400.webp 2400w"
-            sizes="100vw"
-            width="1200" height="800" loading="lazy"
-            alt="Giorgia cammina su un sentiero di campagna con uno scialle rosso"
-          />
-        </figure>
+          </section>
+        </div>
       </main>
 
       <footer data-site-footer></footer>

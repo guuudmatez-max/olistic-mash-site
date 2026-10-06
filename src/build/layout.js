@@ -46,19 +46,29 @@ export function renderHeader() {
 
 export function renderFooter() {
   const year = new Date().getFullYear();
-  return `<footer class="site-footer py-10">
-  <div class="container text-center space-y-3">
-    <p>
-      <a href="${whatsappUrl("generico")}" target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp</a>
-      · <a href="/contatti.html">Contatti</a>
-      · <a href="${site.libroAmazon.url}" target="_blank" rel="noopener noreferrer">Il libro «${escapeHtml(site.libroAmazon.titolo)}» su Amazon</a>
-    </p>
-    <p class="small">${escapeHtml(site.disclaimer)}</p>
-    <p class="small opacity-80">
-      © ${year} ${site.nome} · P.IVA ${site.piva}
-      · <a href="${site.privacy}" target="_blank" rel="noopener noreferrer">Privacy</a>
-      · <a href="${site.cookie}" target="_blank" rel="noopener noreferrer">Cookie</a>
-    </p>
+  const esterno = 'target="_blank" rel="noopener noreferrer"';
+  return `<footer class="site-footer piede">
+  <div class="piede__banda">
+    <div class="piede__griglia">
+      <div class="piede__invito">
+        <p class="piede__titolo">Un messaggio basta, per iniziare.</p>
+        <a class="btn btn-primary" href="${whatsappUrl("generico")}" ${esterno}>Scrivimi su WhatsApp</a>
+      </div>
+      <nav class="piede__colonna" aria-label="Pagine">
+        <p class="piede__etichetta">Il sito</p>
+        ${MENU.map((l) => `<a href="${l.href}">${l.label}</a>`).join("")}
+        <a href="/contatti.html">Contatti</a>
+      </nav>
+      <div class="piede__colonna">
+        <p class="piede__etichetta">Altro</p>
+        <a href="${site.libroAmazon.url}" ${esterno}>Il libro «${escapeHtml(site.libroAmazon.titolo)}»</a>
+        <a href="${site.privacy}" ${esterno}>Privacy</a>
+        <a href="${site.cookie}" ${esterno}>Cookie</a>
+      </div>
+    </div>
+    <p class="piede__disclaimer">${escapeHtml(site.disclaimer)}</p>
+    <p class="piede__legale">© ${year} ${escapeHtml(site.nome)} · P.IVA ${site.piva}</p>
+    <p class="piede__firma" aria-hidden="true">Giorgia <em>Boccadifuoco</em></p>
   </div>
 </footer>`;
 }
