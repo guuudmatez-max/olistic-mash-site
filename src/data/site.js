@@ -28,9 +28,9 @@ export const site = {
 
   // Offerta
   mappatura: {
-    nome: "Incontro di mappatura [IN SOSPESO: nome]",
+    nome: "Primo incontro",
     presenza: { prezzo: "110 €", durata: "90 minuti" },
-    online: { prezzo: "70 €", durata: "60 minuti" },
+    online: { prezzo: "75 €", durata: "60 minuti" },
   },
   percorso: {
     nome: "Percorso",
