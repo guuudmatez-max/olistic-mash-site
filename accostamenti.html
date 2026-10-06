@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accostamenti di colore · Giorgia Boccadifuoco</title>
+    <meta name="description" content="Sei accostamenti di colore con l'oro e un test dei toni di bianco e nero, da validare." />
+    <meta name="robots" content="noindex, nofollow" />
+    <script type="module" src="/assets/js/main.js"></script>
+    <style>
+      .ac { padding: clamp(3rem, 2rem + 4vw, 6rem) var(--gutter); background: #FFFFFF; }
+      .ac__intro { max-width: var(--container-max-width); margin: 0 auto 2.5rem; }
+      .ac__griglia { max-width: var(--container-max-width); margin: 0 auto; display: grid; gap: 1.5rem; }
+      @media (min-width: 900px) { .ac__griglia { grid-template-columns: 1fr 1fr; } }
+
+      .opz { border-radius: 22px; overflow: hidden; background: var(--o-fondo); box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 20px 44px -30px rgba(0,0,0,.35); display: flex; flex-direction: column; }
+      .opz__testa { padding: 1.5rem 1.75rem 0; }
+      .opz__testa h2 { margin: 0; font-size: 1.5rem; color: var(--o-testo); }
+      .opz__testa p { margin: .35rem 0 0; color: var(--o-testo2); font-size: .95rem; }
+      .opz__campioni { display: flex; gap: .5rem; padding: 1rem 1.75rem 0; }
+      .opz__campioni i { width: 1.9rem; height: 1.9rem; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+      .opz__scena { padding: 1.75rem; }
+      .opz__scena h3 { margin: 0 0 1.25rem; font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem); line-height: 1.05; font-weight: 650; color: var(--o-testo); }
+      .opz__scena h3 em { font-style: italic; font-weight: 550; color: var(--o-corsivo); }
+      .opz__azioni { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+      .opz__link { color: var(--o-accento); font-weight: 600; text-decoration: underline; text-underline-offset: .25em; }
+
+      /* Bottone leggero: pillola chiara, filo sottile, piccolo cerchio; al passaggio si riempie di una tinta, non di un colore scuro */
+      .bl { --c: 2.1rem; position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; min-height: 3rem; padding: .6rem calc(var(--c) + 1.2rem) .6rem 1.35rem; border-radius: 999px; background: var(--o-btn); color: var(--o-testo); font-weight: 550; font-size: .95rem; box-shadow: inset 0 0 0 1px var(--o-filo); transition: color 380ms cubic-bezier(.65,0,.35,1); }
+      .bl::before { content: ""; position: absolute; z-index: -1; inset: 0; background: var(--o-tinta); clip-path: circle(calc(var(--c) / 2) at calc(100% - .35rem - var(--c) / 2) 50%); transition: clip-path 420ms cubic-bezier(.65,0,.35,1); }
+      .bl::after { content: ""; position: absolute; right: calc(.35rem + (var(--c) - .85rem) / 2); top: 50%; width: .85rem; height: .85rem; translate: 0 -50%; background: var(--o-accento);
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+                mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+        transition: transform 420ms cubic-bezier(.65,0,.35,1); }
+      .bl:hover::before { clip-path: circle(150% at calc(100% - .35rem - var(--c) / 2) 50%); }
+      .bl:hover::after { transform: translateX(3px); }
+
+      .opz__card { margin: 0 1.75rem; padding: 1.25rem 1.4rem; border-radius: 18px; background: var(--o-tinta); color: var(--o-testo); }
+      .opz__card strong { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-size: 1.35rem; font-weight: 600; display: block; margin-bottom: .25rem; }
+      .opz__card span { color: var(--o-testo2); font-size: .95rem; }
+      .opz__fascia { margin: 1.75rem .5rem .5rem; padding: 1.5rem 1.4rem; border-radius: 18px; background: var(--o-scuro); display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+      .opz__fascia p { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: 1.5rem; line-height: 1.15; color: #FFFFFF; }
+      .opz__fascia p em { color: var(--o-oro-scuro); font-style: italic; font-weight: 550; }
+      .opz__fascia .bl { --o-btn: rgba(255,255,255,.08); --o-filo: rgba(255,255,255,.35); --o-tinta: rgba(255,255,255,.95); color: #FFFFFF; }
+      .opz__fascia .bl:hover { color: var(--o-testo); }
+      .opz__fascia .bl::after { background: #FFFFFF; transition: background-color 380ms ease, transform 420ms cubic-bezier(.65,0,.35,1); }
+      .opz__fascia .bl:hover::after { background: var(--o-accento); }
+
+      /* Test bianchi e neri */
+      .toni { max-width: var(--container-max-width); margin: 4rem auto 0; }
+      .toni__griglia { display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; }
+      @media (min-width: 900px) { .toni__griglia { grid-template-columns: repeat(4, 1fr); } }
+      .tono { border-radius: 18px; padding: 1.4rem; background: var(--b); box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+      .tono h4 { margin: 0 0 .75rem; font-size: 1.5rem; line-height: 1.1; color: var(--n); }
+      .tono p { margin: 0; font-size: .9rem; color: var(--n); opacity: .78; }
+      .tono small { display: block; margin-top: .9rem; font-size: .75rem; color: var(--n); opacity: .6; }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <header data-site-header></header>
+      <main class="site-main">
+        <section class="ac">
+          <div class="ac__intro">
+            <h1 class="titolo-sezione">Sei accostamenti con l'oro</h1>
+            <p class="testo-lead">Stesso titolo, stesso bottone leggero, stessa card e stessa fascia scura in ogni proposta. Passa il mouse sui bottoni: si riempiono di una tinta chiara, non di un colore pesante. In fondo, il test dei bianchi e dei neri.</p>
+          </div>
+
+          <div class="ac__griglia">
+            <!-- 1 -->
+            <article class="opz" style="--o-fondo:#FFFFFF; --o-testo:#26221F; --o-testo2:#625A55; --o-corsivo:#8A6526; --o-accento:#4F6B57; --o-btn:#FFFFFF; --o-filo:rgba(79,107,87,.45); --o-tinta:#E3EBE3; --o-scuro:#2E3B33; --o-oro-scuro:#D9BC84;">
+              <div class="opz__testa"><h2>1 · Oro e salvia</h2><p>Calmo, naturale, richiama il verde delle foto all'aperto.</p></div>
+              <div class="opz__campioni"><i style="background:#FFFFFF"></i><i style="background:#C9A15C"></i><i style="background:#4F6B57"></i><i style="background:#E3EBE3"></i><i style="background:#2E3B33"></i></div>
+              <div class="opz__scena"><h3>Quando una relazione pesa, <em>si può uscirne.</em></h3><div class="opz__azioni"><a class="bl">Scrivimi su WhatsApp</a><a class="opz__link">Come si lavora</a></div></div>
+              <div class="opz__card"><strong>Consulenze individuali</strong><span>Una persona alla volta, più a fondo.</span></div>
+              <div class="opz__fascia"><p>La rete <em>si stringe.</em></p><a class="bl">Scrivimi</a></div>
+            </article>
+
+            <!-- 2 -->
+            <article class="opz" style="--o-fondo:#FFFFFF; --o-testo:#22252E; --o-testo2:#5C606B; --o-corsivo:#8A6526; --o-accento:#34406A; --o-btn:#FFFFFF; --o-filo:rgba(52,64,106,.4); --o-tinta:#E6E8F2; --o-scuro:#262D4A; --o-oro-scuro:#DCC08A;">
+              <div class="opz__testa"><h2>2 · Oro e blu notte</h2><p>Il più vicino al sito di riferimento: elegante, fermo, molto leggibile.</p></div>
+              <div class="opz__campioni"><i style="background:#FFFFFF"></i><i style="background:#C9A15C"></i><i style="background:#34406A"></i><i style="background:#E6E8F2"></i><i style="background:#262D4A"></i></div>
+              <div class="opz__scena"><h3>Quando una relazione pesa, <em>si può uscirne.</em></h3><div class="opz__azioni"><a class="bl">Scrivimi su WhatsApp</a><a class="opz__link">Come si lavora</a></div></div>
+              <div class="opz__card"><strong>Consulenze individuali</strong><span>Una persona alla volta, più a fondo.</span></div>
+              <div class="opz__fascia"><p>La rete <em>si stringe.</em></p><a class="bl">Scrivimi</a></div>
+            </article>
+
+            <!-- 3 -->
+            <article class="opz" style="--o-fondo:#FFFFFF; --o-testo:#2A2228; --o-testo2:#645A62; --o-corsivo:#8A6526; --o-accento:#6A4A6E; --o-btn:#FFFFFF; --o-filo:rgba(106,74,110,.4); --o-tinta:#EEE6EF; --o-scuro:#3A2A3E; --o-oro-scuro:#DDC08A;">
+              <div class="opz__testa"><h2>3 · Oro e prugna</h2><p>Più morbido del bordeaux, intimo, femminile senza essere rosa.</p></div>
+              <div class="opz__campioni"><i style="background:#FFFFFF"></i><i style="background:#C9A15C"></i><i style="background:#6A4A6E"></i><i style="background:#EEE6EF"></i><i style="background:#3A2A3E"></i></div>
+              <div class="opz__scena"><h3>Quando una relazione pesa, <em>si può uscirne.</em></h3><div class="opz__azioni"><a class="bl">Scrivimi su WhatsApp</a><a class="opz__link">Come si lavora</a></div></div>
+              <div class="opz__card"><strong>Consulenze individuali</strong><span>Una persona alla volta, più a fondo.</span></div>
+              <div class="opz__fascia"><p>La rete <em>si stringe.</em></p><a class="bl">Scrivimi</a></div>
+            </article>
+
+            <!-- 4 -->
+            <article class="opz" style="--o-fondo:#FFFFFF; --o-testo:#2A2220; --o-testo2:#655A55; --o-corsivo:#8A6526; --o-accento:#A2574C; --o-btn:#FFFFFF; --o-filo:rgba(162,87,76,.4); --o-tinta:#F5E4DF; --o-scuro:#4A2C27; --o-oro-scuro:#E0C48E;">
+              <div class="opz__testa"><h2>4 · Oro e terracotta rosa</h2><p>Caldo e terreno ma luminoso; vicino ai toni del tramonto.</p></div>
+              <div class="opz__campioni"><i style="background:#FFFFFF"></i><i style="background:#C9A15C"></i><i style="background:#A2574C"></i><i style="background:#F5E4DF"></i><i style="background:#4A2C27"></i></div>
+              <div class="opz__scena"><h3>Quando una relazione pesa, <em>si può uscirne.</em></h3><div class="opz__azioni"><a class="bl">Scrivimi su WhatsApp</a><a class="opz__link">Come si lavora</a></div></div>
+              <div class="opz__card"><strong>Consulenze individuali</strong><span>Una persona alla volta, più a fondo.</span></div>
+              <div class="opz__fascia"><p>La rete <em>si stringe.</em></p><a class="bl">Scrivimi</a></div>
+            </article>
+
+            <!-- 5 -->
+            <article class="opz" style="--o-fondo:#FFFFFF; --o-testo:#2B2224; --o-testo2:#665A5D; --o-corsivo:#8A6526; --o-accento:#8E4258; --o-btn:#FFFFFF; --o-filo:rgba(142,66,88,.4); --o-tinta:#F4E3E6; --o-scuro:#3E1F29; --o-oro-scuro:#E2C68E;">
+              <div class="opz__testa"><h2>5 · Oro e vino rosato</h2><p>Il bordeaux di adesso, schiarito e ammorbidito: meno «gonfalone».</p></div>
+              <div class="opz__campioni"><i style="background:#FFFFFF"></i><i style="background:#C9A15C"></i><i style="background:#8E4258"></i><i style="background:#F4E3E6"></i><i style="background:#3E1F29"></i></div>
+              <div class="opz__scena"><h3>Quando una relazione pesa, <em>si può uscirne.</em></h3><div class="opz__azioni"><a class="bl">Scrivimi su WhatsApp</a><a class="opz__link">Come si lavora</a></div></div>
+              <div class="opz__card"><strong>Consulenze individuali</strong><span>Una persona alla volta, più a fondo.</span></div>
+              <div class="opz__fascia"><p>La rete <em>si stringe.</em></p><a class="bl">Scrivimi</a></div>
+            </article>
+
+            <!-- 6 -->
+            <article class="opz" style="--o-fondo:#FFFFFF; --o-testo:#1F1C1A; --o-testo2:#5F5852; --o-corsivo:#8A6526; --o-accento:#8A6526; --o-btn:#FFFFFF; --o-filo:rgba(138,101,38,.45); --o-tinta:#F5ECD8; --o-scuro:#24201C; --o-oro-scuro:#D9BC84;">
+              <div class="opz__testa"><h2>6 · Solo oro e nero caldo</h2><p>Nessun secondo colore: l'oro fa tutto, il nero caldo dà il contrasto.</p></div>
+              <div class="opz__campioni"><i style="background:#FFFFFF"></i><i style="background:#C9A15C"></i><i style="background:#8A6526"></i><i style="background:#F5ECD8"></i><i style="background:#24201C"></i></div>
+              <div class="opz__scena"><h3>Quando una relazione pesa, <em>si può uscirne.</em></h3><div class="opz__azioni"><a class="bl">Scrivimi su WhatsApp</a><a class="opz__link">Come si lavora</a></div></div>
+              <div class="opz__card"><strong>Consulenze individuali</strong><span>Una persona alla volta, più a fondo.</span></div>
+              <div class="opz__fascia"><p>La rete <em>si stringe.</em></p><a class="bl">Scrivimi</a></div>
+            </article>
+          </div>
+
+          <div class="toni">
+            <h2 class="titolo-sezione">Bianchi e neri</h2>
+            <p class="testo-lead">Lo stesso titolo su quattro bianchi, con quattro neri. Scegli la coppia che ti sembra più pulita.</p>
+            <div class="toni__griglia">
+              <div class="tono" style="--b:#FFFFFF; --n:#111111"><h4>Bianco puro, nero puro</h4><p>Massimo contrasto, un po' freddo.</p><small>#FFFFFF · #111111</small></div>
+              <div class="tono" style="--b:#FDFCFA; --n:#26221F"><h4>Bianco latte, nero caldo</h4><p>Quasi bianco, appena morbido.</p><small>#FDFCFA · #26221F</small></div>
+              <div class="tono" style="--b:#FAF7F2; --n:#2A2220"><h4>Avorio, nero terra</h4><p>Più caldo, più «carta».</p><small>#FAF7F2 · #2A2220</small></div>
+              <div class="tono" style="--b:#FFFFFF; --n:#2E2F33"><h4>Bianco puro, grafite</h4><p>Pulito e moderno, neutro.</p><small>#FFFFFF · #2E2F33</small></div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer data-site-footer></footer>
+    </div>
+  </body>
+</html>

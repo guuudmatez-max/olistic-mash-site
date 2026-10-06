@@ -111,8 +111,9 @@ p { text-wrap: pretty; }
 .intesta .titolo-sezione { margin: 0; }
 
 /* Fascia staccata dai bordi: arriva quasi ai lati, angoli arrotondati */
-.banda {
-  margin-inline: clamp(0.5rem, 0.2rem + 1vw, 1.25rem);
+.banda,
+.stacco.banda {
+  margin-inline: clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem);
   border-radius: clamp(18px, 1rem + 1vw, 28px);
   overflow: hidden;
 }
@@ -125,70 +126,80 @@ p { text-wrap: pretty; }
     var(--color-bg);
 }
 
-/* ---------- Bottoni: pillola oro con cerchio bordeaux che si allarga al passaggio ---------- */
+/* ---------- Bottoni leggeri ----------
+   Pillola chiara con un filo sottile e un piccolo cerchio di tinta con la freccia.
+   Al passaggio il cerchio si allarga e riempie la pillola di una tinta chiara: un passo leggero. */
 
 .btn {
-  --cerchio: 2.4rem;
-  --fondo-btn: var(--color-primary);
-  --inchiostro-btn: var(--color-text);
-  --riempi: var(--color-bordeaux);
-  --su-riempi: #FFFFFF;
+  --cerchio: 2.15rem;
+  --fondo-btn: #FFFFFF;
+  --filo-btn: rgba(110, 31, 51, 0.38);
+  --tinta-btn: var(--tinta-cipria);
+  --freccia-btn: var(--color-bordeaux);
+  --curva: cubic-bezier(0.65, 0, 0.35, 1);
   position: relative;
   isolation: isolate;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
-  min-height: 3.25rem;
-  padding: 0.75rem calc(var(--cerchio) + 1.4rem) 0.75rem 1.5rem;
+  min-height: 3.1rem;
+  padding: 0.65rem calc(var(--cerchio) + 1.25rem) 0.65rem 1.4rem;
   border-radius: var(--radius-pill);
   border: 0;
   background: var(--fondo-btn);
-  color: var(--inchiostro-btn);
+  box-shadow: inset 0 0 0 1px var(--filo-btn);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 0.975rem;
-  font-weight: 600;
+  font-weight: 550;
   line-height: 1.2;
   text-align: left;
   cursor: pointer;
-  box-shadow: none;
-  transition: color 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: color 380ms var(--curva), box-shadow 380ms var(--curva);
 }
 
-/* il cerchio: piccolo a destra, al passaggio riempie tutta la pillola */
 .btn::before {
   content: "";
   position: absolute;
   z-index: -1;
-  inset: calc((100% - var(--cerchio)) / 2) 0.3rem calc((100% - var(--cerchio)) / 2) calc(100% - var(--cerchio) - 0.3rem);
-  border-radius: var(--radius-pill);
-  background: var(--riempi);
-  transition: inset 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  inset: 0;
+  background: var(--tinta-btn);
+  clip-path: circle(calc(var(--cerchio) / 2) at calc(100% - 0.35rem - var(--cerchio) / 2) 50%);
+  transition: clip-path 420ms var(--curva);
 }
 
-/* la freccia dentro il cerchio */
 .btn::after {
   content: "";
   position: absolute;
-  right: calc(0.3rem + (var(--cerchio) - 0.95rem) / 2);
+  right: calc(0.35rem + (var(--cerchio) - 0.85rem) / 2);
   top: 50%;
-  width: 0.95rem;
-  height: 0.95rem;
+  width: 0.85rem;
+  height: 0.85rem;
   translate: 0 -50%;
-  background: var(--su-riempi);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-  transition: transform 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  background: var(--freccia-btn);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 420ms var(--curva), background-color 380ms ease;
 }
 
-.btn:is(:hover, :focus-visible) { color: var(--su-riempi); }
-.btn:is(:hover, :focus-visible)::before { inset: 0; }
+.btn:is(:hover, :focus-visible)::before { clip-path: circle(150% at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); }
 .btn:is(:hover, :focus-visible)::after { transform: translateX(3px); }
+.btn:is(:hover, :focus-visible) { box-shadow: inset 0 0 0 1px transparent; }
 
 .btn[aria-disabled="true"], .btn:disabled { opacity: 0.45; pointer-events: none; }
 
-.btn-primary { --fondo-btn: var(--color-primary); }
-.btn-secondary { --fondo-btn: var(--tinta-oro); }
-.btn-chiaro { --fondo-btn: #FFFFFF; }
+.btn-primary { --tinta-btn: var(--tinta-oro); --filo-btn: rgba(138, 101, 38, 0.45); --freccia-btn: var(--color-gold-ink); }
+.btn-secondary { --tinta-btn: var(--tinta-cipria); }
+
+/* Su fondo scuro: vetro chiaro; al passaggio diventa bianco, testo scuro */
+.btn-chiaro {
+  --fondo-btn: rgba(255, 255, 255, 0.08);
+  --filo-btn: rgba(255, 255, 255, 0.4);
+  --tinta-btn: #FFFFFF;
+  --freccia-btn: var(--color-bordeaux);
+  color: #FFFFFF;
+}
+.btn-chiaro:is(:hover, :focus-visible) { color: var(--color-text); }
 
 .btn .icona { width: 1.15rem; height: 1.15rem; flex: none; margin-right: 0.6rem; }
 
@@ -219,7 +230,7 @@ p { text-wrap: pretty; }
   padding: var(--margine);
   border-radius: 20px;
   color: var(--color-text);
-  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), color 450ms ease;
+  transition: transform 420ms cubic-bezier(0.65, 0, 0.35, 1), color 380ms ease;
 }
 .servizio--oro { background: var(--tinta-oro); }
 .servizio--cipria { background: var(--tinta-cipria); }
@@ -227,8 +238,8 @@ p { text-wrap: pretty; }
 .servizio__foto { aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; margin: 0; }
 .servizio__foto img { width: 100%; height: 100%; object-fit: cover; filter: var(--grado-foto); }
 
-.servizio h3 { font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem); line-height: 1.1; margin: 0 0 0.6rem; transition: color 450ms ease; }
-.servizio p { margin: 0; color: var(--color-text-soft); max-width: 40ch; transition: color 450ms ease; }
+.servizio h3 { font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem); line-height: 1.1; margin: 0 0 0.6rem; transition: color 380ms ease; }
+.servizio p { margin: 0; color: var(--color-text-soft); max-width: 40ch; transition: color 380ms ease; }
 
 .servizio__piede {
   display: flex;
@@ -243,15 +254,10 @@ p { text-wrap: pretty; }
   content: "";
   position: absolute;
   z-index: -1;
-  right: var(--margine);
-  bottom: var(--margine);
-  width: var(--cerchio);
-  height: var(--cerchio);
-  border-radius: 999px;
+  inset: 0;
   background: var(--color-bordeaux);
-  transition: right 550ms cubic-bezier(0.785, 0.135, 0.15, 0.86), bottom 550ms cubic-bezier(0.785, 0.135, 0.15, 0.86),
-              width 550ms cubic-bezier(0.785, 0.135, 0.15, 0.86), height 550ms cubic-bezier(0.785, 0.135, 0.15, 0.86),
-              border-radius 550ms ease;
+  clip-path: circle(calc(var(--cerchio) / 2) at calc(100% - var(--margine) - var(--cerchio) / 2) calc(100% - var(--margine) - var(--cerchio) / 2));
+  transition: clip-path 480ms cubic-bezier(0.65, 0, 0.35, 1);
 }
 .servizio::after {
   content: "";
@@ -266,7 +272,7 @@ p { text-wrap: pretty; }
 }
 
 .servizio:is(:hover, :focus-visible) { transform: translateY(-6px); color: #FFFFFF; }
-.servizio:is(:hover, :focus-visible)::before { right: 0; bottom: 0; width: 100%; height: 100%; border-radius: 20px; }
+.servizio:is(:hover, :focus-visible)::before { clip-path: circle(150% at calc(100% - var(--margine) - var(--cerchio) / 2) calc(100% - var(--margine) - var(--cerchio) / 2)); }
 .servizio:is(:hover, :focus-visible) h3 { color: #FFFFFF; }
 .servizio:is(:hover, :focus-visible) p { color: rgba(255, 255, 255, 0.85); }
 
@@ -318,6 +324,16 @@ p { text-wrap: pretty; }
   .tema:nth-child(4) { left: 66%; top: 72%; }
 }
 
+.sottotitolo-fine {
+  margin: -0.25rem auto 0;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-ink);
+}
+.tre-righe { max-width: 40rem; margin: 2rem auto 0; color: var(--color-text-soft); }
+.tre-righe p { margin: 0 0 0.5rem; }
+
 /* ---------- Testimonianze: citazione grande e ventaglio di card ---------- */
 
 .citazione { margin: 0; max-width: 52rem; }
@@ -344,6 +360,7 @@ p { text-wrap: pretty; }
 .ventaglio::-webkit-scrollbar { display: none; }
 
 .ventaglio li {
+  text-align: left;
   flex: 0 0 min(80%, 20rem);
   scroll-snap-align: center;
   display: flex;
@@ -356,8 +373,31 @@ p { text-wrap: pretty; }
   transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms ease;
 }
 .ventaglio blockquote { margin: 0; font-family: var(--font-heading); font-size: 1.45rem; line-height: 1.28; font-weight: 550; }
-.ventaglio .nome {
+/* Il segno «, in Bodoni, come elemento grafico in alto */
+.ventaglio blockquote::before {
+  content: "\00AB";
   display: block;
+  margin-bottom: 0.6rem;
+  font-size: 3.6rem;
+  line-height: 0.6;
+  font-style: normal;
+  color: var(--color-gold-ink);
+}
+.ventaglio .v-scura blockquote::before { color: var(--oro-su-scuro); }
+.ventaglio .persona { display: flex; align-items: center; gap: 0.7rem; }
+.ventaglio .avatar {
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background: rgba(42, 34, 32, 0.12);
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+.ventaglio .nome {
   padding-top: 1rem;
   margin-top: 1.5rem;
   border-top: 1px solid rgba(42, 34, 32, 0.15);
@@ -369,6 +409,7 @@ p { text-wrap: pretty; }
 .ventaglio .v-avorio { background: var(--color-bg-soft); }
 .ventaglio .v-scura { background: var(--color-bordeaux); color: #FFFFFF; }
 .ventaglio .v-scura .nome { border-color: rgba(255, 255, 255, 0.3); }
+.ventaglio .v-scura .avatar { background: rgba(255, 255, 255, 0.2); }
 
 @media (min-width: 900px) {
   .ventaglio { position: relative; overflow: visible; height: 27rem; margin-inline: 0; padding: 0; }
@@ -480,7 +521,7 @@ p { text-wrap: pretty; }
   background: linear-gradient(90deg, rgba(90, 24, 40, 0.92) 0%, rgba(90, 24, 40, 0.62) 60%, rgba(90, 24, 40, 0.3) 100%);
 }
 .sezione-scura .titolo-sezione { color: var(--color-on-earth); max-width: 18ch; }
-.sezione-scura .titolo-sezione em { color: var(--color-primary); }
+.sezione-scura .titolo-sezione em { color: var(--oro-su-scuro); }
 .sezione-scura .testo-lead { color: var(--color-on-earth-soft); max-width: 46ch; }
 .sezione-scura .btn { margin-top: 1rem; }
 
@@ -621,50 +662,60 @@ p { text-wrap: pretty; }
   text-align: center;
 }
 
-/* Apertura a tutto schermo: Giorgia scontornata davanti a un titolo grande */
-.apertura { position: relative; overflow: hidden; }
+/* Apertura: una fascia chiara staccata dai bordi. Titolo a sinistra, Giorgia a destra
+   intera fino al bordo basso della fascia: niente sovrapposizioni, niente tagli a metà. */
+.apertura {
+  position: relative;
+  overflow: hidden;
+  margin: clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem) clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem) 0;
+  border-radius: clamp(18px, 1rem + 1vw, 28px);
+}
 
 .apertura__scena {
   position: relative;
   max-width: var(--container-max-width);
   margin-inline: auto;
-  padding: 2rem var(--gutter) 0;
+  padding: 2.25rem var(--gutter) 0;
   display: grid;
   grid-template-areas: "titolo" "testo" "figura";
 }
-.apertura__titolo { grid-area: titolo; position: relative; z-index: 1; }
-.apertura__testo { grid-area: testo; position: relative; z-index: 3; }
+.apertura__titolo { grid-area: titolo; }
+.apertura__testo { grid-area: testo; }
 .apertura__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; margin-top: 1.5rem; }
 .apertura__testo .testo-lead { margin: 1.5rem 0 0; }
 .apertura__figura {
   grid-area: figura;
-  position: relative;
-  z-index: 2;
   justify-self: center;
-  width: min(78%, 22rem);
+  align-self: end;
+  width: min(80%, 21rem);
   height: auto;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   filter: var(--grado-foto);
 }
 
 @media (min-width: 900px) {
   .apertura__scena {
-    min-height: calc(100svh - 5.5rem);
-    grid-template-areas: "titolo titolo" "testo figura";
-    grid-template-columns: 5fr 7fr;
-    grid-template-rows: auto 1fr;
-    padding-top: clamp(3rem, 6vh, 5rem);
+    min-height: min(calc(100svh - 7.5rem), 52rem);
+    grid-template-areas: "titolo figura" "testo figura";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    grid-template-rows: 1fr auto;
+    column-gap: clamp(2rem, 4vw, 4rem);
+    padding-top: 0;
   }
-  .apertura__titolo { font-size: clamp(4.25rem, 1rem + 5.6vw, 7.5rem); line-height: 0.98; max-width: 12ch; }
+  .apertura__titolo {
+    align-self: end;
+    font-size: clamp(3.4rem, 1rem + 3.9vw, 5.6rem);
+    line-height: 1;
+  }
+  .apertura__testo { padding-bottom: clamp(3rem, 7vh, 5.5rem); max-width: 30rem; }
   .apertura__figura {
-    position: absolute;
-    right: max(0rem, calc((100vw - var(--container-max-width)) / 2 - 4rem));
-    bottom: 0;
     width: auto;
-    height: min(calc(100svh - 7rem), 58rem);
-    margin: 0;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(min(calc(100svh - 7.5rem), 52rem) - 2.5rem);
+    margin: 2.5rem 0 0;
+    justify-self: end;
   }
-  .apertura__testo { align-self: end; padding-bottom: clamp(3rem, 8vh, 6rem); max-width: 26rem; }
 }
 
 .chi__griglia { display: grid; gap: 2.5rem; }
@@ -677,25 +728,25 @@ p { text-wrap: pretty; }
 
 /* ---------- Piede: fascia bordeaux staccata dai bordi, firma grande ---------- */
 
-.piede { background: transparent; border: 0; padding: 0 0 clamp(0.5rem, 0.2rem + 1vw, 1.25rem); font-size: var(--text-small); color: var(--color-on-earth-soft); }
+.piede { background: transparent; border: 0; padding: clamp(2rem, 1rem + 3vw, 4rem) 0 clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem); font-size: var(--text-small); color: var(--color-on-earth-soft); }
 .piede__banda {
-  margin-inline: clamp(0.5rem, 0.2rem + 1vw, 1.25rem);
+  margin-inline: clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem);
   border-radius: clamp(18px, 1rem + 1vw, 28px);
   background: var(--color-bordeaux-scuro);
-  padding: clamp(2.5rem, 2rem + 3vw, 5rem) var(--gutter) 0;
+  padding: clamp(4rem, 3rem + 4vw, 7.5rem) var(--gutter) 0;
   overflow: hidden;
 }
-.piede__griglia { max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 2.5rem; }
+.piede__griglia { max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 3.5rem; }
 @media (min-width: 860px) { .piede__griglia { grid-template-columns: 2fr 1fr 1fr; } }
 .piede__titolo { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem); line-height: 1.2; color: var(--color-on-earth); margin: 0 0 1.25rem; max-width: 20ch; }
-.piede__colonna { display: flex; flex-direction: column; gap: 0.65rem; }
+.piede__colonna { display: flex; flex-direction: column; gap: 0.9rem; }
 .piede__colonna a { color: var(--color-on-earth); }
-.piede__colonna a:hover { color: var(--color-primary); }
-.piede__etichetta { margin: 0 0 0.35rem; font-weight: 600; color: var(--color-primary); }
-.piede__disclaimer, .piede__legale { max-width: var(--container-max-width); margin: 2.5rem auto 0; color: var(--color-on-earth-soft); }
+.piede__colonna a:hover { color: var(--oro-su-scuro); }
+.piede__etichetta { margin: 0 0 0.5rem; font-weight: 600; color: var(--oro-su-scuro); }
+.piede__disclaimer, .piede__legale { max-width: var(--container-max-width); margin: 4.5rem auto 0; color: var(--color-on-earth-soft); }
 .piede__legale { margin-top: 0.5rem; opacity: 0.8; }
 .piede__firma {
-  margin: clamp(2rem, 1rem + 4vw, 4rem) 0 -0.12em;
+  margin: clamp(3.5rem, 2rem + 5vw, 7rem) 0 -0.12em;
   text-align: center;
   font-family: var(--font-heading);
   font-variation-settings: "opsz" 11;
@@ -706,9 +757,17 @@ p { text-wrap: pretty; }
   color: var(--color-on-earth);
 }
 @media (min-width: 700px) { .piede__firma { white-space: nowrap; } }
-.piede__firma em { font-style: italic; font-weight: 550; color: var(--color-primary); }
+.piede__firma em { font-style: italic; font-weight: 550; color: var(--oro-su-scuro); }
 
 @media (prefers-reduced-motion: reduce) {
   .js .stacco[data-apri] { clip-path: none; transition: none; }
   .btn, .btn::before, .btn::after, .servizio, .servizio::before, .ventaglio li, .faq summary::after { transition: none; }
+}
+
+/* L'apertura è una fascia avorio con la sfumatura: il bordo si vede e il taglio della foto è voluto */
+.apertura.sfumato {
+  background:
+    radial-gradient(50% 60% at 12% 30%, rgba(246, 236, 211, 0.95), transparent 70%),
+    radial-gradient(45% 55% at 88% 70%, rgba(244, 227, 225, 0.9), transparent 70%),
+    var(--color-bg-soft);
 }

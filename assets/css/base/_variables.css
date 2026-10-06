@@ -37,6 +37,7 @@
   --color-earth: #5A1828;      /* le fasce scure: vino */
   --color-on-earth: #FBF8F3;
   --color-on-earth-soft: #E9D6D8;
+  --oro-su-scuro: #E2C68E;     /* oro più chiaro, per stare su fondo scuro */
 
   /* NEUTRAL ALIASES (for legacy selectors) */
   --color-black: var(--color-text);

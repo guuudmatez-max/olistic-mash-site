@@ -20,6 +20,7 @@ export default defineConfig({
         contatti: "contatti.html",
         stile: "stile.html",
         palette: "palette.html",
+        accostamenti: "accostamenti.html",
       },
     },
   },
