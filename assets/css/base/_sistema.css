@@ -960,8 +960,6 @@ p { text-wrap: pretty; }
     column-gap: clamp(4rem, 7vw, 8rem);
   }
   .apertura--specchio .apertura__titolo { font-size: clamp(2.6rem, 0.9rem + 2.9vw, 3.9rem); line-height: 1.04; }
-  /* su computer il bottone va a destra del link; sul telefono resta primo */
-  .apertura--specchio .apertura__azioni .btn { order: 2; }
   .apertura--specchio .apertura__titolo { align-self: start; margin-top: calc(min(calc(100svh - 7.5rem), 52rem) * 0.34); }
   /* più grande della fascia: il bordo sotto la taglia sopra i fianchi (resta visibile l'80% della foto) */
   .apertura--specchio .apertura__figura {
