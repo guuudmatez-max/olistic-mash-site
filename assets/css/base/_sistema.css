@@ -756,13 +756,13 @@ p { text-wrap: pretty; }
 .porte__guida p { font-size: var(--text-small); color: var(--color-text-soft); margin: 0 0 0.75rem; }
 .porte__figura {
   justify-self: center;
-  height: clamp(24rem, 30rem + 6vw, 40rem);
+  height: clamp(26rem, 32rem + 6vw, 46rem);
   width: auto;
   object-fit: contain;
   object-position: bottom;
   filter: var(--grado-foto);
-  /* scende dietro il piede: il bordo vino la taglia, non galleggia */
-  margin-bottom: calc(-1 * clamp(2rem, 1rem + 3vw, 4rem) - 2.5rem);
+  /* scende appena dietro il piede: il bordo vino taglia sotto le mani, non galleggia */
+  margin-bottom: calc(-1 * clamp(2rem, 1rem + 3vw, 4rem) - 1rem);
   position: relative;
   z-index: 0;
 }
@@ -954,11 +954,11 @@ p { text-wrap: pretty; }
 @media (min-width: 900px) {
   .apertura--specchio .apertura__scena {
     grid-template-areas: "figura titolo" "figura testo";
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
     grid-template-rows: auto 1fr;
   }
-  .apertura--specchio .apertura__titolo { align-self: start; margin-top: calc(min(calc(100svh - 7.5rem), 52rem) * 0.24); }
-  .apertura--specchio .apertura__figura { justify-self: start; max-height: calc(min(calc(100svh - 7.5rem), 52rem) * 0.86); }
+  .apertura--specchio .apertura__titolo { align-self: start; margin-top: calc(min(calc(100svh - 7.5rem), 52rem) * 0.17); }
+  .apertura--specchio .apertura__figura { justify-self: center; max-height: calc(min(calc(100svh - 7.5rem), 52rem) - 1.5rem); margin-top: 1.5rem; }
 }
 
 /* Timbro: un sigillo di testo in Bodoni che ruota piano tra le due foto */
