@@ -7,7 +7,7 @@ import { checkSite } from "./check-site.js";
 
 const WA = "393495463549";
 const header = `<header class="site-header"><a href="/">Home</a></header>`;
-const footer = `<footer class="site-footer"><a href="https://wa.me/${WA}?text=Ciao">WhatsApp</a></footer>`;
+const footer = `<footer class="site-footer"><a href="https://wa.me/${WA}?text=Buongiorno">WhatsApp</a></footer>`;
 const page = (body = "") => `<html><body>${header}${body}${footer}</body></html>`;
 
 function site(files) {
@@ -50,4 +50,9 @@ test("segnala header o footer assenti dall'HTML", () => {
 test("segnala un numero WhatsApp diverso da quello del file di dati", () => {
   const dir = site({ "index.html": page(`<a href="https://wa.me/393494157836?text=x">x</a>`), "chi-sono.html": page() });
   assert.deepEqual(checkSite(dir, opts), ["index.html: numero WhatsApp sbagliato 393494157836"]);
+});
+
+test("un messaggio WhatsApp non apre con «ciao»", () => {
+  const dir = site({ "index.html": page(`<a href="https://wa.me/${WA}?text=Ciao%20Giorgia">x</a>`), "chi-sono.html": page() });
+  assert.deepEqual(checkSite(dir, opts), ["index.html: messaggio WhatsApp che apre con «ciao»"]);
 });

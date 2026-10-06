@@ -23,6 +23,8 @@ export function checkSite(dir, { pages, whatsapp }) {
     for (const h of hrefs.filter((h) => h.startsWith("https://wa.me/"))) {
       const number = h.slice("https://wa.me/".length).split("?")[0];
       if (number !== whatsapp) errors.push(`${name}: numero WhatsApp sbagliato ${number}`);
+      const testo = new URL(h).searchParams.get("text") ?? "";
+      if (/^ciao\b/i.test(testo)) errors.push(`${name}: messaggio WhatsApp che apre con «ciao»`);
     }
 
     for (const h of hrefs) {

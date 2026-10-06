@@ -34,10 +34,10 @@ export function renderHeader() {
         </span>
       </button>
     </div>
-    <nav class="nav__desktop hidden md:flex items-center justify-center w-full" aria-label="Menu principale">
-      <ul class="nav__desktop-left flex items-center gap-6">${menuLinks(MENU.slice(0, 2))}</ul>
-      <a href="/" class="nav__logo mx-10"><img src="/assets/img/gold.png" alt="${escapeHtml(site.nome)}" class="nav__logo-img" /></a>
-      <ul class="nav__desktop-right flex items-center gap-6">${menuLinks(MENU.slice(2))}</ul>
+    <nav class="nav__desktop" aria-label="Menu principale">
+      <ul class="nav__desktop-left">${menuLinks(MENU.slice(0, 2))}</ul>
+      <a href="/" class="nav__logo mx-12"><img src="/assets/img/gold.png" alt="${escapeHtml(site.nome)}" class="nav__logo-img" /></a>
+      <ul class="nav__desktop-right">${menuLinks(MENU.slice(2))}</ul>
     </nav>
     <ul class="nav__links md:hidden">${menuLinks(MENU)}</ul>
   </div>

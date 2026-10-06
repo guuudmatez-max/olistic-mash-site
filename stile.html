@@ -57,12 +57,15 @@
               <h2 class="titolo-sezione">Vent'anni di pratica, <em>una persona alla volta.</em></h2>
               <p class="testo">Nel 2015 ho fondato Unity Connection, che chiamo anche La Via dell'Amore. Prima ci sono stati vent'anni di pratica e la formazione come Reiki Master.</p>
               <p class="testo">Quasi sempre si parte da qualcosa che pesa e non si sposta, anche quando intorno sembra tutto in ordine.</p>
-              <figure class="foto chi__foto-piccola">
-                <img
-                  src="/assets/img/foto/giorgia-studio-ritratto-800.webp"
-                  width="800" height="1200" loading="lazy"
-                  alt="Ritratto di Giorgia in studio, sguardo diretto"
-                />
+              <figure class="foto-con-didascalia chi__foto-piccola">
+                <div class="foto" style="aspect-ratio: 3 / 4">
+                  <img
+                    src="/assets/img/foto/giorgia-libro-lettura-800.webp"
+                    width="800" height="1100" loading="lazy"
+                    alt="Giorgia legge al microfono un passo del suo libro durante la presentazione"
+                  />
+                </div>
+                <figcaption>La presentazione di «12 Passi per Amore».</figcaption>
               </figure>
             </div>
           </div>
@@ -80,6 +83,28 @@
           <figcaption class="stacco__frase">Il primo passo è piccolo: un incontro.</figcaption>
         </figure>
 
+        <!-- LE DUE STRADE -->
+        <section class="sezione">
+          <div class="contenitore">
+            <hr class="filetto" />
+            <h2 class="titolo-sezione">Da sola, <em>o in gruppo</em></h2>
+            <div class="strade">
+              <article class="strada">
+                <figure class="foto"><img src="/assets/img/foto/giorgia-parco-scialle-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia nel parco con uno scialle rosa, sorridente" style="object-position: 50% 20%" /></figure>
+                <h3>Consulenze individuali</h3>
+                <p>Una persona alla volta, più a fondo. In presenza o online.</p>
+                <a class="link" href="/consulenze-unity.html">Come funzionano</a>
+              </article>
+              <article class="strada">
+                <figure class="foto"><img src="/assets/img/foto/armonizzazione-gruppo-800.webp" width="800" height="1200" loading="lazy" alt="Un momento di un'Armonizzazione di Gruppo: persone sedute a terra in cerchio" style="object-position: 50% 40%" /></figure>
+                <h3>Armonizzazioni di Gruppo</h3>
+                <p>Un pomeriggio in un piccolo gruppo, più immediato e sostenuto.</p>
+                <a class="link" href="/eventi-gruppi.html">Le prossime date</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <!-- PREZZI -->
         <section class="sezione" id="prezzi">
           <div class="contenitore">
@@ -90,18 +115,20 @@
             <ul class="listino">
               <li class="listino__voce">
                 <h3 class="listino__nome">{{ mappatura.nome }}</h3>
-                <p class="listino__cifra">{{ mappatura.presenza.prezzo }}</p>
+                <p class="listino__prezzi"><s class="listino__invece" aria-label="invece di {{ sedutaSingola.prezzo }}">{{ sedutaSingola.prezzo }}</s><span class="listino__cifra">{{ mappatura.presenza.prezzo }}</span></p>
+                <p class="listino__risparmio">Il primo incontro costa il 20% in meno di una seduta.</p>
                 <p class="listino__nota">In presenza, {{ mappatura.presenza.durata }}. Online {{ mappatura.online.prezzo }}, {{ mappatura.online.durata }}. È una seduta come le altre: si lavora già.</p>
               </li>
               <li class="listino__voce">
                 <h3 class="listino__nome">{{ percorso.nome }}</h3>
-                <p class="listino__cifra">{{ percorso.prezzo }}</p>
+                <p class="listino__prezzi"><s class="listino__invece" aria-label="invece di {{ percorso.valoreSingole }}">{{ percorso.valoreSingole }}</s><span class="listino__cifra">{{ percorso.prezzo }}</span></p>
+                <p class="listino__risparmio">Cinque sedute prese una per una costano {{ percorso.valoreSingole }}.</p>
                 <p class="listino__nota">Prezzo unico, {{ percorso.incontri }}. Comprende il primo incontro, la risposta ai messaggi tra un incontro e l'altro e i controlli lungo la strada.</p>
                 <p class="listino__consiglio">La strada che consiglio quando senti che serve andare a fondo.</p>
               </li>
               <li class="listino__voce">
                 <h3 class="listino__nome">{{ sedutaSingola.nome }}</h3>
-                <p class="listino__cifra">{{ sedutaSingola.prezzo }}</p>
+                <p class="listino__prezzi"><span class="listino__cifra">{{ sedutaSingola.prezzo }}</span></p>
                 <p class="listino__nota">Per un tema preciso, senza impegno successivo.</p>
               </li>
             </ul>
@@ -195,9 +222,9 @@
           <div class="contenitore">
             <hr class="filetto" />
             <h2 class="titolo-sezione">I due filoni di foto</h2>
-            <p class="testo-lead">Professionale in apertura e dove si decide; sacerdotessa e tramonto in profondità e negli stacchi.</p>
+            <p class="testo-lead">Professionale in apertura e dove si decide; sacerdotessa e tramonto in profondità e negli stacchi; la presentazione del libro come prova di fiducia.</p>
             <div class="filoni">
-              <figure class="foto"><img src="/assets/img/foto/giorgia-studio-ciondolo-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia in studio con abito bianco e ciondolo dorato" /></figure>
+              <figure class="foto"><img src="/assets/img/foto/giorgia-presentazione-sorriso-800.webp" width="800" height="1000" loading="lazy" alt="Giorgia sorride in piedi davanti al pubblico della presentazione del libro" /></figure>
               <figure class="foto"><img src="/assets/img/foto/giorgia-lago-scialle-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia sulla riva del lago con scialle rosso, luce calda" /></figure>
               <figure class="foto"><img src="/assets/img/foto/giorgia-tramonto-profilo-800.webp" width="800" height="1200" loading="lazy" alt="Giorgia di profilo controluce al tramonto" /></figure>
             </div>
@@ -206,12 +233,13 @@
 
         <figure class="stacco" data-apri>
           <img
-            src="/assets/img/foto/sentiero-1200.webp"
-            srcset="/assets/img/foto/sentiero-1200.webp 1200w, /assets/img/foto/sentiero-2400.webp 2400w"
+            src="/assets/img/foto/presentazione-libro-palco-1200.webp"
+            srcset="/assets/img/foto/presentazione-libro-palco-1200.webp 1200w, /assets/img/foto/presentazione-libro-palco-2400.webp 2400w"
             sizes="100vw"
             width="1200" height="800" loading="lazy"
-            alt="Giorgia cammina su un sentiero di campagna con uno scialle rosso"
+            alt="Una sala piena durante la presentazione del libro di Giorgia, «12 Passi per Amore» proiettato sullo schermo"
           />
+          <figcaption class="stacco__frase">La presentazione di «12 Passi per Amore», sala piena.</figcaption>
         </figure>
       </main>
 

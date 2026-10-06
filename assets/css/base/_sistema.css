@@ -29,6 +29,14 @@ body {
   border-radius: 6px;
 }
 
+/* Bodoni con l'ottica «testo» (opsz 11): filetti più spessi, si legge meglio a schermo */
+h1, h2, h3,
+.prezzo__nome, .listino__nome, .listino__cifra, .listino__consiglio,
+.citazione blockquote, .stacco__frase {
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 11;
+}
+
 h1, h2, h3 {
   font-family: var(--font-heading);
   font-weight: 500;
@@ -41,9 +49,9 @@ p { text-wrap: pretty; }
 
 .titolo-display {
   font-size: var(--text-display);
-  line-height: 1.02;
+  line-height: 1.06;
   font-weight: 500;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
@@ -61,6 +69,7 @@ p { text-wrap: pretty; }
 }
 
 .titolo-pezzo {
+  font-weight: 600;
   font-size: var(--text-h3);
   line-height: 1.2;
   margin: 0 0 0.75rem;
@@ -142,22 +151,52 @@ p { text-wrap: pretty; }
   pointer-events: none;
 }
 
-/* Oro pieno, testo terra: l'azione principale, una per schermata */
+/* Oro pieno, testo terra: l'azione principale, una per schermata.
+   Al passaggio del mouse un riflesso dorato attraversa il bottone, una volta. */
 .btn-primary {
-  background: var(--color-primary);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, #DDB874 0%, #C9A15C 55%, #B98F48 100%);
   color: var(--color-earth);
-  box-shadow: 0 1px 1px rgba(47, 36, 23, 0.12), 0 10px 24px -12px rgba(162, 124, 53, 0.7);
+  font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255, 244, 214, 0.65),
+              inset 0 -1px 0 rgba(122, 90, 32, 0.35),
+              0 1px 2px rgba(47, 36, 23, 0.18),
+              0 12px 26px -12px rgba(162, 124, 53, 0.85);
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: -20% auto -20% -60%;
+  width: 45%;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(255, 248, 225, 0) 0%, rgba(255, 248, 225, 0.85) 50%, rgba(255, 248, 225, 0) 100%);
+  transform: translateX(0) skewX(-18deg);
+  pointer-events: none;
+}
+.btn-primary:hover::after,
+.btn-primary:focus-visible::after {
+  animation: bagliore 900ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-primary:hover {
-  background: #D4AE6B;
-  box-shadow: 0 1px 1px rgba(47, 36, 23, 0.12), 0 16px 30px -12px rgba(162, 124, 53, 0.8);
+  box-shadow: inset 0 1px 0 rgba(255, 244, 214, 0.75),
+              inset 0 -1px 0 rgba(122, 90, 32, 0.35),
+              0 1px 2px rgba(47, 36, 23, 0.18),
+              0 18px 34px -12px rgba(162, 124, 53, 0.95);
+  transform: translateY(-1px);
+}
+@keyframes bagliore {
+  from { transform: translateX(0) skewX(-18deg); }
+  to   { transform: translateX(420%) skewX(-18deg); }
 }
 
 /* Contorno: l'alternativa calma accanto alla principale */
 .btn-secondary {
   background: transparent;
   color: var(--color-text);
-  border-color: var(--color-text);
+  border-color: var(--color-gold-ink);
+  font-weight: 600;
 }
 .btn-secondary:hover {
   background: var(--color-earth);
@@ -203,6 +242,7 @@ p { text-wrap: pretty; }
 
 .listino__nome {
   font-family: var(--font-heading);
+  font-weight: 600;
   font-size: var(--text-h3);
   line-height: 1.2;
   margin: 0;
@@ -216,6 +256,28 @@ p { text-wrap: pretty; }
   font-variant-numeric: lining-nums;
   margin: 0;
   color: var(--color-text);
+}
+
+.listino__prezzi { display: flex; align-items: baseline; gap: 0.75rem; justify-self: end; }
+
+/* Il prezzo di riferimento, barrato: fa vedere quanto si risparmia senza dirlo a voce alta */
+.listino__invece {
+  font-family: var(--font-heading);
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 11;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.45rem);
+  color: var(--color-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 1.5px;
+}
+
+.listino__risparmio {
+  grid-column: 1 / -1;
+  margin: 0.15rem 0 0.25rem;
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-gold-ink);
 }
 
 .listino__nota {
@@ -271,10 +333,8 @@ p { text-wrap: pretty; }
 
 .testimonianza blockquote {
   margin: 0;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.45;
+  font-size: 1.0625rem;
+  line-height: 1.65;
   color: var(--color-text);
 }
 
@@ -308,9 +368,9 @@ p { text-wrap: pretty; }
   align-items: flex-start;
   gap: 1.5rem;
   padding: 1.4rem 0;
-  font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
-  line-height: 1.3;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
   color: var(--color-text);
 }
 .faq summary::-webkit-details-marker { display: none; }
@@ -372,7 +432,10 @@ p { text-wrap: pretty; }
 /* ---------- Le due porte (fascia terra) ---------- */
 
 .porte {
-  background: var(--color-earth);
+  background:
+    linear-gradient(rgba(47, 36, 23, 0.86), rgba(47, 36, 23, 0.93)),
+    url("/assets/img/foto/sfondo-bagliore-oro-1200.webp") center / cover,
+    var(--color-earth);
   color: var(--color-on-earth);
 }
 
@@ -497,6 +560,7 @@ p { text-wrap: pretty; }
 .js .stacco[data-apri].aperto { clip-path: inset(0 0 round 0); }
 
 @media (prefers-reduced-motion: reduce) {
+  .btn-primary:hover::after, .btn-primary:focus-visible::after { animation: none; }
   .js .stacco[data-apri] { clip-path: none; transition: none; }
   .faq summary::after, .btn { transition: none; }
 }
@@ -526,7 +590,7 @@ p { text-wrap: pretty; }
 .apertura__testo .testo-lead { order: 3; margin: 1.5rem 0 0; }
 
 /* Mobile: la foto viene prima e prende la scena */
-.apertura__foto { order: -1; aspect-ratio: 4 / 5; max-height: 50svh; width: 100%; margin: 0; }
+.apertura__foto { order: -1; aspect-ratio: 4 / 5; max-height: 44svh; width: 100%; margin: 0; }
 .apertura__foto img { object-position: 50% 18%; }
 
 .apertura__azioni {
@@ -564,3 +628,22 @@ p { text-wrap: pretty; }
 }
 .filoni .foto { aspect-ratio: 3 / 4; margin: 0; }
 @media (min-width: 900px) { .filoni { gap: 1.5rem; } }
+
+/* Didascalia sotto una foto, come in rivista */
+.foto-con-didascalia { margin-block: 0; }
+.chi__foto-piccola.foto-con-didascalia { margin: 2.5rem 0 0 auto; }
+.foto-con-didascalia figcaption {
+  margin-top: 0.75rem;
+  font-size: var(--text-label);
+  color: var(--color-muted);
+  letter-spacing: 0.01em;
+}
+
+/* Le due strade: consulenze e gruppo, ognuna con la sua foto */
+.strade { display: grid; gap: 1.5rem; margin-top: 3rem; }
+@media (min-width: 860px) { .strade { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.strada { display: flex; flex-direction: column; gap: 1rem; }
+.strada .foto { aspect-ratio: 4 / 3; margin: 0; }
+.strada h3 { margin: 0.5rem 0 0; font-size: var(--text-h3); }
+.strada p { margin: 0; color: var(--color-text-soft); max-width: 40ch; }
+.strada .link { margin-top: 0.25rem; align-self: flex-start; }

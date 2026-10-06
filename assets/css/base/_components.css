@@ -152,7 +152,7 @@
 
 @media (min-width: 768px) {
   .nav__logo-img {
-    height: 32px;
+    height: 44px;
   }
 }
 
@@ -200,14 +200,18 @@
 }
 
 /* Desktop nav: centered global layout */
+/* Logo esattamente al centro: due colonne uguali ai lati */
 .nav__desktop {
-  @apply hidden md:flex items-center justify-center w-full;
+  @apply hidden md:grid items-center w-full;
+  grid-template-columns: 1fr auto 1fr;
 }
 
 .nav__desktop-left,
 .nav__desktop-right {
-  @apply flex items-center gap-6;
+  @apply flex items-center gap-8;
 }
+.nav__desktop-left { justify-content: flex-end; }
+.nav__desktop-right { justify-content: flex-start; }
 
 /* Logo size */
 .nav__logo-img {

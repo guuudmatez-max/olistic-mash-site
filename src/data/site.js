@@ -36,6 +36,8 @@ export const site = {
     nome: "Percorso",
     prezzo: "600 €",
     incontri: "di solito 4-5 incontri",
+    // Cinque sedute singole prese una per una (5 × 140 €): il confronto mostrato accanto al prezzo
+    valoreSingole: "700 €",
   },
   sedutaSingola: {
     nome: "Seduta singola",
@@ -55,8 +57,8 @@ export const site = {
   // Messaggi precompilati di WhatsApp: nelle pagine un link con
   // data-wa-key="consulenze" apre WhatsApp con il messaggio "consulenze".
   messaggiWhatsapp: {
-    generico: "Ciao Giorgia, ti scrivo dal sito. Vorrei qualche informazione.",
-    consulenze: "Ciao Giorgia, ti scrivo dal sito. Vorrei informazioni sulle consulenze individuali.",
-    armonizzazioni: "Ciao Giorgia, ti scrivo dal sito. Vorrei informazioni sulle Armonizzazioni di Gruppo.",
+    generico: "Buongiorno Giorgia, ti scrivo dal sito. Vorrei qualche informazione.",
+    consulenze: "Buongiorno Giorgia, ti scrivo dal sito. Vorrei informazioni sulle consulenze individuali.",
+    armonizzazioni: "Buongiorno Giorgia, ti scrivo dal sito. Vorrei informazioni sulle Armonizzazioni di Gruppo.",
   },
 };
