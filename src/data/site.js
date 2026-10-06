@@ -20,7 +20,19 @@ export const site = {
     url: "https://www.amazon.it/12-passi-Amore-trasformare-opportunit%C3%A0/dp/B0FCXZV42R",
   },
 
-  schedaGoogle: "https://share.google/QAlK9P82l5Ha89t4s",
+  // Scheda Google (anche per le recensioni)
+  schedaGoogle: "https://share.google/GOnwBlaUq2f0BB9we",
+
+  // Profili social: compaiono come icone nel piede, in quest'ordine
+  social: [
+    { nome: "Instagram", icona: "siInstagram", url: "https://www.instagram.com/giorgiaboccadifuoco/" },
+    { nome: "Facebook", icona: "siFacebook", url: "https://www.facebook.com/giorgiaboccadifuoco/" },
+    { nome: "YouTube", icona: "siYoutube", url: "https://www.youtube.com/@giorgiaboccadifuoco" },
+    { nome: "TikTok", icona: "siTiktok", url: "https://www.tiktok.com/@giorgiaboccadifuo" },
+    { nome: "Telegram", icona: "siTelegram", url: "https://t.me/giorgiaboccadifuoco" },
+    { nome: "SoundCloud", icona: "siSoundcloud", url: "https://soundcloud.com/giorgia-boccadifuoco" },
+    { nome: "Recensioni su Google", icona: "siGooglemaps", url: "https://share.google/GOnwBlaUq2f0BB9we" },
+  ],
 
   privacy: "https://www.iubenda.com/privacy-policy/12385559/full-legal",
   cookie: "https://www.iubenda.com/privacy-policy/12385559/cookie-policy",

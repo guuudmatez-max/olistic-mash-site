@@ -124,34 +124,46 @@ function initStacchi() {
 // INVITO ALLA GUIDA: compare una volta, quando si arriva a metà pagina
 // ----------------------------
 function initInvitoGuida() {
-  const invito = document.querySelector(".invito-guida");
+  const invito = document.querySelector("dialog.invito-guida");
   const punto = document.querySelector("[data-invito-guida]");
-  if (!invito || !punto || !("IntersectionObserver" in window)) return;
+  if (!invito || !punto || !("IntersectionObserver" in window) || !invito.showModal) return;
   let giaVisto = false;
   try { giaVisto = sessionStorage.getItem("invito-guida") === "visto"; } catch {}
   if (giaVisto) return;
 
-  const chiudi = () => {
-    invito.classList.remove("visibile");
-    setTimeout(() => { invito.hidden = true; }, 520);
-    try { sessionStorage.setItem("invito-guida", "visto"); } catch {}
-  };
-  invito.querySelector(".invito-guida__chiudi")?.addEventListener("click", chiudi);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !invito.hidden) chiudi(); });
+  invito.querySelector(".invito-guida__chiudi")?.addEventListener("click", () => invito.close());
+  // tocco fuori dalla finestra: chiude
+  invito.addEventListener("click", (e) => { if (e.target === invito) invito.close(); });
 
   const io = new IntersectionObserver((entries) => {
     if (!entries.some((e) => e.isIntersecting)) return;
     io.disconnect();
-    invito.hidden = false;
-    requestAnimationFrame(() => requestAnimationFrame(() => invito.classList.add("visibile")));
+    invito.showModal();
     try { sessionStorage.setItem("invito-guida", "visto"); } catch {}
   });
   io.observe(punto);
 }
 
+// ----------------------------
+// MENU: «Servizi» si apre anche con il tocco e con la tastiera
+// ----------------------------
+function initMenuServizi() {
+  document.querySelectorAll(".nav__gruppo").forEach((gruppo) => {
+    const bottone = gruppo.querySelector(".nav__apri");
+    const chiudi = () => { gruppo.classList.remove("aperto"); bottone.setAttribute("aria-expanded", "false"); };
+    bottone.addEventListener("click", () => {
+      const aperto = gruppo.classList.toggle("aperto");
+      bottone.setAttribute("aria-expanded", String(aperto));
+    });
+    document.addEventListener("click", (e) => { if (!gruppo.contains(e.target)) chiudi(); });
+    gruppo.addEventListener("keydown", (e) => { if (e.key === "Escape") { chiudi(); bottone.focus(); } });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initStacchi();
   initInvitoGuida();
+  initMenuServizi();
   initMobileNav();
   initTestimonialCarousels();
   initLazyVideos();

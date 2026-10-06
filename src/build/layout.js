@@ -1,13 +1,22 @@
 // Parti comuni generate al build (header, footer, date delle Armonizzazioni, link
 // WhatsApp, valori del file di dati): finiscono già scritte nell'HTML, senza JavaScript.
 import { site } from "../data/site.js";
+import * as icone from "simple-icons";
 
+// Le pagine principali (piede, mappa del sito)
 const MENU = [
   { label: "Home", href: "/" },
   { label: "Chi sono", href: "/chi-sono.html" },
   { label: "Consulenze Individuali", href: "/consulenze-unity.html" },
   { label: "Armonizzazioni di Gruppo", href: "/eventi-gruppi.html" },
 ];
+
+// Il menu in alto: quattro voci, «Servizi» apre le due pagine dei servizi
+const SERVIZI = MENU.slice(2);
+const voceServizi = `<li class="nav__gruppo">
+  <button class="nav__link nav__apri" type="button" aria-expanded="false" aria-haspopup="true">Servizi</button>
+  <ul class="nav__sotto">${SERVIZI.map((l) => `<li><a class="nav__link" href="${l.href}">${l.label}</a></li>`).join("")}</ul>
+</li>`;
 
 const MESI = ["gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
 
@@ -37,9 +46,9 @@ export function renderHeader() {
     <nav class="nav__desktop" aria-label="Menu principale">
       <ul class="nav__desktop-left">${menuLinks(MENU.slice(0, 2))}</ul>
       <a href="/" class="nav__logo mx-12"><img src="/assets/img/gold.png" alt="${escapeHtml(site.nome)}" class="nav__logo-img" /></a>
-      <ul class="nav__desktop-right">${menuLinks(MENU.slice(2))}</ul>
+      <ul class="nav__desktop-right">${voceServizi}${menuLinks([{ label: "Contatti", href: "/contatti.html" }])}</ul>
     </nav>
-    <ul class="nav__links md:hidden">${menuLinks(MENU)}</ul>
+    <ul class="nav__links md:hidden">${menuLinks(MENU.slice(0, 2))}<li class="nav__etichetta-mobile">Servizi</li>${menuLinks(SERVIZI)}${menuLinks([{ label: "Contatti", href: "/contatti.html" }])}</ul>
   </div>
 </header>`;
 }
@@ -73,6 +82,15 @@ export function renderFooter() {
         ${site.sedeLegale ? `<p>${escapeHtml(site.sedeLegale)}</p>` : ""}
         <p>© ${year}</p>
       </div>
+    </div>
+    <div class="piede__social" aria-label="Profili social">
+      ${site.social
+        .map((p) => {
+          const i = icone[p.icona];
+          if (!i) throw new Error(`Icona sconosciuta: ${p.icona} (vedi simple-icons)`);
+          return `<a href="${p.url}" ${esterno} aria-label="${escapeHtml(p.nome)}" title="${escapeHtml(p.nome)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${i.path}"/></svg></a>`;
+        })
+        .join("")}
     </div>
     <p class="piede__firma" aria-hidden="true">Giorgia <em>Boccadifuoco</em></p>
   </div>

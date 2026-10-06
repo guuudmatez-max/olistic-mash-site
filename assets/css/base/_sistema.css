@@ -133,8 +133,8 @@ p { text-wrap: pretty; }
 .btn {
   --cerchio: 2.15rem;
   --fondo-btn: #FFFFFF;
-  --filo-btn: rgba(46, 47, 51, 0.16);
-  --tinta-btn: #F8EEF0;
+  --filo-btn: rgba(142, 66, 88, 0.4);
+  --tinta-btn: var(--tinta-cipria);
   --freccia-btn: var(--color-bordeaux);
   --curva: cubic-bezier(0.65, 0, 0.35, 1);
   position: relative;
@@ -151,7 +151,7 @@ p { text-wrap: pretty; }
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 0.975rem;
-  font-weight: 500;
+  font-weight: 550;
   line-height: 1.2;
   text-align: left;
   cursor: pointer;
@@ -188,8 +188,20 @@ p { text-wrap: pretty; }
 
 .btn[aria-disabled="true"], .btn:disabled { opacity: 0.45; pointer-events: none; }
 
-.btn-primary { --tinta-btn: #FBF4E4; --filo-btn: rgba(201, 161, 92, 0.55); --freccia-btn: var(--color-gold-ink); }
-.btn-secondary { --tinta-btn: #F8EEF0; --filo-btn: rgba(142, 66, 88, 0.3); }
+.btn-primary { --tinta-btn: var(--tinta-oro); --filo-btn: rgba(138, 101, 38, 0.45); --freccia-btn: var(--color-gold-ink); }
+.btn-secondary { --tinta-btn: var(--tinta-cipria); }
+
+/* Bottone fine: sopra le foto, solo un filo bianco leggero */
+.btn-fine {
+  --fondo-btn: rgba(255, 255, 255, 0.08);
+  --filo-btn: rgba(255, 255, 255, 0.55);
+  --tinta-btn: #FFFFFF;
+  --freccia-btn: #FFFFFF;
+  color: #FFFFFF;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+}
+.btn-fine:is(:hover, :focus-visible) { color: var(--color-text); --freccia-btn: var(--color-bordeaux); }
 
 /* Su fondo scuro: vetro chiaro; al passaggio diventa bianco, testo scuro */
 .btn-chiaro {
@@ -374,7 +386,7 @@ p { text-wrap: pretty; }
   transition: transform 420ms cubic-bezier(0.65, 0, 0.35, 1), box-shadow 420ms ease;
 }
 .t-card__testa { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.6rem; }
-.t-card__virgolette { width: 2.6rem; height: auto; }
+.t-card__virgolette { width: 2.8rem; height: auto; }
 .t-card__virgolette path { stroke: var(--color-gold-ink); }
 .t-card__virgolette .ombra { stroke-opacity: 0.45; }
 .t-card__luogo {
@@ -431,12 +443,15 @@ p { text-wrap: pretty; }
   height: 0.95rem;
   border-radius: 50%;
   border: 2px solid #FFFFFF;
-  background: var(--color-bordeaux) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.6rem no-repeat;
+  background: #1D9BF0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.6rem no-repeat;
 }
 
-.t-card.v-oro { background: var(--tinta-oro); }
-.t-card.v-cipria { background: var(--tinta-cipria); }
-.t-card.v-avorio { background: var(--color-bg-soft); }
+/* Sei tinte diverse per chiarezza e saturazione, così le card si staccano tra loro */
+.t-card.v-1 { background: #F6F1E9; }
+.t-card.v-2 { background: #F0DCAA; }
+.t-card.v-3 { background: #EDCDD6; }
+.t-card.v-5 { background: #F8E9C8; }
+.t-card.v-6 { background: #E5D6DD; }
 .t-card.v-scura { background: var(--color-bordeaux); color: #FFFFFF; }
 .t-card.v-scura .t-card__virgolette path { stroke: var(--oro-su-scuro); }
 .t-card.v-scura .t-card__luogo { background: rgba(255, 255, 255, 0.92); }
@@ -445,7 +460,7 @@ p { text-wrap: pretty; }
 
 @media (min-width: 900px) {
   .ventaglio {
-    --passo: clamp(7rem, 10.5vw, 11.5rem);
+    --passo: clamp(5.5rem, 8vw, 9rem);
     position: relative;
     overflow: visible;
     height: 29rem;
@@ -593,7 +608,7 @@ p { text-wrap: pretty; }
 .porte .testo-lead { color: var(--color-text-soft); }
 
 .porte__griglia { display: grid; gap: 1rem; margin-top: 3rem; }
-@media (min-width: 900px) { .porte__griglia { grid-template-columns: 1.55fr 1fr; gap: 1.25rem; align-items: stretch; } }
+@media (min-width: 900px) { .porte__griglia { grid-template-columns: 1.55fr 1fr; gap: 1.25rem; align-items: end; } }
 
 .porta {
   border-radius: 20px;
@@ -606,36 +621,38 @@ p { text-wrap: pretty; }
 .porta p { color: var(--color-text-soft); margin: 0 0 0.5rem; }
 .porta .btn { align-self: flex-start; }
 
-/* La porta principale: WhatsApp, piena, con Giorgia */
+/* La porta principale: WhatsApp, chiara e grande, con Giorgia che esce dalla scheda con la testa */
 .porta--principale {
   position: relative;
-  overflow: hidden;
   min-height: 22rem;
-  background: var(--color-bordeaux);
-  color: #FFFFFF;
+  margin-top: 3.5rem;
+  background: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 30px 60px -36px rgba(46, 47, 51, 0.45);
   flex-direction: row;
-  align-items: flex-end;
-  padding-right: 0;
+  align-items: center;
 }
-.porta--principale .porta__corpo { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 0.75rem; max-width: 22rem; align-self: center; }
-.porta--principale h3 { color: #FFFFFF; font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem); line-height: 1.05; }
-.porta--principale p { color: rgba(255, 255, 255, 0.85); }
+.porta--principale .porta__corpo { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 0.75rem; max-width: 21rem; }
+.porta--principale h3 { font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem); line-height: 1.05; }
 .porta--principale .btn { margin-top: 0.75rem; }
 .porta__figura {
   position: absolute;
-  right: 0;
+  right: 1rem;
   bottom: 0;
-  height: 108%;
+  height: calc(100% + 3.5rem);
   width: auto;
-  max-width: 55%;
+  max-width: 50%;
   object-fit: contain;
   object-position: right bottom;
   filter: var(--grado-foto);
+  pointer-events: none;
 }
-@media (max-width: 600px) { .porta__figura { opacity: 0.25; } }
+@media (max-width: 600px) {
+  .porta--principale { flex-direction: column; align-items: flex-start; padding-bottom: 0; margin-top: 4.5rem; }
+  .porta__figura { position: relative; right: auto; height: 17rem; max-width: none; align-self: flex-end; margin-top: -4rem; }
+}
 
 /* La porta leggera: la guida, chiara e quieta */
-.porta--leggera { background: rgba(255, 255, 255, 0.7); }
+.porta--leggera { background: transparent; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.25); }
 .porta--leggera h3 { font-size: 1.4rem; }
 .porta--leggera form { margin-top: auto; }
 
@@ -762,6 +779,8 @@ p { text-wrap: pretty; }
 .apertura {
   position: relative;
   overflow: hidden;
+  margin: var(--margine-banda) var(--margine-banda) 0;
+  border-radius: clamp(18px, 1rem + 1vw, 28px);
 }
 
 .apertura__scena {
@@ -819,29 +838,31 @@ p { text-wrap: pretty; }
   .chi__testo { padding-top: 4rem; }
 }
 
-/* ---------- Invito alla guida: compare una volta a metà pagina, si chiude ---------- */
+/* ---------- Invito alla guida: finestra centrale di media misura, una volta a metà pagina ---------- */
 
 .invito-guida {
-  position: fixed;
-  z-index: 40;
-  right: clamp(0.75rem, 2vw, 1.5rem);
-  bottom: clamp(0.75rem, 2vw, 1.5rem);
-  width: min(calc(100vw - 1.5rem), 24rem);
-  padding: 1.5rem 1.5rem 1.25rem;
-  border-radius: 22px;
+  width: min(calc(100vw - 2rem), 30rem);
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
   background: #FFFFFF;
-  box-shadow: 0 2px 6px rgba(46, 47, 51, 0.08), 0 30px 60px -24px rgba(46, 47, 51, 0.45);
-  transform: translateY(calc(100% + 2rem));
+  color: var(--color-text);
+  box-shadow: 0 2px 6px rgba(46, 47, 51, 0.08), 0 40px 80px -30px rgba(46, 47, 51, 0.5);
   opacity: 0;
-  transition: transform 520ms cubic-bezier(0.65, 0, 0.35, 1), opacity 300ms ease;
+  transform: translateY(16px) scale(0.98);
+  transition: opacity 360ms cubic-bezier(0.65, 0, 0.35, 1), transform 420ms cubic-bezier(0.65, 0, 0.35, 1),
+              overlay 420ms allow-discrete, display 420ms allow-discrete;
 }
-.invito-guida.visibile { transform: none; opacity: 1; }
+.invito-guida[open] { opacity: 1; transform: none; }
+.invito-guida__corpo { position: relative; padding: 2.25rem 2rem 1.75rem; }
+@starting-style { .invito-guida[open] { opacity: 0; transform: translateY(16px) scale(0.98); } }
+.invito-guida::backdrop { background: rgba(46, 47, 51, 0.28); backdrop-filter: blur(2px); }
 .invito-guida__chiudi {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  width: 2rem;
-  height: 2rem;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 2.2rem;
+  height: 2.2rem;
   border: 0;
   border-radius: 50%;
   background: var(--color-bg-soft);
@@ -851,9 +872,48 @@ p { text-wrap: pretty; }
   cursor: pointer;
 }
 .invito-guida__chiudi svg { width: 0.8rem; height: 0.8rem; }
-.invito-guida__titolo { margin: 0 2rem 0.4rem 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: 1.45rem; line-height: 1.15; }
+.invito-guida__titolo { margin: 0 2rem 0.5rem 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: 1.8rem; line-height: 1.12; }
 .invito-guida__titolo em { font-style: italic; font-weight: 550; color: var(--color-gold-ink); }
-.invito-guida__testo { margin: 0 0 1rem; color: var(--color-text-soft); font-size: var(--text-small); }
+.invito-guida__testo { margin: 0 0 1.25rem; color: var(--color-text-soft); }
+
+/* ---------- Menu: «Servizi» apre le due pagine ---------- */
+
+.nav__gruppo { position: relative; }
+.nav__apri { display: inline-flex; align-items: center; gap: 0.4rem; background: none; border: 0; font: inherit; cursor: pointer; }
+.nav__apri::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.25px solid currentColor;
+  border-bottom: 1.25px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 300ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.nav__sotto {
+  list-style: none;
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 50%;
+  min-width: 15rem;
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(46, 47, 51, 0.06), 0 24px 48px -24px rgba(46, 47, 51, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -6px);
+  transition: opacity 260ms ease, transform 300ms cubic-bezier(0.65, 0, 0.35, 1), visibility 0s 300ms;
+  z-index: 30;
+}
+.nav__sotto::before { content: ""; position: absolute; inset: -0.75rem 0 auto; height: 0.75rem; }
+.nav__sotto .nav__link { display: block; padding: 0.65rem 0.9rem; border-radius: 10px; white-space: nowrap; }
+.nav__sotto .nav__link:hover { background: var(--color-bg-soft); }
+.nav__gruppo:is(:hover, :focus-within) .nav__sotto,
+.nav__gruppo.aperto .nav__sotto { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition-delay: 0s; }
+.nav__gruppo:is(:hover, :focus-within) .nav__apri::after,
+.nav__gruppo.aperto .nav__apri::after { transform: translateY(1px) rotate(225deg); }
+.nav__etichetta-mobile { padding: 0.75rem 0 0.25rem; font-size: var(--text-label); font-weight: 600; color: var(--color-gold-ink); }
 
 /* ---------- Piede: fascia bordeaux staccata dai bordi, firma grande ---------- */
 
@@ -874,6 +934,19 @@ p { text-wrap: pretty; }
 .piede__etichetta { margin: 0 0 0.5rem; font-weight: 600; color: var(--oro-su-scuro); }
 .piede__dati { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem 1.4rem; border-radius: 16px; background: rgba(255, 255, 255, 0.06); align-self: start; }
 .piede__dati p { margin: 0; color: var(--color-on-earth-soft); }
+.piede__social { max-width: var(--container-max-width); margin: 3.5rem auto 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.piede__social a {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--color-on-earth);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+.piede__social a:hover { background: var(--oro-su-scuro); color: var(--color-bordeaux-scuro); }
+.piede__social svg { width: 1.05rem; height: 1.05rem; fill: currentColor; }
 .piede__disclaimer { margin: 1.75rem 0 0; max-width: 34ch; color: var(--color-on-earth-soft); font-size: var(--text-label); }
 .piede__firma {
   margin: clamp(3.5rem, 2rem + 5vw, 7rem) 0 -0.12em;
@@ -891,7 +964,7 @@ p { text-wrap: pretty; }
 
 @media (prefers-reduced-motion: reduce) {
   .js .stacco[data-apri] { clip-path: none; transition: none; }
-  .btn, .btn::before, .btn::after, .servizio, .servizio::before, .t-card, .faq summary::after, .invito-guida { transition: none; }
+  .btn, .btn::before, .btn::after, .servizio, .servizio::before, .t-card, .faq summary::after, .invito-guida, .nav__sotto { transition: none; }
 }
 
 /* L'apertura è una fascia avorio con la sfumatura: il bordo si vede e il taglio della foto è voluto */
