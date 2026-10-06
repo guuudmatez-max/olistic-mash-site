@@ -947,8 +947,32 @@ p { text-wrap: pretty; }
   }
 }
 
-.chi__griglia { display: grid; gap: 2.5rem; }
-.chi__sinistra { position: relative; }
+/* Chi sono: collage a sinistra (due foto sfalsate, riquadro con gli anni, timbro), testo a destra */
+.chi__griglia { display: grid; gap: 3rem; align-items: center; }
+.chi__collage { position: relative; height: clamp(28rem, 22rem + 18vw, 38rem); }
+.chi__foto { position: absolute; margin: 0; aspect-ratio: 4 / 5; }
+.chi__foto--a { left: 0; top: 18%; width: 46%; }
+.chi__foto--b { right: 0; top: 30%; width: 50%; }
+.chi__numero { position: absolute; z-index: 2; top: 0; left: 46%; }
+.chi__collage .timbro { left: 30%; bottom: -1.5rem; }
+.chi__testo { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.chi__testo .titolo-sezione { margin: 0; }
+.chi__testo .testo + .testo { margin-top: 0; }
+.chi__testo .btn { margin-top: 0.75rem; }
+
+/* Riquadro bianco con un numero in Bodoni: fatti veri, mai cifre inventate */
+.scheda-numero {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 0.9rem 1.2rem;
+  box-shadow: 0 18px 40px -22px rgba(46, 47, 51, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 15rem;
+}
+.scheda-numero strong { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: 1.7rem; line-height: 1; color: var(--color-text); }
+.scheda-numero span { font-size: var(--text-label); color: var(--color-text-muted); }
 
 /* Apertura a specchio: Giorgia a sinistra indica con la mano il titolo, che parte all'altezza della mano */
 @media (min-width: 900px) {
@@ -974,12 +998,10 @@ p { text-wrap: pretty; }
   }
 }
 
-/* Timbro: un sigillo di testo in Bodoni che ruota piano tra le due foto */
+/* Timbro: un sigillo di testo in Bodoni che ruota piano, col logo al centro */
 .timbro {
   position: absolute;
-  right: clamp(-5rem, -4vw, -2rem);
-  bottom: clamp(-6rem, -5vw, -3rem);
-  width: clamp(8.5rem, 11vw, 10.5rem);
+  width: clamp(7.5rem, 9vw, 9rem);
   z-index: 3;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -1008,13 +1030,10 @@ p { text-wrap: pretty; }
 }
 .timbro__centro img { width: 64%; height: auto; }
 @keyframes timbro-gira { to { transform: rotate(360deg); } }
-@media (max-width: 899px) { .timbro { right: 1rem; bottom: -3.5rem; } .chi__sinistra { margin-bottom: 2.5rem; } }
-.chi__foto { aspect-ratio: 1; margin: 0; }
-.chi__foto-piccola { width: 42%; aspect-ratio: 3 / 4; margin: 2.5rem 0 0 auto; }
 @media (min-width: 900px) {
-  .chi__griglia { grid-template-columns: 5fr 6fr; gap: clamp(3rem, 6vw, 7rem); align-items: start; }
-  .chi__testo { padding-top: 4rem; }
+  .chi__griglia { grid-template-columns: 1.1fr 1fr; gap: clamp(3rem, 6vw, 7rem); }
 }
+@media (max-width: 899px) { .chi__numero { left: auto; right: 0; } }
 
 /* Dopo l'invio della mail: il modulo si restringe e lascia il posto a un grazie */
 .modulo-guida { transition: opacity 260ms ease, transform 420ms cubic-bezier(0.65, 0, 0.35, 1); transform-origin: left center; }
