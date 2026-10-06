@@ -521,7 +521,7 @@ p { text-wrap: pretty; }
   .ventaglio {
     position: relative;
     overflow: visible;
-    width: min(100%, 46rem);
+    width: min(100%, 64rem);
     height: 27rem;
     margin: clamp(3.5rem, 2.5rem + 3vw, 6rem) auto 0;
     padding: 0;
@@ -529,27 +529,28 @@ p { text-wrap: pretty; }
   .t-card {
     position: absolute;
     top: 0;
-    width: 20.5rem;
+    width: 19rem;
     min-height: 0;
     height: 24rem;
-    left: calc(var(--i) * (100% - 20.5rem) / 5);
+    left: calc(var(--i) * (100% - 19rem) / 5);
     z-index: calc(var(--i) + 1);
     transform: rotate(var(--r));
-    transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), translate 500ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 500ms ease;
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), translate 700ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 700ms ease;
   }
-  .t-card:nth-child(1) { --i: 0; --r: -8deg; }
-  .t-card:nth-child(2) { --i: 1; --r: 5deg; }
+  .t-card:nth-child(1) { --i: 0; --r: -7deg; }
+  .t-card:nth-child(2) { --i: 1; --r: 4deg; }
   .t-card:nth-child(3) { --i: 2; --r: -3deg; }
-  .t-card:nth-child(4) { --i: 3; --r: 6deg; }
-  .t-card:nth-child(5) { --i: 4; --r: -8deg; }
-  .t-card:nth-child(6) { --i: 5; --r: 5deg; }
+  .t-card:nth-child(4) { --i: 3; --r: 5deg; }
+  .t-card:nth-child(5) { --i: 4; --r: -6deg; }
+  .t-card:nth-child(6) { --i: 5; --r: 4deg; }
   .t-card:hover {
     z-index: 10;
-    transform: translateY(-14px) rotate(0deg) scale(1.03);
+    transform: translateY(-18px) rotate(0deg) scale(1.04);
     box-shadow: 0 2px 4px rgba(46, 47, 51, 0.06), 0 34px 60px -26px rgba(46, 47, 51, 0.5);
+    transition-delay: 60ms;
   }
-  .t-card:hover ~ .t-card { translate: 2.25rem 0; }
-  .t-card:has(~ .t-card:hover) { translate: -2.25rem 0; }
+  .t-card:hover ~ .t-card { translate: 1.5rem 0; }
+  .t-card:has(~ .t-card:hover) { translate: -1.5rem 0; }
 }
 
 /* Piccola riga di fiducia sotto le testimonianze: volti e una frase */
@@ -573,77 +574,114 @@ p { text-wrap: pretty; }
 .fiducia__testo { padding-left: 1.25rem; border-left: 1px solid rgba(46, 47, 51, 0.15); font-size: var(--text-small); color: var(--color-text-soft); }
 .fiducia__testo strong { color: var(--color-text); }
 
-/* ---------- FAQ: righe a pillola, aperta in bordeaux ---------- */
+/* ---------- FAQ: argomenti a schede, domande su due colonne, ricerca ----------
+   Neutro: bianco, filo sottile, segno + che ruota; il vino rosato solo sull'argomento scelto. */
 
-.faq-griglia { display: grid; gap: 2rem 4rem; }
-@media (min-width: 900px) {
-  .faq-griglia { grid-template-columns: 1fr 1.5fr; align-items: start; }
-  .faq__testa { position: sticky; top: 7rem; }
+.faq__testa { max-width: 46rem; margin: 0 auto; }
+.faq__tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-top: 2rem; }
+.faq__tab {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 0.6rem 1.15rem;
+  border: 0;
+  border-radius: 999px;
+  background: #FFFFFF;
+  box-shadow: inset 0 0 0 1px rgba(46, 47, 51, 0.14);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 550;
+  color: var(--color-text-soft);
+  cursor: pointer;
+  transition: color 450ms cubic-bezier(0.65, 0, 0.35, 1);
 }
+/* il colore sale dal basso quando l'argomento è scelto */
+.faq__tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-bordeaux);
+  transform: translateY(101%);
+  transition: transform 500ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.faq__tab.attivo { color: #FFFFFF; box-shadow: none; }
+.faq__tab.attivo::before { transform: none; }
+.faq__tab:not(.attivo):hover { color: var(--color-text); }
+
 .faq__cerca {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  margin-top: 1.75rem;
+  margin: 1.25rem auto 0;
   max-width: 24rem;
   padding: 0 1.1rem;
   border-radius: 999px;
   background: #FFFFFF;
-  box-shadow: inset 0 0 0 1px rgba(46, 47, 51, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(46, 47, 51, 0.12);
 }
 .faq__cerca:focus-within { box-shadow: inset 0 0 0 1.5px var(--color-bordeaux); }
-.faq__cerca svg { width: 1.1rem; height: 1.1rem; flex: none; fill: none; stroke: var(--color-text-soft); stroke-width: 1.8; stroke-linecap: round; }
-.faq__cerca input { flex: 1; min-width: 0; min-height: 3rem; border: 0; background: transparent; font: inherit; color: var(--color-text); }
+.faq__cerca svg { width: 1.05rem; height: 1.05rem; flex: none; fill: none; stroke: var(--color-text-soft); stroke-width: 1.8; stroke-linecap: round; }
+.faq__cerca input { flex: 1; min-width: 0; min-height: 2.8rem; border: 0; background: transparent; font: inherit; font-size: 0.875rem; color: var(--color-text); }
 .faq__cerca input:focus-visible { outline: none; }
-.faq__conta { margin: 0.75rem 0 0 1.1rem; font-size: var(--text-label); color: var(--color-text-soft); min-height: 1.2em; }
-.faq__vuota { margin: 0; padding: 1.5rem; border-radius: 22px; background: #FFFFFF; color: var(--color-text-soft); }
+.faq__conta { margin: 0.6rem 0 0; font-size: var(--text-label); color: var(--color-text-soft); min-height: 1.2em; }
 
-.faq { display: grid; gap: 0.6rem; }
-.faq details { border-radius: 26px; background: var(--color-bg-soft); overflow: hidden; }
-.faq details[open] { background: var(--tinta-oro); }
+.faq {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+@media (min-width: 900px) { .faq { grid-template-columns: 1fr 1fr; } }
+
+.faq details {
+  border-radius: 18px;
+  background: #FFFFFF;
+  box-shadow: inset 0 0 0 1px rgba(46, 47, 51, 0.1);
+  overflow: hidden;
+  animation: faq-entra 500ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+@keyframes faq-entra { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 .faq summary {
   list-style: none;
   cursor: pointer;
   position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 3.5rem;
-  padding: 0.8rem 4rem 0.8rem 1.5rem;
-  border-radius: 26px;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 1.15rem 3.5rem 1.15rem 1.4rem;
+  font-size: 0.975rem;
+  font-weight: 550;
   line-height: 1.4;
   color: var(--color-text);
-  transition: background-color 300ms ease, color 300ms ease;
 }
 .faq summary::-webkit-details-marker { display: none; }
-.faq details[open] summary { background: var(--color-bordeaux); color: #FFFFFF; }
-
+/* segno + che ruota in × */
 .faq summary::after {
   content: "";
   position: absolute;
-  right: 0.45rem;
+  right: 1.25rem;
   top: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1rem;
+  height: 1rem;
   translate: 0 -50%;
-  border-radius: 50%;
-  background: var(--color-bordeaux) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 3l5 5-5 5' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.9rem no-repeat;
-  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  background:
+    linear-gradient(var(--color-bordeaux), var(--color-bordeaux)) center / 100% 1.5px no-repeat,
+    linear-gradient(var(--color-bordeaux), var(--color-bordeaux)) center / 1.5px 100% no-repeat;
+  transition: transform 300ms cubic-bezier(0.65, 0, 0.35, 1);
 }
-.faq details[open] summary::after { transform: rotate(-90deg); background-color: transparent; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details[open] { background: var(--color-bg); box-shadow: inset 0 0 0 1px rgba(142, 66, 88, 0.25); }
 
-.faq__risposta { padding: 1.25rem 1.75rem 1.75rem; color: var(--color-text); line-height: 1.7; }
-.faq__risposta p { margin: 0 0 0.9rem; max-width: 64ch; }
+.faq__risposta { padding: 0 1.4rem 1.4rem; color: var(--color-text-soft); line-height: 1.7; font-size: 0.95rem; }
+.faq__risposta p { margin: 0 0 0.8rem; }
 .faq__risposta p:last-child { margin-bottom: 0; }
+.faq__vuota { grid-column: 1 / -1; margin: 0; padding: 1.5rem; border-radius: 18px; background: #FFFFFF; color: var(--color-text-soft); text-align: center; }
 
 @supports (interpolate-size: allow-keywords) {
   .faq { interpolate-size: allow-keywords; }
   .faq details::details-content {
     height: 0;
     overflow: clip;
-    transition: height 380ms cubic-bezier(0.16, 1, 0.3, 1), content-visibility 380ms allow-discrete;
+    transition: height 380ms cubic-bezier(0.65, 0, 0.35, 1), content-visibility 380ms allow-discrete;
   }
   .faq details[open]::details-content { height: auto; }
 }

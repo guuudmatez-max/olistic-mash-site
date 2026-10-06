@@ -187,26 +187,41 @@ function initModuliGuida() {
 // DOMANDE FREQUENTI: ricerca nel testo di domande e risposte
 // ----------------------------
 function initCercaFaq() {
-  const campo = document.querySelector("[data-faq-cerca]");
   const lista = document.querySelector("[data-faq]");
-  if (!campo || !lista) return;
+  if (!lista) return;
+  const campo = document.querySelector("[data-faq-cerca]");
+  const schede = [...document.querySelectorAll("[data-faq-tab]")];
   const voci = [...lista.querySelectorAll("details")];
   const vuota = lista.querySelector("[data-faq-vuota]");
   const conta = document.querySelector("[data-faq-conta]");
   const norm = (t) => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  campo.addEventListener("input", () => {
-    const parole = norm(campo.value).split(/\s+/).filter(Boolean);
+  let categoria = schede[0]?.dataset.faqTab;
+
+  // ricerca vuota: mostra l'argomento scelto; con parole: cerca in tutte le domande
+  const aggiorna = () => {
+    const parole = campo ? norm(campo.value).split(/\s+/).filter(Boolean) : [];
     let visibili = 0;
     voci.forEach((v) => {
-      const testo = norm(v.textContent);
-      const ok = parole.every((p) => testo.includes(p));
+      const ok = parole.length
+        ? parole.every((p) => norm(v.textContent).includes(p))
+        : !categoria || v.dataset.faqCat === categoria;
       v.hidden = !ok;
       if (ok) visibili++;
-      if (ok && parole.length) v.open = false;
     });
     vuota.hidden = visibili > 0;
-    conta.textContent = parole.length ? `${visibili} ${visibili === 1 ? "domanda" : "domande"}` : "";
-  });
+    if (conta) conta.textContent = parole.length ? `${visibili} ${visibili === 1 ? "domanda" : "domande"}` : "";
+    schede.forEach((t) => t.classList.toggle("attivo", !parole.length && t.dataset.faqTab === categoria));
+  };
+
+  schede.forEach((t) =>
+    t.addEventListener("click", () => {
+      categoria = t.dataset.faqTab;
+      schede.forEach((x) => x.setAttribute("aria-selected", String(x === t)));
+      if (campo) campo.value = "";
+      aggiorna();
+    }),
+  );
+  campo?.addEventListener("input", aggiorna);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
