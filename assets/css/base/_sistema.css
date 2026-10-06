@@ -29,7 +29,7 @@ body {
 
 /* Bodoni con l'ottica «testo» (opsz 11): filetti più spessi, si legge meglio a schermo */
 h1, h2, h3, h4,
-.citazione blockquote, .stacco__frase, .ventaglio blockquote {
+.citazione blockquote, .stacco__frase {
   font-optical-sizing: none;
   font-variation-settings: "opsz" 11;
 }
@@ -113,7 +113,7 @@ p { text-wrap: pretty; }
 /* Fascia staccata dai bordi: arriva quasi ai lati, angoli arrotondati */
 .banda,
 .stacco.banda {
-  margin-inline: clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem);
+  margin-inline: var(--margine-banda);
   border-radius: clamp(18px, 1rem + 1vw, 28px);
   overflow: hidden;
 }
@@ -133,8 +133,8 @@ p { text-wrap: pretty; }
 .btn {
   --cerchio: 2.15rem;
   --fondo-btn: #FFFFFF;
-  --filo-btn: rgba(142, 66, 88, 0.4);
-  --tinta-btn: var(--tinta-cipria);
+  --filo-btn: rgba(46, 47, 51, 0.16);
+  --tinta-btn: #F8EEF0;
   --freccia-btn: var(--color-bordeaux);
   --curva: cubic-bezier(0.65, 0, 0.35, 1);
   position: relative;
@@ -151,7 +151,7 @@ p { text-wrap: pretty; }
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 0.975rem;
-  font-weight: 550;
+  font-weight: 500;
   line-height: 1.2;
   text-align: left;
   cursor: pointer;
@@ -188,8 +188,8 @@ p { text-wrap: pretty; }
 
 .btn[aria-disabled="true"], .btn:disabled { opacity: 0.45; pointer-events: none; }
 
-.btn-primary { --tinta-btn: var(--tinta-oro); --filo-btn: rgba(138, 101, 38, 0.45); --freccia-btn: var(--color-gold-ink); }
-.btn-secondary { --tinta-btn: var(--tinta-cipria); }
+.btn-primary { --tinta-btn: #FBF4E4; --filo-btn: rgba(201, 161, 92, 0.55); --freccia-btn: var(--color-gold-ink); }
+.btn-secondary { --tinta-btn: #F8EEF0; --filo-btn: rgba(142, 66, 88, 0.3); }
 
 /* Su fondo scuro: vetro chiaro; al passaggio diventa bianco, testo scuro */
 .btn-chiaro {
@@ -349,8 +349,8 @@ p { text-wrap: pretty; }
 
 .ventaglio {
   list-style: none;
-  margin: 3rem calc(var(--gutter) * -1) 0;
-  padding: 0.5rem var(--gutter) 2rem;
+  margin: clamp(3.5rem, 2.5rem + 3vw, 6rem) calc(var(--gutter) * -1) 0;
+  padding: 1rem var(--gutter) 2.5rem;
   display: flex;
   gap: 1rem;
   overflow-x: auto;
@@ -359,80 +359,141 @@ p { text-wrap: pretty; }
 }
 .ventaglio::-webkit-scrollbar { display: none; }
 
-.ventaglio li {
+/* Card testimonianza: virgolette disegnate e luogo in alto, frase, firma con foto */
+.t-card {
   text-align: left;
-  flex: 0 0 min(80%, 20rem);
+  flex: 0 0 min(82%, 19rem);
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 21rem;
-  padding: 1.75rem;
-  border-radius: 20px;
-  box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 24px 40px -26px rgba(46, 47, 51, 0.4);
-  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms ease;
+  min-height: 23rem;
+  padding: 1.6rem 1.6rem 1.3rem;
+  border-radius: 22px;
+  color: var(--color-text);
+  box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 26px 44px -28px rgba(46, 47, 51, 0.45);
+  transition: transform 420ms cubic-bezier(0.65, 0, 0.35, 1), box-shadow 420ms ease;
 }
-.ventaglio blockquote { margin: 0; font-family: var(--font-heading); font-size: 1.45rem; line-height: 1.28; font-weight: 550; }
-/* Il segno «, in Bodoni, come elemento grafico in alto */
-.ventaglio blockquote::before {
-  content: "\00AB";
-  display: block;
-  margin-bottom: 0.6rem;
-  font-size: 3.6rem;
-  line-height: 0.6;
-  font-style: normal;
-  color: var(--color-gold-ink);
+.t-card__testa { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.6rem; }
+.t-card__virgolette { width: 2.6rem; height: auto; }
+.t-card__virgolette path { stroke: var(--color-gold-ink); }
+.t-card__virgolette .ombra { stroke-opacity: 0.45; }
+.t-card__luogo {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
 }
-.ventaglio .v-scura blockquote::before { color: var(--oro-su-scuro); }
-.ventaglio .persona { display: flex; align-items: center; gap: 0.7rem; }
-.ventaglio .avatar {
+.t-card blockquote {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-heading);
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 11;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 550;
+}
+.t-card__piede {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(46, 47, 51, 0.18);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+.t-card__nome { flex: 1; }
+.t-card__num { font-weight: 500; opacity: 0.6; font-variant-numeric: tabular-nums; }
+
+.avatar {
+  position: relative;
   flex: none;
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 50%;
-  object-fit: cover;
   background: rgba(46, 47, 51, 0.12);
   display: grid;
   place-items: center;
   font-size: 0.8rem;
   font-weight: 650;
 }
-.ventaglio .nome {
-  padding-top: 1rem;
-  margin-top: 1.5rem;
-  border-top: 1px solid rgba(46, 47, 51, 0.15);
-  font-size: var(--text-small);
-  font-weight: 600;
+/* spunta di persona vera (da valutare) */
+.spunta {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  background: var(--color-bordeaux) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.6rem no-repeat;
 }
-.ventaglio .v-oro { background: var(--tinta-oro); }
-.ventaglio .v-cipria { background: var(--tinta-cipria); }
-.ventaglio .v-avorio { background: var(--color-bg-soft); }
-.ventaglio .v-scura { background: var(--color-bordeaux); color: #FFFFFF; }
-.ventaglio .v-scura .nome { border-color: rgba(255, 255, 255, 0.3); }
-.ventaglio .v-scura .avatar { background: rgba(255, 255, 255, 0.2); }
+
+.t-card.v-oro { background: var(--tinta-oro); }
+.t-card.v-cipria { background: var(--tinta-cipria); }
+.t-card.v-avorio { background: var(--color-bg-soft); }
+.t-card.v-scura { background: var(--color-bordeaux); color: #FFFFFF; }
+.t-card.v-scura .t-card__virgolette path { stroke: var(--oro-su-scuro); }
+.t-card.v-scura .t-card__luogo { background: rgba(255, 255, 255, 0.92); }
+.t-card.v-scura .t-card__piede { border-color: rgba(255, 255, 255, 0.3); }
+.t-card.v-scura .avatar { background: rgba(255, 255, 255, 0.22); }
 
 @media (min-width: 900px) {
-  .ventaglio { position: relative; overflow: visible; height: 27rem; margin-inline: 0; padding: 0; }
-  .ventaglio li {
+  .ventaglio {
+    --passo: clamp(7rem, 10.5vw, 11.5rem);
+    position: relative;
+    overflow: visible;
+    height: 29rem;
+    margin-inline: 0;
+    padding: 0;
+  }
+  .t-card {
     position: absolute;
-    top: 2rem;
+    top: 2.5rem;
     left: 50%;
-    width: 19rem;
-    margin-left: -9.5rem;
-    transform: translateX(var(--x)) rotate(var(--r));
+    width: 18.5rem;
+    margin-left: -9.25rem;
+    transform: translateX(calc(var(--passo) * var(--k))) rotate(var(--r));
     z-index: var(--z);
   }
-  .ventaglio li:nth-child(1) { --x: -26rem; --r: -7deg; --z: 1; }
-  .ventaglio li:nth-child(2) { --x: -13rem; --r: -3.5deg; --z: 2; }
-  .ventaglio li:nth-child(3) { --x: 0rem; --r: 0deg; --z: 4; top: 0; }
-  .ventaglio li:nth-child(4) { --x: 13rem; --r: 3.5deg; --z: 2; }
-  .ventaglio li:nth-child(5) { --x: 26rem; --r: 7deg; --z: 1; }
-  .ventaglio li:hover {
-    z-index: 5;
-    transform: translateX(var(--x)) translateY(-14px) rotate(0deg);
-    box-shadow: 0 2px 4px rgba(46, 47, 51, 0.06), 0 36px 60px -28px rgba(46, 47, 51, 0.5);
+  .t-card:nth-child(1) { --k: -2.5; --r: -8deg; --z: 1; }
+  .t-card:nth-child(2) { --k: -1.5; --r: -5deg; --z: 2; }
+  .t-card:nth-child(3) { --k: -0.5; --r: -1.5deg; --z: 3; }
+  .t-card:nth-child(4) { --k: 0.5; --r: 0deg; --z: 4; top: 1rem; }
+  .t-card:nth-child(5) { --k: 1.5; --r: 4deg; --z: 2; }
+  .t-card:nth-child(6) { --k: 2.5; --r: 8deg; --z: 1; }
+  .t-card:hover {
+    z-index: 6;
+    transform: translateX(calc(var(--passo) * var(--k))) translateY(-16px) rotate(0deg);
+    box-shadow: 0 2px 4px rgba(46, 47, 51, 0.06), 0 40px 64px -30px rgba(46, 47, 51, 0.5);
   }
 }
+
+/* Piccola riga di fiducia sotto le testimonianze: volti e una frase */
+.fiducia { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: 2.5rem; text-align: left; }
+.fiducia__volti { display: flex; }
+.fiducia__volti i {
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-left: -0.6rem;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  background: var(--tinta-cipria);
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+.fiducia__volti i:nth-child(2n) { background: var(--tinta-oro); }
+.fiducia__volti i:first-child { margin-left: 0; }
+.fiducia__testo { padding-left: 1.25rem; border-left: 1px solid rgba(46, 47, 51, 0.15); font-size: var(--text-small); color: var(--color-text-soft); }
+.fiducia__testo strong { color: var(--color-text); }
 
 /* ---------- FAQ: righe a pillola, aperta in bordeaux ---------- */
 
@@ -532,11 +593,10 @@ p { text-wrap: pretty; }
 .porte .testo-lead { color: var(--color-text-soft); }
 
 .porte__griglia { display: grid; gap: 1rem; margin-top: 3rem; }
-@media (min-width: 860px) { .porte__griglia { grid-template-columns: 1fr 1fr; gap: 1.25rem; } }
+@media (min-width: 900px) { .porte__griglia { grid-template-columns: 1.55fr 1fr; gap: 1.25rem; align-items: stretch; } }
 
 .porta {
-  background: #FFFFFF;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
   display: flex;
   flex-direction: column;
@@ -544,14 +604,46 @@ p { text-wrap: pretty; }
 }
 .porta h3 { font-size: var(--text-h3); margin: 0; }
 .porta p { color: var(--color-text-soft); margin: 0 0 0.5rem; }
-.porta .btn { align-self: flex-start; margin-top: auto; }
+.porta .btn { align-self: flex-start; }
+
+/* La porta principale: WhatsApp, piena, con Giorgia */
+.porta--principale {
+  position: relative;
+  overflow: hidden;
+  min-height: 22rem;
+  background: var(--color-bordeaux);
+  color: #FFFFFF;
+  flex-direction: row;
+  align-items: flex-end;
+  padding-right: 0;
+}
+.porta--principale .porta__corpo { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 0.75rem; max-width: 22rem; align-self: center; }
+.porta--principale h3 { color: #FFFFFF; font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem); line-height: 1.05; }
+.porta--principale p { color: rgba(255, 255, 255, 0.85); }
+.porta--principale .btn { margin-top: 0.75rem; }
+.porta__figura {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 108%;
+  width: auto;
+  max-width: 55%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: var(--grado-foto);
+}
+@media (max-width: 600px) { .porta__figura { opacity: 0.25; } }
+
+/* La porta leggera: la guida, chiara e quieta */
+.porta--leggera { background: rgba(255, 255, 255, 0.7); }
+.porta--leggera h3 { font-size: 1.4rem; }
+.porta--leggera form { margin-top: auto; }
 
 /* Campo mail a pillola con il bottone dentro */
 .campo-mail {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: auto;
   padding: 0.35rem;
   border-radius: 999px;
   background: var(--color-bg-soft);
@@ -623,6 +715,9 @@ p { text-wrap: pretty; }
   line-height: 1.2;
   margin: 0;
 }
+.stacco__frase { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
+.stacco__azione { font-family: var(--font-body); font-style: normal; font-size: 0.975rem; text-shadow: none; }
+
 .js .stacco[data-apri] { clip-path: inset(0 12% round var(--radius-card)); transition: clip-path 1400ms cubic-bezier(0.16, 1, 0.3, 1); }
 .js .stacco[data-apri].aperto { clip-path: inset(0 0 round clamp(18px, 1rem + 1vw, 28px)); }
 
@@ -667,8 +762,6 @@ p { text-wrap: pretty; }
 .apertura {
   position: relative;
   overflow: hidden;
-  margin: clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem) clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem) 0;
-  border-radius: clamp(18px, 1rem + 1vw, 28px);
 }
 
 .apertura__scena {
@@ -726,25 +819,62 @@ p { text-wrap: pretty; }
   .chi__testo { padding-top: 4rem; }
 }
 
+/* ---------- Invito alla guida: compare una volta a metà pagina, si chiude ---------- */
+
+.invito-guida {
+  position: fixed;
+  z-index: 40;
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  bottom: clamp(0.75rem, 2vw, 1.5rem);
+  width: min(calc(100vw - 1.5rem), 24rem);
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-radius: 22px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(46, 47, 51, 0.08), 0 30px 60px -24px rgba(46, 47, 51, 0.45);
+  transform: translateY(calc(100% + 2rem));
+  opacity: 0;
+  transition: transform 520ms cubic-bezier(0.65, 0, 0.35, 1), opacity 300ms ease;
+}
+.invito-guida.visibile { transform: none; opacity: 1; }
+.invito-guida__chiudi {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-bg-soft);
+  color: var(--color-text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.invito-guida__chiudi svg { width: 0.8rem; height: 0.8rem; }
+.invito-guida__titolo { margin: 0 2rem 0.4rem 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: 1.45rem; line-height: 1.15; }
+.invito-guida__titolo em { font-style: italic; font-weight: 550; color: var(--color-gold-ink); }
+.invito-guida__testo { margin: 0 0 1rem; color: var(--color-text-soft); font-size: var(--text-small); }
+
 /* ---------- Piede: fascia bordeaux staccata dai bordi, firma grande ---------- */
 
-.piede { background: transparent; border: 0; padding: clamp(2rem, 1rem + 3vw, 4rem) 0 clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem); font-size: var(--text-small); color: var(--color-on-earth-soft); }
+.piede { background: transparent; border: 0; padding: clamp(2rem, 1rem + 3vw, 4rem) 0 var(--margine-banda); font-size: var(--text-small); color: var(--color-on-earth-soft); }
 .piede__banda {
-  margin-inline: clamp(0.75rem, 0.4rem + 1.2vw, 1.5rem);
+  margin-inline: var(--margine-banda);
   border-radius: clamp(18px, 1rem + 1vw, 28px);
   background: var(--color-bordeaux-scuro);
   padding: clamp(4rem, 3rem + 4vw, 7.5rem) var(--gutter) 0;
   overflow: hidden;
 }
 .piede__griglia { max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 3.5rem; }
-@media (min-width: 860px) { .piede__griglia { grid-template-columns: 2fr 1fr 1fr; } }
+@media (min-width: 860px) { .piede__griglia { grid-template-columns: 1.6fr 1fr 1fr 1.1fr; } }
 .piede__titolo { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem); line-height: 1.2; color: var(--color-on-earth); margin: 0 0 1.25rem; max-width: 20ch; }
 .piede__colonna { display: flex; flex-direction: column; gap: 0.9rem; }
 .piede__colonna a { color: var(--color-on-earth); }
 .piede__colonna a:hover { color: var(--oro-su-scuro); }
 .piede__etichetta { margin: 0 0 0.5rem; font-weight: 600; color: var(--oro-su-scuro); }
-.piede__disclaimer, .piede__legale { max-width: var(--container-max-width); margin: 4.5rem auto 0; color: var(--color-on-earth-soft); }
-.piede__legale { margin-top: 0.5rem; opacity: 0.8; }
+.piede__dati { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem 1.4rem; border-radius: 16px; background: rgba(255, 255, 255, 0.06); align-self: start; }
+.piede__dati p { margin: 0; color: var(--color-on-earth-soft); }
+.piede__disclaimer { margin: 1.75rem 0 0; max-width: 34ch; color: var(--color-on-earth-soft); font-size: var(--text-label); }
 .piede__firma {
   margin: clamp(3.5rem, 2rem + 5vw, 7rem) 0 -0.12em;
   text-align: center;
@@ -761,7 +891,7 @@ p { text-wrap: pretty; }
 
 @media (prefers-reduced-motion: reduce) {
   .js .stacco[data-apri] { clip-path: none; transition: none; }
-  .btn, .btn::before, .btn::after, .servizio, .servizio::before, .ventaglio li, .faq summary::after { transition: none; }
+  .btn, .btn::before, .btn::after, .servizio, .servizio::before, .t-card, .faq summary::after, .invito-guida { transition: none; }
 }
 
 /* L'apertura è una fascia avorio con la sfumatura: il bordo si vede e il taglio della foto è voluto */

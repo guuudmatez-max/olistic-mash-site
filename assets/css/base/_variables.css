@@ -98,6 +98,7 @@
   /* LAYOUT */
   --container-max-width: 1180px;
   --measure: 64ch;
+  --margine-banda: clamp(0.4rem, 0.2rem + 0.6vw, 0.75rem); /* fasce staccate: pochi pixel per lato */
 
   /* RESA COMUNE DELLE FOTO */
   --grado-foto: saturate(0.86) sepia(0.1) contrast(0.97) brightness(1.02);

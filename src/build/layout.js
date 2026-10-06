@@ -52,7 +52,8 @@ export function renderFooter() {
     <div class="piede__griglia">
       <div class="piede__invito">
         <p class="piede__titolo">Un messaggio basta, per iniziare.</p>
-        <a class="btn btn-primary" href="${whatsappUrl("generico")}" ${esterno}>Scrivimi su WhatsApp</a>
+        <a class="btn btn-chiaro" href="${whatsappUrl("generico")}" ${esterno}>Scrivimi su WhatsApp</a>
+        <p class="piede__disclaimer">${escapeHtml(site.disclaimer)}</p>
       </div>
       <nav class="piede__colonna" aria-label="Pagine">
         <p class="piede__etichetta">Il sito</p>
@@ -65,9 +66,14 @@ export function renderFooter() {
         <a href="${site.privacy}" ${esterno}>Privacy</a>
         <a href="${site.cookie}" ${esterno}>Cookie</a>
       </div>
+      <div class="piede__dati">
+        <p class="piede__etichetta">Dati</p>
+        <p>${escapeHtml(site.nome)}</p>
+        <p>P.IVA ${site.piva}</p>
+        ${site.sedeLegale ? `<p>${escapeHtml(site.sedeLegale)}</p>` : ""}
+        <p>© ${year}</p>
+      </div>
     </div>
-    <p class="piede__disclaimer">${escapeHtml(site.disclaimer)}</p>
-    <p class="piede__legale">© ${year} ${escapeHtml(site.nome)} · P.IVA ${site.piva}</p>
     <p class="piede__firma" aria-hidden="true">Giorgia <em>Boccadifuoco</em></p>
   </div>
 </footer>`;

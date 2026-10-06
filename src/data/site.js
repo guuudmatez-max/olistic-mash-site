@@ -8,6 +8,8 @@ export const site = {
   nome: "Giorgia Boccadifuoco",
   mail: "info@giorgiaboccadifuoco.com",
   piva: "04442120277",
+  // Sede legale: compare nel piede quando c'è. Lasciare vuoto finché non è definita.
+  sedeLegale: "",
   zona: "Veneto, Riviera del Brenta",
 
   // Numero con prefisso internazionale, solo cifre.

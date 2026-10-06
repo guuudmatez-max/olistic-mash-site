@@ -14,19 +14,17 @@
       <header data-site-header></header>
 
       <main class="site-main">
-        <p class="avviso-prova">Pagina di prova del design, non indicizzata. I testi sono provvisori: servono a vedere i pezzi con parole vere.</p>
-
         <!-- APERTURA: Giorgia scontornata davanti al titolo -->
         <section class="apertura sfumato">
           <div class="apertura__scena">
             <h1 class="titolo-display apertura__titolo">Quando una relazione pesa e si ripete, <em>si può uscirne.</em></h1>
             <img
               class="apertura__figura"
-              src="/assets/img/foto/giorgia-bianco-penna-900.webp"
-              srcset="/assets/img/foto/giorgia-bianco-penna-900.webp 1x, /assets/img/foto/giorgia-bianco-penna-1600.webp 2x"
+              src="/assets/img/foto/giorgia-scontornata-sorriso-900.webp"
+              srcset="/assets/img/foto/giorgia-scontornata-sorriso-900.webp 1x, /assets/img/foto/giorgia-scontornata-sorriso-1600.webp 2x"
               sizes="(min-width: 900px) 42vw, 80vw"
-              width="844" height="1600"
-              alt="Giorgia Boccadifuoco in abito bianco con un grande ciondolo dorato, sorride e tiene una penna"
+              width="981" height="1582"
+              alt="Giorgia Boccadifuoco sorride, giacca di pelle chiara"
               fetchpriority="high"
             />
             <div class="apertura__testo">
@@ -123,9 +121,12 @@
               width="1200" height="800" loading="lazy"
               alt="Giorgia in piedi sulla riva di un lago al tramonto, tra l'erba alta"
             />
-            <figcaption class="stacco__frase">Il primo passo è piccolo: un incontro.</figcaption>
+            <figcaption class="stacco__frase">Il primo passo è piccolo: un incontro.<a class="btn btn-chiaro stacco__azione" data-wa-key="consulenze">Scrivimi su WhatsApp</a></figcaption>
           </figure>
         </div>
+
+        <!-- Punto che fa comparire l'invito alla guida, una volta sola -->
+        <div data-invito-guida aria-hidden="true"></div>
 
         <!-- TESTIMONIANZE -->
         <section class="sezione">
@@ -133,12 +134,41 @@
             <h2 class="titolo-sezione">Storie diverse. <em>Lo stesso sollievo.</em></h2>
             <p class="testo-lead">Qui andranno le testimonianze vere, con il solo nome. Questi testi sono di esempio.</p>
             <ul class="ventaglio">
-              <li class="v-avorio"><blockquote>Testo di esempio: mi sono sentita ascoltata senza fretta.</blockquote><span class="nome persona"><span class="avatar" aria-hidden="true">N</span>Nome (esempio)</span></li>
-              <li class="v-oro"><blockquote>Testo di esempio: già dopo il primo incontro qualcosa si è mosso.</blockquote><span class="nome persona"><span class="avatar" aria-hidden="true">N</span>Nome (esempio)</span></li>
-              <li class="v-scura"><blockquote>Testo di esempio: ho capito che non dovevo risolvere tutto da sola.</blockquote><span class="nome persona"><span class="avatar" aria-hidden="true">N</span>Nome (esempio)</span></li>
-              <li class="v-cipria"><blockquote>Testo di esempio: un peso che portavo da anni è diventato più leggero.</blockquote><span class="nome persona"><span class="avatar" aria-hidden="true">N</span>Nome (esempio)</span></li>
-              <li class="v-avorio"><blockquote>Testo di esempio: ora riesco a dire di no senza sentirmi in colpa.</blockquote><span class="nome persona"><span class="avatar" aria-hidden="true">N</span>Nome (esempio)</span></li>
+              <li class="t-card v-avorio">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z" transform="translate(4 -3)"/><path d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z"/></g></svg><span class="t-card__luogo">Padova</span></div>
+                <blockquote>Esempio: Mi sono sentita ascoltata senza fretta, come non succedeva da anni.</blockquote>
+                <div class="t-card__piede"><span class="avatar" aria-hidden="true">N<span class="spunta"></span></span><span class="t-card__nome">Nome (esempio)</span><span class="t-card__num">01</span></div>
+              </li>
+              <li class="t-card v-oro">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z" transform="translate(4 -3)"/><path d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z"/></g></svg><span class="t-card__luogo">Venezia</span></div>
+                <blockquote>Esempio: Già dopo il primo incontro qualcosa si è mosso.</blockquote>
+                <div class="t-card__piede"><span class="avatar" aria-hidden="true">N<span class="spunta"></span></span><span class="t-card__nome">Nome (esempio)</span><span class="t-card__num">02</span></div>
+              </li>
+              <li class="t-card v-cipria">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z" transform="translate(4 -3)"/><path d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z"/></g></svg><span class="t-card__luogo">Online</span></div>
+                <blockquote>Esempio: Ho smesso di girare in tondo sulle stesse domande.</blockquote>
+                <div class="t-card__piede"><span class="avatar" aria-hidden="true">N<span class="spunta"></span></span><span class="t-card__nome">Nome (esempio)</span><span class="t-card__num">03</span></div>
+              </li>
+              <li class="t-card v-scura">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z" transform="translate(4 -3)"/><path d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z"/></g></svg><span class="t-card__luogo">Treviso</span></div>
+                <blockquote>Esempio: Ho capito che non dovevo risolvere tutto da sola.</blockquote>
+                <div class="t-card__piede"><span class="avatar" aria-hidden="true">N<span class="spunta"></span></span><span class="t-card__nome">Nome (esempio)</span><span class="t-card__num">04</span></div>
+              </li>
+              <li class="t-card v-oro">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z" transform="translate(4 -3)"/><path d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z"/></g></svg><span class="t-card__luogo">Mestre</span></div>
+                <blockquote>Esempio: Un peso che portavo da anni è diventato più leggero.</blockquote>
+                <div class="t-card__piede"><span class="avatar" aria-hidden="true">N<span class="spunta"></span></span><span class="t-card__nome">Nome (esempio)</span><span class="t-card__num">05</span></div>
+              </li>
+              <li class="t-card v-avorio">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z" transform="translate(4 -3)"/><path d="M8 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C9 6 4 14 4 25c0 9 1 15 4 15Z M34 40c7 0 12-5 12-11s-4-9-9-9c1-6 5-11 11-13l-2-4C35 6 30 14 30 25c0 9 1 15 4 15Z"/></g></svg><span class="t-card__luogo">Online</span></div>
+                <blockquote>Esempio: Ora riesco a dire di no senza sentirmi in colpa.</blockquote>
+                <div class="t-card__piede"><span class="avatar" aria-hidden="true">N<span class="spunta"></span></span><span class="t-card__nome">Nome (esempio)</span><span class="t-card__num">06</span></div>
+              </li>
             </ul>
+            <div class="fiducia">
+              <span class="fiducia__volti" aria-hidden="true"><i>N</i><i>N</i><i>N</i><i>N</i></span>
+              <span class="fiducia__testo"><strong>Vent'anni di incontri.</strong><br />[IN SOSPESO: quante persone ha accompagnato Giorgia]</span>
+            </div>
           </div>
         </section>
 
@@ -198,33 +228,48 @@
         </section>
 
         <!-- LE DUE PORTE -->
-        <div style="padding-block: var(--section-y)">
+        <div style="padding-top: var(--section-y)">
           <section class="sezione porte banda" id="porte">
             <div class="contenitore">
               <h2 class="titolo-sezione">Da dove vuoi <em>iniziare?</em></h2>
-              <p class="testo-lead">Puoi prenderti tempo con una guida gratuita, oppure scrivermi subito.</p>
+              <p class="testo-lead">Il modo più semplice è scrivermi. Se preferisci prenderti tempo, c'è una guida gratuita.</p>
               <div class="porte__griglia">
-                <div class="porta">
-                  <h3>Leggi la guida, con calma</h3>
-                  <p>Lasci solo la mail e la ricevi subito. Nessuno lo viene a sapere.</p>
+                <div class="porta porta--principale">
+                  <div class="porta__corpo">
+                    <h3>Scrivimi su WhatsApp</h3>
+                    <p>Un messaggio, anche breve. Ti rispondo io, di persona.</p>
+                    <a class="btn btn-chiaro" data-wa-key="generico">Apri WhatsApp</a>
+                  </div>
+                  <img class="porta__figura" src="/assets/img/foto/giorgia-bianco-ciondolo-900.webp" width="612" height="900" loading="lazy" alt="Giorgia in abito bianco con un grande ciondolo dorato" />
+                </div>
+                <div class="porta porta--leggera">
+                  <h3>Non sei ancora pronta?</h3>
+                  <p>Leggi la guida, con calma. Lasci solo la mail e la ricevi subito. Nessuno lo viene a sapere.</p>
                   <form action="#" onsubmit="return false">
                     <div class="campo-mail">
                       <input id="mail-guida" type="email" name="email" placeholder="La tua mail" aria-label="La tua mail" autocomplete="email" required />
-                      <button class="btn btn-primary" type="submit">Mandami la guida</button>
+                      <button class="btn btn-primary" type="submit">Ricevi la guida</button>
                     </div>
                     <label class="porta__consenso"><input type="checkbox" required /> Acconsento a ricevere la guida e poche mail utili.</label>
                   </form>
-                </div>
-                <div class="porta">
-                  <h3>Scrivimi su WhatsApp</h3>
-                  <p>Un messaggio, anche breve. Ti rispondo io, di persona.</p>
-                  <a class="btn btn-primary" data-wa-key="generico">Apri WhatsApp</a>
                 </div>
               </div>
             </div>
           </section>
         </div>
       </main>
+
+      <aside class="invito-guida" role="dialog" aria-labelledby="invito-titolo" hidden>
+        <button class="invito-guida__chiudi" type="button" aria-label="Chiudi">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <p class="invito-guida__titolo" id="invito-titolo">Una guida gratuita, <em>da leggere con calma.</em></p>
+        <p class="invito-guida__testo">Lasci solo la mail e la ricevi subito.</p>
+        <form class="campo-mail" action="#" onsubmit="return false">
+          <input type="email" name="email" placeholder="La tua mail" aria-label="La tua mail" autocomplete="email" required />
+          <button class="btn btn-primary" type="submit">Ricevila</button>
+        </form>
+      </aside>
 
       <footer data-site-footer></footer>
     </div>

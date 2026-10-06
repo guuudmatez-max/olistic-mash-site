@@ -120,8 +120,38 @@ function initStacchi() {
   stacchi.forEach((s) => io.observe(s));
 }
 
+// ----------------------------
+// INVITO ALLA GUIDA: compare una volta, quando si arriva a metà pagina
+// ----------------------------
+function initInvitoGuida() {
+  const invito = document.querySelector(".invito-guida");
+  const punto = document.querySelector("[data-invito-guida]");
+  if (!invito || !punto || !("IntersectionObserver" in window)) return;
+  let giaVisto = false;
+  try { giaVisto = sessionStorage.getItem("invito-guida") === "visto"; } catch {}
+  if (giaVisto) return;
+
+  const chiudi = () => {
+    invito.classList.remove("visibile");
+    setTimeout(() => { invito.hidden = true; }, 520);
+    try { sessionStorage.setItem("invito-guida", "visto"); } catch {}
+  };
+  invito.querySelector(".invito-guida__chiudi")?.addEventListener("click", chiudi);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !invito.hidden) chiudi(); });
+
+  const io = new IntersectionObserver((entries) => {
+    if (!entries.some((e) => e.isIntersecting)) return;
+    io.disconnect();
+    invito.hidden = false;
+    requestAnimationFrame(() => requestAnimationFrame(() => invito.classList.add("visibile")));
+    try { sessionStorage.setItem("invito-guida", "visto"); } catch {}
+  });
+  io.observe(punto);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initStacchi();
+  initInvitoGuida();
   initMobileNav();
   initTestimonialCarousels();
   initLazyVideos();
