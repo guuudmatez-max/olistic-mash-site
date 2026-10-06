@@ -19,6 +19,7 @@ export default defineConfig({
         percorsiReiki: "percorsi-reiki.html",
         contatti: "contatti.html",
         stile: "stile.html",
+        palette: "palette.html",
       },
     },
   },

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proposte di palette · Giorgia Boccadifuoco</title>
+    <meta name="description" content="Tre proposte di colori bianco e oro con un accento bordeaux, da confrontare." />
+    <meta name="robots" content="noindex, nofollow" />
+    <script type="module" src="/assets/js/main.js"></script>
+    <style>
+      .pp { padding: clamp(3rem, 2rem + 4vw, 6rem) var(--gutter); }
+      .pp__intro { max-width: var(--container-max-width); margin: 0 auto 1rem; }
+      .proposta { max-width: var(--container-max-width); margin: 0 auto 4rem; border-radius: 18px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 24px 48px -28px rgba(0,0,0,.35); }
+      .proposta__testa { padding: 1.25rem 1.75rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: baseline; background: var(--p-fondo2); color: var(--p-testo); border-bottom: 1px solid var(--p-linea); }
+      .proposta__testa h2 { margin: 0; font-size: 1.6rem; color: var(--p-testo); }
+      .proposta__testa p { margin: 0; color: var(--p-testo2); }
+      .campioni { display: flex; flex-wrap: wrap; gap: .75rem; padding: 1.25rem 1.75rem; background: var(--p-fondo); }
+      .campione { display: flex; align-items: center; gap: .6rem; font-size: .8125rem; color: var(--p-testo2); }
+      .campione i { width: 2.25rem; height: 2.25rem; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+      .scena { display: grid; grid-template-columns: 1fr; background: var(--p-fondo); }
+      @media (min-width: 860px) { .scena { grid-template-columns: 1.1fr .9fr; } }
+      .scena__testo { padding: 2.5rem 1.75rem 3rem; }
+      .scena__testo h3 { font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3.6rem); line-height: 1.02; font-weight: 650; color: var(--p-testo); margin: 0 0 1.25rem; }
+      .scena__testo h3 em { font-style: italic; font-weight: 550; color: var(--p-accento-testo); }
+      .scena__testo p { color: var(--p-testo2); max-width: 38ch; margin: 0 0 1.75rem; }
+      .scena__azioni { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+      .pbtn { display: inline-flex; align-items: center; gap: .6rem; min-height: 3.1rem; padding: .8rem 1.5rem; border-radius: 999px; font-weight: 600; font-size: .95rem; }
+      .pbtn--1 { background: var(--p-azione); color: var(--p-su-azione); }
+      .pbtn--2 { border: 1px solid var(--p-bordo-btn); color: var(--p-testo); }
+      .plink { color: var(--p-accento-testo); text-decoration: underline; text-underline-offset: .25em; }
+      .scena__figura { position: relative; min-height: 22rem; background: radial-gradient(90% 70% at 50% 100%, var(--p-alone), transparent 70%), var(--p-fondo2); display: flex; align-items: flex-end; justify-content: center; }
+      .scena__figura img { height: 22rem; width: auto; }
+      .filo { height: 1px; background: var(--p-oro); width: 3.5rem; margin: 0 0 1.25rem; }
+      .fascia { background: var(--p-scuro); color: var(--p-su-scuro); padding: 2.5rem 1.75rem; display: grid; gap: 1.25rem; }
+      @media (min-width: 860px) { .fascia { grid-template-columns: 1.2fr 1fr; align-items: center; } }
+      .fascia h4 { font-family: var(--font-heading); font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.5rem); line-height: 1.1; font-weight: 600; margin: 0; color: var(--p-su-scuro); font-variation-settings: "opsz" 11; }
+      .fascia h4 em { color: var(--p-oro); font-style: italic; font-weight: 550; }
+      .fascia .pbtn { background: var(--p-su-scuro); color: var(--p-scuro); justify-self: start; }
+      .card-p { margin: 0 1.75rem 2rem; padding: 1.5rem; border-radius: 18px; background: var(--p-card); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 32px -20px rgba(0,0,0,.2); }
+      .card-p blockquote { margin: 0; color: var(--p-testo); }
+      .card-p figcaption { margin-top: .75rem; font-size: .8125rem; font-weight: 600; color: var(--p-accento-testo); }
+      .riga-card { background: var(--p-fondo); padding-top: 2rem; }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <header data-site-header></header>
+      <main class="site-main">
+        <section class="pp">
+          <div class="pp__intro">
+            <h1 class="titolo-sezione">Tre proposte di colori</h1>
+            <p class="testo-lead">Base bianco e oro come chiedi, con un accento bordeaux preso dallo scialle di Giorgia nelle foto. Stessi pezzi in ogni proposta, così si confrontano a colpo d'occhio.</p>
+          </div>
+
+          <!-- A -->
+          <article class="proposta" style="--p-fondo:#FFFFFF; --p-fondo2:#FAF6EF; --p-card:#FFFFFF; --p-testo:#2A2220; --p-testo2:#6A5D55; --p-linea:#EFE6D6; --p-oro:#C9A15C; --p-accento-testo:#6E1F33; --p-azione:#6E1F33; --p-su-azione:#FFFFFF; --p-bordo-btn:rgba(110,31,51,.5); --p-scuro:#6E1F33; --p-su-scuro:#FBF8F3; --p-alone:rgba(201,161,92,.25);">
+            <div class="proposta__testa"><h2>A · Bianco, oro, bordeaux per agire</h2><p>Fondo bianco, oro per filetti e dettagli, bordeaux per bottoni, corsivi e la fascia scura.</p></div>
+            <div class="campioni">
+              <span class="campione"><i style="background:#FFFFFF"></i>Bianco #FFFFFF</span>
+              <span class="campione"><i style="background:#FAF6EF"></i>Avorio #FAF6EF</span>
+              <span class="campione"><i style="background:#C9A15C"></i>Oro #C9A15C</span>
+              <span class="campione"><i style="background:#6E1F33"></i>Bordeaux #6E1F33</span>
+              <span class="campione"><i style="background:#2A2220"></i>Testo #2A2220</span>
+            </div>
+            <div class="scena">
+              <div class="scena__testo"><div class="filo"></div><h3>Quando una relazione pesa e si ripete, <em>si può uscirne.</em></h3><p>Lavoro con una persona alla volta, in presenza o online.</p><div class="scena__azioni"><a class="pbtn pbtn--1">Scrivimi su WhatsApp</a><a class="pbtn pbtn--2">Leggi la guida</a></div></div>
+              <div class="scena__figura"><img src="/assets/img/foto/giorgia-scontornata-sorriso-900.webp" alt="" /></div>
+            </div>
+            <div class="riga-card"><figure class="card-p"><blockquote>Testo di esempio di una testimonianza, per vedere la card su questo fondo.</blockquote><figcaption>Nome (esempio)</figcaption></figure></div>
+            <div class="fascia"><h4>Ogni volta che rimandi, <em>la rete si stringe.</em></h4><a class="pbtn">Scrivimi su WhatsApp</a></div>
+          </article>
+
+          <!-- B -->
+          <article class="proposta" style="--p-fondo:#FBF8F3; --p-fondo2:#F5EEE3; --p-card:#FFFFFF; --p-testo:#2A2220; --p-testo2:#6A5D55; --p-linea:#EADFCB; --p-oro:#C9A15C; --p-accento-testo:#8A6526; --p-azione:#2A2220; --p-su-azione:#FBF8F3; --p-bordo-btn:rgba(42,34,32,.45); --p-scuro:#4A1422; --p-su-scuro:#FBF8F3; --p-alone:rgba(201,161,92,.3);">
+            <div class="proposta__testa"><h2>B · Avorio e oro, bordeaux solo nelle fasce</h2><p>L'oro resta il protagonista nei corsivi; il bordeaux, molto scuro, solo nelle fasce piene. Bottoni quasi neri.</p></div>
+            <div class="campioni">
+              <span class="campione"><i style="background:#FBF8F3"></i>Avorio #FBF8F3</span>
+              <span class="campione"><i style="background:#F5EEE3"></i>Avorio caldo #F5EEE3</span>
+              <span class="campione"><i style="background:#C9A15C"></i>Oro #C9A15C</span>
+              <span class="campione"><i style="background:#8A6526"></i>Oro scuro #8A6526</span>
+              <span class="campione"><i style="background:#4A1422"></i>Bordeaux notte #4A1422</span>
+            </div>
+            <div class="scena">
+              <div class="scena__testo"><div class="filo"></div><h3>Quando una relazione pesa e si ripete, <em>si può uscirne.</em></h3><p>Lavoro con una persona alla volta, in presenza o online.</p><div class="scena__azioni"><a class="pbtn pbtn--1">Scrivimi su WhatsApp</a><a class="pbtn pbtn--2">Leggi la guida</a></div></div>
+              <div class="scena__figura"><img src="/assets/img/foto/giorgia-scontornata-sorriso-900.webp" alt="" /></div>
+            </div>
+            <div class="riga-card"><figure class="card-p"><blockquote>Testo di esempio di una testimonianza, per vedere la card su questo fondo.</blockquote><figcaption>Nome (esempio)</figcaption></figure></div>
+            <div class="fascia"><h4>Ogni volta che rimandi, <em>la rete si stringe.</em></h4><a class="pbtn">Scrivimi su WhatsApp</a></div>
+          </article>
+
+          <!-- C -->
+          <article class="proposta" style="--p-fondo:#FFFFFF; --p-fondo2:#FBF5F4; --p-card:#FFFFFF; --p-testo:#2B2224; --p-testo2:#6B5C5F; --p-linea:#F1E4E3; --p-oro:#C9A15C; --p-accento-testo:#8E3550; --p-azione:#8E3550; --p-su-azione:#FFFFFF; --p-bordo-btn:rgba(142,53,80,.5); --p-scuro:#5A1828; --p-su-scuro:#FFFFFF; --p-alone:rgba(142,53,80,.14);">
+            <div class="proposta__testa"><h2>C · Bianco puro, oro e bordeaux rosato</h2><p>Più luminoso e più femminile: il bordeaux tende al rosa dello scialle nel parco; la fascia scura è un vino profondo.</p></div>
+            <div class="campioni">
+              <span class="campione"><i style="background:#FFFFFF"></i>Bianco #FFFFFF</span>
+              <span class="campione"><i style="background:#FBF5F4"></i>Cipria #FBF5F4</span>
+              <span class="campione"><i style="background:#C9A15C"></i>Oro #C9A15C</span>
+              <span class="campione"><i style="background:#8E3550"></i>Bordeaux rosato #8E3550</span>
+              <span class="campione"><i style="background:#5A1828"></i>Vino #5A1828</span>
+            </div>
+            <div class="scena">
+              <div class="scena__testo"><div class="filo"></div><h3>Quando una relazione pesa e si ripete, <em>si può uscirne.</em></h3><p>Lavoro con una persona alla volta, in presenza o online.</p><div class="scena__azioni"><a class="pbtn pbtn--1">Scrivimi su WhatsApp</a><a class="pbtn pbtn--2">Leggi la guida</a></div></div>
+              <div class="scena__figura"><img src="/assets/img/foto/giorgia-scontornata-sorriso-900.webp" alt="" /></div>
+            </div>
+            <div class="riga-card"><figure class="card-p"><blockquote>Testo di esempio di una testimonianza, per vedere la card su questo fondo.</blockquote><figcaption>Nome (esempio)</figcaption></figure></div>
+            <div class="fascia"><h4>Ogni volta che rimandi, <em>la rete si stringe.</em></h4><a class="pbtn">Scrivimi su WhatsApp</a></div>
+          </article>
+        </section>
+      </main>
+      <footer data-site-footer></footer>
+    </div>
+  </body>
+</html>
