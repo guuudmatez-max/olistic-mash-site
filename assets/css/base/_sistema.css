@@ -972,6 +972,46 @@ p { text-wrap: pretty; }
 }
 
 .chi__griglia { display: grid; gap: 2.5rem; }
+.chi__testo { position: relative; }
+
+/* Timbro: un sigillo di testo in Bodoni che ruota piano tra le due foto */
+.timbro {
+  position: absolute;
+  right: calc(42% - 4.5rem);
+  bottom: 14rem;
+  width: clamp(8.5rem, 11vw, 10.5rem);
+  z-index: 3;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-bg-soft);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.timbro svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: timbro-gira 40s linear infinite; }
+.timbro text {
+  font-family: var(--font-heading);
+  font-variation-settings: "opsz" 11;
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--color-gold-ink);
+}
+.timbro__centro {
+  width: 42%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(201, 161, 92, 0.6);
+  font-family: var(--font-heading);
+  font-variation-settings: "opsz" 11;
+  font-style: italic;
+  font-weight: 550;
+  font-size: 1.1rem;
+  color: var(--color-gold-ink);
+}
+@keyframes timbro-gira { to { transform: rotate(360deg); } }
+@media (max-width: 899px) { .timbro { right: calc(42% - 3.5rem); bottom: 6rem; } }
 .chi__foto { aspect-ratio: 4 / 5; margin: 0; }
 .chi__foto-piccola { width: 42%; aspect-ratio: 3 / 4; margin: 2.5rem 0 0 auto; }
 @media (min-width: 900px) {
@@ -1114,6 +1154,7 @@ p { text-wrap: pretty; }
 
 @media (prefers-reduced-motion: reduce) {
   .js .stacco[data-apri] { clip-path: none; transition: none; }
+  .timbro svg { animation: none; }
   .btn, .btn::before, .btn::after, .servizio, .servizio::before, .t-card, .faq summary::after, .invito-guida, .nav__sotto { transition: none; }
 }
 

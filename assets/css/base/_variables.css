@@ -101,7 +101,7 @@
   --margine-banda: clamp(0.4rem, 0.2rem + 0.6vw, 0.75rem); /* fasce staccate: pochi pixel per lato */
 
   /* RESA COMUNE DELLE FOTO */
-  --grado-foto: saturate(0.86) sepia(0.1) contrast(0.97) brightness(1.02);
+  --grado-foto: saturate(0.97) sepia(0.04) contrast(1.04); /* tocco leggero: unisce i toni senza spegnere le foto */
 
   /* ACCESSIBILITY */
   --color-focus-ring: rgba(236, 178, 62, 0.8);
