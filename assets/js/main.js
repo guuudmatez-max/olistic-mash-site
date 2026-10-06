@@ -177,14 +177,41 @@ function initModuliGuida() {
         grazie.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Grazie! Spero che ti sia utile. Ti aspetto nella tua casella di posta.</span>';
         form.replaceWith(grazie);
         const finestra = grazie.closest("dialog");
-        if (finestra) setTimeout(() => finestra.close(), 2600);
+        if (finestra) setTimeout(() => finestra.close(), 1500);
       }, 380);
     });
   });
 }
 
+// ----------------------------
+// DOMANDE FREQUENTI: ricerca nel testo di domande e risposte
+// ----------------------------
+function initCercaFaq() {
+  const campo = document.querySelector("[data-faq-cerca]");
+  const lista = document.querySelector("[data-faq]");
+  if (!campo || !lista) return;
+  const voci = [...lista.querySelectorAll("details")];
+  const vuota = lista.querySelector("[data-faq-vuota]");
+  const conta = document.querySelector("[data-faq-conta]");
+  const norm = (t) => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  campo.addEventListener("input", () => {
+    const parole = norm(campo.value).split(/\s+/).filter(Boolean);
+    let visibili = 0;
+    voci.forEach((v) => {
+      const testo = norm(v.textContent);
+      const ok = parole.every((p) => testo.includes(p));
+      v.hidden = !ok;
+      if (ok) visibili++;
+      if (ok && parole.length) v.open = false;
+    });
+    vuota.hidden = visibili > 0;
+    conta.textContent = parole.length ? `${visibili} ${visibili === 1 ? "domanda" : "domande"}` : "";
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initStacchi();
+  initCercaFaq();
   initModuliGuida();
   initInvitoGuida();
   initMenuServizi();

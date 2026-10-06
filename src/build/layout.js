@@ -83,10 +83,6 @@ export function renderFooter() {
         <a href="${site.privacy}" ${esterno}>Privacy</a>
         <a href="${site.cookie}" ${esterno}>Cookie</a>
       </div>
-      <nav class="piede__colonna" aria-label="Social">
-        <p class="piede__etichetta">Menu social</p>
-        ${site.social.map((p) => `<a href="${p.url}" ${esterno}>${escapeHtml(p.nome)}</a>`).join("")}
-      </nav>
       <div class="piede__dati">
         <p class="piede__etichetta">Dati</p>
         <p>${escapeHtml(site.nome)} · P.IVA ${site.piva}</p>
