@@ -21,22 +21,22 @@
 
   /* TINTE PASTELLO per card e fondi sfumati */
   --tinta-oro: #F6ECD3;
-  --tinta-cipria: #F4E3E1;
+  --tinta-cipria: #F4E3E6;
   --tinta-salvia: #E2E9DD;
   --tinta-lilla: #ECE7F0;
 
   /* ACCENTO */
-  --color-bordeaux: #6E1F33;
-  --color-bordeaux-scuro: #5A1828;
+  --color-bordeaux: #8E4258;     /* vino rosato: accento (palette 5, scelta da Tommaso) */
+  --color-bordeaux-scuro: #3E1F29; /* vino scuro: fasce scure e piede */
 
   /* TEXT */
-  --color-text: #2A2220;
-  --color-text-soft: #5E5450;
-  --color-muted: #7A6E69;      /* 4.9:1 su bianco */
+  --color-text: #2E2F33;      /* grafite (scelta da Tommaso con il bianco puro) */
+  --color-text-soft: #5D5F66;
+  --color-muted: #6E7077;
   --color-gold-ink: #8A6526;   /* oro per il testo su fondo chiaro */
-  --color-earth: #5A1828;      /* le fasce scure: vino */
+  --color-earth: #3E1F29;
   --color-on-earth: #FBF8F3;
-  --color-on-earth-soft: #E9D6D8;
+  --color-on-earth-soft: #EBD9DE;
   --oro-su-scuro: #E2C68E;     /* oro più chiaro, per stare su fondo scuro */
 
   /* NEUTRAL ALIASES (for legacy selectors) */
