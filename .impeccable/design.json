@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-06T10:11:19+00:00",
+  "generatedAt": "2026-10-06T11:06:42+00:00",
   "title": "Design System: Giorgia Boccadifuoco",
   "extensions": {
     "colorMeta": {
@@ -38,38 +38,55 @@
           "#FFE7A8"
         ]
       },
-      "bordeaux": {
-        "role": "secondary",
-        "displayName": "Bordeaux Scialle",
-        "canonical": "#6E1F33",
-        "oklch": "oklch(37.1% 0.112 9.3)",
-        "cssVar": "--color-bordeaux",
+      "oro-su-scuro": {
+        "role": "primary",
+        "displayName": "Oro Su Scuro",
+        "canonical": "#E2C68E",
+        "oklch": "oklch(83.7% 0.079 84.2)",
+        "cssVar": "--oro-su-scuro",
         "tonalRamp": [
-          "#2A0003",
-          "#4D0019",
-          "#702135",
-          "#954253",
-          "#BA6474",
-          "#E18796",
-          "#FFAAB9",
-          "#FFCFDE"
+          "#1A0500",
+          "#372000",
+          "#563E00",
+          "#765D26",
+          "#997E48",
+          "#BCA16A",
+          "#E1C68E",
+          "#FFEBB2"
         ]
       },
-      "vino": {
+      "vino-rosato": {
         "role": "secondary",
-        "displayName": "Vino",
-        "canonical": "#5A1828",
-        "oklch": "oklch(32.2% 0.097 10.0)",
+        "displayName": "Vino Rosato",
+        "canonical": "#8E4258",
+        "oklch": "oklch(48.3% 0.105 3.6)",
+        "cssVar": "--color-bordeaux",
+        "tonalRamp": [
+          "#280007",
+          "#4A0120",
+          "#6D243C",
+          "#91455B",
+          "#B6667B",
+          "#DC889E",
+          "#FFACC2",
+          "#FFD1E7"
+        ]
+      },
+      "vino-scuro": {
+        "role": "secondary",
+        "displayName": "Vino Scuro",
+        "canonical": "#3E1F29",
+        "oklch": "oklch(28.5% 0.050 0.1)",
         "cssVar": "--color-bordeaux-scuro / --color-earth",
         "tonalRamp": [
-          "#270003",
-          "#48061A",
-          "#6B2836",
-          "#8F4855",
-          "#B46975",
-          "#DA8B97",
-          "#FFAFBB",
-          "#FFD4E0"
+          "#1A020A",
+          "#381A24",
+          "#583741",
+          "#795560",
+          "#9C7681",
+          "#C199A4",
+          "#E6BCC8",
+          "#FFE1ED"
         ]
       },
       "tinta-oro": {
@@ -92,18 +109,18 @@
       "tinta-cipria": {
         "role": "tertiary",
         "displayName": "Tinta Cipria",
-        "canonical": "#F4E3E1",
-        "oklch": "oklch(92.9% 0.019 25.6)",
+        "canonical": "#F4E3E6",
+        "oklch": "oklch(93.0% 0.019 5.3)",
         "cssVar": "--tinta-cipria",
         "tonalRamp": [
-          "#120807",
-          "#2E2220",
-          "#4C3E3D",
-          "#6C5D5C",
-          "#8D7E7C",
-          "#B1A19F",
-          "#D5C5C3",
-          "#FBEAE8"
+          "#12080A",
+          "#2D2124",
+          "#4B3E40",
+          "#6B5D60",
+          "#8D7E81",
+          "#B0A0A3",
+          "#D5C4C7",
+          "#FBEAED"
         ]
       },
       "bianco": {
@@ -140,38 +157,38 @@
           "#F1EEE9"
         ]
       },
-      "testo": {
+      "grafite": {
         "role": "neutral",
-        "displayName": "Testo",
-        "canonical": "#2A2220",
-        "oklch": "oklch(26.0% 0.013 34.3)",
+        "displayName": "Grafite",
+        "canonical": "#2E2F33",
+        "oklch": "oklch(30.6% 0.007 274.7)",
         "cssVar": "--color-text",
         "tonalRamp": [
-          "#100908",
-          "#2B2321",
-          "#49403D",
-          "#685F5C",
-          "#8A807D",
-          "#ADA2A0",
-          "#D1C6C4",
-          "#F7ECE9"
+          "#0A0B0E",
+          "#242529",
+          "#414246",
+          "#606165",
+          "#818287",
+          "#A3A5AA",
+          "#C7C9CE",
+          "#EDEEF3"
         ]
       },
-      "testo-morbido": {
+      "grafite-morbida": {
         "role": "neutral",
-        "displayName": "Testo Morbido",
-        "canonical": "#5E5450",
-        "oklch": "oklch(45.4% 0.015 43.1)",
+        "displayName": "Grafite Morbida",
+        "canonical": "#5D5F66",
+        "oklch": "oklch(48.6% 0.011 273.2)",
         "cssVar": "--color-text-soft",
         "tonalRamp": [
-          "#110907",
-          "#2C231F",
-          "#49403C",
-          "#695F5B",
-          "#8A807B",
-          "#AEA29E",
-          "#D2C6C2",
-          "#F8ECE7"
+          "#090B10",
+          "#23252B",
+          "#404248",
+          "#5F6168",
+          "#808289",
+          "#A2A5AC",
+          "#C6C9D1",
+          "#ECEEF6"
         ]
       },
       "su-vino": {
@@ -194,18 +211,18 @@
       "su-vino-morbido": {
         "role": "neutral",
         "displayName": "Su Vino Morbido",
-        "canonical": "#E9D6D8",
-        "oklch": "oklch(89.2% 0.021 10.3)",
+        "canonical": "#EBD9DE",
+        "oklch": "oklch(90.1% 0.021 358.7)",
         "cssVar": "--color-on-earth-soft",
         "tonalRamp": [
-          "#130709",
-          "#2E2123",
-          "#4D3E3F",
-          "#6D5C5E",
-          "#8E7D7F",
-          "#B2A0A2",
-          "#D6C4C6",
-          "#FCE9EB"
+          "#12080B",
+          "#2E2125",
+          "#4C3E42",
+          "#6C5D61",
+          "#8E7D82",
+          "#B1A0A5",
+          "#D5C4C9",
+          "#FBE9EE"
         ]
       }
     },
@@ -216,7 +233,7 @@
       },
       "display-apertura": {
         "displayName": "Display apertura",
-        "purpose": "Da 900px: titolo gigante entro 12ch dietro a Giorgia scontornata."
+        "purpose": "Da 900px: titolo nella colonna sinistra della fascia d'apertura, accanto a Giorgia, senza sovrapposizioni."
       },
       "firma": {
         "displayName": "Firma",
@@ -248,7 +265,11 @@
       },
       "button": {
         "displayName": "Bottone",
-        "purpose": "Testo dei bottoni; domande FAQ a 1rem."
+        "purpose": "Testo dei bottoni (550); domande FAQ Inter 600 a 1rem."
+      },
+      "sottotitolo-fine": {
+        "displayName": "Sottotitolo fine",
+        "purpose": "Inter 600 0.8125rem +0.08em oro inchiostro, sotto un titolo centrato; mai sopra."
       },
       "small-strong": {
         "displayName": "Piccolo forte",
@@ -262,22 +283,22 @@
     "shadows": [
       {
         "name": "tema",
-        "value": "0 1px 2px rgba(42, 34, 32, 0.06), 0 12px 26px -14px rgba(42, 34, 32, 0.4)",
+        "value": "0 1px 2px rgba(46, 47, 51, 0.06), 0 12px 26px -14px rgba(46, 47, 51, 0.4)",
         "purpose": "Pillole dei temi che galleggiano intorno a Giorgia."
       },
       {
         "name": "ventaglio",
-        "value": "0 1px 2px rgba(42, 34, 32, 0.05), 0 24px 40px -26px rgba(42, 34, 32, 0.4)",
+        "value": "0 1px 2px rgba(46, 47, 51, 0.05), 0 24px 40px -26px rgba(46, 47, 51, 0.4)",
         "purpose": "Card del ventaglio a riposo."
       },
       {
         "name": "ventaglio-hover",
-        "value": "0 2px 4px rgba(42, 34, 32, 0.06), 0 36px 60px -28px rgba(42, 34, 32, 0.5)",
+        "value": "0 2px 4px rgba(46, 47, 51, 0.06), 0 36px 60px -28px rgba(46, 47, 51, 0.5)",
         "purpose": "Card del ventaglio al passaggio."
       },
       {
         "name": "frase-stacco",
-        "value": "text-shadow: 0 1px 12px rgba(42, 34, 32, 0.45)",
+        "value": "text-shadow: 0 1px 12px rgba(46, 47, 51, 0.45)",
         "purpose": "Leggibilità della frase sulla foto, con sfumatura dal basso 0.7 → 0."
       }
     ],
@@ -299,28 +320,28 @@
       {
         "name": "sfumato",
         "value": "radial-gradient(50% 60% at 12% 30%, rgba(246, 236, 211, 0.95), transparent 70%), radial-gradient(45% 55% at 88% 70%, rgba(244, 227, 225, 0.9), transparent 70%), #FFFFFF",
-        "purpose": "Fondo dell'apertura e della figura centrale: oro chiaro e cipria nel bianco."
+        "purpose": "Fondo della figura centrale su bianco e della fascia d'apertura su avorio (#FAF7F2)."
       },
       {
         "name": "velo-sezione-scura",
-        "value": "linear-gradient(90deg, rgba(90, 24, 40, 0.92) 0%, rgba(90, 24, 40, 0.62) 60%, rgba(90, 24, 40, 0.3) 100%)",
+        "value": "linear-gradient(90deg, rgba(62, 31, 41, 0.92) 0%, rgba(62, 31, 41, 0.62) 60%, rgba(62, 31, 41, 0.3) 100%)",
         "purpose": "Velo vino da sinistra sulla foto della sezione scura."
       }
     ],
     "motion": [
       {
-        "name": "ease-cerchio",
-        "value": "cubic-bezier(0.785, 0.135, 0.15, 0.86)",
-        "purpose": "Il cerchio bordeaux che si allarga: 450ms nei bottoni, 550ms nelle card di servizio."
+        "name": "curva-s",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Il cerchio che si allarga (clip-path): 420ms nei bottoni, 480ms nelle card di servizio; sollevamento del servizio 420ms."
       },
       {
         "name": "ease-uscita",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Sollevamenti (servizio 300ms, ventaglio 400ms), punta FAQ 350ms, altezza FAQ 380ms, stacco 1400ms."
+        "purpose": "Ventaglio 400ms, punta FAQ 350ms, altezza FAQ 380ms, stacco 1400ms."
       },
       {
         "name": "sollevamento-servizio",
-        "value": "translateY(-6px) 300ms",
+        "value": "translateY(-6px) 420ms",
         "purpose": "Card di servizio al passaggio."
       },
       {
@@ -362,41 +383,41 @@
       "name": "Bottone principale",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Pillola oro con cerchio bordeaux che si allarga al passaggio.",
+      "description": "Pillola bianca, filo oro inchiostro, cerchio tinta oro che si allarga al passaggio.",
       "html": "<a class=\"ds-btn\" href=\"#\">Scrivimi su WhatsApp</a>",
-      "css": ".ds-btn { --cerchio:2.4rem; --fondo:#C9A15C; position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; min-height:3.25rem; padding:0.75rem calc(var(--cerchio) + 1.4rem) 0.75rem 1.5rem; border-radius:999px; border:0; background:var(--fondo); color:#2A2220; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.975rem; font-weight:600; line-height:1.2; text-decoration:none; cursor:pointer; transition:color 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn::before { content:''; position:absolute; z-index:-1; inset:calc((100% - var(--cerchio)) / 2) 0.3rem calc((100% - var(--cerchio)) / 2) calc(100% - var(--cerchio) - 0.3rem); border-radius:999px; background:#6E1F33; transition:inset 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn::after { content:''; position:absolute; right:calc(0.3rem + (var(--cerchio) - 0.95rem) / 2); top:50%; width:0.95rem; height:0.95rem; translate:0 -50%; background:#FFFFFF; -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; transition:transform 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn:is(:hover,:focus-visible) { color:#FFFFFF; } .ds-btn:is(:hover,:focus-visible)::before { inset:0; } .ds-btn:is(:hover,:focus-visible)::after { transform:translateX(3px); } .ds-btn:focus-visible { outline:2px solid #6E1F33; outline-offset:3px; } @media (prefers-reduced-motion: reduce) { .ds-btn, .ds-btn::before, .ds-btn::after { transition:none; } } "
+      "css": ".ds-btn { --cerchio:2.15rem; --fondo:#FFFFFF; --filo:rgba(138,101,38,0.45); --tinta:#F6ECD3; --freccia:#8A6526; position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; min-height:3.1rem; padding:0.65rem calc(var(--cerchio) + 1.25rem) 0.65rem 1.4rem; border-radius:999px; border:0; background:var(--fondo); box-shadow:inset 0 0 0 1px var(--filo); color:#2E2F33; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.975rem; font-weight:550; line-height:1.2; text-decoration:none; cursor:pointer; transition:color 380ms cubic-bezier(0.65, 0, 0.35, 1), box-shadow 380ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn::before { content:''; position:absolute; z-index:-1; inset:0; background:var(--tinta); clip-path:circle(calc(var(--cerchio) / 2) at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); transition:clip-path 420ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn::after { content:''; position:absolute; right:calc(0.35rem + (var(--cerchio) - 0.85rem) / 2); top:50%; width:0.85rem; height:0.85rem; translate:0 -50%; background:var(--freccia); -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; transition:transform 420ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn:is(:hover,:focus-visible)::before { clip-path:circle(150% at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); } .ds-btn:is(:hover,:focus-visible)::after { transform:translateX(3px); } .ds-btn:is(:hover,:focus-visible) { box-shadow:inset 0 0 0 1px transparent; } .ds-btn:focus-visible { outline:2px solid #8E4258; outline-offset:3px; } .ds-btn-secondary { --filo:rgba(142,66,88,0.4); --tinta:#F4E3E6; --freccia:#8E4258; } @media (prefers-reduced-motion: reduce) { .ds-btn, .ds-btn::before, .ds-btn::after { transition:none; } } "
     },
     {
       "name": "Bottone secondario",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Stessa pillola su tinta oro.",
+      "description": "Pillola bianca, filo vino rosato, cerchio tinta cipria.",
       "html": "<a class=\"ds-btn ds-btn-secondary\" href=\"#\">Leggi la guida</a>",
-      "css": ".ds-btn { --cerchio:2.4rem; --fondo:#C9A15C; position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; min-height:3.25rem; padding:0.75rem calc(var(--cerchio) + 1.4rem) 0.75rem 1.5rem; border-radius:999px; border:0; background:var(--fondo); color:#2A2220; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.975rem; font-weight:600; line-height:1.2; text-decoration:none; cursor:pointer; transition:color 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn::before { content:''; position:absolute; z-index:-1; inset:calc((100% - var(--cerchio)) / 2) 0.3rem calc((100% - var(--cerchio)) / 2) calc(100% - var(--cerchio) - 0.3rem); border-radius:999px; background:#6E1F33; transition:inset 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn::after { content:''; position:absolute; right:calc(0.3rem + (var(--cerchio) - 0.95rem) / 2); top:50%; width:0.95rem; height:0.95rem; translate:0 -50%; background:#FFFFFF; -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; transition:transform 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn:is(:hover,:focus-visible) { color:#FFFFFF; } .ds-btn:is(:hover,:focus-visible)::before { inset:0; } .ds-btn:is(:hover,:focus-visible)::after { transform:translateX(3px); } .ds-btn:focus-visible { outline:2px solid #6E1F33; outline-offset:3px; } @media (prefers-reduced-motion: reduce) { .ds-btn, .ds-btn::before, .ds-btn::after { transition:none; } } .ds-btn-secondary { --fondo:#F6ECD3; }"
+      "css": ".ds-btn { --cerchio:2.15rem; --fondo:#FFFFFF; --filo:rgba(138,101,38,0.45); --tinta:#F6ECD3; --freccia:#8A6526; position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; min-height:3.1rem; padding:0.65rem calc(var(--cerchio) + 1.25rem) 0.65rem 1.4rem; border-radius:999px; border:0; background:var(--fondo); box-shadow:inset 0 0 0 1px var(--filo); color:#2E2F33; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.975rem; font-weight:550; line-height:1.2; text-decoration:none; cursor:pointer; transition:color 380ms cubic-bezier(0.65, 0, 0.35, 1), box-shadow 380ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn::before { content:''; position:absolute; z-index:-1; inset:0; background:var(--tinta); clip-path:circle(calc(var(--cerchio) / 2) at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); transition:clip-path 420ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn::after { content:''; position:absolute; right:calc(0.35rem + (var(--cerchio) - 0.85rem) / 2); top:50%; width:0.85rem; height:0.85rem; translate:0 -50%; background:var(--freccia); -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; transition:transform 420ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn:is(:hover,:focus-visible)::before { clip-path:circle(150% at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); } .ds-btn:is(:hover,:focus-visible)::after { transform:translateX(3px); } .ds-btn:is(:hover,:focus-visible) { box-shadow:inset 0 0 0 1px transparent; } .ds-btn:focus-visible { outline:2px solid #8E4258; outline-offset:3px; } .ds-btn-secondary { --filo:rgba(142,66,88,0.4); --tinta:#F4E3E6; --freccia:#8E4258; } @media (prefers-reduced-motion: reduce) { .ds-btn, .ds-btn::before, .ds-btn::after { transition:none; } } "
     },
     {
       "name": "Bottone chiaro",
       "kind": "button",
       "refersTo": "button-chiaro",
-      "description": "Pillola bianca per le fasce vino.",
+      "description": "Vetro chiaro sulle fasce scure; al passaggio si riempie di bianco.",
       "html": "<div class=\"ds-vino\"><a class=\"ds-btn ds-btn-chiaro\" href=\"#\">Scrivimi su WhatsApp</a></div>",
-      "css": ".ds-btn { --cerchio:2.4rem; --fondo:#C9A15C; position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; min-height:3.25rem; padding:0.75rem calc(var(--cerchio) + 1.4rem) 0.75rem 1.5rem; border-radius:999px; border:0; background:var(--fondo); color:#2A2220; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.975rem; font-weight:600; line-height:1.2; text-decoration:none; cursor:pointer; transition:color 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn::before { content:''; position:absolute; z-index:-1; inset:calc((100% - var(--cerchio)) / 2) 0.3rem calc((100% - var(--cerchio)) / 2) calc(100% - var(--cerchio) - 0.3rem); border-radius:999px; background:#6E1F33; transition:inset 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn::after { content:''; position:absolute; right:calc(0.3rem + (var(--cerchio) - 0.95rem) / 2); top:50%; width:0.95rem; height:0.95rem; translate:0 -50%; background:#FFFFFF; -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; transition:transform 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn:is(:hover,:focus-visible) { color:#FFFFFF; } .ds-btn:is(:hover,:focus-visible)::before { inset:0; } .ds-btn:is(:hover,:focus-visible)::after { transform:translateX(3px); } .ds-btn:focus-visible { outline:2px solid #6E1F33; outline-offset:3px; } @media (prefers-reduced-motion: reduce) { .ds-btn, .ds-btn::before, .ds-btn::after { transition:none; } } .ds-vino { background:#5A1828; padding:2rem; border-radius:24px; } .ds-btn-chiaro { --fondo:#FFFFFF; }"
+      "css": ".ds-btn { --cerchio:2.15rem; --fondo:#FFFFFF; --filo:rgba(138,101,38,0.45); --tinta:#F6ECD3; --freccia:#8A6526; position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; min-height:3.1rem; padding:0.65rem calc(var(--cerchio) + 1.25rem) 0.65rem 1.4rem; border-radius:999px; border:0; background:var(--fondo); box-shadow:inset 0 0 0 1px var(--filo); color:#2E2F33; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.975rem; font-weight:550; line-height:1.2; text-decoration:none; cursor:pointer; transition:color 380ms cubic-bezier(0.65, 0, 0.35, 1), box-shadow 380ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn::before { content:''; position:absolute; z-index:-1; inset:0; background:var(--tinta); clip-path:circle(calc(var(--cerchio) / 2) at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); transition:clip-path 420ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn::after { content:''; position:absolute; right:calc(0.35rem + (var(--cerchio) - 0.85rem) / 2); top:50%; width:0.85rem; height:0.85rem; translate:0 -50%; background:var(--freccia); -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; transition:transform 420ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn:is(:hover,:focus-visible)::before { clip-path:circle(150% at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); } .ds-btn:is(:hover,:focus-visible)::after { transform:translateX(3px); } .ds-btn:is(:hover,:focus-visible) { box-shadow:inset 0 0 0 1px transparent; } .ds-btn:focus-visible { outline:2px solid #8E4258; outline-offset:3px; } .ds-btn-secondary { --filo:rgba(142,66,88,0.4); --tinta:#F4E3E6; --freccia:#8E4258; } @media (prefers-reduced-motion: reduce) { .ds-btn, .ds-btn::before, .ds-btn::after { transition:none; } } .ds-vino { background:#3E1F29; padding:2rem; border-radius:24px; } .ds-btn-chiaro { --fondo:rgba(255,255,255,0.08); --filo:rgba(255,255,255,0.4); --tinta:#FFFFFF; --freccia:#8E4258; color:#FFFFFF; } .ds-btn-chiaro:is(:hover,:focus-visible) { color:#2E2F33; }"
     },
     {
-      "name": "Link bordeaux",
+      "name": "Link vino rosato",
       "kind": "custom",
       "refersTo": "link",
       "description": "Alternativa testuale accanto al bottone.",
       "html": "<a class=\"ds-link\" href=\"#\">Come si lavora insieme</a>",
-      "css": ".ds-link { color:#6E1F33; font-family:\"Inter Variable\", system-ui, sans-serif; font-weight:600; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:0.25em; transition:text-decoration-color 200ms ease; } .ds-link:hover { text-decoration-color:transparent; } .ds-link:focus-visible { outline:2px solid #6E1F33; outline-offset:3px; border-radius:6px; }"
+      "css": ".ds-link { color:#8E4258; font-family:\"Inter Variable\", system-ui, sans-serif; font-weight:600; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:0.25em; transition:text-decoration-color 200ms ease; } .ds-link:hover { text-decoration-color:transparent; } .ds-link:focus-visible { outline:2px solid #8E4258; outline-offset:3px; border-radius:6px; }"
     },
     {
       "name": "Card di servizio",
       "kind": "card",
       "refersTo": "servizio-oro",
-      "description": "Card tinta; al passaggio il cerchio bordeaux riempie la card e la card sale di 6px.",
+      "description": "Card tinta; al passaggio il cerchio vino rosato riempie la card (clip-path, 480ms) e la card sale di 6px.",
       "html": "<a class=\"ds-servizio\" href=\"#\"><div class=\"ds-servizio-foto\"></div><div><h3>Consulenze individuali</h3><p>Una persona alla volta, più a fondo. In presenza o online.</p></div><span class=\"ds-servizio-piede\">Come funzionano</span></a>",
-      "css": ".ds-servizio { --cerchio:2.6rem; --m:clamp(1.5rem,1.2rem + 1vw,2rem); position:relative; isolation:isolate; overflow:hidden; display:grid; grid-template-rows:auto 1fr auto; gap:1.25rem; max-width:24rem; min-height:26rem; padding:var(--m); border-radius:20px; background:#F6ECD3; color:#2A2220; text-decoration:none; font-family:\"Inter Variable\", system-ui, sans-serif; transition:transform 300ms cubic-bezier(0.16, 1, 0.3, 1), color 450ms ease; } .ds-servizio-foto { aspect-ratio:16/10; border-radius:14px; background:linear-gradient(160deg,#E9D6D8,#C9A15C); } .ds-servizio h3 { margin:0 0 0.6rem; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-weight:600; font-size:clamp(1.6rem,1.3rem + 1vw,2.1rem); line-height:1.1; color:inherit; } .ds-servizio p { margin:0; color:#5E5450; max-width:40ch; transition:color 450ms ease; } .ds-servizio-piede { display:flex; align-items:center; min-height:var(--cerchio); padding-right:calc(var(--cerchio) + 0.5rem); font-size:0.9375rem; font-weight:600; } .ds-servizio::before { content:''; position:absolute; z-index:-1; right:var(--m); bottom:var(--m); width:var(--cerchio); height:var(--cerchio); border-radius:999px; background:#6E1F33; transition:right 550ms cubic-bezier(0.785, 0.135, 0.15, 0.86), bottom 550ms cubic-bezier(0.785, 0.135, 0.15, 0.86), width 550ms cubic-bezier(0.785, 0.135, 0.15, 0.86), height 550ms cubic-bezier(0.785, 0.135, 0.15, 0.86), border-radius 550ms ease; } .ds-servizio::after { content:''; position:absolute; right:calc(var(--m) + (var(--cerchio) - 1rem) / 2); bottom:calc(var(--m) + (var(--cerchio) - 1rem) / 2); width:1rem; height:1rem; background:#FFFFFF; -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; } .ds-servizio:is(:hover,:focus-visible) { transform:translateY(-6px); color:#FFFFFF; } .ds-servizio:is(:hover,:focus-visible)::before { right:0; bottom:0; width:100%; height:100%; border-radius:20px; } .ds-servizio:is(:hover,:focus-visible) p { color:rgba(255,255,255,0.85); } .ds-servizio:focus-visible { outline:2px solid #6E1F33; outline-offset:3px; } @media (prefers-reduced-motion: reduce) { .ds-servizio, .ds-servizio::before { transition:none; } }"
+      "css": ".ds-servizio { --cerchio:2.6rem; --m:clamp(1.5rem,1.2rem + 1vw,2rem); position:relative; isolation:isolate; overflow:hidden; display:grid; grid-template-rows:auto 1fr auto; gap:1.25rem; max-width:24rem; min-height:26rem; padding:var(--m); border-radius:20px; background:#F6ECD3; color:#2E2F33; text-decoration:none; font-family:\"Inter Variable\", system-ui, sans-serif; transition:transform 420ms cubic-bezier(0.65, 0, 0.35, 1), color 380ms ease; } .ds-servizio-foto { aspect-ratio:16/10; border-radius:14px; background:linear-gradient(160deg,#EBD9DE,#C9A15C); } .ds-servizio h3 { margin:0 0 0.6rem; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-weight:600; font-size:clamp(1.6rem,1.3rem + 1vw,2.1rem); line-height:1.1; color:inherit; } .ds-servizio p { margin:0; color:#5D5F66; max-width:40ch; transition:color 380ms ease; } .ds-servizio-piede { display:flex; align-items:center; min-height:var(--cerchio); padding-right:calc(var(--cerchio) + 0.5rem); font-size:0.9375rem; font-weight:600; } .ds-servizio::before { content:''; position:absolute; z-index:-1; inset:0; background:#8E4258; clip-path:circle(calc(var(--cerchio) / 2) at calc(100% - var(--m) - var(--cerchio) / 2) calc(100% - var(--m) - var(--cerchio) / 2)); transition:clip-path 480ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-servizio::after { content:''; position:absolute; right:calc(var(--m) + (var(--cerchio) - 1rem) / 2); bottom:calc(var(--m) + (var(--cerchio) - 1rem) / 2); width:1rem; height:1rem; background:#FFFFFF; -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; } .ds-servizio:is(:hover,:focus-visible) { transform:translateY(-6px); color:#FFFFFF; } .ds-servizio:is(:hover,:focus-visible)::before { clip-path:circle(150% at calc(100% - var(--m) - var(--cerchio) / 2) calc(100% - var(--m) - var(--cerchio) / 2)); } .ds-servizio:is(:hover,:focus-visible) p { color:rgba(255,255,255,0.85); } .ds-servizio:focus-visible { outline:2px solid #8E4258; outline-offset:3px; } @media (prefers-reduced-motion: reduce) { .ds-servizio, .ds-servizio::before { transition:none; } }"
     },
     {
       "name": "Pillole dei temi",
@@ -404,23 +425,23 @@
       "refersTo": "tema",
       "description": "Pillole che galleggiano intorno a Giorgia, parola chiave in 650.",
       "html": "<ul class=\"ds-temi\"><li class=\"ds-tema ds-tema-oro\">Relazioni che <strong>si ripetono</strong></li><li class=\"ds-tema\">Un peso che <strong>non passa</strong></li><li class=\"ds-tema ds-tema-cipria\">Decisioni <strong>bloccate</strong></li></ul>",
-      "css": ".ds-temi { list-style:none; margin:0; padding:1.5rem; display:flex; flex-wrap:wrap; gap:0.6rem; background:radial-gradient(50% 60% at 12% 30%, rgba(246,236,211,0.95), transparent 70%), radial-gradient(45% 55% at 88% 70%, rgba(244,227,225,0.9), transparent 70%), #FFFFFF; } .ds-tema { padding:0.7rem 1.15rem; border-radius:999px; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.95rem; color:#2A2220; background:#FFFFFF; box-shadow:0 1px 2px rgba(42,34,32,0.06), 0 12px 26px -14px rgba(42,34,32,0.4); } .ds-tema strong { font-weight:650; } .ds-tema-oro { background:#F6ECD3; } .ds-tema-cipria { background:#F4E3E1; }"
+      "css": ".ds-temi { list-style:none; margin:0; padding:1.5rem; display:flex; flex-wrap:wrap; gap:0.6rem; background:radial-gradient(50% 60% at 12% 30%, rgba(246,236,211,0.95), transparent 70%), radial-gradient(45% 55% at 88% 70%, rgba(244,227,225,0.9), transparent 70%), #FFFFFF; } .ds-tema { padding:0.7rem 1.15rem; border-radius:999px; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.95rem; color:#2E2F33; background:#FFFFFF; box-shadow:0 1px 2px rgba(46,47,51,0.06), 0 12px 26px -14px rgba(46,47,51,0.4); } .ds-tema strong { font-weight:650; } .ds-tema-oro { background:#F6ECD3; } .ds-tema-cipria { background:#F4E3E6; }"
     },
     {
       "name": "Ventaglio di testimonianze",
       "kind": "card",
       "refersTo": "ventaglio",
-      "description": "Card tinte ruotate a ventaglio, centrale bordeaux; al passaggio si raddrizzano e salgono.",
-      "html": "<ul class=\"ds-ventaglio\"><li class=\"ds-v-oro\"><blockquote>Già dopo il primo incontro qualcosa si è mosso.</blockquote><span>Nome</span></li><li class=\"ds-v-scura\"><blockquote>Ho capito che non dovevo risolvere tutto da sola.</blockquote><span>Nome</span></li><li class=\"ds-v-cipria\"><blockquote>Un peso che portavo da anni è più leggero.</blockquote><span>Nome</span></li></ul>",
-      "css": ".ds-ventaglio { list-style:none; margin:0; padding:2.5rem 1rem 1rem; display:flex; justify-content:center; } .ds-ventaglio li { width:13rem; min-height:15rem; margin-inline:-1rem; padding:1.5rem; border-radius:20px; display:flex; flex-direction:column; justify-content:space-between; color:#2A2220; box-shadow:0 1px 2px rgba(42,34,32,0.05), 0 24px 40px -26px rgba(42,34,32,0.4); transition:transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms ease; } .ds-ventaglio li:nth-child(1) { transform:rotate(-3.5deg); } .ds-ventaglio li:nth-child(2) { z-index:2; transform:translateY(-1rem); } .ds-ventaglio li:nth-child(3) { transform:rotate(3.5deg); } .ds-ventaglio li:hover { z-index:3; transform:translateY(-14px) rotate(0deg); box-shadow:0 2px 4px rgba(42,34,32,0.06), 0 36px 60px -28px rgba(42,34,32,0.5); } .ds-ventaglio blockquote { margin:0; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-size:1.2rem; line-height:1.28; font-weight:550; } .ds-ventaglio span { display:block; padding-top:0.75rem; margin-top:1rem; border-top:1px solid rgba(42,34,32,0.15); font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.9375rem; font-weight:600; } .ds-v-oro { background:#F6ECD3; } .ds-v-cipria { background:#F4E3E1; } .ds-v-scura { background:#6E1F33; color:#FFFFFF !important; } .ds-v-scura span { border-color:rgba(255,255,255,0.3); } @media (prefers-reduced-motion: reduce) { .ds-ventaglio li { transition:none; } }"
+      "description": "Card tinte a ventaglio con « Bodoni e avatar; centrale vino rosato; al passaggio si raddrizzano e salgono.",
+      "html": "<ul class=\"ds-ventaglio\"><li class=\"ds-v-oro\"><blockquote>Già dopo il primo incontro qualcosa si è mosso.</blockquote><span><i class=\"ds-avatar\">N</i>Nome</span></li><li class=\"ds-v-scura\"><blockquote>Ho capito che non dovevo risolvere tutto da sola.</blockquote><span><i class=\"ds-avatar\">N</i>Nome</span></li><li class=\"ds-v-cipria\"><blockquote>Un peso che portavo da anni è più leggero.</blockquote><span><i class=\"ds-avatar\">N</i>Nome</span></li></ul>",
+      "css": ".ds-ventaglio { list-style:none; margin:0; padding:2.5rem 1rem 1rem; display:flex; justify-content:center; } .ds-ventaglio li { width:13rem; min-height:15rem; margin-inline:-1rem; padding:1.5rem; border-radius:20px; display:flex; flex-direction:column; justify-content:space-between; color:#2E2F33; box-shadow:0 1px 2px rgba(46,47,51,0.05), 0 24px 40px -26px rgba(46,47,51,0.4); transition:transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms ease; } .ds-ventaglio li:nth-child(1) { transform:rotate(-3.5deg); } .ds-ventaglio li:nth-child(2) { z-index:2; transform:translateY(-1rem); } .ds-ventaglio li:nth-child(3) { transform:rotate(3.5deg); } .ds-ventaglio li:hover { z-index:3; transform:translateY(-14px) rotate(0deg); box-shadow:0 2px 4px rgba(46,47,51,0.06), 0 36px 60px -28px rgba(46,47,51,0.5); } .ds-ventaglio blockquote { margin:0; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-size:1.2rem; line-height:1.28; font-weight:550; } .ds-ventaglio span { display:block; padding-top:0.75rem; margin-top:1rem; border-top:1px solid rgba(46,47,51,0.15); font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.9375rem; font-weight:600; } .ds-ventaglio li { text-align:left; } .ds-ventaglio blockquote::before { content:'\\00AB'; display:block; margin-bottom:0.6rem; font-size:3rem; line-height:0.6; color:#8A6526; } .ds-v-scura blockquote::before { color:#E2C68E; } .ds-ventaglio span { display:flex !important; align-items:center; gap:0.6rem; } .ds-avatar { flex:none; width:2.1rem; height:2.1rem; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:0.8rem; font-weight:650; background:rgba(46,47,51,0.12); } .ds-v-scura .ds-avatar { background:rgba(255,255,255,0.2); } .ds-v-oro { background:#F6ECD3; } .ds-v-cipria { background:#F4E3E6; } .ds-v-scura { background:#8E4258; color:#FFFFFF !important; } .ds-v-scura span { border-color:rgba(255,255,255,0.3); } @media (prefers-reduced-motion: reduce) { .ds-ventaglio li { transition:none; } }"
     },
     {
       "name": "FAQ",
       "kind": "custom",
       "refersTo": "faq-riga",
-      "description": "Righe a pillola su avorio; aperta: intestazione bordeaux e risposta tinta oro.",
+      "description": "Righe a pillola su avorio; aperta: intestazione vino rosato e risposta tinta oro.",
       "html": "<div class=\"ds-faq\"><details open><summary>Quanto dura un incontro?</summary><div class=\"ds-faq-r\">In presenza 90 minuti, online 60.</div></details><details><summary>È una terapia?</summary><div class=\"ds-faq-r\">No.</div></details></div>",
-      "css": ".ds-faq { display:grid; gap:0.6rem; max-width:36rem; font-family:\"Inter Variable\", system-ui, sans-serif; } .ds-faq details { border-radius:26px; background:#FAF7F2; overflow:hidden; } .ds-faq details[open] { background:#F6ECD3; } .ds-faq summary { list-style:none; cursor:pointer; position:relative; display:flex; align-items:center; min-height:3.5rem; padding:0.8rem 4rem 0.8rem 1.5rem; border-radius:26px; font-size:1rem; font-weight:600; line-height:1.4; color:#2A2220; transition:background-color 300ms ease, color 300ms ease; } .ds-faq summary::-webkit-details-marker { display:none; } .ds-faq details[open] summary { background:#6E1F33; color:#FFFFFF; } .ds-faq summary::after { content:''; position:absolute; right:0.45rem; top:50%; width:2.5rem; height:2.5rem; translate:0 -50%; border-radius:50%; background:#6E1F33 url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 3l5 5-5 5' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / 0.9rem no-repeat; transition:transform 350ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-faq details[open] summary::after { transform:rotate(-90deg); background-color:transparent; } .ds-faq summary:focus-visible { outline:2px solid #6E1F33; outline-offset:3px; } .ds-faq-r { padding:1rem 1.5rem 1.4rem; color:#2A2220; }"
+      "css": ".ds-faq { display:grid; gap:0.6rem; max-width:36rem; font-family:\"Inter Variable\", system-ui, sans-serif; } .ds-faq details { border-radius:26px; background:#FAF7F2; overflow:hidden; } .ds-faq details[open] { background:#F6ECD3; } .ds-faq summary { list-style:none; cursor:pointer; position:relative; display:flex; align-items:center; min-height:3.5rem; padding:0.8rem 4rem 0.8rem 1.5rem; border-radius:26px; font-size:1rem; font-weight:600; line-height:1.4; color:#2E2F33; transition:background-color 300ms ease, color 300ms ease; } .ds-faq summary::-webkit-details-marker { display:none; } .ds-faq details[open] summary { background:#8E4258; color:#FFFFFF; } .ds-faq summary::after { content:''; position:absolute; right:0.45rem; top:50%; width:2.5rem; height:2.5rem; translate:0 -50%; border-radius:50%; background:#8E4258 url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 3l5 5-5 5' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / 0.9rem no-repeat; transition:transform 350ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-faq details[open] summary::after { transform:rotate(-90deg); background-color:transparent; } .ds-faq summary:focus-visible { outline:2px solid #8E4258; outline-offset:3px; } .ds-faq-r { padding:1rem 1.5rem 1.4rem; color:#2E2F33; }"
     },
     {
       "name": "Campo mail con bottone",
@@ -428,42 +449,42 @@
       "refersTo": "campo-mail",
       "description": "Pillola avorio con il bottone dentro, in una porta bianca su fascia tinta oro.",
       "html": "<div class=\"ds-porte\"><form class=\"ds-porta\" onsubmit=\"return false\"><h3>Leggi la guida, con calma</h3><div class=\"ds-campo\"><input type=\"email\" aria-label=\"La tua mail\" placeholder=\"nome@esempio.it\"/><button class=\"ds-btn\" type=\"submit\">Mandami la guida</button></div></form></div>",
-      "css": ".ds-btn { --cerchio:2.4rem; --fondo:#C9A15C; position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; min-height:3.25rem; padding:0.75rem calc(var(--cerchio) + 1.4rem) 0.75rem 1.5rem; border-radius:999px; border:0; background:var(--fondo); color:#2A2220; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.975rem; font-weight:600; line-height:1.2; text-decoration:none; cursor:pointer; transition:color 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn::before { content:''; position:absolute; z-index:-1; inset:calc((100% - var(--cerchio)) / 2) 0.3rem calc((100% - var(--cerchio)) / 2) calc(100% - var(--cerchio) - 0.3rem); border-radius:999px; background:#6E1F33; transition:inset 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn::after { content:''; position:absolute; right:calc(0.3rem + (var(--cerchio) - 0.95rem) / 2); top:50%; width:0.95rem; height:0.95rem; translate:0 -50%; background:#FFFFFF; -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; transition:transform 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86); } .ds-btn:is(:hover,:focus-visible) { color:#FFFFFF; } .ds-btn:is(:hover,:focus-visible)::before { inset:0; } .ds-btn:is(:hover,:focus-visible)::after { transform:translateX(3px); } .ds-btn:focus-visible { outline:2px solid #6E1F33; outline-offset:3px; } @media (prefers-reduced-motion: reduce) { .ds-btn, .ds-btn::before, .ds-btn::after { transition:none; } } .ds-porte { background:#F6ECD3; padding:1.5rem; border-radius:24px; } .ds-porta { background:#FFFFFF; border-radius:18px; padding:clamp(1.5rem,1.2rem + 1.5vw,2.5rem); max-width:30rem; } .ds-porta h3 { margin:0 0 1rem; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-weight:600; font-size:clamp(1.35rem,1.2rem + 0.6vw,1.7rem); color:#2A2220; } .ds-campo { display:flex; align-items:center; gap:0.5rem; padding:0.35rem; border-radius:999px; background:#FAF7F2; box-shadow:inset 0 0 0 1px #EFE7DA; } .ds-campo input { flex:1; min-width:0; border:0; background:transparent; padding:0 0.75rem 0 1.1rem; min-height:2.9rem; font:inherit; font-family:\"Inter Variable\", system-ui, sans-serif; color:#2A2220; } .ds-campo input:focus-visible { outline:none; } .ds-campo:focus-within { box-shadow:0 0 0 2px #C9A15C; } .ds-campo .ds-btn { flex:none; min-height:2.9rem; } @media (max-width:520px) { .ds-campo { flex-wrap:wrap; border-radius:22px; } .ds-campo input { flex-basis:100%; } .ds-campo .ds-btn { flex:1 1 100%; } }"
+      "css": ".ds-btn { --cerchio:2.15rem; --fondo:#FFFFFF; --filo:rgba(138,101,38,0.45); --tinta:#F6ECD3; --freccia:#8A6526; position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; min-height:3.1rem; padding:0.65rem calc(var(--cerchio) + 1.25rem) 0.65rem 1.4rem; border-radius:999px; border:0; background:var(--fondo); box-shadow:inset 0 0 0 1px var(--filo); color:#2E2F33; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.975rem; font-weight:550; line-height:1.2; text-decoration:none; cursor:pointer; transition:color 380ms cubic-bezier(0.65, 0, 0.35, 1), box-shadow 380ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn::before { content:''; position:absolute; z-index:-1; inset:0; background:var(--tinta); clip-path:circle(calc(var(--cerchio) / 2) at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); transition:clip-path 420ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn::after { content:''; position:absolute; right:calc(0.35rem + (var(--cerchio) - 0.85rem) / 2); top:50%; width:0.85rem; height:0.85rem; translate:0 -50%; background:var(--freccia); -webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8h12M9 3l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") center / contain no-repeat; transition:transform 420ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-btn:is(:hover,:focus-visible)::before { clip-path:circle(150% at calc(100% - 0.35rem - var(--cerchio) / 2) 50%); } .ds-btn:is(:hover,:focus-visible)::after { transform:translateX(3px); } .ds-btn:is(:hover,:focus-visible) { box-shadow:inset 0 0 0 1px transparent; } .ds-btn:focus-visible { outline:2px solid #8E4258; outline-offset:3px; } .ds-btn-secondary { --filo:rgba(142,66,88,0.4); --tinta:#F4E3E6; --freccia:#8E4258; } @media (prefers-reduced-motion: reduce) { .ds-btn, .ds-btn::before, .ds-btn::after { transition:none; } } .ds-porte { background:#F6ECD3; padding:1.5rem; border-radius:24px; } .ds-porta { background:#FFFFFF; border-radius:18px; padding:clamp(1.5rem,1.2rem + 1.5vw,2.5rem); max-width:30rem; } .ds-porta h3 { margin:0 0 1rem; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-weight:600; font-size:clamp(1.35rem,1.2rem + 0.6vw,1.7rem); color:#2E2F33; } .ds-campo { display:flex; align-items:center; gap:0.5rem; padding:0.35rem; border-radius:999px; background:#FAF7F2; box-shadow:inset 0 0 0 1px #EFE7DA; } .ds-campo input { flex:1; min-width:0; border:0; background:transparent; padding:0 0.75rem 0 1.1rem; min-height:2.9rem; font:inherit; font-family:\"Inter Variable\", system-ui, sans-serif; color:#2E2F33; } .ds-campo input:focus-visible { outline:none; } .ds-campo:focus-within { box-shadow:0 0 0 2px #C9A15C; } .ds-campo .ds-btn { flex:none; min-height:2.9rem; } @media (max-width:520px) { .ds-campo { flex-wrap:wrap; border-radius:22px; } .ds-campo input { flex-basis:100%; } .ds-campo .ds-btn { flex:1 1 100%; } }"
     },
     {
       "name": "Piede con firma",
       "kind": "custom",
       "refersTo": "piede",
-      "description": "Fascia vino arrotondata, colonne di link, firma gigante col cognome in corsivo oro.",
+      "description": "Fascia vino scuro arrotondata e ariosa, colonne di link, firma gigante col cognome in corsivo oro su scuro.",
       "html": "<footer class=\"ds-piede\"><p class=\"ds-piede-titolo\">Un messaggio basta, per iniziare.</p><p class=\"ds-piede-etichetta\">Il sito</p><a href=\"#\">Chi sono</a><p class=\"ds-firma\">Giorgia <em>Boccadifuoco</em></p></footer>",
-      "css": ".ds-piede { background:#5A1828; color:#E9D6D8; border-radius:28px; padding:2.5rem 2rem 0; overflow:hidden; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.9375rem; } .ds-piede-titolo { margin:0 0 1.25rem; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-weight:600; font-size:clamp(1.4rem,1.2rem + 0.8vw,1.9rem); line-height:1.2; color:#FBF8F3; } .ds-piede-etichetta { margin:0 0 0.35rem; font-weight:600; color:#C9A15C; } .ds-piede a { color:#FBF8F3; } .ds-piede a:hover { color:#C9A15C; } .ds-firma { margin:2rem 0 -0.12em; text-align:center; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-weight:650; font-size:clamp(2.8rem,0.4rem + 8.2vw,6rem); line-height:0.9; letter-spacing:-0.03em; color:#FBF8F3; } .ds-firma em { font-style:italic; font-weight:550; color:#C9A15C; }"
+      "css": ".ds-piede { background:#3E1F29; color:#EBD9DE; border-radius:28px; padding:4rem 2rem 0; overflow:hidden; font-family:\"Inter Variable\", system-ui, sans-serif; font-size:0.9375rem; } .ds-piede-titolo { margin:0 0 1.25rem; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-weight:600; font-size:clamp(1.4rem,1.2rem + 0.8vw,1.9rem); line-height:1.2; color:#FBF8F3; } .ds-piede-etichetta { margin:0 0 0.35rem; font-weight:600; color:#E2C68E; } .ds-piede a { color:#FBF8F3; } .ds-piede a:hover { color:#E2C68E; } .ds-firma { margin:2rem 0 -0.12em; text-align:center; font-family:\"Bodoni Moda Variable\", \"Bodoni 72\", Didot, Georgia, serif; font-optical-sizing:none; font-variation-settings:\"opsz\" 11; font-weight:650; font-size:clamp(2.8rem,0.4rem + 8.2vw,6rem); line-height:0.9; letter-spacing:-0.03em; color:#FBF8F3; } .ds-firma em { font-style:italic; font-weight:550; color:#E2C68E; }"
     }
   ],
   "narrative": {
     "northStar": "Il servizio di rivista, alla luce del giorno",
-    "overview": "Il sito è il ritratto editoriale di una persona: titoli Bodoni grandi, Giorgia scontornata al centro della scena, foto che respirano. Su questa base Tommaso ha scelto una luce piena: pagina bianca, sezioni avorio alterne, oro per agire e per i filetti, un bordeaux preso dallo scialle delle foto per dare contrasto, tinte pastello d'oro e di cipria per card, pillole e fasce. Il riferimento per spaziatura, impaginazione, card che reagiscono al passaggio, fasce arrotondate staccate dai bordi e fondi sfumati è il sito Mantality (21st.app).\n\nLa densità resta bassa: sezioni ariose, una frase grande per idea, poche cose per schermata. Il carattere viene dalle superfici morbide (tinte, sfumati, angoli tondi) e da un unico gesto che si ripete: un cerchio bordeaux che, al passaggio, si allarga fino a riempire il bottone o la card. Tutte le foto passano per la stessa resa calda. Il sito non pubblica prezzi.\n\nRifiuti confermati: la griglia di card uguali con icona, i bottoni urlati, il tono \"troppo marketing, troppo template\".",
+    "overview": "Il sito è il ritratto editoriale di una persona: titoli Bodoni grandi, Giorgia in abito bianco scontornata al centro della scena, foto che respirano. Tommaso ha scelto la tavolozza \"oro e vino rosato\" su \"bianco puro e grafite\": pagina bianca, sezioni avorio alterne, testo grafite, oro per i filetti e i corsivi, un vino rosato preso dallo scialle delle foto per dare contrasto, tinte pastello d'oro e di cipria per card, pillole e fasce. Il riferimento per spaziatura, impaginazione, card che reagiscono al passaggio, fasce arrotondate staccate dai bordi e fondi sfumati è il sito Mantality (21st.app).\n\nLa densità resta bassa: sezioni ariose, una frase grande per idea, poche cose per schermata. I bottoni sono leggeri e sereni: si vedono, ma non pesano mai. Il gesto che si ripete è un cerchio che si allarga: nei bottoni si allarga in una tinta chiara, nelle card di servizio in vino rosato. Tutte le foto passano per la stessa resa calda. Il sito non pubblica prezzi.\n\nRifiuti confermati: la griglia di card uguali con icona, i bottoni urlati o pesanti, il tono \"troppo marketing, troppo template\".",
     "keyCharacteristics": [
-      "Bianco puro alternato ad avorio; tinte pastello oro e cipria per card, pillole e fasce chiare.",
-      "Oro come superficie del bottone e come filo; bordeaux come contrasto che agisce; vino per le rare fasce scure.",
+      "Bianco puro alternato ad avorio, testo grafite; tinte pastello oro e cipria per card, pillole e fasce chiare.",
+      "Oro per filetti, corsivi e il tocco dei bottoni; vino rosato come contrasto che risponde; vino scuro per le rare fasce scure.",
       "Bodoni Moda pieno (600, display 650) con ottica «testo» fissa; Inter per il resto.",
-      "Il cerchio bordeaux che si allarga: bottoni e card di servizio rispondono tutti allo stesso modo.",
-      "Fasce staccate dai bordi della finestra, con angoli fino a 28px.",
+      "Bottoni chiari: pillola bianca, filo sottile, piccolo cerchio di tinta con la freccia che si allarga al passaggio.",
+      "Fasce staccate dai bordi della finestra (0.75–1.5rem), con angoli fino a 28px, apertura compresa.",
       "Una sola resa per tutte le foto (`--grado-foto`)."
     ],
     "rules": [
       {
         "name": "The Due Voci Rule",
-        "body": "Solo oro e bordeaux agiscono. L'oro invita (il fondo del bottone), il bordeaux risponde (il cerchio, il riempimento al passaggio, la FAQ aperta, i link). Le tinte pastello e l'avorio non agiscono mai: fanno da fondo.",
+        "body": "Solo oro e vino rosato agiscono. L'oro invita con discrezione (filo, freccia, tinta del bottone principale); il vino rosato risponde (link, card di servizio al passaggio, FAQ aperta). Avorio e tinte pastello fanno da fondo e non agiscono mai da sole.",
         "section": "colors"
       },
       {
         "name": "The Fasce Scure Rule",
-        "body": "Il vino è raro: la sezione scura di un solo concetto e il piede. Non stanno mai una accanto all'altra; per questo la fascia delle due porte, subito sopra il piede, è chiara (tinta oro).",
+        "body": "Il vino scuro è raro: la sezione scura di un solo concetto e il piede. Non stanno mai una accanto all'altra; per questo la fascia delle due porte, subito sopra il piede, è chiara (tinta oro).",
         "section": "colors"
       },
       {
         "name": "The Oro Leggibile Rule",
-        "body": "Su fondo chiaro l'oro che si legge è oro inchiostro; l'oro pieno è superficie o linea. Sulle fasce vino l'oro pieno è leggibile e si usa quello.",
+        "body": "Su fondo chiaro l'oro che si legge è oro inchiostro; su fondo scuro è oro su scuro. L'oro pieno è solo linea o dettaglio.",
         "section": "colors"
       },
       {
@@ -478,7 +499,12 @@
       },
       {
         "name": "The Corsivo Oro Rule",
-        "body": "Un titolo può portare una sola chiusa in corsivo (`<em>`), peso 550, oro inchiostro (oro pieno sul vino). Al massimo una per titolo.",
+        "body": "Un titolo può portare una sola chiusa in corsivo (`<em>`), peso 550, oro inchiostro (oro su scuro sul vino). Al massimo una per titolo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sotto, Mai Sopra Rule",
+        "body": "Le righe piccole e spaziate stanno sotto il titolo, mai sopra: niente etichette in maiuscolo sopra i titoli.",
         "section": "typography"
       },
       {
@@ -494,19 +520,19 @@
     ],
     "dos": [
       "Do alternare bianco e avorio tra le sezioni e usare le tinte oro e cipria per card, pillole e fasce chiare.",
-      "Do dare a ogni bottone il cerchio bordeaux con la freccia, e lo stesso riempimento al passaggio e al focus.",
-      "Do usare il bordeaux per ciò che risponde (cerchio, link, FAQ aperta) e l'oro per ciò che invita.",
-      "Do staccare dai bordi, con angoli arrotondati, le fasce piene: stacco, sezione scura, porte, piede.",
+      "Do fare i bottoni come pillole bianche con filo sottile e cerchio di tinta con la freccia, riempite di tinta chiara al passaggio e al focus.",
+      "Do usare il vino rosato per ciò che risponde (link, card di servizio, FAQ aperta) e l'oro per i dettagli che invitano.",
+      "Do staccare dai bordi, con angoli arrotondati, le fasce piene: apertura, stacco, sezione scura, porte, piede.",
       "Do fissare l'ottica del Bodoni a 11 ovunque compaia.",
       "Do far passare ogni foto per `--grado-foto`.",
       "Do rispettare il movimento ridotto: riempimenti, sollevamenti, ventaglio e stacchi senza animazione."
     ],
     "donts": [
+      "Don't riempire un bottone di un colore scuro, né a riposo né al passaggio: il passo è leggero.",
       "Don't costruire griglie di card uguali con icona in cima.",
       "Don't mettere un'etichetta in maiuscolo spaziato sopra i titoli.",
-      "Don't mettere due fasce vino una accanto all'altra.",
-      "Don't usare le tinte pastello o l'avorio per un'azione: fanno solo da fondo.",
-      "Don't usare l'oro pieno come colore del testo su fondo chiaro.",
+      "Don't mettere due fasce scure una accanto all'altra.",
+      "Don't usare l'oro pieno come colore del testo, né su chiaro né su scuro.",
       "Don't comporre in Bodoni il testo corrente, le domande o i bottoni.",
       "Don't aggiungere bordi intorno a card e pannelli: si separano con la tinta.",
       "Don't usare emoji o caratteri come icone: le icone sono SVG a tratto o maschere CSS, color corrente."
