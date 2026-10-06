@@ -686,6 +686,51 @@ p { text-wrap: pretty; }
   .faq details[open]::details-content { height: auto; }
 }
 
+/* ---------- Pagine dei servizi ---------- */
+
+/* Foto e testo affiancati; --specchio mette la foto a destra */
+.affianco { display: grid; gap: 2.5rem; align-items: center; }
+.affianco__foto { margin: 0; aspect-ratio: 4 / 5; }
+.affianco__testo { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.affianco__testo .titolo-sezione { margin: 0; }
+.affianco__testo .testo + .testo { margin-top: 0; }
+.affianco__testo .btn { margin-top: 0.75rem; }
+@media (min-width: 900px) {
+  .affianco { grid-template-columns: 0.9fr 1fr; gap: clamp(3rem, 7vw, 7rem); }
+  .affianco--specchio { grid-template-columns: 1fr 0.9fr; }
+}
+
+/* Per chi è e per chi no: due schede, la seconda più quieta */
+.per-chi { display: grid; gap: 1.25rem; margin-top: 3rem; }
+@media (min-width: 900px) { .per-chi { grid-template-columns: 1fr 1fr; } }
+.per-chi__scheda { border-radius: var(--radius-card); padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem); }
+.per-chi__scheda h3 { font-size: var(--text-h3); margin: 0 0 1.25rem; }
+.per-chi__scheda ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+.per-chi__scheda li { position: relative; padding-left: 2rem; color: var(--color-text-soft); }
+.per-chi__scheda li::before { content: ""; position: absolute; left: 0; top: 0.2rem; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: var(--segno-fondo) center / 0.7rem no-repeat; background-image: var(--segno); }
+.per-chi__scheda--si { background: #FFFFFF; box-shadow: 0 30px 60px -40px rgba(46, 47, 51, 0.4); --segno-fondo: var(--color-bordeaux); --segno: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.per-chi__scheda--no { box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.25); --segno-fondo: rgba(138, 101, 38, 0.12); --segno: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 4.5l7 7M11.5 4.5l-7 7' fill='none' stroke='%238A6526' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"); }
+
+/* Come si inizia: tre passi numerati in Bodoni, quello centrale in evidenza */
+.passi { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
+@media (min-width: 900px) { .passi { grid-template-columns: repeat(3, 1fr); } }
+.passo { border-radius: var(--radius-card); padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem); box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.22); display: flex; flex-direction: column; gap: 0.6rem; }
+.passo h3 { font-size: var(--text-h3); margin: 0; }
+.passo p { margin: 0; color: var(--color-text-soft); }
+.passo__num { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-size: 2.6rem; line-height: 1; color: var(--color-gold-ink); }
+.passo--evidenza { background: #FFFFFF; box-shadow: 0 30px 60px -40px rgba(46, 47, 51, 0.45); }
+.passi__nota { max-width: 44rem; margin: 3rem auto 0; text-align: center; color: var(--color-text-soft); }
+.passi__azione { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; margin-top: 2rem; text-align: center; }
+.passi__piccolo { margin: 0; font-size: var(--text-small); color: var(--color-text-muted); }
+
+/* Regalo: tre righe numerate, piccole */
+.regalo__passi { margin: 0.5rem 0 0; padding: 0; list-style: none; counter-reset: r; display: grid; gap: 0.6rem; }
+.regalo__passi li { counter-increment: r; display: flex; gap: 0.75rem; align-items: baseline; color: var(--color-text); }
+.regalo__passi li::before { content: counter(r); font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; color: var(--color-gold-ink); font-size: 1.2rem; }
+
+/* La nota legale sotto le domande, centrata e ben visibile */
+.nota-legale { margin: 2.5rem auto 0; }
+
 /* ---------- Disclaimer ---------- */
 
 .disclaimer {

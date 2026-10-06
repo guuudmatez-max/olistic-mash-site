@@ -5,7 +5,7 @@ module.exports = {
   content: [
     "./index.html",
     "./chi-sono.html",
-    "./consulenze-unity.html",
+    "./consulenze-individuali.html",
     "./eventi-gruppi.html",
     "./percorsi-reiki.html",
     "./contatti.html",

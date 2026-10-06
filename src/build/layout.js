@@ -7,7 +7,7 @@ import * as icone from "simple-icons";
 const MENU = [
   { label: "Home", href: "/" },
   { label: "Chi sono", href: "/chi-sono.html" },
-  { label: "Consulenze Individuali", href: "/consulenze-unity.html" },
+  { label: "Consulenze Individuali", href: "/consulenze-individuali.html" },
   { label: "Armonizzazioni di Gruppo", href: "/eventi-gruppi.html" },
 ];
 

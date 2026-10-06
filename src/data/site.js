@@ -64,5 +64,6 @@ export const site = {
     generico: "Buongiorno Giorgia, ti scrivo dal sito. Vorrei qualche informazione.",
     consulenze: "Buongiorno Giorgia, ti scrivo dal sito. Vorrei informazioni sulle consulenze individuali.",
     armonizzazioni: "Buongiorno Giorgia, ti scrivo dal sito. Vorrei informazioni sulle Armonizzazioni di Gruppo.",
+    regalo: "Buongiorno Giorgia, ti scrivo dal sito. Vorrei regalare una consulenza.",
   },
 };

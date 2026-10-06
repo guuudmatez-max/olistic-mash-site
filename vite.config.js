@@ -14,7 +14,7 @@ export default defineConfig({
       input: {
         main: "index.html",
         chiSono: "chi-sono.html",
-        consulenzeUnity: "consulenze-unity.html",
+        consulenzeIndividuali: "consulenze-individuali.html",
         eventiGruppi: "eventi-gruppi.html",
         percorsiReiki: "percorsi-reiki.html",
         contatti: "contatti.html",
