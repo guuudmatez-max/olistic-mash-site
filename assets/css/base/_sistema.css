@@ -1120,18 +1120,20 @@ p { text-wrap: pretty; }
   padding: clamp(4rem, 3rem + 4vw, 7.5rem) var(--gutter) 0;
   overflow: hidden;
 }
-.piede__griglia { max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 3.5rem clamp(2.5rem, 5vw, 5rem); }
+.piede__griglia { --titolo-piede: clamp(1.8rem, 1.3rem + 1.5vw, 2.7rem); max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 3.5rem clamp(2rem, 3vw, 3.5rem); }
 @media (min-width: 860px) {
-  .piede__griglia { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; }
+  /* l'invito prende spazio, le colonne del menu stanno strette tra loro */
+  .piede__griglia { grid-template-columns: minmax(0, 1fr) auto auto minmax(0, 15rem); }
+  .piede__invito { padding-right: clamp(1rem, 4vw, 5rem); }
   /* i menu partono all'altezza del bottone, sotto il titolo dell'invito: più aria in alto */
-  .piede__griglia > :not(.piede__invito) { margin-top: calc(clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem) * 2.4 + 1.25rem); }
+  .piede__griglia > :not(.piede__invito) { margin-top: calc(var(--titolo-piede) * 2.3 + 1.5rem); }
 }
-.piede__titolo { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem); line-height: 1.2; color: var(--color-on-earth); margin: 0 0 1.25rem; max-width: 20ch; }
+.piede__titolo { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: var(--titolo-piede); line-height: 1.15; color: var(--color-on-earth); margin: 0 0 1.5rem; max-width: 18ch; }
 .piede__colonna { display: flex; flex-direction: column; gap: 0.9rem; }
 .piede__colonna a { color: var(--color-on-earth); }
 .piede__colonna a:hover { color: var(--oro-su-scuro); }
 .piede__etichetta { margin: 0 0 0.5rem; font-weight: 600; color: var(--oro-su-scuro); }
-.piede__dati { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem 1.4rem; border-radius: 16px; background: rgba(255, 255, 255, 0.06); align-self: start; }
+.piede__dati { display: flex; flex-direction: column; gap: 0.5rem; align-self: start; }
 .piede__dati p { margin: 0; color: var(--color-on-earth-soft); font-size: var(--text-label); line-height: 1.55; }
 .piede__dati .piede__disclaimer { margin-top: 0.5rem; padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.12); }
 .piede__icone { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2.25rem; }

@@ -84,7 +84,6 @@ export function renderFooter() {
         <a href="${site.cookie}" ${esterno}>Cookie</a>
       </div>
       <div class="piede__dati">
-        <p class="piede__etichetta">Dati</p>
         <p>${escapeHtml(site.nome)} · P.IVA ${site.piva}</p>
         ${site.sedeLegale ? `<p>${escapeHtml(site.sedeLegale)}</p>` : ""}
         <p>© ${year}</p>
