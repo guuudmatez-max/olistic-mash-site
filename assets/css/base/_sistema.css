@@ -702,35 +702,57 @@ p { text-wrap: pretty; }
 
 /* ---------- Pagina Consulenze ---------- */
 
-/* Apertura «a tu per tu»: fondo bianco, la domanda di chi legge in grande, Giorgia che guarda in camera */
-.atu { padding: clamp(1.5rem, 1rem + 3vw, 4rem) var(--gutter) clamp(1rem, 2vw, 2rem); }
-.atu__griglia { max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 2.5rem; align-items: center; }
-@media (min-width: 900px) { .atu__griglia { grid-template-columns: 1.2fr 0.8fr; gap: clamp(3rem, 6vw, 6rem); } }
-.atu__testo { display: flex; flex-direction: column; align-items: flex-start; }
-.atu__etichetta { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.75rem; font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-ink); }
-.atu__etichetta::before { content: ""; width: 2.5rem; height: 1px; background: var(--color-primary); }
-.atu__titolo { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 650; font-size: clamp(2.9rem, 1.4rem + 4.6vw, 5.4rem); line-height: 1; letter-spacing: -0.02em; color: var(--color-text); }
-.atu__titolo span { display: block; }
-.atu__eco { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
-.atu__eco li { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 550; font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.85rem); line-height: 1.2; color: var(--color-gold-ink); }
-.atu__lead { max-width: 34rem; margin: 2rem 0 0; font-size: var(--text-lead); line-height: 1.6; color: var(--color-text-soft); }
-.atu__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2rem; }
-.atu__rassicura { margin: 0; font-size: var(--text-small); line-height: 1.45; color: var(--color-text-soft); }
-.atu__regalo { margin-top: 1.5rem; font-size: var(--text-small); }
-.atu__foto { position: relative; margin: 0; aspect-ratio: 4 / 5; border-radius: var(--radius-card); overflow: hidden; }
-.atu__foto img { width: 100%; height: 100%; object-fit: cover; filter: var(--grado-foto); }
-.atu__foto figcaption { position: absolute; left: 1rem; bottom: 1rem; display: flex; flex-direction: column; padding: 0.7rem 1rem; border-radius: 14px; background: rgba(255, 255, 255, 0.92); font-size: var(--text-label); color: var(--color-text-muted); }
-.atu__foto figcaption strong { font-size: var(--text-small); font-weight: 600; color: var(--color-text); }
-@media (max-width: 899px) { .atu__foto { aspect-ratio: 1; } }
+/* Accoglienza: foto a tutto schermo con Giorgia a braccia aperte; il testo sta in basso, su una sfumatura scura */
+.accoglienza { position: relative; isolation: isolate; margin: 0 var(--margine-banda); min-height: min(calc(100svh - 5rem), 58rem); border-radius: clamp(18px, 1rem + 1vw, 28px); overflow: hidden; display: flex; align-items: flex-end; }
+.accoglienza__foto { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; filter: var(--grado-foto); }
+.accoglienza::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(62, 31, 41, 0.9) 0%, rgba(62, 31, 41, 0.6) 35%, rgba(62, 31, 41, 0) 68%), linear-gradient(to right, rgba(62, 31, 41, 0.6) 0%, rgba(62, 31, 41, 0) 55%); }
+.accoglienza__testo { width: 100%; max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--gutter) clamp(2.5rem, 2rem + 3vw, 4.5rem); color: var(--color-on-earth); }
+.accoglienza__etichetta { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.25rem; font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro-su-scuro); }
+.accoglienza__etichetta::before { content: ""; width: 2.5rem; height: 1px; background: var(--oro-su-scuro); }
+.accoglienza__titolo { max-width: 15ch; margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 650; font-size: clamp(2.6rem, 1.4rem + 4.2vw, 5.2rem); line-height: 1.02; letter-spacing: -0.02em; color: #FFFFFF; text-wrap: balance; }
+.accoglienza__titolo em { font-style: italic; font-weight: 550; color: var(--oro-su-scuro); }
+.accoglienza__lead { max-width: 36rem; margin: 1.25rem 0 0; font-size: var(--text-lead); line-height: 1.55; color: var(--color-on-earth-soft); }
+.accoglienza__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.75rem; }
+.accoglienza__prova { margin: 0; font-size: var(--text-small); line-height: 1.45; color: var(--color-on-earth-soft); }
+.accoglienza__prova strong { color: #FFFFFF; }
+@media (max-width: 899px) { .accoglienza { min-height: calc(100svh - 5rem); } .accoglienza__foto { object-position: 50% 10%; } .accoglienza::after { background: linear-gradient(to top, rgba(62, 31, 41, 0.92) 0%, rgba(62, 31, 41, 0.75) 45%, rgba(62, 31, 41, 0) 78%); } }
 
-/* Ti riconosci? Frasi grandi una sotto l'altra, divise da un filo */
-.riconosci { display: grid; gap: 2rem; }
-@media (min-width: 900px) { .riconosci { grid-template-columns: 0.7fr 1.3fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; } .riconosci__titolo { position: sticky; top: 7rem; } }
-.riconosci__titolo { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: var(--text-h2); line-height: 1.06; }
-.riconosci__lista { list-style: none; margin: 0; padding: 0; counter-reset: r; }
-.riconosci__lista li { counter-increment: r; display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.4rem 0; border-top: 1px solid rgba(138, 101, 38, 0.2); font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 550; font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.75rem); line-height: 1.25; color: var(--color-text); }
-.riconosci__lista li:last-child { border-bottom: 1px solid rgba(138, 101, 38, 0.2); }
-.riconosci__lista li::before { content: counter(r, decimal-leading-zero); padding-top: 0.45rem; font-family: var(--font-body); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; color: var(--color-gold-ink); }
+/* Ti capisco: la lettera di Giorgia, colonna stretta da leggere */
+.lettera { display: grid; gap: 1.5rem; }
+@media (min-width: 900px) { .lettera { grid-template-columns: 0.7fr 1.3fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; } }
+.lettera__titolo { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: clamp(2.6rem, 1.6rem + 3.5vw, 4.4rem); line-height: 1; }
+.lettera__corpo { max-width: 38rem; display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+.lettera__corpo p { margin: 0; font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem); line-height: 1.7; color: var(--color-text-soft); }
+.lettera__corpo strong { color: var(--color-text); font-weight: 600; }
+.lettera__corpo .lettera__firma { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-size: 1.8rem; color: var(--color-gold-ink); }
+.lettera__corpo .btn { margin-top: 0.5rem; }
+
+/* Cosa sono, a cosa servono, cosa ti porti a casa: tre voci di testo, non schede */
+.incontri__titolo { max-width: 22ch; }
+.incontri { display: grid; gap: 2rem; margin-top: 3rem; }
+@media (min-width: 900px) { .incontri { grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 4rem); } }
+.incontri__voce { padding-top: 1.25rem; border-top: 1px solid rgba(138, 101, 38, 0.3); }
+.incontri__voce p { margin: 0; font-size: 1.05rem; line-height: 1.65; color: var(--color-text-soft); }
+.incontri__voce .incontri__etichetta { margin-bottom: 0.75rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: var(--text-h3); line-height: 1.2; color: var(--color-text); }
+.incontri__prove { list-style: none; margin: 3.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem 3rem; }
+.incontri__prove li { display: flex; align-items: baseline; gap: 0.6rem; font-size: var(--text-small); color: var(--color-text-soft); }
+.incontri__prove strong { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: clamp(2rem, 1.5rem + 1.5vw, 2.8rem); line-height: 1; color: var(--color-gold-ink); }
+
+/* Perché funziona */
+.perche { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 1.1rem; }
+.perche h3 { margin: 0 0 0.25rem; font-size: var(--text-h3); }
+.perche p { margin: 0; color: var(--color-text-soft); }
+.radice__sottotitolo { margin: 1.5rem 0 0; font-family: var(--font-body); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-ink); }
+.momenti strong { color: var(--color-text); font-weight: 600; }
+
+/* Testimonianze video: segnaposto finché non arrivano i montaggi */
+.video-fila { display: grid; grid-template-columns: repeat(4, minmax(0, 11rem)); justify-content: center; gap: 1rem; margin-top: 3rem; text-align: left; }
+.video-segnaposto { position: relative; margin: 0; aspect-ratio: 9 / 16; border-radius: var(--radius-card); background: linear-gradient(160deg, rgba(142, 66, 88, 0.85), var(--color-bordeaux-scuro)); display: flex; align-items: flex-end; padding: 1rem; overflow: hidden; }
+.video-segnaposto__play { position: absolute; top: 50%; left: 50%; width: 3.2rem; height: 3.2rem; translate: -50% -50%; border-radius: 50%; background: rgba(255, 255, 255, 0.9); }
+.video-segnaposto__play::after { content: ""; position: absolute; top: 50%; left: 55%; translate: -50% -50%; border-left: 0.8rem solid var(--color-bordeaux); border-top: 0.5rem solid transparent; border-bottom: 0.5rem solid transparent; }
+.video-segnaposto figcaption { display: flex; flex-direction: column; font-size: var(--text-small); font-weight: 600; color: #FFFFFF; }
+.video-segnaposto figcaption small { font-weight: 400; color: var(--color-on-earth-soft); }
+@media (max-width: 899px) { .video-fila { grid-template-columns: repeat(2, minmax(0, 11rem)); } }
 
 /* Un incontro in tre momenti */
 .momenti { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
@@ -755,6 +777,7 @@ p { text-wrap: pretty; }
 .scorre__colonna:nth-child(2) { margin-top: 5rem; }
 .scorre__colonna:nth-child(3) { margin-top: 2rem; }
 .scorre__carta { margin: 0; padding: 1.75rem; border-radius: var(--radius-card); background: #FFFFFF; box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 24px 50px -30px rgba(142, 66, 88, 0.3); }
+.scorre__carta h3 { margin: 0 0 0.75rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 650; font-size: 1.35rem; line-height: 1.15; color: var(--color-bordeaux); }
 .scorre__carta blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-size: 1.15rem; line-height: 1.4; color: var(--color-text); }
 .scorre__carta blockquote::before { content: "«"; color: var(--color-gold-ink); }
 .scorre__carta blockquote::after { content: "»"; color: var(--color-gold-ink); }
