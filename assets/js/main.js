@@ -224,7 +224,42 @@ function initCercaFaq() {
   campo?.addEventListener("input", aggiorna);
 }
 
+// Testimonianze: sul computer le colonne si muovono con la pagina a velocità diverse
+function initParallasse() {
+  const box = document.querySelector("[data-parallasse]");
+  if (!box) return;
+  const mq = matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
+  const colonne = [...box.children];
+  const velocita = [-60, 50, -30]; // spostamento massimo in px, verso alto o basso
+  let attesa = false;
+  const muovi = () => {
+    attesa = false;
+    if (!mq.matches) return colonne.forEach((c) => (c.style.transform = ""));
+    const r = box.getBoundingClientRect();
+    const p = Math.min(0.5, Math.max(-0.5, (innerHeight - r.top) / (innerHeight + r.height) - 0.5)); // da -0.5 a 0.5 mentre attraversa lo schermo
+    colonne.forEach((c, i) => (c.style.transform = `translateY(${(p * 2 * (velocita[i] ?? 0)).toFixed(1)}px)`));
+  };
+  const chiedi = () => { if (!attesa) { attesa = true; requestAnimationFrame(muovi); } };
+  addEventListener("scroll", chiedi, { passive: true });
+  mq.addEventListener("change", chiedi);
+  muovi();
+}
+
+// Barra WhatsApp sul telefono: visibile dopo l'apertura, nascosta quando si vede l'invito finale
+function initBarraWhatsapp() {
+  const barra = document.querySelector("[data-barra-wa]");
+  const dopo = document.querySelector("[data-barra-dopo]");
+  const fine = document.querySelector("[data-barra-fine]");
+  if (!barra || !dopo) return;
+  let oltreApertura = false, allaFine = false;
+  const aggiorna = () => barra.classList.toggle("visibile", oltreApertura && !allaFine);
+  new IntersectionObserver(([e]) => { oltreApertura = !e.isIntersecting && e.boundingClientRect.top < 0; aggiorna(); }).observe(dopo);
+  if (fine) new IntersectionObserver(([e]) => { allaFine = e.isIntersecting; aggiorna(); }).observe(fine);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initParallasse();
+  initBarraWhatsapp();
   initStacchi();
   initCercaFaq();
   initModuliGuida();

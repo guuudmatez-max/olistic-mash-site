@@ -700,66 +700,130 @@ p { text-wrap: pretty; }
   .affianco--specchio { grid-template-columns: 1fr 0.9fr; }
 }
 
-/* Per chi è e per chi no: due schede, la seconda più quieta */
-.per-chi { display: grid; gap: 1.25rem; margin-top: 3rem; }
-@media (min-width: 900px) { .per-chi { grid-template-columns: 1fr 1fr; } }
-.per-chi__scheda { border-radius: var(--radius-card); padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem); }
-.per-chi__scheda h3 { font-size: var(--text-h3); margin: 0 0 1.25rem; }
-.per-chi__scheda ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
-.per-chi__scheda li { position: relative; padding-left: 2rem; color: var(--color-text-soft); }
-.per-chi__scheda li::before { content: ""; position: absolute; left: 0; top: 0.2rem; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: var(--segno-fondo) center / 0.7rem no-repeat; background-image: var(--segno); }
-.per-chi__scheda--si { background: #FFFFFF; box-shadow: 0 30px 60px -40px rgba(46, 47, 51, 0.4); --segno-fondo: var(--color-bordeaux); --segno: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
-.per-chi__scheda--no { box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.25); --segno-fondo: rgba(138, 101, 38, 0.12); --segno: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 4.5l7 7M11.5 4.5l-7 7' fill='none' stroke='%238A6526' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"); }
+/* ---------- Pagina Consulenze ---------- */
 
-/* Come si inizia: tre passi numerati in Bodoni, quello centrale in evidenza */
-.passi { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
-@media (min-width: 900px) { .passi { grid-template-columns: repeat(3, 1fr); } }
-.passo { border-radius: var(--radius-card); padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem); box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.22); display: flex; flex-direction: column; gap: 0.6rem; }
-.passo h3 { font-size: var(--text-h3); margin: 0; }
-.passo p { margin: 0; color: var(--color-text-soft); }
-.passo__num { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-size: 2.6rem; line-height: 1; color: var(--color-gold-ink); }
-.passo--evidenza { background: #FFFFFF; box-shadow: 0 30px 60px -40px rgba(46, 47, 51, 0.45); }
-.passi__nota { max-width: 44rem; margin: 3rem auto 0; text-align: center; color: var(--color-text-soft); }
-.passi__azione { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; margin-top: 2rem; text-align: center; }
-.passi__piccolo { margin: 0; font-size: var(--text-small); color: var(--color-text-muted); }
+/* Apertura «a tu per tu»: fondo bianco, la domanda di chi legge in grande, Giorgia che guarda in camera */
+.atu { padding: clamp(1.5rem, 1rem + 3vw, 4rem) var(--gutter) clamp(1rem, 2vw, 2rem); }
+.atu__griglia { max-width: var(--container-max-width); margin-inline: auto; display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 900px) { .atu__griglia { grid-template-columns: 1.2fr 0.8fr; gap: clamp(3rem, 6vw, 6rem); } }
+.atu__testo { display: flex; flex-direction: column; align-items: flex-start; }
+.atu__etichetta { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.75rem; font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-ink); }
+.atu__etichetta::before { content: ""; width: 2.5rem; height: 1px; background: var(--color-primary); }
+.atu__titolo { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 650; font-size: clamp(2.9rem, 1.4rem + 4.6vw, 5.4rem); line-height: 1; letter-spacing: -0.02em; color: var(--color-text); }
+.atu__titolo span { display: block; }
+.atu__eco { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
+.atu__eco li { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 550; font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.85rem); line-height: 1.2; color: var(--color-gold-ink); }
+.atu__lead { max-width: 34rem; margin: 2rem 0 0; font-size: var(--text-lead); line-height: 1.6; color: var(--color-text-soft); }
+.atu__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2rem; }
+.atu__rassicura { margin: 0; font-size: var(--text-small); line-height: 1.45; color: var(--color-text-soft); }
+.atu__regalo { margin-top: 1.5rem; font-size: var(--text-small); }
+.atu__foto { position: relative; margin: 0; aspect-ratio: 4 / 5; border-radius: var(--radius-card); overflow: hidden; }
+.atu__foto img { width: 100%; height: 100%; object-fit: cover; filter: var(--grado-foto); }
+.atu__foto figcaption { position: absolute; left: 1rem; bottom: 1rem; display: flex; flex-direction: column; padding: 0.7rem 1rem; border-radius: 14px; background: rgba(255, 255, 255, 0.92); font-size: var(--text-label); color: var(--color-text-muted); }
+.atu__foto figcaption strong { font-size: var(--text-small); font-weight: 600; color: var(--color-text); }
+@media (max-width: 899px) { .atu__foto { aspect-ratio: 1; } }
 
-/* Regalo: tre righe numerate, piccole */
-.regalo__passi { margin: 0.5rem 0 0; padding: 0; list-style: none; counter-reset: r; display: grid; gap: 0.6rem; }
+/* Ti riconosci? Frasi grandi una sotto l'altra, divise da un filo */
+.riconosci { display: grid; gap: 2rem; }
+@media (min-width: 900px) { .riconosci { grid-template-columns: 0.7fr 1.3fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; } .riconosci__titolo { position: sticky; top: 7rem; } }
+.riconosci__titolo { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: var(--text-h2); line-height: 1.06; }
+.riconosci__lista { list-style: none; margin: 0; padding: 0; counter-reset: r; }
+.riconosci__lista li { counter-increment: r; display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.4rem 0; border-top: 1px solid rgba(138, 101, 38, 0.2); font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 550; font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.75rem); line-height: 1.25; color: var(--color-text); }
+.riconosci__lista li:last-child { border-bottom: 1px solid rgba(138, 101, 38, 0.2); }
+.riconosci__lista li::before { content: counter(r, decimal-leading-zero); padding-top: 0.45rem; font-family: var(--font-body); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; color: var(--color-gold-ink); }
+
+/* Un incontro in tre momenti */
+.momenti { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
+.momenti li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; align-items: start; }
+.momenti__num { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-size: 2.2rem; line-height: 1; color: var(--color-gold-ink); }
+.momenti h3 { margin: 0 0 0.3rem; font-size: var(--text-h3); }
+.momenti p { margin: 0; color: var(--color-text-soft); }
+.momenti--piccoli .momenti__num { font-size: 1.6rem; }
+
+/* Citazione breve sotto il metodo */
+.citazione-breve { max-width: 46rem; margin: clamp(3rem, 6vw, 5rem) auto 0; text-align: center; }
+.citazione-breve blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 550; font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2.1rem); line-height: 1.3; color: var(--color-text); }
+.citazione-breve blockquote::before { content: "«"; color: var(--color-gold-ink); }
+.citazione-breve blockquote::after { content: "»"; color: var(--color-gold-ink); }
+.citazione-breve figcaption { margin-top: 1rem; font-size: var(--text-small); font-weight: 600; color: var(--color-text-soft); }
+
+/* Testimonianze vere: tre colonne che sul computer si muovono con la pagina a velocità diverse;
+   sul telefono una fila da scorrere col dito */
+.prove__titolo { font-size: clamp(2.4rem, 1.6rem + 3vw, 4rem); }
+.scorre { display: flex; justify-content: center; align-items: flex-start; gap: 1.5rem; margin-top: 3rem; text-align: left; }
+.scorre__colonna { width: min(100%, 22rem); display: flex; flex-direction: column; gap: 1.5rem; will-change: transform; }
+.scorre__colonna:nth-child(2) { margin-top: 5rem; }
+.scorre__colonna:nth-child(3) { margin-top: 2rem; }
+.scorre__carta { margin: 0; padding: 1.75rem; border-radius: var(--radius-card); background: #FFFFFF; box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 24px 50px -30px rgba(142, 66, 88, 0.3); }
+.scorre__carta blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-size: 1.15rem; line-height: 1.4; color: var(--color-text); }
+.scorre__carta blockquote::before { content: "«"; color: var(--color-gold-ink); }
+.scorre__carta blockquote::after { content: "»"; color: var(--color-gold-ink); }
+.scorre__carta figcaption { display: flex; flex-direction: column; margin-top: 1.1rem; padding-top: 0.9rem; border-top: 1px solid rgba(138, 101, 38, 0.18); }
+.scorre__carta figcaption strong { font-weight: 600; font-size: var(--text-small); }
+.scorre__carta figcaption small { font-size: var(--text-label); color: var(--color-text-muted); }
+@media (max-width: 899px) {
+  .scorre { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--gutter)); padding: 0.5rem var(--gutter) 2rem; scrollbar-width: none; }
+  .scorre__colonna { display: contents; }
+  .scorre__carta { flex: none; width: 82vw; scroll-snap-align: center; }
+}
+.prove__azione { margin-top: 2.5rem; }
+
+/* Chi ti accompagna */
+.accompagna__titolo { font-size: clamp(2.6rem, 1.6rem + 3.5vw, 4.4rem); }
+.accompagna__ruolo { margin: 0; font-size: var(--text-small); font-weight: 600; color: var(--color-gold-ink); max-width: 30rem; }
+.accompagna__media { position: relative; }
+.accompagna__foto { aspect-ratio: 1; }
+/* Il libro appoggiato sull'angolo del ritratto, porta ad Amazon */
+.accompagna__libro { position: absolute; left: clamp(-2.5rem, -3vw, -1rem); bottom: clamp(-2.5rem, -3vw, -1.5rem); width: clamp(7rem, 12vw, 10.5rem); transform: rotate(-6deg); transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1); filter: drop-shadow(0 24px 30px rgba(46, 47, 51, 0.35)); }
+.accompagna__libro:hover { transform: rotate(-2deg) translateY(-6px); }
+.accompagna__libro img { display: block; width: 100%; height: auto; }
+@media (max-width: 899px) { .accompagna__media { margin-bottom: 2rem; } .accompagna__libro { left: 0.75rem; } }
+.accompagna__credenziali { margin: 0; font-size: var(--text-small); color: var(--color-text-muted); }
+.numeri { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; margin: 1rem 0 0.5rem; border-top: 1px solid rgba(138, 101, 38, 0.25); }
+.numeri div { padding: 1.25rem 1rem 0 0; }
+.numeri div + div { padding-left: 1rem; border-left: 1px solid rgba(138, 101, 38, 0.25); }
+.numeri dt { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem); line-height: 1; color: var(--color-gold-ink); }
+.numeri dd { margin: 0.5rem 0 0; font-size: var(--text-small); color: var(--color-text-soft); }
+
+/* La frase del sollievo, sola, su vino scuro (una delle rare fasce scure) */
+.fascia-vino { margin: 0 var(--margine-banda); border-radius: clamp(18px, 1rem + 1vw, 28px); background: radial-gradient(60% 80% at 15% 20%, rgba(142, 66, 88, 0.55), transparent 70%), var(--color-bordeaux-scuro); padding: clamp(4rem, 3rem + 5vw, 8rem) var(--gutter); }
+.fascia-vino__dentro { max-width: 52rem; margin: 0 auto; }
+.fascia-vino blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 550; font-size: clamp(1.6rem, 1.1rem + 2vw, 2.8rem); line-height: 1.25; color: var(--color-on-earth); }
+.fascia-vino figcaption { margin-top: 1.5rem; display: flex; align-items: center; gap: 0.75rem; font-size: var(--text-small); font-weight: 600; color: var(--oro-su-scuro); }
+.fascia-vino figcaption::before { content: ""; width: 2.5rem; height: 1px; background: var(--oro-su-scuro); }
+
+/* Come si inizia: l'offerta a sinistra, cosa succede dopo il messaggio a destra */
+.inizio { display: grid; gap: 3rem; }
+@media (min-width: 900px) { .inizio { grid-template-columns: 1.1fr 0.9fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; } }
+.inizio .titolo-sezione { margin: 0 0 2rem; }
+.inizio__scheda { border-radius: var(--radius-card); padding: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem); background: #FFFFFF; box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 30px 60px -36px rgba(46, 47, 51, 0.45); }
+.inizio__scheda h3 { margin: 0; font-size: clamp(1.7rem, 1.4rem + 1vw, 2.2rem); }
+.inizio__scheda p { margin: 0.75rem 0 0; color: var(--color-text-soft); }
+.inizio__scheda .inizio__durata { margin-top: 0.5rem; font-weight: 600; color: var(--color-bordeaux); }
+.inizio__scheda .inizio__poi { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(138, 101, 38, 0.18); font-size: var(--text-small); }
+.inizio__ritmo { margin: 1.5rem 0 0; font-size: var(--text-small); color: var(--color-text-muted); max-width: 34rem; }
+.inizio__dopo { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; padding-top: 0.5rem; }
+.inizio__dopo h3 { margin: 0; font-size: var(--text-h3); }
+.inizio__dopo .btn { margin-top: 1rem; }
+
+/* Regalo: fascia avorio sottile */
+.regalo { margin: 0 var(--margine-banda); padding: 0 var(--gutter); border-radius: clamp(18px, 1rem + 1vw, 28px); background: var(--tinta-cipria); }
+.regalo__dentro { max-width: var(--container-max-width); margin: 0 auto; padding: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0; display: grid; gap: 1.75rem; align-items: center; }
+@media (min-width: 900px) { .regalo__dentro { grid-template-columns: 1.2fr 1fr auto; gap: clamp(2rem, 4vw, 4rem); } }
+.regalo__titolo { margin: 0 0 0.5rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: clamp(1.7rem, 1.4rem + 1vw, 2.3rem); line-height: 1.1; }
+.regalo__titolo em { font-style: italic; font-weight: 550; color: var(--color-bordeaux); }
+.regalo__dentro p { margin: 0; color: var(--color-text-soft); }
+.regalo__passi { margin: 0; padding: 0; list-style: none; counter-reset: r; display: grid; gap: 0.5rem; }
 .regalo__passi li { counter-increment: r; display: flex; gap: 0.75rem; align-items: baseline; color: var(--color-text); }
-.regalo__passi li::before { content: counter(r); font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; color: var(--color-gold-ink); font-size: 1.2rem; }
+.regalo__passi li::before { content: counter(r); font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; color: var(--color-bordeaux); font-size: 1.2rem; }
 
-/* Testimonianze che scorrono: tre colonne, ognuna ripetuta due volte per un giro continuo.
-   Il nastro sale di metà altezza (= una copia) e ricomincia; si ferma al passaggio del mouse */
-.scorre {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 3rem;
-  max-height: 46rem;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
-          mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+/* Barra WhatsApp fissa, solo sul telefono, tra l'apertura e l'invito finale */
+.barra-wa { display: none; }
+@media (max-width: 899px) {
+  .barra-wa { display: block; position: fixed; z-index: 40; left: 0.75rem; right: 0.75rem; bottom: calc(0.75rem + env(safe-area-inset-bottom)); transform: translateY(150%); visibility: hidden; transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s 380ms; }
+  .barra-wa.visibile { transform: none; visibility: visible; transition-delay: 0s; }
+  .barra-wa .btn { width: 100%; justify-content: center; box-shadow: 0 18px 40px -18px rgba(62, 31, 41, 0.6); }
 }
-.scorre__colonna { width: min(100%, 22rem); text-align: left; }
-.scorre__colonna--md, .scorre__colonna--lg { display: none; }
-@media (min-width: 760px) { .scorre__colonna--md { display: block; } }
-@media (min-width: 1100px) { .scorre__colonna--lg { display: block; } }
-.scorre__nastro { display: flex; flex-direction: column; gap: 1.5rem; animation: scorre-su var(--durata, 36s) linear infinite; }
-.scorre__copia { display: contents; }
-.scorre:hover .scorre__nastro { animation-play-state: paused; }
-@keyframes scorre-su { to { transform: translateY(calc(-50% - 0.75rem)); } }
-.scorre__carta {
-  margin: 0;
-  padding: 2rem;
-  border-radius: var(--radius-card);
-  background: #FFFFFF;
-  box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.15), 0 24px 50px -34px rgba(142, 66, 88, 0.35);
-}
-.scorre__carta blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-size: 1.2rem; line-height: 1.35; color: var(--color-text); }
-.scorre__carta .avatar { background: var(--tinta-cipria); color: var(--color-bordeaux); }
-.scorre__carta figcaption { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; }
-.scorre__carta figcaption strong { display: block; font-weight: 600; font-size: var(--text-small); }
-.scorre__carta figcaption small { display: block; font-size: var(--text-label); color: var(--color-text-muted); }
 
 /* La nota legale sotto le domande, centrata e ben visibile */
 .nota-legale { margin: 2.5rem auto 0; }
@@ -1255,7 +1319,7 @@ p { text-wrap: pretty; }
 @media (prefers-reduced-motion: reduce) {
   .js .stacco[data-apri] { clip-path: none; transition: none; }
   .timbro svg { animation: none; }
-  .scorre__nastro { animation: none; }
+  .barra-wa { transition: none; }
   .btn, .btn::before, .btn::after, .servizio, .servizio::before, .t-card, .faq summary::after, .invito-guida, .nav__sotto { transition: none; }
 }
 
