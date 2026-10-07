@@ -728,6 +728,39 @@ p { text-wrap: pretty; }
 .regalo__passi li { counter-increment: r; display: flex; gap: 0.75rem; align-items: baseline; color: var(--color-text); }
 .regalo__passi li::before { content: counter(r); font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; color: var(--color-gold-ink); font-size: 1.2rem; }
 
+/* Testimonianze che scorrono: tre colonne, ognuna ripetuta due volte per un giro continuo.
+   Il nastro sale di metà altezza (= una copia) e ricomincia; si ferma al passaggio del mouse */
+.scorre {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  max-height: 46rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+          mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+}
+.scorre__colonna { width: min(100%, 22rem); text-align: left; }
+.scorre__colonna--md, .scorre__colonna--lg { display: none; }
+@media (min-width: 760px) { .scorre__colonna--md { display: block; } }
+@media (min-width: 1100px) { .scorre__colonna--lg { display: block; } }
+.scorre__nastro { display: flex; flex-direction: column; gap: 1.5rem; animation: scorre-su var(--durata, 36s) linear infinite; }
+.scorre__copia { display: contents; }
+.scorre:hover .scorre__nastro { animation-play-state: paused; }
+@keyframes scorre-su { to { transform: translateY(calc(-50% - 0.75rem)); } }
+.scorre__carta {
+  margin: 0;
+  padding: 2rem;
+  border-radius: var(--radius-card);
+  background: #FFFFFF;
+  box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.15), 0 24px 50px -34px rgba(142, 66, 88, 0.35);
+}
+.scorre__carta blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-size: 1.2rem; line-height: 1.35; color: var(--color-text); }
+.scorre__carta .avatar { background: var(--tinta-cipria); color: var(--color-bordeaux); }
+.scorre__carta figcaption { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; }
+.scorre__carta figcaption strong { display: block; font-weight: 600; font-size: var(--text-small); }
+.scorre__carta figcaption small { display: block; font-size: var(--text-label); color: var(--color-text-muted); }
+
 /* La nota legale sotto le domande, centrata e ben visibile */
 .nota-legale { margin: 2.5rem auto 0; }
 
@@ -1222,6 +1255,7 @@ p { text-wrap: pretty; }
 @media (prefers-reduced-motion: reduce) {
   .js .stacco[data-apri] { clip-path: none; transition: none; }
   .timbro svg { animation: none; }
+  .scorre__nastro { animation: none; }
   .btn, .btn::before, .btn::after, .servizio, .servizio::before, .t-card, .faq summary::after, .invito-guida, .nav__sotto { transition: none; }
 }
 
