@@ -734,7 +734,7 @@ p { text-wrap: pretty; }
 .lettera__corpo .lettera__firma { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 400; font-size: 1.5rem; color: var(--color-gold-ink); }
 .lettera__corpo .btn { margin-top: 0.75rem; }
 .lettera__figura { position: relative; margin: 0; display: flex; justify-content: center; align-items: flex-end; height: clamp(26rem, 20rem + 16vw, 36rem); }
-.lettera__arco { position: absolute; left: 50%; bottom: 0; width: min(100%, 22rem); height: 78%; translate: -50% 0; border-radius: 999px 999px var(--radius-card) var(--radius-card); background: radial-gradient(120% 80% at 50% 0%, var(--tinta-oro), var(--tinta-cipria)); }
+.lettera__macchia { position: absolute; left: -15%; right: -15%; bottom: 0; height: 90%; background: radial-gradient(45% 40% at 40% 45%, rgba(236, 196, 120, 0.55), transparent 70%), radial-gradient(40% 38% at 65% 60%, rgba(214, 140, 168, 0.5), transparent 70%); filter: blur(10px); pointer-events: none; }
 .lettera__figura img { position: relative; height: 100%; width: auto; object-fit: contain; object-position: bottom; filter: var(--grado-foto); -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent); mask-image: linear-gradient(to bottom, #000 82%, transparent); }
 
 /* Cosa sono, a cosa servono, cosa ti porti a casa: titolo, numeri e bottone a sinistra; testi lunghi a destra */
