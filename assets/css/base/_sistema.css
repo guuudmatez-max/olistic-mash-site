@@ -713,7 +713,7 @@ p { text-wrap: pretty; }
 @media (min-width: 900px) { .accoglienza { align-items: flex-start; } .accoglienza .accoglienza__testo { padding-top: calc(min(calc(100svh - 5rem), 58rem) * 0.34); } }
 .accoglienza__testo { width: 100%; max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--gutter) clamp(2.5rem, 2rem + 3vw, 4.5rem); color: var(--color-on-earth); }
 .accoglienza__titolo { max-width: 15ch; margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 800; font-size: var(--text-display); line-height: 1.04; letter-spacing: -0.02em; color: #FFFFFF; text-wrap: balance; }
-.accoglienza__titolo em { font-style: italic; font-weight: 700; color: var(--oro-su-scuro); }
+.accoglienza__titolo em { display: block; font-style: italic; font-weight: 700; color: var(--oro-su-scuro); }
 .accoglienza__lead { max-width: 36rem; margin: 1.25rem 0 0; font-size: var(--text-lead); line-height: 1.55; color: var(--color-on-earth-soft); }
 .accoglienza__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.75rem; }
 .accoglienza__prova { margin: 0; font-size: var(--text-small); line-height: 1.45; color: var(--color-on-earth-soft); }
@@ -722,9 +722,9 @@ p { text-wrap: pretty; }
 @media (max-width: 899px) {
   .accoglienza { display: grid; min-height: 0; overflow: visible; border-radius: 0; }
   .accoglienza::after { content: none; }
-  .accoglienza__foto { position: relative; inset: auto; z-index: 0; grid-area: 1 / 1; height: auto; aspect-ratio: 4 / 5; border-radius: clamp(18px, 1rem + 1vw, 28px); object-position: 62% 0%; }
+  .accoglienza__foto { position: relative; inset: auto; z-index: 0; grid-area: 1 / 1; height: auto; aspect-ratio: 3 / 4; border-radius: clamp(18px, 1rem + 1vw, 28px); object-position: 62% 0%; }
   .accoglienza__testo { display: contents; text-shadow: none; }
-  .accoglienza__titolo { grid-area: 1 / 1; align-self: start; z-index: 1; padding: 1.5rem 1.25rem 0; font-size: clamp(2rem, 1.4rem + 3vw, 2.6rem); color: var(--color-text); }
+  .accoglienza__titolo { grid-area: 1 / 1; align-self: start; z-index: 1; padding: 2.25rem 1.25rem 0; font-size: clamp(1.9rem, 1.3rem + 3vw, 2.5rem); color: var(--color-text); }
   .accoglienza__titolo em { color: var(--color-gold-ink); }
   .accoglienza__lead { padding: 0 calc(var(--gutter) - var(--margine-banda)); margin-top: 1.5rem; color: var(--color-text-soft); }
   .accoglienza__azioni { padding: 0 calc(var(--gutter) - var(--margine-banda)); margin-top: 1.25rem; }
@@ -855,7 +855,7 @@ p { text-wrap: pretty; }
    sul telefono una fila da scorrere col dito */
 /* Badge da festival: alloro ai lati, sopratitolo, titolo tra virgolette grandi, stelle, riga sotto */
 .premio { display: inline-flex; align-items: center; gap: clamp(0.75rem, 2vw, 1.75rem); color: var(--color-gold-ink); }
-.premio__alloro { width: clamp(2.6rem, 2rem + 2vw, 3.8rem); height: auto; flex: none; color: var(--color-primary); }
+.premio__alloro { width: clamp(1.6rem, 1.3rem + 1vw, 2.3rem); height: auto; flex: none; color: var(--color-primary); opacity: 0.7; }
 .premio__centro { display: flex; flex-direction: column; align-items: center; }
 .premio__sopra { margin: 0 0 0.6rem; font-size: var(--text-label); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gold-ink); }
 .premio__titolo { margin: 0; font-size: clamp(2.4rem, 1.6rem + 2.6vw, 3.8rem); font-weight: 450; line-height: 1.05; }
