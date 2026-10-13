@@ -44,27 +44,73 @@
 
         <!-- 3. COSA SONO, A COSA SERVONO, COSA TI PORTI A CASA -->
         <section class="sezione sezione--avorio">
-          <div class="contenitore">
-            <h2 class="titolo-sezione incontri__titolo">Cosa sono gli incontri, <em>e cosa ti porti a casa.</em></h2>
-            <div class="incontri">
+          <div class="contenitore incontri">
+            <div class="incontri__lato">
+              <h2 class="titolo-sezione incontri__titolo">Cosa sono gli incontri, <em>e cosa ti porti a casa.</em></h2>
+              <ul class="incontri__prove">
+                <li><strong>500+</strong> persone accompagnate</li>
+                <li><strong>20+</strong> anni di pratica</li>
+                <li><strong>4-5</strong> incontri, di solito</li>
+              </ul>
+              <a class="btn btn-accento" data-wa-key="consulenze">Raccontami cosa ti succede</a>
+            </div>
+            <div class="incontri__voci">
               <div class="incontri__voce">
-                <p class="incontri__etichetta">Cosa sono</p>
-                <p>Incontri individuali con me: {{ consulenze.durataPresenza }} in presenza, {{ consulenze.durataOnline }} online. Lavoriamo con le parole e con il corpo, sul motivo che ti porta da me.</p>
+                <h3>Cosa sono</h3>
+                <p>Sono incontri individuali, solo tu e io: {{ consulenze.durataPresenza }} in presenza, oppure {{ consulenze.durataOnline }} online, da dove sei. Non c'è un protocollo uguale per tutti.</p>
+                <p>Partiamo da quello che ti porta da me, anche se non sai ancora dargli un nome, e lavoriamo con le parole e con il corpo.</p>
               </div>
               <div class="incontri__voce">
-                <p class="incontri__etichetta">A cosa servono</p>
-                <p>A capire da dove viene quello che pesa o si ripete, e a scioglierlo. Non una teoria su di te: un cambiamento che senti.</p>
+                <h3>A cosa servono</h3>
+                <p>A capire da dove viene quello che pesa o si ripete: una relazione che torna sempre allo stesso punto, un nodo che non si scioglie, una decisione che non riesci a prendere.</p>
+                <p>Quando ne vedi l'origine, smette di comandarti. Non ti porti via una teoria su di te: ti porti via un cambiamento che senti.</p>
               </div>
               <div class="incontri__voce">
-                <p class="incontri__etichetta">Cosa ti porti a casa</p>
-                <p>Più leggerezza. Relazioni che cambiano, e che anche gli altri notano. Decisioni prese con chiarezza. In poche sedute, non in anni.</p>
+                <h3>Cosa ti porti a casa</h3>
+                <p>Più leggerezza, e molte persone la sentono già dal primo incontro. Relazioni che cambiano, e che anche gli altri notano. Decisioni prese con chiarezza, senza girarci intorno per mesi.</p>
+                <p>E più energia per te, perché smetti di spenderla a tenere in piedi tutto.</p>
               </div>
             </div>
-            <ul class="incontri__prove">
-              <li><strong>500+</strong> persone accompagnate</li>
-              <li><strong>20+</strong> anni di pratica</li>
-              <li><strong>4-5</strong> incontri, di solito</li>
-            </ul>
+          </div>
+        </section>
+
+        <!-- 3b. COSA CAMBIA, CONCRETAMENTE: gli effetti, con un bottone -->
+        <section class="sezione">
+          <div class="contenitore">
+            <div class="cambia__testa">
+              <h2 class="titolo-sezione">Cosa cambia, <em>concretamente.</em></h2>
+              <p class="testo-lead">Quello che raccontano le persone dopo qualche incontro.</p>
+            </div>
+            <div class="cambia">
+              <div class="cambia__gruppo">
+                <h3>In te</h3>
+                <ul>
+                  <li><strong>Il peso di fondo si allenta.</strong> Respiri meglio, dormi meglio, ti senti più leggera o più leggero.</li>
+                  <li><strong>Ti senti al tuo posto.</strong> Non più fuori strada, ma nella tua direzione.</li>
+                  <li><strong>Smetti di girare in tondo.</strong> Le stesse domande non tornano più ogni notte.</li>
+                </ul>
+              </div>
+              <div class="cambia__gruppo">
+                <h3>Nelle relazioni</h3>
+                <ul>
+                  <li><strong>Riesci a parlare</strong> con chi prima ti bloccava: un genitore, il partner, un figlio.</li>
+                  <li><strong>Dici sì e no quando lo senti tu,</strong> senza sensi di colpa.</li>
+                  <li><strong>Gli altri lo notano.</strong> Spesso è la prima cosa che ti dicono.</li>
+                </ul>
+              </div>
+              <div class="cambia__gruppo">
+                <h3>Nella vita di ogni giorno</h3>
+                <ul>
+                  <li><strong>Decisioni prese con chiarezza,</strong> invece di rimandarle per mesi.</li>
+                  <li><strong>Abitudini che sembravano impossibili</strong> da lasciare si allentano.</li>
+                  <li><strong>Più energia per te,</strong> perché non la spendi più a tenere in piedi tutto.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cambia__azione">
+              <a class="btn btn-accento" data-wa-key="consulenze">Raccontami cosa ti succede</a>
+              <p>Il primo incontro non ti impegna a continuare.</p>
+            </div>
           </div>
         </section>
 
@@ -72,17 +118,31 @@
         <section class="sezione prove">
           <div class="contenitore al-centro">
             <h2 class="titolo-sezione prove__titolo">«Finalmente <em>respiro.»</em></h2>
-            <p class="testo-lead">Messaggi che mi sono arrivati dopo un incontro, con le loro parole.</p>
+            <p class="stelle" aria-label="Cinque stelle">★★★★★</p>
+            <p class="prove__sotto">Messaggi che mi sono arrivati dopo un incontro, con le loro parole.</p>
             <div class="scorre" data-parallasse>
-              <div class="scorre__colonna"><figure class="scorre__carta"><h3>Finalmente respiro</h3><blockquote>Grazie Giorgia, dopo 50 anni con quel nodo alla gola, finalmente respiro. Con una sola seduta sono riuscita a parlare con i miei genitori e a sciogliere quel peso che mi soffocava da una vita.</blockquote><figcaption><small>Una seduta</small></figcaption></figure><figure class="scorre__carta"><h3>Ero scettica. Ora voglio continuare</h3><blockquote>Sono una persona molto razionale, e ho iniziato questa esperienza andandoci con i piedi di piombo, e sinceramente anche con un pizzico di cinismo, e invece non vedo l'ora di continuare questo percorso assieme e di vedere dove mi porterà.</blockquote><figcaption><strong>Camilla</strong><small>Percorso</small></figcaption></figure><figure class="scorre__carta"><h3>Mi ci ha mandato mia moglie</h3><blockquote>Sono arrivato a conoscere Giorgia non sapendo cosa cercare e tantomeno cosa avrei trovato, ma solo indirizzato da mia moglie: «vedrai che ti fa bene».</blockquote><figcaption><small>Consulenza individuale</small></figcaption></figure></div>
-              <div class="scorre__colonna"><figure class="scorre__carta"><h3>Ho smesso di fumare dopo 30 anni</h3><blockquote>Anche grazie al tuo intervento sono stato in grado di smettere di fumare, dopo 30 anni, capendo che avevo un vuoto da colmare.</blockquote><figcaption><small>Dopo un incontro</small></figcaption></figure><figure class="scorre__carta"><h3>L'ho scoperta su Instagram</h3><blockquote>Circa un mesetto fa mi sono imbattuta in un video di Giorgia su Instagram. Le sue parole mi hanno toccato nel profondo e ho deciso di provare. Fin dal primo momento mi sono sentita a mio agio e mi sono aperta con lei come se ci conoscessimo da tempo.</blockquote><figcaption><small>Primo incontro</small></figcaption></figure><figure class="scorre__carta"><h3>Diceva cose giuste senza sapere niente di me</h3><blockquote>Senza che sapesse niente di me diceva tutte cose giuste, mi sono sentito a mio agio e accolto, e non ho sentito nessun tipo di stress che di solito con esperienze nuove sento.</blockquote><figcaption><small>Primo incontro</small></figcaption></figure></div>
-              <div class="scorre__colonna"><figure class="scorre__carta"><h3>Ora riesco ad abbracciare</h3><blockquote>Mi hai aperto il cuore e finalmente riesco a dire grazie, ti voglio bene alle persone. Prima non le riuscivo neanche ad abbracciare. Adesso sento la necessità di farlo.</blockquote><figcaption><small>Consulenza individuale</small></figcaption></figure><figure class="scorre__carta"><h3>Con mio padre c'è più complicità</h3><blockquote>In queste settimane sento tanti cambiamenti e devo dire che sto vedendo le dinamiche con i miei genitori da un'altra prospettiva. Con mio babbo sento un po' più di complicità e abbiamo passato una bella domenica insieme.</blockquote><figcaption><strong>Francesco</strong><small>Percorso</small></figcaption></figure></div>
+              <div class="scorre__colonna"><figure class="scorre__carta"><div class="scorre__testa"><h3>Finalmente respiro</h3><span class="t-card__luogo">Città</span></div><blockquote>Grazie Giorgia, dopo 50 anni con quel nodo alla gola, finalmente respiro. Con una sola seduta sono riuscita a parlare con i miei genitori e a sciogliere quel peso che mi soffocava da una vita.</blockquote><figcaption><span class="avatar" aria-hidden="true"><span class="spunta"></span></span><span class="scorre__chi"><strong>Testimonianza verificata</strong><small>Una seduta</small></span></figcaption></figure><figure class="scorre__carta"><div class="scorre__testa"><h3>Ero scettica. Ora voglio continuare</h3><span class="t-card__luogo">Città</span></div><blockquote>Sono una persona molto razionale, e ho iniziato questa esperienza andandoci con i piedi di piombo, e sinceramente anche con un pizzico di cinismo, e invece non vedo l'ora di continuare questo percorso assieme e di vedere dove mi porterà.</blockquote><figcaption><span class="avatar" aria-hidden="true">C<span class="spunta"></span></span><span class="scorre__chi"><strong>Camilla</strong><small>Percorso</small></span></figcaption></figure><figure class="scorre__carta"><div class="scorre__testa"><h3>Mi ci ha mandato mia moglie</h3><span class="t-card__luogo">Città</span></div><blockquote>Sono arrivato a conoscere Giorgia non sapendo cosa cercare e tantomeno cosa avrei trovato, ma solo indirizzato da mia moglie: «vedrai che ti fa bene».</blockquote><figcaption><span class="avatar" aria-hidden="true"><span class="spunta"></span></span><span class="scorre__chi"><strong>Testimonianza verificata</strong><small>Consulenza individuale</small></span></figcaption></figure></div>
+              <div class="scorre__colonna"><figure class="scorre__carta"><div class="scorre__testa"><h3>Ho smesso di fumare dopo 30 anni</h3><span class="t-card__luogo">Città</span></div><blockquote>Anche grazie al tuo intervento sono stato in grado di smettere di fumare, dopo 30 anni, capendo che avevo un vuoto da colmare.</blockquote><figcaption><span class="avatar" aria-hidden="true"><span class="spunta"></span></span><span class="scorre__chi"><strong>Testimonianza verificata</strong><small>Dopo un incontro</small></span></figcaption></figure><figure class="scorre__carta"><div class="scorre__testa"><h3>L'ho scoperta su Instagram</h3><span class="t-card__luogo">Città</span></div><blockquote>Circa un mesetto fa mi sono imbattuta in un video di Giorgia su Instagram. Le sue parole mi hanno toccato nel profondo e ho deciso di provare. Fin dal primo momento mi sono sentita a mio agio e mi sono aperta con lei come se ci conoscessimo da tempo.</blockquote><figcaption><span class="avatar" aria-hidden="true"><span class="spunta"></span></span><span class="scorre__chi"><strong>Testimonianza verificata</strong><small>Primo incontro</small></span></figcaption></figure><figure class="scorre__carta"><div class="scorre__testa"><h3>Diceva cose giuste senza sapere niente di me</h3><span class="t-card__luogo">Città</span></div><blockquote>Senza che sapesse niente di me diceva tutte cose giuste, mi sono sentito a mio agio e accolto, e non ho sentito nessun tipo di stress che di solito con esperienze nuove sento.</blockquote><figcaption><span class="avatar" aria-hidden="true"><span class="spunta"></span></span><span class="scorre__chi"><strong>Testimonianza verificata</strong><small>Primo incontro</small></span></figcaption></figure></div>
+              <div class="scorre__colonna"><figure class="scorre__carta"><div class="scorre__testa"><h3>Ora riesco ad abbracciare</h3><span class="t-card__luogo">Città</span></div><blockquote>Mi hai aperto il cuore e finalmente riesco a dire grazie, ti voglio bene alle persone. Prima non le riuscivo neanche ad abbracciare. Adesso sento la necessità di farlo.</blockquote><figcaption><span class="avatar" aria-hidden="true"><span class="spunta"></span></span><span class="scorre__chi"><strong>Testimonianza verificata</strong><small>Consulenza individuale</small></span></figcaption></figure><figure class="scorre__carta"><div class="scorre__testa"><h3>Con mio padre c'è più complicità</h3><span class="t-card__luogo">Città</span></div><blockquote>In queste settimane sento tanti cambiamenti e devo dire che sto vedendo le dinamiche con i miei genitori da un'altra prospettiva. Con mio babbo sento un po' più di complicità e abbiamo passato una bella domenica insieme.</blockquote><figcaption><span class="avatar" aria-hidden="true">F<span class="spunta"></span></span><span class="scorre__chi"><strong>Francesco</strong><small>Percorso</small></span></figcaption></figure></div>
             </div>
-            <div class="video-fila">
-              <figure class="video-segnaposto"><span class="video-segnaposto__play" aria-hidden="true"></span><figcaption>Testimonianza video 1<small>in arrivo</small></figcaption></figure>
-              <figure class="video-segnaposto"><span class="video-segnaposto__play" aria-hidden="true"></span><figcaption>Testimonianza video 2<small>in arrivo</small></figcaption></figure>
-              <figure class="video-segnaposto"><span class="video-segnaposto__play" aria-hidden="true"></span><figcaption>Testimonianza video 3<small>in arrivo</small></figcaption></figure>
-              <figure class="video-segnaposto"><span class="video-segnaposto__play" aria-hidden="true"></span><figcaption>Testimonianza video 4<small>in arrivo</small></figcaption></figure>
+            <div class="voci">
+              <div class="voci__testa">
+                <h3 class="voci__titolo">Le loro voci</h3>
+                <div class="voci__frecce">
+                  <button class="voci__freccia" type="button" data-voci="-1" aria-label="Video precedenti">←</button>
+                  <button class="voci__freccia" type="button" data-voci="1" aria-label="Video successivi">→</button>
+                </div>
+              </div>
+              <ul class="voci__fila" data-voci-fila>
+                <li class="video-carta"><button class="video-carta__avvia" type="button" data-youtube="" aria-label="Guarda la testimonianza video 1"><span class="video-segnaposto__play" aria-hidden="true"></span><span class="video-carta__testo">Testimonianza video 1<small>in arrivo</small></span></button></li>
+                <li class="video-carta"><button class="video-carta__avvia" type="button" data-youtube="" aria-label="Guarda la testimonianza video 2"><span class="video-segnaposto__play" aria-hidden="true"></span><span class="video-carta__testo">Testimonianza video 2<small>in arrivo</small></span></button></li>
+                <li class="video-carta"><button class="video-carta__avvia" type="button" data-youtube="" aria-label="Guarda la testimonianza video 3"><span class="video-segnaposto__play" aria-hidden="true"></span><span class="video-carta__testo">Testimonianza video 3<small>in arrivo</small></span></button></li>
+                <li class="video-carta"><button class="video-carta__avvia" type="button" data-youtube="" aria-label="Guarda la testimonianza video 4"><span class="video-segnaposto__play" aria-hidden="true"></span><span class="video-carta__testo">Testimonianza video 4<small>in arrivo</small></span></button></li>
+                <li class="video-carta"><button class="video-carta__avvia" type="button" data-youtube="" aria-label="Guarda la testimonianza video 5"><span class="video-segnaposto__play" aria-hidden="true"></span><span class="video-carta__testo">Testimonianza video 5<small>in arrivo</small></span></button></li>
+                <li class="video-carta"><button class="video-carta__avvia" type="button" data-youtube="" aria-label="Guarda la testimonianza video 6"><span class="video-segnaposto__play" aria-hidden="true"></span><span class="video-carta__testo">Testimonianza video 6<small>in arrivo</small></span></button></li>
+                <li class="video-carta"><button class="video-carta__avvia" type="button" data-youtube="" aria-label="Guarda la testimonianza video 7"><span class="video-segnaposto__play" aria-hidden="true"></span><span class="video-carta__testo">Testimonianza video 7<small>in arrivo</small></span></button></li>
+                <li class="video-carta"><button class="video-carta__avvia" type="button" data-youtube="" aria-label="Guarda la testimonianza video 8"><span class="video-segnaposto__play" aria-hidden="true"></span><span class="video-carta__testo">Testimonianza video 8<small>in arrivo</small></span></button></li>
+              </ul>
             </div>
             <div class="prove__azione">
               <a class="btn btn-accento" data-wa-key="consulenze">Raccontami cosa ti succede</a>
@@ -140,7 +200,8 @@
         </section>
 
         <!-- LA TRAPPOLA DEL SOLLIEVO: l'idea più forte, su vino scuro -->
-        <section class="fascia-vino">
+        <section class="fascia-vino fascia-vino--luna">
+          <img class="fascia-vino__sfondo" src="/assets/img/foto/sfondo-luna-1200.webp" srcset="/assets/img/foto/sfondo-luna-1200.webp 1200w, /assets/img/foto/sfondo-luna-2400.webp 2400w" sizes="100vw" width="1200" height="375" loading="lazy" alt="" />
           <figure class="fascia-vino__dentro">
             <blockquote>Molte persone sentono un cambiamento già dal primo incontro. È lì che quasi tutte si fermano, perché il sollievo sembra bastare. Ma quello che si ripete da anni ha bisogno di un po' più di tempo per non tornare.</blockquote>
             <figcaption>Giorgia</figcaption>
@@ -189,7 +250,7 @@
         </section>
 
         <!-- 10. DOMANDE: le paure vere, con la nota legale visibile -->
-        <section class="sezione">
+        <section class="sezione sezione--chiude">
           <div class="contenitore">
             <div class="faq__testa al-centro">
               <h2 class="titolo-sezione">Le domande che mi fate più spesso</h2>
@@ -258,7 +319,7 @@
 
         <!-- INVITO FINALE: un'azione sola, Giorgia accanto -->
         <div class="fondo-finale" data-fondo-finale>
-          <section class="sezione porte" id="porte" data-barra-fine>
+          <section class="sezione porte porte--vicine" id="porte" data-barra-fine>
             <div class="contenitore porte__griglia">
               <div class="porte__testo">
                 <h2 class="titolo-sezione">Il primo passo <em>è un messaggio.</em></h2>

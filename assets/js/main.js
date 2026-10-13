@@ -257,7 +257,30 @@ function initBarraWhatsapp() {
   if (fine) new IntersectionObserver(([e]) => { allaFine = e.isIntersecting; aggiorna(); }).observe(fine);
 }
 
+// Video delle testimonianze: frecce per scorrere la fila; il player YouTube si carica solo al clic (mai in automatico)
+function initVoci() {
+  const fila = document.querySelector("[data-voci-fila]");
+  if (!fila) return;
+  document.querySelectorAll("[data-voci]").forEach((b) =>
+    b.addEventListener("click", () => fila.scrollBy({ left: Number(b.dataset.voci) * fila.clientWidth * 0.8, behavior: "smooth" })),
+  );
+  fila.querySelectorAll("[data-youtube]").forEach((btn) => {
+    const id = btn.dataset.youtube;
+    if (id) btn.style.backgroundImage = `linear-gradient(to top, rgba(62,31,41,.7), transparent 50%), url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)`;
+    btn.addEventListener("click", () => {
+      if (!id) return; // segnaposto: il video non c'è ancora
+      const f = document.createElement("iframe");
+      f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      f.title = btn.getAttribute("aria-label") || "Testimonianza video";
+      f.allow = "autoplay; encrypted-media; picture-in-picture";
+      f.allowFullscreen = true;
+      btn.replaceWith(f);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initVoci();
   initParallasse();
   initBarraWhatsapp();
   initStacchi();

@@ -727,16 +727,34 @@ p { text-wrap: pretty; }
 .lettera__corpo .lettera__firma { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-size: 1.8rem; color: var(--color-gold-ink); }
 .lettera__corpo .btn { margin-top: 0.5rem; }
 
-/* Cosa sono, a cosa servono, cosa ti porti a casa: tre voci di testo, non schede */
-.incontri__titolo { max-width: 22ch; }
-.incontri { display: grid; gap: 2rem; margin-top: 3rem; }
-@media (min-width: 900px) { .incontri { grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 4rem); } }
-.incontri__voce { padding-top: 1.25rem; border-top: 1px solid rgba(138, 101, 38, 0.3); }
-.incontri__voce p { margin: 0; font-size: 1.05rem; line-height: 1.65; color: var(--color-text-soft); }
-.incontri__voce .incontri__etichetta { margin-bottom: 0.75rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: var(--text-h3); line-height: 1.2; color: var(--color-text); }
-.incontri__prove { list-style: none; margin: 3.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem 3rem; }
+/* Cosa sono, a cosa servono, cosa ti porti a casa: titolo, numeri e bottone a sinistra; testi lunghi a destra */
+.incontri { display: grid; gap: 2.5rem; }
+@media (min-width: 900px) { .incontri { grid-template-columns: 0.85fr 1.15fr; gap: clamp(3rem, 7vw, 7rem); align-items: start; } .incontri__lato { position: sticky; top: 7rem; } }
+.incontri__lato { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; }
+.incontri__titolo { margin: 0; max-width: 16ch; }
+.incontri__prove { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
 .incontri__prove li { display: flex; align-items: baseline; gap: 0.6rem; font-size: var(--text-small); color: var(--color-text-soft); }
-.incontri__prove strong { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: clamp(2rem, 1.5rem + 1.5vw, 2.8rem); line-height: 1; color: var(--color-gold-ink); }
+.incontri__prove strong { min-width: 3.2rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: 1.6rem; line-height: 1; color: var(--color-gold-ink); }
+.incontri__voci { display: grid; gap: 2.25rem; }
+.incontri__voce { padding-top: 1.5rem; border-top: 1px solid rgba(138, 101, 38, 0.3); }
+.incontri__voce h3 { margin: 0 0 0.75rem; font-size: var(--text-h3); }
+.incontri__voce p { margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--color-text-soft); }
+.incontri__voce p + p { margin-top: 0.75rem; }
+
+/* Cosa cambia, concretamente: tre gruppi di effetti con un segno d'oro */
+.cambia__testa { display: grid; gap: 1rem; }
+@media (min-width: 900px) { .cambia__testa { grid-template-columns: 1fr 1fr; align-items: end; } }
+.cambia__testa .titolo-sezione, .cambia__testa .testo-lead { margin: 0; }
+.cambia { display: grid; gap: 1.25rem; margin-top: 3rem; }
+@media (min-width: 900px) { .cambia { grid-template-columns: repeat(3, 1fr); } }
+.cambia__gruppo { border-radius: var(--radius-card); padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem); background: var(--color-bg-soft); }
+.cambia__gruppo h3 { margin: 0 0 1.25rem; font-size: var(--text-h3); }
+.cambia__gruppo ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.cambia__gruppo li { position: relative; padding-left: 1.9rem; font-size: 0.975rem; line-height: 1.6; color: var(--color-text-soft); }
+.cambia__gruppo li strong { color: var(--color-text); font-weight: 600; }
+.cambia__gruppo li::before { content: ""; position: absolute; left: 0; top: 0.2rem; width: 1.15rem; height: 1.15rem; border-radius: 50%; background: var(--color-primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.7rem no-repeat; }
+.cambia__azione { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2.5rem; }
+.cambia__azione p { margin: 0; font-size: var(--text-small); color: var(--color-text-muted); }
 
 /* Perché funziona */
 .perche { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 1.1rem; }
@@ -745,14 +763,37 @@ p { text-wrap: pretty; }
 .radice__sottotitolo { margin: 1.5rem 0 0; font-family: var(--font-body); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-ink); }
 .momenti strong { color: var(--color-text); font-weight: 600; }
 
-/* Testimonianze video: segnaposto finché non arrivano i montaggi */
-.video-fila { display: grid; grid-template-columns: repeat(4, minmax(0, 11rem)); justify-content: center; gap: 1rem; margin-top: 3rem; text-align: left; }
-.video-segnaposto { position: relative; margin: 0; aspect-ratio: 9 / 16; border-radius: var(--radius-card); background: linear-gradient(160deg, rgba(142, 66, 88, 0.85), var(--color-bordeaux-scuro)); display: flex; align-items: flex-end; padding: 1rem; overflow: hidden; }
-.video-segnaposto__play { position: absolute; top: 50%; left: 50%; width: 3.2rem; height: 3.2rem; translate: -50% -50%; border-radius: 50%; background: rgba(255, 255, 255, 0.9); }
+/* Le loro voci: fila di video che scorre di lato (dito o frecce), sfuma ai bordi; YouTube si carica solo al clic */
+.voci { margin-top: clamp(5rem, 4rem + 4vw, 8rem); text-align: left; }
+.voci__testa { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.voci__titolo { margin: 0; font-size: clamp(1.7rem, 1.4rem + 1vw, 2.3rem); }
+.voci__frecce { display: flex; gap: 0.5rem; }
+.voci__freccia { width: 2.8rem; height: 2.8rem; border-radius: 50%; border: 0; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(142, 66, 88, 0.35); color: var(--color-bordeaux); font-size: 1.1rem; cursor: pointer; transition: background-color 250ms ease, color 250ms ease; }
+.voci__freccia:hover { background: var(--color-bordeaux); color: #FFFFFF; }
+.voci__fila { list-style: none; margin: 0 calc(-1 * var(--gutter)); padding: 0.5rem var(--gutter) 1rem; display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); scrollbar-width: none; -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent); }
+.voci__fila::-webkit-scrollbar { display: none; }
+.video-carta { flex: none; width: clamp(12rem, 9rem + 8vw, 15rem); scroll-snap-align: start; }
+.video-carta__avvia, .video-carta iframe { position: relative; width: 100%; aspect-ratio: 9 / 16; border: 0; border-radius: var(--radius-card); display: block; }
+.video-carta__avvia { padding: 1rem; background: linear-gradient(160deg, rgba(142, 66, 88, 0.85), var(--color-bordeaux-scuro)); background-size: cover; background-position: center; cursor: pointer; text-align: left; display: flex; align-items: flex-end; }
+.video-segnaposto__play { position: absolute; top: 50%; left: 50%; width: 3.2rem; height: 3.2rem; translate: -50% -50%; border-radius: 50%; background: rgba(255, 255, 255, 0.9); transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+.video-carta__avvia:hover .video-segnaposto__play { transform: scale(1.08); }
 .video-segnaposto__play::after { content: ""; position: absolute; top: 50%; left: 55%; translate: -50% -50%; border-left: 0.8rem solid var(--color-bordeaux); border-top: 0.5rem solid transparent; border-bottom: 0.5rem solid transparent; }
-.video-segnaposto figcaption { display: flex; flex-direction: column; font-size: var(--text-small); font-weight: 600; color: #FFFFFF; }
-.video-segnaposto figcaption small { font-weight: 400; color: var(--color-on-earth-soft); }
-@media (max-width: 899px) { .video-fila { grid-template-columns: repeat(2, minmax(0, 11rem)); } }
+.video-carta__testo { display: flex; flex-direction: column; font-size: var(--text-small); font-weight: 600; color: #FFFFFF; }
+.video-carta__testo small { font-weight: 400; color: var(--color-on-earth-soft); }
+
+/* Stelle d'oro sotto il titolo delle testimonianze */
+.stelle { margin: 0.75rem 0 0; font-size: 1.35rem; letter-spacing: 0.25em; color: var(--color-primary); }
+.prove__sotto { margin: 0.75rem auto 0; max-width: 40rem; font-size: var(--text-small); color: var(--color-text-soft); }
+
+/* Schede delle testimonianze: titolo e luogo in alto, cerchio con la spunta in basso */
+.scorre__testa { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.75rem; }
+.scorre__testa h3 { margin: 0 !important; }
+.scorre__carta .t-card__luogo { flex: none; background: var(--color-bg-soft); }
+.scorre__carta figcaption { flex-direction: row !important; align-items: center; gap: 0.75rem; }
+.scorre__carta .avatar { width: 2.3rem; height: 2.3rem; background: var(--tinta-cipria); color: var(--color-bordeaux); }
+.scorre__chi { display: flex; flex-direction: column; }
+.scorre__chi strong { font-weight: 600; font-size: var(--text-small); }
+.scorre__chi small { font-size: var(--text-label); color: var(--color-text-muted); }
 
 /* Un incontro in tre momenti */
 .momenti { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
@@ -811,6 +852,10 @@ p { text-wrap: pretty; }
 /* La frase del sollievo, sola, su vino scuro (una delle rare fasce scure) */
 .fascia-vino { margin: 0 var(--margine-banda); border-radius: clamp(18px, 1rem + 1vw, 28px); background: radial-gradient(60% 80% at 15% 20%, rgba(142, 66, 88, 0.55), transparent 70%), var(--color-bordeaux-scuro); padding: clamp(4rem, 3rem + 5vw, 8rem) var(--gutter); }
 .fascia-vino__dentro { max-width: 52rem; margin: 0 auto; }
+.fascia-vino--luna { position: relative; isolation: isolate; overflow: hidden; }
+.fascia-vino__sfondo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }
+.fascia-vino--luna::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to right, rgba(62, 31, 41, 0.92) 0%, rgba(62, 31, 41, 0.7) 40%, rgba(62, 31, 41, 0.05) 75%); }
+.fascia-vino--luna .fascia-vino__dentro { margin: 0; max-width: 44rem; margin-left: max(0px, calc((100% - var(--container-max-width)) / 2)); }
 .fascia-vino blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 550; font-size: clamp(1.6rem, 1.1rem + 2vw, 2.8rem); line-height: 1.25; color: var(--color-on-earth); }
 .fascia-vino figcaption { margin-top: 1.5rem; display: flex; align-items: center; gap: 0.75rem; font-size: var(--text-small); font-weight: 600; color: var(--oro-su-scuro); }
 .fascia-vino figcaption::before { content: ""; width: 2.5rem; height: 1px; background: var(--oro-su-scuro); }
@@ -847,6 +892,11 @@ p { text-wrap: pretty; }
   .barra-wa.visibile { transform: none; visibility: visible; transition-delay: 0s; }
   .barra-wa .btn { width: 100%; justify-content: center; box-shadow: 0 18px 40px -18px rgba(62, 31, 41, 0.6); }
 }
+
+/* Le ultime sezioni più vicine tra loro */
+.sezione--chiude { padding-bottom: clamp(2rem, 3vw, 3rem); }
+.porte--vicine { padding-top: clamp(2rem, 4vw, 4rem); }
+.fondo-finale:has(.porte--vicine) { padding-top: 0 !important; }
 
 /* La nota legale sotto le domande, centrata e ben visibile */
 .nota-legale { margin: 2.5rem auto 0; }
