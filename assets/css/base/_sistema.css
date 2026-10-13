@@ -722,7 +722,7 @@ p { text-wrap: pretty; }
 .fiducia-fila span { padding: 0 clamp(1rem, 2vw, 1.75rem); }
 .fiducia-fila span + span { border-left: 1px solid rgba(138, 101, 38, 0.25); }
 .fiducia-fila strong { font-weight: 600; color: var(--color-text); }
-@media (max-width: 899px) { .fiducia-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1rem; justify-items: start; } .fiducia-fila span { padding: 0; } .fiducia-fila span + span { border-left: 0; } }
+@media (max-width: 899px) { .fiducia-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1rem; justify-items: start; padding-inline: var(--gutter); } .fiducia-fila span { padding: 0; } .fiducia-fila span + span { border-left: 0; } }
 
 /* Ti capisco: la lettera a sinistra con il bottone; a destra Giorgia che esce da un arco tenue */
 .lettera { display: grid; gap: 3rem; align-items: center; }
