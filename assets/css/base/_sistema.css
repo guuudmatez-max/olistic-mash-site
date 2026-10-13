@@ -786,7 +786,7 @@ p { text-wrap: pretty; }
 .video-carta__avvia:hover .video-segnaposto__play { transform: scale(1.08); }
 .video-segnaposto__play::after { content: ""; position: absolute; top: 50%; left: 55%; translate: -50% -50%; border-left: 0.8rem solid var(--color-bordeaux); border-top: 0.5rem solid transparent; border-bottom: 0.5rem solid transparent; }
 .video-carta__testo { display: flex; flex-direction: column; font-size: var(--text-small); font-weight: 600; color: #FFFFFF; }
-.video-carta__testo small { font-weight: 400; color: var(--color-on-earth-soft); }
+.video-carta__testo small { font-size: var(--text-label); font-weight: 400; color: var(--color-on-earth-soft); }
 
 /* Stelle d'oro sotto il titolo delle testimonianze */
 .stelle { display: flex; justify-content: center; gap: 0.3rem; margin: 0.9rem 0 0; color: var(--color-primary); }
