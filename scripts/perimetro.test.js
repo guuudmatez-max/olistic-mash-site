@@ -31,7 +31,7 @@ test("una regola può essere ammessa solo in alcune pagine", () => {
 });
 
 test("la storia della guarigione è ammessa in Chi sono e bloccata altrove", () => {
-  const storia = "<p>La mia guarigione è nel libro «Siamo guariti dal cancro» di Sergio Signori, intervista con Marcello Pamio.</p>";
+  const storia = "<p>La mia guarigione è nel libro “Siamo guariti dal cancro” di Sergio Signori, intervista con Marcello Pamio.</p>";
   const dir = site({ "chi-sono.html": page(storia), "index.html": page(storia) });
   const e = checkPerimetro(dir, { pages: ["chi-sono.html", "index.html"], regole, armonizzazioni: ARMONIZZAZIONI });
   assert.deepEqual(e.map((x) => x.split(":")[0]), ["index.html", "index.html", "index.html"]);
@@ -60,7 +60,7 @@ for (const vietato of [
   "il libro di Sergio Signori",
   "incontro Conoscitiva",
   "una pausa — poi",
-  "“così”",
+  "«così»",
   '"così"',
   "nel 90% dei casi",
 ]) {

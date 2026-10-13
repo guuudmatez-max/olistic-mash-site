@@ -44,4 +44,4 @@ conoscitiva # nome vecchio del primo incontro
 
 # Tipografia
 — # trattino lungo
-[“”"] # virgolette inglesi: usare « »
+[«»"] # virgolette basse e dritte: usare “ ” (Tommaso, 2026-10-13: in italiano si usano più di « »)

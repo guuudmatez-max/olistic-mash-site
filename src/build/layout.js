@@ -79,7 +79,7 @@ export function renderFooter() {
       </nav>
       <div class="piede__colonna">
         <p class="piede__etichetta">Altro</p>
-        <a href="${site.libroAmazon.url}" ${esterno}>Il libro «${escapeHtml(site.libroAmazon.titolo)}»</a>
+        <a href="${site.libroAmazon.url}" ${esterno}>Il libro “${escapeHtml(site.libroAmazon.titolo)}”</a>
         <a href="${site.privacy}" ${esterno}>Privacy</a>
         <a href="${site.cookie}" ${esterno}>Cookie</a>
       </div>
