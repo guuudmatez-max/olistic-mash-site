@@ -707,18 +707,18 @@ p { text-wrap: pretty; }
 /* Accoglienza: foto a tutto schermo con Giorgia a braccia aperte; il testo sta in basso, su una sfumatura scura */
 .accoglienza { position: relative; isolation: isolate; margin: 0 var(--margine-banda); min-height: min(calc(100svh - 5rem), 58rem); border-radius: clamp(18px, 1rem + 1vw, 28px); overflow: hidden; display: flex; align-items: flex-end; }
 .accoglienza__foto { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: var(--grado-foto); }
-.accoglienza::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(40, 24, 28, 0.55) 0%, rgba(40, 24, 28, 0.25) 35%, rgba(40, 24, 28, 0) 60%), linear-gradient(to right, rgba(40, 24, 28, 0.4) 0%, rgba(40, 24, 28, 0) 50%); }
-.accoglienza__testo { text-shadow: 0 1px 18px rgba(40, 24, 28, 0.45); }
+.accoglienza::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(62, 31, 41, 0.72) 0%, rgba(62, 31, 41, 0.45) 30%, rgba(62, 31, 41, 0.12) 55%, rgba(62, 31, 41, 0) 70%); }
+.accoglienza__testo { text-shadow: 0 1px 24px rgba(40, 24, 28, 0.55); }
 /* sul computer il titolo parte all'altezza degli occhi di Giorgia */
 @media (min-width: 900px) { .accoglienza { align-items: flex-start; } .accoglienza .accoglienza__testo { padding-top: calc(min(calc(100svh - 5rem), 58rem) * 0.34); } }
 .accoglienza__testo { width: 100%; max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--gutter) clamp(2.5rem, 2rem + 3vw, 4.5rem); color: var(--color-on-earth); }
-.accoglienza__titolo { max-width: 15ch; margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 650; font-size: var(--text-display); line-height: 1.04; letter-spacing: -0.02em; color: #FFFFFF; text-wrap: balance; }
-.accoglienza__titolo em { font-style: italic; font-weight: 600; color: var(--oro-su-scuro); }
+.accoglienza__titolo { max-width: 15ch; margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 800; font-size: var(--text-display); line-height: 1.04; letter-spacing: -0.02em; color: #FFFFFF; text-wrap: balance; }
+.accoglienza__titolo em { font-style: italic; font-weight: 700; color: var(--oro-su-scuro); }
 .accoglienza__lead { max-width: 36rem; margin: 1.25rem 0 0; font-size: var(--text-lead); line-height: 1.55; color: var(--color-on-earth-soft); }
 .accoglienza__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.75rem; }
 .accoglienza__prova { margin: 0; font-size: var(--text-small); line-height: 1.45; color: var(--color-on-earth-soft); }
 .accoglienza__prova strong { color: #FFFFFF; }
-@media (max-width: 899px) { .accoglienza { min-height: calc(100svh - 5rem); } .accoglienza__foto { object-position: 68% 50%; } .accoglienza::after { background: linear-gradient(to top, rgba(40, 24, 28, 0.7) 0%, rgba(40, 24, 28, 0.4) 40%, rgba(40, 24, 28, 0) 70%), linear-gradient(to bottom, rgba(120, 90, 60, 0.18), transparent 30%); } }
+@media (max-width: 899px) { .accoglienza { min-height: calc(100svh - 5rem); } .accoglienza__foto { object-position: 68% 50%; } .accoglienza::after { background: linear-gradient(to top, rgba(62, 31, 41, 0.8) 0%, rgba(62, 31, 41, 0.5) 40%, rgba(62, 31, 41, 0) 70%); } }
 
 /* Fiducia sotto l'apertura: i fatti in fila, divisi da un filo, al posto dei loghi */
 .fiducia-fila { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 0; padding-top: clamp(1.75rem, 1.5rem + 1vw, 2.5rem); font-size: var(--text-small); color: var(--color-text-soft); }
@@ -730,6 +730,7 @@ p { text-wrap: pretty; }
 /* Ti capisco: la lettera a sinistra con il bottone; a destra Giorgia che esce da un arco tenue */
 .lettera { display: grid; gap: 3rem; align-items: center; }
 @media (min-width: 900px) { .lettera { grid-template-columns: 1.15fr 0.85fr; gap: clamp(3rem, 7vw, 7rem); } }
+@media (min-width: 900px) { .lettera--specchio { grid-template-columns: 0.85fr 1.15fr; } .lettera--specchio .lettera__figura { order: -1; } }
 .lettera__corpo { max-width: 36rem; display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
 .lettera__corpo .titolo-sezione { margin: 0 0 0.5rem; }
 .lettera__corpo p { margin: 0; font-size: var(--text-lead); line-height: 1.75; color: var(--color-text-soft); }
@@ -775,12 +776,13 @@ p { text-wrap: pretty; }
 .cambia__azione { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: clamp(2.5rem, 2rem + 2vw, 3.5rem); text-align: center; }
 .cambia__azione p { margin: 0; font-size: var(--text-small); color: var(--color-text-muted); }
 
-/* Perché funziona */
-.perche { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 1.1rem; }
-.perche h3 { margin: 0 0 0.25rem; font-size: var(--text-h3); }
-.perche p { margin: 0; color: var(--color-text-soft); }
-.radice__sottotitolo { margin: 1.5rem 0 0; font-family: var(--font-body); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-ink); }
-.momenti strong { color: var(--color-text); font-weight: 600; }
+/* Perché funziona: quattro punti, ognuno con la sua icona disegnata */
+.perche { list-style: none; margin: 0.75rem 0 0.5rem; padding: 0; display: grid; gap: 1.5rem; }
+.perche li { display: grid; grid-template-columns: 2.6rem 1fr; gap: 1.1rem; align-items: start; }
+.perche__icona { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.25); color: var(--color-bordeaux); }
+.perche__icona svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.perche h3 { margin: 0.2rem 0 0.35rem; font-size: var(--text-h3); }
+.perche p { margin: 0; line-height: 1.7; color: var(--color-text-soft); }
 
 /* Le loro voci: fila di video che scorre di lato (dito o frecce), sfuma ai bordi; YouTube si carica solo al clic */
 .voci { margin-top: clamp(5rem, 4rem + 4vw, 8rem); text-align: left; }
@@ -836,11 +838,12 @@ p { text-wrap: pretty; }
 .prove__titolo { font-size: var(--text-h2); }
 .scorre { display: flex; justify-content: center; align-items: flex-start; gap: 1.5rem; margin-top: 3rem; text-align: left; }
 .scorre__colonna { width: min(100%, 22rem); display: flex; flex-direction: column; gap: 1.5rem; will-change: transform; }
-.scorre__colonna:nth-child(2) { margin-top: 13rem; }
-.scorre__colonna:nth-child(3) { margin-top: 3rem; }
+.scorre__colonna:nth-child(1) { margin-top: 2.5rem; }
+.scorre__colonna:nth-child(2) { margin-top: 0.5rem; }
+.scorre__colonna:nth-child(3) { margin-top: 1rem; }
 .scorre__carta { margin: 0; padding: 1.75rem; border-radius: var(--radius-card); background: #FFFFFF; box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 24px 50px -30px rgba(142, 66, 88, 0.3); }
 .scorre__carta h3 { margin: 0 0 0.75rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: 1.2rem; line-height: 1.2; color: var(--color-bordeaux); }
-.scorre__carta blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 400; font-size: 1.05rem; line-height: 1.5; color: var(--color-text); }
+.scorre__carta blockquote { margin: 0; font-family: var(--font-body); font-weight: 380; font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-soft); color: var(--color-text); }
 .scorre__carta blockquote::before { content: "«"; color: var(--color-gold-ink); }
 .scorre__carta blockquote::after { content: "»"; color: var(--color-gold-ink); }
 .scorre__carta figcaption { display: flex; flex-direction: column; margin-top: 1.1rem; padding-top: 0.9rem; border-top: 1px solid rgba(138, 101, 38, 0.18); }
