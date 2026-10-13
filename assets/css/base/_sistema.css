@@ -717,15 +717,25 @@ p { text-wrap: pretty; }
 .accoglienza__prova strong { color: #FFFFFF; }
 @media (max-width: 899px) { .accoglienza { min-height: calc(100svh - 5rem); } .accoglienza__foto { object-position: 50% 10%; } .accoglienza::after { background: linear-gradient(to top, rgba(62, 31, 41, 0.92) 0%, rgba(62, 31, 41, 0.75) 45%, rgba(62, 31, 41, 0) 78%); } }
 
-/* Ti capisco: la lettera di Giorgia, colonna stretta da leggere */
-.lettera { display: grid; gap: 1.5rem; }
-@media (min-width: 900px) { .lettera { grid-template-columns: 0.7fr 1.3fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; } }
-.lettera__titolo { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 420; font-size: var(--text-h2); line-height: 1.1; }
-.lettera__corpo { max-width: 38rem; display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+/* Fiducia sotto l'apertura: i fatti in fila, divisi da un filo, al posto dei loghi */
+.fiducia-fila { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 0; padding-top: clamp(1.75rem, 1.5rem + 1vw, 2.5rem); font-size: var(--text-small); color: var(--color-text-soft); }
+.fiducia-fila span { padding: 0 clamp(1rem, 2vw, 1.75rem); }
+.fiducia-fila span + span { border-left: 1px solid rgba(138, 101, 38, 0.25); }
+.fiducia-fila strong { font-weight: 600; color: var(--color-text); }
+@media (max-width: 899px) { .fiducia-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1rem; justify-items: start; } .fiducia-fila span { padding: 0; } .fiducia-fila span + span { border-left: 0; } }
+
+/* Ti capisco: la lettera a sinistra con il bottone; a destra Giorgia che esce da un arco tenue */
+.lettera { display: grid; gap: 3rem; align-items: center; }
+@media (min-width: 900px) { .lettera { grid-template-columns: 1.15fr 0.85fr; gap: clamp(3rem, 7vw, 7rem); } }
+.lettera__corpo { max-width: 36rem; display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.lettera__corpo .titolo-sezione { margin: 0 0 0.5rem; }
 .lettera__corpo p { margin: 0; font-size: var(--text-lead); line-height: 1.75; color: var(--color-text-soft); }
 .lettera__corpo strong { color: var(--color-text); font-weight: 600; }
 .lettera__corpo .lettera__firma { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 400; font-size: 1.5rem; color: var(--color-gold-ink); }
-.lettera__corpo .btn { margin-top: 0.5rem; }
+.lettera__corpo .btn { margin-top: 0.75rem; }
+.lettera__figura { position: relative; margin: 0; display: flex; justify-content: center; align-items: flex-end; height: clamp(26rem, 20rem + 16vw, 36rem); }
+.lettera__arco { position: absolute; left: 50%; bottom: 0; width: min(100%, 22rem); height: 78%; translate: -50% 0; border-radius: 999px 999px var(--radius-card) var(--radius-card); background: radial-gradient(120% 80% at 50% 0%, var(--tinta-oro), var(--tinta-cipria)); }
+.lettera__figura img { position: relative; height: 100%; width: auto; object-fit: contain; object-position: bottom; filter: var(--grado-foto); -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent); mask-image: linear-gradient(to bottom, #000 82%, transparent); }
 
 /* Cosa sono, a cosa servono, cosa ti porti a casa: titolo, numeri e bottone a sinistra; testi lunghi a destra */
 .incontri { display: grid; gap: 2.5rem; }
