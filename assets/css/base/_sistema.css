@@ -706,8 +706,8 @@ p { text-wrap: pretty; }
 
 /* Accoglienza: foto a tutto schermo con Giorgia a braccia aperte; il testo sta in basso, su una sfumatura scura */
 .accoglienza { position: relative; isolation: isolate; margin: 0 var(--margine-banda); min-height: min(calc(100svh - 5rem), 58rem); border-radius: clamp(18px, 1rem + 1vw, 28px); overflow: hidden; display: flex; align-items: flex-end; }
-.accoglienza__foto { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: var(--grado-foto); }
-.accoglienza::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(62, 31, 41, 0.72) 0%, rgba(62, 31, 41, 0.45) 30%, rgba(62, 31, 41, 0.12) 55%, rgba(62, 31, 41, 0) 70%); }
+.accoglienza__foto { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 37%; filter: var(--grado-foto); }
+.accoglienza::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(38, 26, 24, 0.82) 0%, rgba(38, 26, 24, 0.5) 22%, rgba(38, 26, 24, 0) 48%); }
 .accoglienza__testo { text-shadow: 0 1px 24px rgba(40, 24, 28, 0.55); }
 /* sul computer il titolo parte all'altezza degli occhi di Giorgia */
 @media (min-width: 900px) { .accoglienza { align-items: flex-start; } .accoglienza .accoglienza__testo { padding-top: calc(min(calc(100svh - 5rem), 58rem) * 0.34); } }
@@ -739,7 +739,7 @@ p { text-wrap: pretty; }
 .lettera__corpo .btn { margin-top: 0.75rem; }
 .lettera__figura { position: relative; margin: 0; display: flex; justify-content: center; align-items: flex-end; height: clamp(26rem, 20rem + 16vw, 36rem); }
 .lettera__macchia { position: absolute; left: -15%; right: -15%; bottom: 0; height: 90%; background: radial-gradient(45% 40% at 40% 45%, rgba(236, 196, 120, 0.55), transparent 70%), radial-gradient(40% 38% at 65% 60%, rgba(214, 140, 168, 0.5), transparent 70%); filter: blur(10px); pointer-events: none; }
-.lettera__figura img { position: relative; height: 100%; width: auto; object-fit: contain; object-position: bottom; filter: var(--grado-foto); -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent); mask-image: linear-gradient(to bottom, #000 82%, transparent); }
+.lettera__figura img { position: relative; height: 100%; width: auto; object-fit: contain; object-position: bottom; filter: var(--grado-foto); -webkit-mask-image: radial-gradient(85% 100% at 50% 0%, #000 72%, transparent 98%); mask-image: radial-gradient(85% 100% at 50% 0%, #000 72%, transparent 98%); }
 
 /* Cosa sono, a cosa servono, cosa ti porti a casa: titolo, numeri e bottone a sinistra; testi lunghi a destra */
 .incontri { display: grid; gap: 2.5rem; }
@@ -804,9 +804,9 @@ p { text-wrap: pretty; }
 .video-carta__testo small { font-size: var(--text-label); font-weight: 400; color: var(--color-on-earth-soft); }
 
 /* Stelle d'oro sotto il titolo delle testimonianze */
-.stelle { display: flex; justify-content: center; gap: 0.3rem; margin: 0.9rem 0 0; color: var(--color-primary); }
+.stelle { display: flex; justify-content: center; gap: 0.3rem; margin: 0.75rem 0 0; color: var(--color-primary); }
 .stelle svg { width: 1.05rem; height: 1.05rem; fill: currentColor; }
-.prove__sotto { margin: 0.75rem auto 0; max-width: 40rem; font-size: var(--text-small); color: var(--color-text-soft); }
+.prove__sotto { margin: 1.5rem auto 0; max-width: 40rem; font-size: var(--text-small); color: var(--color-text-soft); }
 
 /* Schede delle testimonianze: titolo e luogo in alto, cerchio con la spunta in basso */
 .scorre__testa { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.75rem; }
@@ -814,6 +814,7 @@ p { text-wrap: pretty; }
 .scorre__carta .t-card__luogo { flex: none; background: var(--color-bg-soft); }
 .scorre__carta figcaption { flex-direction: row !important; align-items: center; gap: 0.75rem; }
 .scorre__carta .avatar { width: 2.3rem; height: 2.3rem; background: var(--tinta-cipria); color: var(--color-bordeaux); }
+.avatar--foto img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
 .scorre__chi { display: flex; flex-direction: column; }
 .scorre__chi strong { font-weight: 600; font-size: var(--text-small); }
 .scorre__chi small { font-size: var(--text-label); color: var(--color-text-muted); }
@@ -833,7 +834,15 @@ p { text-wrap: pretty; }
 
 /* Testimonianze vere: tre colonne che sul computer si muovono con la pagina a velocità diverse;
    sul telefono una fila da scorrere col dito */
-.prove__titolo { font-size: var(--text-h2); }
+/* Badge da festival: alloro ai lati, sopratitolo, titolo tra virgolette grandi, stelle, riga sotto */
+.premio { display: inline-flex; align-items: center; gap: clamp(0.75rem, 2vw, 1.75rem); color: var(--color-gold-ink); }
+.premio__alloro { width: clamp(2.6rem, 2rem + 2vw, 3.8rem); height: auto; flex: none; color: var(--color-primary); }
+.premio__centro { display: flex; flex-direction: column; align-items: center; }
+.premio__sopra { margin: 0 0 0.6rem; font-size: var(--text-label); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gold-ink); }
+.premio__titolo { margin: 0; font-size: clamp(2.4rem, 1.6rem + 2.6vw, 3.8rem); font-weight: 450; line-height: 1.05; }
+.premio__titolo em { font-style: italic; color: var(--color-gold-ink); }
+.premio__virg { font-size: 1.5em; line-height: 0; vertical-align: -0.28em; color: var(--color-primary); }
+.premio__sotto { margin: 0.6rem 0 0; font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-soft); }
 .scorre { display: flex; justify-content: center; align-items: flex-start; gap: 1.5rem; margin-top: 3rem; text-align: left; }
 .scorre__colonna { width: min(100%, 22rem); display: flex; flex-direction: column; gap: 1.5rem; will-change: transform; }
 .scorre__colonna:nth-child(1) { margin-top: 2.5rem; }
@@ -882,15 +891,15 @@ p { text-wrap: pretty; }
 
 /* Come si inizia: l'offerta a sinistra, cosa succede dopo il messaggio a destra */
 .inizio { display: grid; gap: 3rem; }
+.inizio__titolo { margin: 0 0 clamp(2rem, 1.5rem + 2vw, 3rem); }
 @media (min-width: 900px) { .inizio { grid-template-columns: 1.1fr 0.9fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; } }
-.inizio .titolo-sezione { margin: 0 0 2rem; }
 .inizio__scheda { border-radius: var(--radius-card); padding: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem); background: #FFFFFF; box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 30px 60px -36px rgba(46, 47, 51, 0.45); }
 .inizio__scheda h3 { margin: 0; font-size: clamp(1.7rem, 1.4rem + 1vw, 2.2rem); }
 .inizio__scheda p { margin: 0.75rem 0 0; color: var(--color-text-soft); }
 .inizio__scheda .inizio__durata { margin-top: 0.5rem; font-weight: 600; color: var(--color-bordeaux); }
 .inizio__scheda .inizio__poi { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(138, 101, 38, 0.18); font-size: var(--text-small); }
 .inizio__ritmo { margin: 1.5rem 0 0; font-size: var(--text-small); color: var(--color-text-muted); max-width: 34rem; }
-.inizio__dopo { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; padding-top: 0.5rem; }
+.inizio__dopo { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; padding-top: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem); }
 .inizio__dopo h3 { margin: 0; font-size: var(--text-h3); }
 .inizio__dopo .btn { margin-top: 1rem; }
 
