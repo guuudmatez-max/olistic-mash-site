@@ -718,14 +718,33 @@ p { text-wrap: pretty; }
 .accoglienza__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.75rem; }
 .accoglienza__prova { margin: 0; font-size: var(--text-small); line-height: 1.45; color: var(--color-on-earth-soft); }
 .accoglienza__prova strong { color: #FFFFFF; }
-@media (max-width: 899px) { .accoglienza { min-height: calc(100svh - 5rem); } .accoglienza__foto { object-position: 68% 50%; } .accoglienza::after { background: linear-gradient(to top, rgba(62, 31, 41, 0.8) 0%, rgba(62, 31, 41, 0.5) 40%, rgba(62, 31, 41, 0) 70%); } }
+/* Telefono: la foto in alto con il titolo scuro sul cielo; sotto, sul bianco, il resto con il bottone */
+@media (max-width: 899px) {
+  .accoglienza { display: grid; min-height: 0; overflow: visible; border-radius: 0; }
+  .accoglienza::after { content: none; }
+  .accoglienza__foto { position: relative; inset: auto; z-index: 0; grid-area: 1 / 1; height: auto; aspect-ratio: 4 / 5; border-radius: clamp(18px, 1rem + 1vw, 28px); object-position: 62% 0%; }
+  .accoglienza__testo { display: contents; text-shadow: none; }
+  .accoglienza__titolo { grid-area: 1 / 1; align-self: start; z-index: 1; padding: 1.5rem 1.25rem 0; font-size: clamp(2rem, 1.4rem + 3vw, 2.6rem); color: var(--color-text); }
+  .accoglienza__titolo em { color: var(--color-gold-ink); }
+  .accoglienza__lead { padding: 0 calc(var(--gutter) - var(--margine-banda)); margin-top: 1.5rem; color: var(--color-text-soft); }
+  .accoglienza__azioni { padding: 0 calc(var(--gutter) - var(--margine-banda)); margin-top: 1.25rem; }
+  .accoglienza__prova { color: var(--color-text-soft); }
+  .accoglienza__prova strong { color: var(--color-text); }
+}
 
 /* Fiducia sotto l'apertura: i fatti in fila, divisi da un filo, al posto dei loghi */
 .fiducia-fila { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 0; padding-top: clamp(1.75rem, 1.5rem + 1vw, 2.5rem); font-size: var(--text-small); color: var(--color-text-soft); }
 .fiducia-fila span { padding: 0 clamp(1rem, 2vw, 1.75rem); }
 .fiducia-fila span + span { border-left: 1px solid rgba(138, 101, 38, 0.25); }
 .fiducia-fila strong { font-weight: 600; color: var(--color-text); }
-@media (max-width: 899px) { .fiducia-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1rem; justify-items: start; padding-inline: var(--gutter); } .fiducia-fila span { padding: 0; } .fiducia-fila span + span { border-left: 0; } }
+/* Telefono: quattro fatti in una griglia ordinata, ognuno con il segno d'oro; il quinto è già detto sopra */
+@media (max-width: 899px) {
+  .fiducia-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1rem; padding: 1.75rem var(--gutter) 0; font-size: var(--text-label); }
+  .fiducia-fila span { position: relative; display: block; padding: 0 0 0 1.5rem; line-height: 1.45; }
+  .fiducia-fila span::before { content: ""; position: absolute; left: 0; top: 0.05rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--tinta-oro) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%238A6526' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.65rem no-repeat; }
+  .fiducia-fila span + span { border-left: 0; }
+  .fiducia-fila span:last-child { display: none; }
+}
 
 /* Ti capisco: la lettera a sinistra con il bottone; a destra Giorgia che esce da un arco tenue */
 .lettera { display: grid; gap: 3rem; align-items: center; }
