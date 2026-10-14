@@ -37,7 +37,7 @@ h1, h2, h3, h4,
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-text);
   text-wrap: balance;
@@ -48,22 +48,23 @@ p { text-wrap: pretty; }
 .titolo-display {
   font-size: var(--text-display);
   line-height: 1.04;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0;
 }
 
-/* Il corsivo dei titoli è oro (scuro, per leggersi sul bianco) */
+/* Il corsivo dei titoli è oro (scuro, per leggersi sul bianco); stesso peso del titolo */
 .titolo-display em,
 .titolo-sezione em {
   font-style: italic;
-  font-weight: 500;
+  font-weight: inherit;
   color: var(--color-gold-ink);
 }
 
+/* Titoli più pieni (Tommaso, 2026-10-14): H2 600, H1 700 */
 .titolo-sezione {
   font-size: var(--text-h2);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.02;
   margin: 0 0 1.25rem;
 }
@@ -369,9 +370,10 @@ p { text-wrap: pretty; }
     radial-gradient(35% 40% at 70% 20%, rgba(200, 192, 235, 0.3), transparent 70%);
   filter: blur(50px);
 }
+h1.titolo-sezione { font-weight: 700; }
 /* Proporzioni dal riferimento: testo sotto la figura più grande delle pillole, largo quasi tre volte la figura */
-.figura-centrale .testo-due { max-width: 60rem; margin: 2rem auto 0; font-size: clamp(1rem, 0.95rem + 0.2vw, 1.1rem); line-height: 1.65; color: var(--color-text-soft); }
-.figura-centrale .testo-due p { margin: 0 0 0.75rem; }
+.figura-centrale .testo-due { max-width: 58rem; margin: 2rem auto 0; font-size: clamp(1rem, 0.95rem + 0.2vw, 1.1rem); line-height: 1.85; color: var(--color-text-soft); }
+.figura-centrale .testo-due p { margin: 0 0 0.6rem; }
 
 .temi {
   list-style: none;
