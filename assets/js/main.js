@@ -2,6 +2,7 @@
 // IMPORTS VITE
 // ----------------------------
 import "@fontsource-variable/inter";
+import "@fontsource/pinyon-script/400.css";
 import "@fontsource-variable/bodoni-moda/opsz.css";
 import "@fontsource-variable/bodoni-moda/opsz-italic.css";
 import "../css/main.css";

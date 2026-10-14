@@ -57,14 +57,14 @@ p { text-wrap: pretty; }
 .titolo-display em,
 .titolo-sezione em {
   font-style: italic;
-  font-weight: 450;
+  font-weight: 500;
   color: var(--color-gold-ink);
 }
 
 .titolo-sezione {
   font-size: var(--text-h2);
-  font-weight: 420;
-  line-height: 1.1;
+  font-weight: 500;
+  line-height: 1.02;
   margin: 0 0 1.25rem;
 }
 
@@ -716,21 +716,24 @@ p { text-wrap: pretty; }
 .accoglienza__titolo { max-width: 15ch; margin: 0 0 0 auto; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 800; font-size: var(--text-display); line-height: 1.04; letter-spacing: -0.02em; color: #FFFFFF; text-wrap: balance; }
 .accoglienza__titolo em { display: block; font-style: italic; font-weight: 700; color: var(--oro-su-scuro); }
 .accoglienza__lead { max-width: 36rem; margin: 1.25rem 0 0; font-size: var(--text-lead); line-height: 1.55; color: var(--color-on-earth-soft); }
-.accoglienza__azioni { display: flex; flex-wrap: wrap; flex-direction: row-reverse; align-items: center; gap: 1rem 1.5rem; margin-top: 1.75rem; }
+.accoglienza__azioni { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; margin-top: 1.75rem; }
+.accoglienza .btn-accento { --fondo-btn: #FFFFFF; --tinta-btn: var(--color-bordeaux); --freccia-btn: #FFFFFF; color: var(--color-bordeaux); box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.45); text-shadow: none; }
+.accoglienza .btn-accento:is(:hover, :focus-visible) { color: #FFFFFF; box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.45); }
+.accoglienza__prova { text-align: right; }
 .accoglienza__prova { margin: 0; font-size: var(--text-small); line-height: 1.45; color: var(--color-on-earth-soft); }
 .accoglienza__prova strong { color: #FFFFFF; }
 /* Telefono: la foto fa da apertura (alta quanto lo schermo meno la barra, entro 40rem, così il bottone resta sopra
    la piega anche su un iPhone SE); in alto il cielo bianco con titolo e sottotitolo allineati a destra;
    il bottone bianco sta sulla foto, a destra; la frase lunga resta solo sul computer */
 @media (max-width: 899px) {
-  .accoglienza { display: grid; grid-template-rows: min(calc(100svh - 5rem - 2.5rem), 40rem) auto; min-height: 0; overflow: visible; border-radius: 0; }
+  .accoglienza { display: grid; grid-template-rows: min(calc(100svh - 5rem - 2.5rem), 38rem) auto; min-height: 0; overflow: visible; border-radius: 0; }
   .accoglienza::after { content: ""; position: relative; inset: auto; z-index: 1; grid-area: 1 / 1; align-self: end; height: 40%; border-radius: 0 0 clamp(18px, 1rem + 1vw, 28px) clamp(18px, 1rem + 1vw, 28px); background: linear-gradient(to top, rgba(38, 26, 24, 0.8) 0%, rgba(38, 26, 24, 0.4) 50%, rgba(38, 26, 24, 0) 100%); pointer-events: none; }
-  .accoglienza__foto { position: relative; inset: auto; z-index: 0; grid-area: 1 / 1; align-self: end; width: 100%; height: 74%; border-radius: 0 0 clamp(18px, 1rem + 1vw, 28px) clamp(18px, 1rem + 1vw, 28px); object-position: 38% 22%; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%); mask-image: linear-gradient(to bottom, transparent 0%, #000 20%); }
+  .accoglienza__foto { position: relative; inset: auto; z-index: 0; grid-area: 1 / 1; align-self: end; width: 100%; height: 84%; border-radius: 0 0 clamp(18px, 1rem + 1vw, 28px) clamp(18px, 1rem + 1vw, 28px); object-position: 40% 38%; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%); mask-image: linear-gradient(to bottom, transparent 0%, #000 16%); }
   .accoglienza__testo { display: contents; text-shadow: none; }
-  .accoglienza__capo { grid-area: 1 / 1; align-self: start; z-index: 2; padding: 2rem calc(var(--gutter) - var(--margine-banda)) 0; text-align: right; text-shadow: none; }
+  .accoglienza__capo { grid-area: 1 / 1; align-self: start; z-index: 2; padding: 1.5rem calc(var(--gutter) - var(--margine-banda)) 0; text-align: right; text-shadow: none; }
   .accoglienza__titolo { font-size: clamp(1.9rem, 1.3rem + 3vw, 2.5rem); color: var(--color-text); }
   .accoglienza__titolo em { color: var(--color-gold-ink); }
-  .accoglienza__sotto { display: block; max-width: 34ch; margin: 0.75rem 0 0 auto; font-size: var(--text-small); font-weight: 380; line-height: 1.55; color: var(--color-text-soft) !important; }
+  .accoglienza__sotto { display: block; max-width: 34ch; margin: 0.5rem 0 0 auto; font-size: 0.78rem; font-weight: 380; line-height: 1.4; color: var(--color-text-soft) !important; }
   .accoglienza__lead { display: none; }
   .accoglienza__azioni { grid-area: 1 / 1; align-self: end; z-index: 2; flex-direction: column; align-items: flex-end; margin: 0; padding: 0 calc(var(--gutter) - var(--margine-banda)) 1.5rem; gap: 0.6rem; }
   main .accoglienza__azioni .btn { margin-inline: 0; }
@@ -762,9 +765,9 @@ p { text-wrap: pretty; }
 .lettera__corpo .titolo-sezione { margin: 0 0 0.5rem; }
 .lettera__corpo p { margin: 0; font-size: var(--text-lead); line-height: 1.75; color: var(--color-text-soft); }
 .lettera__corpo strong { color: var(--color-text); font-weight: 600; }
-.lettera__corpo .lettera__firma { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 400; font-size: 1.5rem; color: var(--color-gold-ink); }
+.lettera__corpo .lettera__firma { align-self: flex-end; margin-top: 0.25rem; font-family: "Pinyon Script", var(--font-heading); font-size: 2.6rem; line-height: 1; color: var(--color-gold-ink); }
 .lettera__corpo .btn { margin-top: 0.75rem; }
-.lettera__figura { position: relative; margin: 0; display: flex; justify-content: center; align-items: flex-end; height: clamp(26rem, 20rem + 16vw, 36rem); }
+.lettera__figura { position: relative; margin: 0; display: flex; justify-content: center; align-items: flex-end; height: clamp(28.5rem, 22rem + 17.5vw, 39.5rem); }
 .lettera__macchia { position: absolute; left: -15%; right: -15%; bottom: 0; height: 90%; background: radial-gradient(45% 40% at 40% 45%, rgba(236, 196, 120, 0.55), transparent 70%), radial-gradient(40% 38% at 65% 60%, rgba(214, 140, 168, 0.5), transparent 70%); filter: blur(10px); pointer-events: none; }
 .lettera__figura img { position: relative; height: 100%; width: auto; object-fit: contain; object-position: bottom; filter: var(--grado-foto); -webkit-mask-image: radial-gradient(85% 100% at 50% 0%, #000 72%, transparent 98%); mask-image: radial-gradient(85% 100% at 50% 0%, #000 72%, transparent 98%); }
 
@@ -908,6 +911,10 @@ p { text-wrap: pretty; }
 .numeri div + div { padding-left: 1rem; border-left: 1px solid rgba(138, 101, 38, 0.25); }
 .numeri dt { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem); line-height: 1; color: var(--color-gold-ink); }
 .numeri dd { margin: 0.5rem 0 0; font-size: var(--text-small); color: var(--color-text-soft); }
+.badge-fila { list-style: none; margin: 0.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge-fila li { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.8rem 0.4rem 0.45rem; border-radius: 999px; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.2); font-size: var(--text-label); font-weight: 600; color: var(--color-text); }
+.badge-fila svg { width: 1.15rem; height: 1.15rem; padding: 0.2rem; border-radius: 50%; background: var(--tinta-oro); fill: none; stroke: var(--color-gold-ink); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.badge-fila .link { font-weight: 600; }
 
 /* La frase del sollievo, sola, su vino scuro (una delle rare fasce scure) */
 .fascia-vino { margin: 0 var(--margine-banda); border-radius: clamp(18px, 1rem + 1vw, 28px); background: radial-gradient(60% 80% at 15% 20%, rgba(142, 66, 88, 0.55), transparent 70%), var(--color-bordeaux-scuro); padding: clamp(4rem, 3rem + 5vw, 8rem) var(--gutter); }
@@ -920,8 +927,8 @@ p { text-wrap: pretty; }
 .fascia-vino--luna .fascia-vino__dentro { margin: 0; max-width: 44rem; margin-left: max(0px, calc((100% - var(--container-max-width)) / 2)); }
 .fascia-vino blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 400; font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2.1rem); line-height: 1.45; letter-spacing: 0.005em; color: var(--color-on-earth); }
 .fascia-vino blockquote::first-letter { font-size: 1.9em; line-height: 0.8; font-style: normal; color: var(--oro-su-scuro); }
-.fascia-vino figcaption { margin-top: 1.5rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; font-size: var(--text-small); font-weight: 600; color: var(--oro-su-scuro); }
-.fascia-vino figcaption::before { content: ""; width: 2.5rem; height: 1px; background: var(--oro-su-scuro); }
+.fascia-vino figcaption { margin-top: 1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; font-family: "Pinyon Script", var(--font-heading); font-size: 2.4rem; line-height: 1; color: var(--oro-su-scuro); }
+.fascia-vino figcaption::before { content: none; }
 
 /* Come si inizia: l'offerta a sinistra, cosa succede dopo il messaggio a destra */
 .inizio { display: grid; gap: 3rem; }
@@ -939,8 +946,8 @@ p { text-wrap: pretty; }
 
 /* Regalo: fascia avorio sottile */
 .regalo { margin: 0 var(--margine-banda); padding: 0 var(--gutter); border-radius: clamp(18px, 1rem + 1vw, 28px); background: var(--tinta-cipria); }
-.regalo__dentro { max-width: var(--container-max-width); margin: 0 auto; padding: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0; display: grid; gap: 1.75rem; align-items: center; }
-@media (min-width: 900px) { .regalo__dentro { grid-template-columns: 1.2fr 1fr auto; gap: clamp(2rem, 4vw, 4rem); } }
+.regalo__dentro { max-width: var(--container-max-width); margin: 0 auto; padding: clamp(2rem, 1.6rem + 1.5vw, 2.75rem) 0; display: grid; gap: 1.75rem; align-items: center; }
+@media (min-width: 900px) { .regalo__dentro { grid-template-columns: 1fr auto; gap: clamp(2rem, 6vw, 6rem); } .regalo__dentro p { max-width: 46rem; } }
 .regalo__titolo { margin: 0 0 0.5rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: clamp(1.7rem, 1.4rem + 1vw, 2.3rem); line-height: 1.1; }
 .regalo__titolo em { font-style: italic; font-weight: 550; color: var(--color-bordeaux); }
 .regalo__dentro p { margin: 0; color: var(--color-text-soft); }
