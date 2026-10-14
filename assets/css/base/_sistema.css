@@ -1601,4 +1601,9 @@ h1.titolo-sezione { font-weight: 700; }
 .ruota > span { grid-area: 1 / 1; align-self: end; opacity: 0; filter: blur(10px); translate: 0 0.15em; transition: opacity 900ms var(--curva), filter 900ms var(--curva), translate 900ms var(--curva); }
 .ruota > span.attiva { opacity: 1; filter: none; translate: 0 0; }
 .apertura__titolo em { display: block; }
+/* la seconda riga cambia insieme alla prima: «può diventare» resta, cambia solo la parola d'arrivo */
+.ruota--linea { display: inline-grid; justify-items: start; vertical-align: bottom; }
+@media (max-width: 899px) { .ruota--linea { justify-items: center; } }
+/* computer: la riga d'arrivo un po' più piccola, così «può diventare la tua direzione» sta su una riga */
+@media (min-width: 900px) { .apertura__titolo em { font-size: 0.82em; margin-top: 0.1em; } }
 @media (prefers-reduced-motion: reduce) { .ruota > span { transition: none; } }

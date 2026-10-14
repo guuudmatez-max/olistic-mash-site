@@ -269,15 +269,15 @@ function initNebbia() {
 
 // Titolo della home: un tema alla volta, ogni 3,5 secondi; fermo se si preferisce meno movimento
 function initRuota() {
-  const box = document.querySelector("[data-ruota]");
-  if (!box || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const voci = [...box.children];
+  const gruppi = [...document.querySelectorAll("[data-ruota]")].map((g) => [...g.children]);
+  if (!gruppi.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const n = gruppi[0].length;
   let i = 0;
   setInterval(() => {
     if (document.hidden) return;
-    voci[i].classList.remove("attiva");
-    i = (i + 1) % voci.length;
-    voci[i].classList.add("attiva");
+    gruppi.forEach((voci) => voci[i].classList.remove("attiva"));
+    i = (i + 1) % n;
+    gruppi.forEach((voci) => voci[i].classList.add("attiva")); // tema e arrivo cambiano insieme
   }, 3500);
 }
 
