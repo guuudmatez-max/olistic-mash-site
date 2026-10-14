@@ -1613,3 +1613,9 @@ h1.titolo-sezione { font-weight: 700; }
   .apertura__titolo em { font-size: min(0.82em, 7.2cqi); margin-top: 0.1em; white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) { .ruota > span { transition: none; } }
+
+/* Home: una frase sola, prima dell'invito finale */
+.sezione--frase { padding-block: calc(var(--section-y) * 0.6); }
+.sezione--frase .citazione-breve { margin-top: 0; }
+.sezione--frase blockquote { text-wrap: balance; }
+.sezione--frase figcaption { font-family: "Allura", var(--font-heading); font-size: 2.4rem; font-weight: 400; line-height: 1; color: var(--color-gold-ink); }
