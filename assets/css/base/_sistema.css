@@ -722,9 +722,9 @@ p { text-wrap: pretty; }
 @media (max-width: 899px) {
   .accoglienza { display: grid; min-height: 0; overflow: visible; border-radius: 0; }
   .accoglienza::after { content: ""; position: relative; inset: auto; z-index: 1; grid-area: 1 / 1; align-self: stretch; justify-self: stretch; border-radius: clamp(18px, 1rem + 1vw, 28px); background: linear-gradient(to top, rgba(38, 26, 24, 0.85) 0%, rgba(38, 26, 24, 0.5) 26%, rgba(38, 26, 24, 0) 45%); pointer-events: none; }
-  .accoglienza__foto { position: relative; inset: auto; z-index: 0; grid-area: 1 / 1; height: auto; aspect-ratio: 3 / 4; border-radius: clamp(18px, 1rem + 1vw, 28px); object-position: 62% 0%; }
+  .accoglienza__foto { position: relative; inset: auto; z-index: 0; grid-area: 1 / 1; height: auto; aspect-ratio: 2 / 3; border-radius: clamp(18px, 1rem + 1vw, 28px); object-position: 62% 0%; }
   .accoglienza__testo { display: contents; text-shadow: none; }
-  .accoglienza__titolo { grid-area: 1 / 1; align-self: start; z-index: 2; padding: 2.25rem 1.25rem 0; font-size: clamp(1.9rem, 1.3rem + 3vw, 2.5rem); color: var(--color-text); }
+  .accoglienza__titolo { grid-area: 1 / 1; align-self: start; z-index: 2; padding: 3rem 1.25rem 0; font-size: clamp(1.9rem, 1.3rem + 3vw, 2.5rem); color: var(--color-text); }
   .accoglienza__titolo em { color: var(--color-gold-ink); }
   .accoglienza__lead { padding: 0 calc(var(--gutter) - var(--margine-banda)); margin-top: 1.5rem; color: var(--color-text-soft); }
   .accoglienza__azioni { grid-area: 1 / 1; align-self: end; z-index: 2; margin: 0; padding: 0 1.25rem 1.5rem; gap: 0.75rem; }
@@ -781,32 +781,34 @@ p { text-wrap: pretty; }
 .cambia__foto { margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0 0; aspect-ratio: 16 / 7; border-radius: var(--radius-card); overflow: hidden; }
 @media (max-width: 899px) { .cambia__foto { aspect-ratio: 4 / 3; } }
 .cambia__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; filter: var(--grado-foto); }
-.cambia { list-style: none; margin: clamp(2rem, 1.5rem + 2vw, 3rem) 0 0; padding: 0; display: grid; gap: 2rem; }
+.cambia { list-style: none; margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0 0; padding: 0; display: grid; gap: 2.5rem; text-align: center; }
 @media (min-width: 900px) {
   .cambia { grid-template-columns: repeat(3, 1fr); gap: 0; }
-  .cambia li { padding: 0.25rem clamp(1.5rem, 3vw, 2.75rem) 0.5rem; }
-  .cambia li:first-child { padding-left: 0; }
+  .cambia li { padding: 0 clamp(1.5rem, 3vw, 2.75rem); }
   .cambia li + li { border-left: 1px solid rgba(138, 101, 38, 0.2); }
 }
-.cambia__capo { display: flex; align-items: center; gap: 0.9rem; }
-.cambia__num { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; flex: none; border-radius: 10px; background: var(--tinta-oro); font-size: var(--text-small); font-weight: 500; color: var(--color-gold-ink); font-variant-numeric: tabular-nums; }
+.cambia__capo { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 .cambia h3 { margin: 0; font-size: var(--text-h3); }
-.cambia p { margin: 1.5rem 0 0; max-width: 34ch; line-height: 1.75; color: var(--color-text-soft); }
+.cambia p { margin: 0.75rem auto 0; max-width: 32ch; line-height: 1.75; color: var(--color-text-soft); }
 .cambia__azione { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: clamp(2.5rem, 2rem + 2vw, 3.5rem); text-align: center; }
 .cambia__azione p { margin: 0; font-size: var(--text-small); color: var(--color-text-muted); }
 
 /* Perché funziona: quattro punti, ognuno con la sua icona disegnata */
+.radice { align-items: start; }
+.radice .affianco__foto { margin-top: 0.4rem; }
 .perche { list-style: none; margin: 0.75rem 0 0.5rem; padding: 0; display: grid; gap: 1.5rem; }
 .perche li { display: grid; grid-template-columns: 2.6rem 1fr; gap: 1.1rem; align-items: start; }
-.perche__icona { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.25); color: var(--color-bordeaux); }
-.perche__icona svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+/* Icone: un solo stile in tutto il sito (tratto Lucide 1.5, vino, in un cerchio bianco con il filo d'oro) */
+.icona { display: grid; place-items: center; flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.25); color: var(--color-bordeaux); }
+.icona svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .perche h3 { margin: 0.2rem 0 0.35rem; font-size: var(--text-h3); }
 .perche p { margin: 0; line-height: 1.7; color: var(--color-text-soft); }
 
 /* Le loro voci: fila di video che scorre di lato (dito o frecce), sfuma ai bordi; YouTube si carica solo al clic */
 .voci { margin-top: clamp(5rem, 4rem + 4vw, 8rem); text-align: left; }
 .voci__testa { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
-.voci__titolo { margin: 0; font-size: var(--text-h3); font-weight: 500; }
+.voci__titolo { margin: 0; font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.3rem); font-weight: 450; }
+.voci__sotto { margin: 0.4rem 0 0; font-size: var(--text-small); color: var(--color-text-soft); }
 .voci__frecce { display: flex; gap: 0.5rem; }
 .voci__freccia { width: 2.8rem; height: 2.8rem; border-radius: 50%; border: 0; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(142, 66, 88, 0.35); color: var(--color-bordeaux); display: grid; place-items: center; cursor: pointer; transition: background-color 250ms ease, color 250ms ease; }
 .voci__freccia:hover { background: var(--color-bordeaux); color: #FFFFFF; }
@@ -902,10 +904,13 @@ p { text-wrap: pretty; }
 .fascia-vino__dentro { max-width: 52rem; margin: 0 auto; }
 .fascia-vino--luna { position: relative; isolation: isolate; overflow: hidden; }
 .fascia-vino__sfondo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }
-.fascia-vino--luna::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to right, rgba(62, 31, 41, 0.92) 0%, rgba(62, 31, 41, 0.7) 40%, rgba(62, 31, 41, 0.05) 75%); }
+.fascia-vino--luna::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to right, rgba(20, 22, 48, 0.55) 0%, rgba(20, 22, 48, 0.25) 45%, rgba(20, 22, 48, 0) 70%); }
+.btn-luna { --fondo-btn: transparent; --filo-btn: rgba(255, 255, 255, 0.7); --tinta-btn: var(--color-primary); --freccia-btn: var(--color-text); color: #FFFFFF; margin-top: 2rem; }
+.btn-luna:is(:hover, :focus-visible) { color: var(--color-text); }
 .fascia-vino--luna .fascia-vino__dentro { margin: 0; max-width: 44rem; margin-left: max(0px, calc((100% - var(--container-max-width)) / 2)); }
-.fascia-vino blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 400; font-size: clamp(1.5rem, 1.15rem + 1.4vw, 2.3rem); line-height: 1.32; color: var(--color-on-earth); }
-.fascia-vino figcaption { margin-top: 1.5rem; display: flex; align-items: center; gap: 0.75rem; font-size: var(--text-small); font-weight: 600; color: var(--oro-su-scuro); }
+.fascia-vino blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 400; font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2.1rem); line-height: 1.45; letter-spacing: 0.005em; color: var(--color-on-earth); }
+.fascia-vino blockquote::first-letter { font-size: 1.9em; line-height: 0.8; font-style: normal; color: var(--oro-su-scuro); }
+.fascia-vino figcaption { margin-top: 1.5rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; font-size: var(--text-small); font-weight: 600; color: var(--oro-su-scuro); }
 .fascia-vino figcaption::before { content: ""; width: 2.5rem; height: 1px; background: var(--oro-su-scuro); }
 
 /* Come si inizia: l'offerta a sinistra, cosa succede dopo il messaggio a destra */
@@ -1447,3 +1452,10 @@ p { text-wrap: pretty; }
 /* L'apertura è una fascia avorio con la sfumatura: il bordo si vede e il taglio della foto è voluto */
 .apertura.sfumato { background: var(--color-bg-soft); }
 .apertura.sfumato::before { inset: 0; -webkit-mask-image: none; mask-image: none; }
+
+/* Telefono: titoli principali più decisi; bottoni centrati (non quelli dentro il campo mail o la barra fissa) */
+@media (max-width: 899px) {
+  h1, .titolo-display { font-weight: 700; }
+  main .btn:not(.campo-mail .btn):not(.barra-wa .btn) { display: flex; width: fit-content; margin-inline: auto; }
+  .accoglienza__azioni, .apertura__azioni, .cambia__azione, .passi__azione { justify-content: center; text-align: center; }
+}
