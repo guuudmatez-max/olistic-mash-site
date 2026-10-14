@@ -267,6 +267,20 @@ function initNebbia() {
   muovi();
 }
 
+// Titolo della home: un tema alla volta, ogni 3,5 secondi; fermo se si preferisce meno movimento
+function initRuota() {
+  const box = document.querySelector("[data-ruota]");
+  if (!box || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const voci = [...box.children];
+  let i = 0;
+  setInterval(() => {
+    if (document.hidden) return;
+    voci[i].classList.remove("attiva");
+    i = (i + 1) % voci.length;
+    voci[i].classList.add("attiva");
+  }, 3500);
+}
+
 // Barra WhatsApp sul telefono: visibile dopo l'apertura, nascosta quando si vede l'invito finale
 function initBarraWhatsapp() {
   const barra = document.querySelector("[data-barra-wa]");
@@ -356,6 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initVoci();
   initParallasse();
   initNebbia();
+  initRuota();
   initBarraWhatsapp();
   initStacchi();
   initCercaFaq();
