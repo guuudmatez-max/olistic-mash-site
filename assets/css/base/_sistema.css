@@ -909,7 +909,7 @@ p { text-wrap: pretty; }
 @media (max-width: 899px) {
   .scorre { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--gutter)); padding: 0.5rem var(--gutter) 2rem; scrollbar-width: none; }
   .scorre__colonna { display: contents; }
-  .scorre__carta { flex: none; width: 82vw; scroll-snap-align: center; }
+  .scorre__carta { flex: none; width: min(82vw, 21rem); scroll-snap-align: center; }
 }
 .prove__azione { margin-top: 2.5rem; }
 
@@ -942,7 +942,7 @@ p { text-wrap: pretty; }
 .sigillo__link:hover { background: rgba(255, 255, 255, 0.7); }
 .sigillo__link:hover .sigillo__libro { text-decoration: underline; text-underline-offset: 0.2em; }
 .sigillo img { width: 3.6rem; height: auto; }
-.sigillo .sigillo__logo { width: 6.2rem; margin-top: 0.15rem; }
+.sigillo .sigillo__logo { width: 6.8rem; }
 .sigillo__sopra { white-space: nowrap; }
 
 /* La frase del sollievo, sola, su vino scuro (una delle rare fasce scure) */
