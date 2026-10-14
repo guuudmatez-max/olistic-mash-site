@@ -2,704 +2,330 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <title>Home – Coach Olistica</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Percorsi olistici individuali e di gruppo per ritrovare equilibrio, presenza e centratura energetica."
-    />
-
-    <!-- CSS specifico della pagina Home (background hero, layout, ecc.) -->
-    <!-- <link rel="stylesheet" href="/assets/css/pages/home.css" /> -->
+    <title>Giorgia Boccadifuoco · Unity Connection</title>
+    <meta name="description" content="Giorgia Boccadifuoco, fondatrice di Unity Connection: consulenze individuali e armonizzazioni di gruppo, in presenza o online. Più di 500 persone accompagnate in vent'anni." />
+    <script>document.documentElement.classList.add("js");</script>
+    <script type="module" src="/assets/js/main.js"></script>
   </head>
   <body>
     <div class="site">
-      <!-- HEADER (iniettato da JS) -->
       <header data-site-header></header>
 
       <main class="site-main">
-        <!-- 1. HERO -->
-        <section class="section section--hero hero" id="hero">
-          <div class="container">
-            <div class="hero__layout hero__layout--2cols">
-              <!-- Colonna testo -->
-              <div class="hero__content">
-                <h1 class="hero__title tw-hero-title">
-                  Ritrova il tuo equilibrio.<br />
-                  Connessione, presenza e trasformazione olistica.
-                </h1>
-
-                <p class="lead tw-hero-subtitle mt-4">
-                  Percorsi individuali e di gruppo per ritrovare chiarezza interiore,
-                  armonia emotiva e centratura energetica.
-                </p>
-
-                <div class="hero__ctas tw-hero-ctas">
-                  <a
-                    href="#"
-                    class="btn btn-primary tw-hero-btn-primary"
-                    data-wa-key="generico"
-                  >
-                    <span>Prenota la tua consulenza</span>
-                  </a>
-
-                  <a
-                    href="chi-sono.html"
-                    class="btn btn-secondary tw-hero-btn-secondary"
-                  >
-                    Scopri come lavoro
-                  </a>
-                </div>
+        <!-- APERTURA: Giorgia scontornata davanti al titolo -->
+        <section class="apertura apertura--specchio sfumato">
+          <div class="apertura__scena">
+            <h1 class="titolo-display apertura__titolo">Quando una relazione pesa e si ripete, <em>si può uscirne</em></h1>
+            <img
+              class="apertura__figura"
+              src="/assets/img/foto/giorgia-giacca-header-900.webp"
+              srcset="/assets/img/foto/giorgia-giacca-header-900.webp 1x, /assets/img/foto/giorgia-giacca-header-1600.webp 2x"
+              sizes="(min-width: 900px) 42vw, 80vw"
+              width="742" height="1544"
+              alt="Giorgia Boccadifuoco in giacca chiara, sorriso leggero e sguardo diretto"
+              fetchpriority="high"
+            />
+            <div class="apertura__testo">
+              <div class="apertura__azioni">
+                <a class="link" href="#servizi">Come si lavora insieme</a>
+                <a class="btn btn-accento" data-wa-key="consulenze">Iniziamo da te</a>
               </div>
-
-              <!-- Colonna immagine (mobile + badge) -->
-              <div class="hero__media tw-hero-photo-wrap">
-                <img
-                  src="assets/img/IMG_7119-benvenuto-scaled.jpg"
-                  alt="Giorgia Boccadifuoco – Coach Olistica"
-                  class="hero__photo tw-hero-photo-img"
-                />
-
-                <p class="small hero__badge">
-                  +120 percorsi accompagnati negli ultimi anni
-                </p>
-              </div>
+              <p class="testo-lead">Lavoro con una persona alla volta, in presenza o online. Si parte da quello che senti tu, con le tue parole.</p>
             </div>
           </div>
         </section>
 
-        <!-- 2. SEZIONE – COSA POSSO FARE PER TE -->
-        <section class="section section--services-aura" id="cosa-posso-fare-per-te">
-          <div class="container">
-            <header class="section__header text-center max-w-2xl mx-auto">
-              <h2 class="section__title">Cosa posso fare per te</h2>
-              <p class="section__subtitle mt-2">
-                Tre modi per accompagnarti a ritrovare equilibrio, presenza e radicamento.
-              </p>
-            </header>
-
-            <div class="mt-10 grid grid--3 grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-              <!-- Card 1 -->
-              <article
-                class="card service-card h-full flex flex-col items-center md:items-start text-center md:text-left
-                      bg-white/80 backdrop-blur-sm rounded-3xl shadow-subtle border border-primary-light/40
-                      p-6 md:p-7"
-              >
-                <div
-                  class="service-card__icon mb-4 w-10 h-10 rounded-full border border-primary/40
-                        bg-primary-light/70 flex items-center justify-center"
-                  aria-hidden="true"
-                ></div>
-
-                <h3 class="text-lg font-semibold text-warm-700">
-                  Consulenze individuali
-                </h3>
-
-                <p class="mt-3 text-sm leading-relaxed text-warm-600">
-                  Spazi 1:1 dedicati a te, per ascoltare ciò che stai vivendo e
-                  sciogliere ciò che non è più allineato.
-                </p>
-
-                <a
-                  class="btn btn-ghost mt-6 self-center md:self-start"
-                  data-wa-key="consulenze"
-                >
-                  Scrivimi su WhatsApp
-                </a>
-              </article>
-
-              <!-- Card 2 -->
-              <article
-                class="card service-card h-full flex flex-col items-center md:items-start text-center md:text-left
-                      bg-white/80 backdrop-blur-sm rounded-3xl shadow-subtle border border-primary-light/40
-                      p-6 md:p-7"
-              >
-                <div
-                  class="service-card__icon mb-4 w-10 h-10 rounded-full border border-primary/40
-                        bg-primary-light/70 flex items-center justify-center"
-                  aria-hidden="true"
-                ></div>
-
-                <h3 class="text-lg font-semibold text-warm-700">
-                  Armonizzazioni di gruppo
-                </h3>
-
-                <p class="mt-3 text-sm leading-relaxed text-warm-600">
-                  Cerchi e incontri guidati per lavorare su energia, presenza e
-                  connessione in uno spazio condiviso.
-                </p>
-
-                <a
-                  href="eventi-gruppi.html"
-                  class="btn btn-ghost mt-6 self-center md:self-start"
-                >
-                  Scopri di più
-                </a>
-              </article>
-
-              <!-- Card 3 -->
-              <article
-                class="card service-card h-full flex flex-col items-center md:items-start text-center md:text-left
-                      bg-white/80 backdrop-blur-sm rounded-3xl shadow-subtle border border-primary-light/40
-                      p-6 md:p-7"
-              >
-                <div
-                  class="service-card__icon mb-4 w-10 h-10 rounded-full border border-primary/40
-                        bg-primary-light/70 flex items-center justify-center"
-                  aria-hidden="true"
-                ></div>
-
-                <h3 class="text-lg font-semibold text-warm-700">
-                  Percorsi energetici & Reiki
-                </h3>
-
-                <p class="mt-3 text-sm leading-relaxed text-warm-600">
-                  Trattamenti e percorsi strutturati per armonizzare mente, corpo
-                  ed emozioni in profondità.
-                </p>
-
-                <a
-                  href="percorsi-reiki.html"
-                  class="btn btn-ghost mt-6 self-center md:self-start"
-                >
-                  Scopri di più
-                </a>
-              </article>
+        <!-- I DUE SERVIZI -->
+        <section class="sezione" id="servizi">
+          <div class="contenitore">
+            <div class="intesta">
+              <h2 class="titolo-sezione">Due strade. <em>Lo stesso passo avanti</em></h2>
+              <p class="testo-lead">Uno a uno, più a fondo. Oppure in un piccolo gruppo, più immediato. Scegli quella che senti tua.</p>
             </div>
-          </div>
-        </section>
-
-
-        <!-- 3. SEZIONE – UNITY CONNECTION -->
-        <section class="section section--unity-hero" id="unity-connection">
-          <div class="container">
-            <div
-              class="unity-hero-layout rounded-3xl bg-white/80 border border-primary-light/40 shadow-subtle
-                    px-6 py-8 md:px-10 md:py-10
-                    grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-center"
-            >
-              <!-- Colonna testo -->
-              <div class="unity-content text-center md:text-left">
-                <h2 class="section__title mt-2">
-                  Unity Connection – Percorso individuale
-                </h2>
-
-                <p class="mt-3 text-base md:text-lg leading-relaxed text-warm-600 max-w-xl mx-auto md:mx-0">
-                  Attraverso ascolto, lavoro energetico e integrazione pratica,
-                  ti accompagno a ritrovare presenza, chiarezza e radicamento.
-                </p>
-
-                <ul class="unity-list mt-5 text-sm md:text-base text-warm-700 max-w-xl mx-auto md:mx-0">
-                  <li>
-                    <span class="unity-list__icon"></span>
-                    Maggiore chiarezza rispetto a ciò che stai vivendo.
-                  </li>
-                  <li>
-                    <span class="unity-list__icon"></span>
-                    Più presenza nel corpo e nelle emozioni, meno confusione mentale.
-                  </li>
-                  <li>
-                    <span class="unity-list__icon"></span>
-                    Strumenti pratici per portare il lavoro energetico nella tua quotidianità.
-                  </li>
-                  <li>
-                    <span class="unity-list__icon"></span>
-                    Uno spazio sicuro in cui sentirti accolta, ascoltata e non giudicata.
-                  </li>
-                  <li>
-                    <span class="unity-list__icon"></span>
-                    La regola dei cinque. Se non metti cinque punti sei un pollo zio.
-                  </li>
-                </ul>
-
-                <div class="mt-7 flex justify-center md:justify-start">
-                  <a
-                    href="#"
-                    class="btn btn-primary"
-                    data-wa-key="consulenze"
-                  >
-                    Prenota la tua sessione su WhatsApp
-                  </a>
-                </div>
-              </div>
-
-              <!-- Colonna badge / spazio visual -->
-              <div
-                class="unity-photo-badge hidden md:flex flex-col items-center justify-center
-                      rounded-3xl bg-primary-tint/60 border border-primary-light/60 px-6 py-8"
-              >
-                <p class="text-sm uppercase tracking-[0.18em] text-primary-dark mb-3">
-                  Percorso principale
-                </p>
-                <p class="text-lg font-semibold text-warm-700 text-center">
-                  Unity Connection
-                </p>
-                <p class="mt-3 text-sm text-warm-600 text-center max-w-xs">
-                  Disponibile online e in presenza,
-                  con spazi 1:1 dedicati solo a te.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-        <!-- 4. EVENTI -->
-        <section class="section events" id="eventi">
-          <div class="container">
-            <header class="section__header text-center max-w-2xl mx-auto">
-              <h2 class="section__title">Eventi & armonizzazioni di gruppo</h2>
-              <p class="section__subtitle mt-2">
-                Cerchi, incontri e serate dedicate alla connessione condivisa e
-                al lavoro energetico in gruppo.
-              </p>
-            </header>
-
-            <div class="mt-10 grid grid--3 grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-              <!-- Evento 1 -->
-              <article
-                class="card event-card h-full flex flex-col justify-between
-                      bg-white/80 rounded-3xl border border-primary-light/40 shadow-subtle
-                      p-6 md:p-7"
-              >
+            <div class="servizi">
+              <a class="servizio servizio--oro" href="/consulenze-individuali.html">
+                <figure class="servizio__foto"><img src="/assets/img/foto/consulenze-lago-destra-800.webp" srcset="/assets/img/foto/consulenze-lago-destra-800.webp 800w, /assets/img/foto/consulenze-lago-destra-1333.webp 1333w" sizes="(min-width: 760px) 40vw, 90vw" width="800" height="1200" loading="lazy" alt="Giorgia al tramonto sulla riva del lago, lo sguardo verso destra" style="object-position: 50% 28%" /></figure>
                 <div>
-                  <div class="event-card__header flex items-center justify-between gap-3 mb-4">
-                    <div
-                      class="event-card__date flex flex-col items-center justify-center rounded-2xl
-                            bg-primary-tint/70 text-primary-dark px-3 py-2 text-xs font-semibold"
-                      aria-hidden="true"
-                    >
-                      <span class="event-card__day text-base leading-none">12</span>
-                      <span class="event-card__month tracking-[0.18em] uppercase text-[11px] mt-1">
-                        APR
-                      </span>
-                    </div>
-
-                    <span class="badge badge--warning-soft small whitespace-nowrap">
-                      Posti limitati
-                    </span>
-                  </div>
-
-                  <h3 class="text-lg font-semibold text-warm-700">
-                    Cerchio di Luna Nuova - Sinergie
-                  </h3>
-
-                  <p class="mt-3 text-sm leading-relaxed text-warm-600">
-                    Un cerchio di ascolto, intenzione e rilascio per aprirti al
-                    nuovo ciclo con maggiore presenza.
-                  </p>
-
-                  <p class="small event-card__meta mt-3 text-warm-500">
-                    Milano · Spazio Olistico XYZ
-                  </p>
+                  <h3>Consulenze individuali</h3>
+                  <p>Una persona alla volta, più a fondo. In presenza o online.</p>
                 </div>
-
-                <a
-                  href="#"
-                  class="btn btn-secondary mt-6 self-start"
-                  data-wa-key="armonizzazioni"
-                  data-wa-text="Mi interessa il Cerchio di Luna Nuova del 12/04."
-                >
-                  Chiedi info su WhatsApp
-                </a>
-              </article>
-
-              <!-- Evento 2 -->
-              <article
-                class="card event-card h-full flex flex-col justify-between
-                      bg-white/80 rounded-3xl border border-primary-light/40 shadow-subtle
-                      p-6 md:p-7"
-              >
+                <span class="servizio__piede">Come funzionano</span>
+              </a>
+              <a class="servizio servizio--cipria" href="/eventi-gruppi.html">
+                <figure class="servizio__foto"><img src="/assets/img/foto/armonizzazioni-microfono-1200.webp" srcset="/assets/img/foto/armonizzazioni-microfono-1200.webp 1200w, /assets/img/foto/armonizzazioni-microfono-2000.webp 2000w" sizes="(min-width: 760px) 40vw, 90vw" width="1200" height="960" loading="lazy" alt="Giorgia parla al microfono davanti a un gruppo di persone sedute" style="object-position: 50% 35%" /></figure>
                 <div>
-                  <div class="event-card__header flex items-center justify-between gap-3 mb-4">
-                    <div
-                      class="event-card__date flex flex-col items-center justify-center rounded-2xl
-                            bg-primary-tint/70 text-primary-dark px-3 py-2 text-xs font-semibold"
-                      aria-hidden="true"
-                    >
-                      <span class="event-card__day text-base leading-none">27</span>
-                      <span class="event-card__month tracking-[0.18em] uppercase text-[11px] mt-1">
-                        MAG
-                      </span>
-                    </div>
-                  </div>
-
-                  <h3 class="text-lg font-semibold text-warm-700">
-                    Armonizzazione di gruppo – Presenza e radicamento
-                  </h3>
-
-                  <p class="mt-3 text-sm leading-relaxed text-warm-600">
-                    Una serata per riportare il respiro nel corpo, sciogliere
-                    tensioni e ritrovare centratura.
-                  </p>
-
-                  <p class="small event-card__meta mt-3 text-warm-500">
-                    Online · Zoom
-                  </p>
+                  <h3>Armonizzazioni di Gruppo</h3>
+                  <p>Un pomeriggio in un piccolo gruppo, più immediato e sostenuto.</p>
                 </div>
-
-                <a
-                  href="#"
-                  class="btn btn-secondary mt-6 self-start"
-                  data-wa-key="armonizzazioni"
-                  data-wa-text="Mi interessa l'armonizzazione di gruppo del 27/05."
-                >
-                  Chiedi info su WhatsApp
-                </a>
-              </article>
-
-              <!-- Evento 3 -->
-              <article
-                class="card event-card h-full flex flex-col justify-between
-                      bg-white/80 rounded-3xl border border-primary-light/40 shadow-subtle
-                      p-6 md:p-7"
-              >
-                <div>
-                  <div class="event-card__header flex items-center justify-between gap-3 mb-4">
-                    <div
-                      class="event-card__date flex flex-col items-center justify-center rounded-2xl
-                            bg-primary-tint/70 text-primary-dark px-3 py-2 text-xs font-semibold"
-                      aria-hidden="true"
-                    >
-                      <span class="event-card__day text-base leading-none">09</span>
-                      <span class="event-card__month tracking-[0.18em] uppercase text-[11px] mt-1">
-                        GIU
-                      </span>
-                    </div>
-                  </div>
-
-                  <h3 class="text-lg font-semibold text-warm-700">
-                    Cerchio Reiki & meditazione
-                  </h3>
-
-                  <p class="mt-3 text-sm leading-relaxed text-warm-600">
-                    Un incontro per ricevere Reiki in gruppo, meditare e integrare
-                    ciò che emerge in uno spazio accogliente.
-                  </p>
-
-                  <p class="small event-card__meta mt-3 text-warm-500">
-                    Torino · Centro Olistico ABC
-                  </p>
-                </div>
-
-                <a
-                  href="#"
-                  class="btn btn-secondary mt-6 self-start"
-                  data-wa-key="armonizzazioni"
-                  data-wa-text="Mi interessa il Cerchio Reiki & meditazione del 09/06."
-                >
-                  Chiedi info su WhatsApp
-                </a>
-              </article>
-            </div>
-
-            <div class="mt-10 md:mt-12 text-center">
-              <a href="eventi-gruppi.html" class="btn btn-ghost">
-                Vedi tutti gli eventi
+                <span class="servizio__piede">Le prossime date</span>
               </a>
             </div>
           </div>
         </section>
 
-
-                <!-- 5. TESTIMONIANZE -->
-        <section class="section section--testimonials" id="testimonianze">
-          <div class="container">
-            <header class="section__header text-center max-w-2xl mx-auto">
-              <h2 class="section__title">Le parole di chi ha già iniziato il percorso</h2>
-              <p class="section__subtitle">
-                Alcune delle esperienze di chi ha scelto di lavorare su presenza,
-                energia e consapevolezza.
-              </p>
-            </header>
-
-            <div class="testimonials-stack flex flex-col items-center gap-12 md:gap-16 mt-10">
-
-              <!-- VIDEO -->
-              <div class="w-full max-w-3xl flex flex-col items-center">
-                <div
-                  class="video-lazy relative overflow-hidden rounded-3xl shadow-subtle border border-primary-light/40
-                        bg-black/5 aspect-video cursor-pointer max-w-2xl w-full"
-                  data-video-id="QW8bcFUgRfI"
-                >
-                  <img
-                    class="video-lazy__thumb w-full h-full object-cover"
-                    src="https://img.youtube.com/vi/QW8bcFUgRfI/hqdefault.jpg"
-                    alt="Video testimonianza – percorso Unity Connection"
-                  />
-
-                  <div
-                    class="pointer-events-none absolute inset-0 bg-gradient-to-t
-                          from-black/40 via-black/10 to-transparent"
-                  ></div>
-
-                  <button
-                    type="button"
-                    class="video-lazy__play absolute inset-0 flex items-center justify-center
-                          text-4xl md:text-5xl text-white"
-                    aria-label="Guarda il video"
-                  >
-                    ▶
-                  </button>
-                </div>
-
-                <p class="small mt-4 text-center text-warm-600">
-                  Video testimonianza – percorso Unity Connection.
-                </p>
-              </div>
-
-
-              <!-- CAROUSEL sotto al video -->
-              <div
-                class="testimonial-carousel w-full max-w-2xl mx-auto"
-                data-testimonial-carousel
-              >
-                <div class="testimonial-carousel__slides">
-
-                  <!-- Slide 1 -->
-                  <article
-                    class="card card--testimonial testimonial-slide testimonial-slide--active
-                          bg-white/95 rounded-3xl shadow-subtle border border-primary-light/40
-                          p-6 md:p-8 text-center"
-                    data-testimonial-slide
-                  >
-                    <p class="quote text-base md:text-lg leading-relaxed text-warm-700">
-                      “Mi sono sentita vista, accolta e guidata. Dopo ogni sessione
-                      sentivo il corpo più leggero e la mente più chiara.”
-                    </p>
-
-                    <div class="author flex items-center justify-center gap-3 mt-5">
-                  
-                      <div class="author__meta">
-                        <p class="small mb-0"><strong>Elena</strong></p>
-                        <p class="small text-warm-600">Percorso Unity Connection</p>
-                      </div>
-                    </div>
-                  </article>
-
-                  <!-- Slide 2 -->
-                  <article
-                    class="card card--testimonial testimonial-slide
-                          bg-white/95 rounded-3xl shadow-subtle border border-primary-light/40
-                          p-6 md:p-8 text-center"
-                    data-testimonial-slide
-                  >
-                    <p class="quote text-base md:text-lg leading-relaxed text-warm-700">
-                      “Le armonizzazioni di gruppo mi hanno aiutata a ritrovare
-                      presenza e a non sentirmi più sola nel mio processo.”
-                    </p>
-
-                    <div class="author flex items-center justify-center gap-3 mt-5">
-                      
-                      <div class="author__meta">
-                        <p class="small mb-0"><strong>Sara</strong></p>
-                        <p class="small text-warm-600">Cerchi & armonizzazioni</p>
-                      </div>
-                    </div>
-                  </article>
-
-                  <!-- Slide 3 -->
-                  <article
-                    class="card card--testimonial testimonial-slide
-                          bg-white/95 rounded-3xl shadow-subtle border border-primary-light/40
-                          p-6 md:p-8 text-center"
-                    data-testimonial-slide
-                  >
-                    <p class="quote text-base md:text-lg leading-relaxed text-warm-700">
-                      “Il lavoro energetico è stato profondo ma sempre dolce.
-                      Ho iniziato a fidarmi di più delle mie sensazioni.”
-                    </p>
-
-                    <div class="author flex items-center justify-center gap-3 mt-5">
-                      
-                      <div class="author__meta">
-                        <p class="small mb-0"><strong>Chiara</strong></p>
-                        <p class="small text-warm-600">Percorsi energetici & Reiki</p>
-                      </div>
-                    </div>
-                  </article>
-
-                </div>
-
-                <!-- Controls -->
-                <div class="testimonial-carousel__controls mt-6 flex justify-center gap-2">
-                  <button
-                    type="button"
-                    class="carousel-btn"
-                    data-carousel-prev
-                    aria-label="Testimonianza precedente"
-                  >
-                    ‹
-                  </button>
-                  <button
-                    type="button"
-                    class="carousel-btn"
-                    data-carousel-next
-                    aria-label="Testimonianza successiva"
-                  >
-                    ›
-                  </button>
-                </div>
-              </div>
-
+        <!-- FIGURA CENTRALE: i temi a cui risponde -->
+        <section class="sezione sfumato figura-centrale">
+          <div class="contenitore al-centro">
+            <p class="occhiello">Si parte da dove sei</p>
+            <h2 class="titolo-sezione">Meno peso da portare.<br />Più <em>spazio per te</em></h2>
+            <div class="figura-centrale__scena" data-nebbia>
+              <img src="/assets/img/foto/giorgia-bianco-ciondolo-900.webp" srcset="/assets/img/foto/giorgia-bianco-ciondolo-900.webp 1x, /assets/img/foto/giorgia-bianco-ciondolo-1600.webp 2x" width="612" height="900" loading="lazy" alt="Giorgia in abito bianco con un grande ciondolo dorato, sorride e alza una penna" />
+              <ul class="temi">
+                <li class="tema tema--oro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg><span>Un <strong>blocco</strong> che si ripete</span></li>
+                <li class="tema tema--salvia tema--largo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/></svg><span>Un <strong>talento</strong> che non vedi</span></li>
+                <li class="tema tema--cipria"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.67 19a2 2 0 0 0 1.42-.59l6.15-6.17a6 6 0 0 0-8.49-8.49L5.59 9.91A2 2 0 0 0 5 11.33V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg><span>Un <strong>peso</strong> che non riesci a lasciare</span></li>
+                <li class="tema tema--lilla"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.17-2.87L3 3"/><path d="m15 9 6-6"/></svg><span>Una <strong>decisione</strong> sospesa</span></li>
+                <li class="tema tema--salvia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Un <strong>vuoto</strong> che ti opprime</span></li>
+                <li class="tema tema--oro tema--largo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg><span>Una <strong>situazione</strong> complessa da vedere</span></li>
+              </ul>
             </div>
-
-
-            <div class="mt-10 md:mt-12 text-center">
-              <a
-                href="#"
-                class="btn btn-primary"
-                data-wa-key="generico"
-              >
-                Voglio iniziare anch’io
-              </a>
-            </div>
+            <div class="testo-due">
+                <p>Arrivi con quello che hai addosso, anche se non sai ancora dargli un nome.</p>
+                <p>Insieme guardiamo da dove nasce. E quello che oggi ti ferma diventa la spinta per ripartire.</p>
+              </div>
           </div>
         </section>
 
-       <!-- 6. MINI “SU DI ME” -->
-        <section class="section section--about-mini" id="mini-su-di-me">
-          <div class="container">
-
-            <div class="about-mini flex flex-col items-center text-center gap-6 md:gap-8">
-
-              <!-- Foto -->
-              <figure class="about-mini__media">
-                <img
-                  src="assets/img/fo3iafbjmnp1qcju1n438otehk._SY600_.jpg"
-                  alt="Ritratto di Giorgia Boccadifuoco"
-                  class="about-mini__photo w-44 h-44 md:w-52 md:h-52 object-cover rounded-full shadow-soft border border-primary-light/40"
-                />
+        <!-- CHI È: collage di due foto, riquadro con gli anni, timbro che gira; testo a destra -->
+        <section class="sezione sezione--avorio">
+          <div class="contenitore chi__griglia">
+            <div class="chi__collage">
+              <div class="scheda-numero chi__numero"><strong>20+ anni</strong><span>di pratica, una persona alla volta</span></div>
+              <figure class="foto chi__foto chi__foto--a">
+                <img src="/assets/img/foto/giorgia-prato-sciarpa-800.webp" srcset="/assets/img/foto/giorgia-prato-sciarpa-800.webp 800w, /assets/img/foto/giorgia-prato-sciarpa-1600.webp 1600w" sizes="(min-width: 900px) 22vw, 46vw" width="800" height="1200" loading="lazy" style="object-position: 50% 25%" alt="Giorgia seduta nel prato al tramonto, sciarpa color vino, il mento appoggiato alla mano" />
               </figure>
-
-              <!-- Testo -->
-              <div class="about-mini__content max-w-2xl">
-                <h2 class="section__title mb-3">
-                  Sono Giorgia Boccadifuoco
-                </h2>
-
-                <p class="text-warm-700 leading-relaxed mb-3">
-                  Creo spazi sicuri in cui puoi ascoltarti, lasciare andare ciò che
-                  non ti appartiene più e tornare a sentire il tuo centro.
-                </p>
-
-                <p class="text-warm-700 leading-relaxed">
-                  Integro lavoro energetico, ascolto profondo e strumenti pratici,
-                  per sostenerti nel tuo percorso in modo concreto e rispettoso
-                  dei tuoi tempi.
-                </p>
-
-                <a href="chi-sono.html"
-                  class="btn btn-secondary about-mini__cta mt-6 inline-flex">
-                  Scopri di più su di me
-                </a>
+              <figure class="foto chi__foto chi__foto--b">
+                <img src="/assets/img/foto/giorgia-giardino-fiori-800.webp" srcset="/assets/img/foto/giorgia-giardino-fiori-800.webp 800w, /assets/img/foto/giorgia-giardino-fiori-1600.webp 1600w" sizes="(min-width: 900px) 24vw, 48vw" width="800" height="533" loading="lazy" style="object-position: 40% 40%" alt="Giorgia ride tra i fiori bianchi del giardino, un ramo fiorito tra le mani" />
+              </figure>
+              <div class="timbro" aria-hidden="true">
+                <svg viewBox="0 0 200 200">
+                  <defs><path id="cerchio-timbro" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+                  <text><textPath href="#cerchio-timbro" startOffset="0" textLength="474" lengthAdjust="spacing">Unity Connection · La Via dell'Amore · dal 2015 ·&#160;</textPath></text>
+                </svg>
+                <span class="timbro__centro"><img src="/assets/img/gold.png" alt="" /></span>
               </div>
-
             </div>
-
+            <div class="chi__testo">
+              <p class="occhiello">Chi sono</p>
+              <h2 class="titolo-sezione">Vent'anni di pratica, <em>una persona alla volta</em></h2>
+              <p class="testo">Nel 2015 ho fondato Unity Connection, che chiamo anche La Via dell'Amore. Prima ci sono stati vent'anni di pratica e la formazione come Reiki Master.</p>
+              <p class="testo">Quasi sempre si parte da qualcosa che pesa e non si sposta, anche quando intorno sembra tutto in ordine.</p>
+              <a class="btn btn-secondary" href="/chi-sono.html">La mia storia</a>
+            </div>
           </div>
         </section>
 
+        <!-- STACCO -->
+        <div style="padding-top: var(--section-y)">
+          <figure class="stacco banda" data-apri>
+            <img
+              src="/assets/img/foto/lago-tramonto-1200.webp"
+              srcset="/assets/img/foto/lago-tramonto-1200.webp 1200w, /assets/img/foto/lago-tramonto-2400.webp 2400w"
+              sizes="100vw"
+              width="1200" height="800" loading="lazy"
+              alt="Giorgia in piedi sulla riva di un lago al tramonto, tra l'erba alta"
+            />
+            <figcaption class="stacco__frase">Il primo passo è piccolo: un incontro.<a class="btn btn-fine stacco__azione" data-wa-key="consulenze">Scrivimi su WhatsApp</a></figcaption>
+          </figure>
+        </div>
 
-        <!-- 7. CTA FINALE -->
-       <section class="section section--cta-final" id="cta-finale">
-          <div class="container">
-            <div class="mx-auto max-w-3xl text-center">
-              <!-- Eyebrow -->
-              <p class="text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-                Pronta a fare il primo passo?
-              </p>
+        <!-- Punto che fa comparire l'invito alla guida, una volta sola -->
+        <div data-invito-guida aria-hidden="true"></div>
 
-              <!-- Titolo -->
-              <h2 class="mt-3 text-2xl font-semibold leading-tight md:text-3xl">
-                Il tuo percorso può iniziare da un semplice messaggio.
-              </h2>
+        <!-- TESTIMONIANZE -->
+        <section class="sezione">
+          <div class="contenitore al-centro">
+            <h2 class="titolo-sezione">Storie diverse. <em>Lo stesso sollievo</em></h2>
+            <p class="testo-lead">Le parole di chi ha già cominciato, con il solo nome.</p>
+            <ul class="ventaglio">
+              <li class="t-card v-1">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" transform="translate(4 -3)" d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/><path d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/></g></svg><span class="t-card__luogo">Percorso</span></div>
+                <blockquote>Ho imparato a guardare le ferite che per tanto tempo avevo cercato di evitare.</blockquote>
+                <div class="t-card__piede"><span class="avatar avatar--foto" aria-hidden="true"><img src="/assets/img/foto/avatar-valentina.webp" alt="" width="64" height="64" loading="lazy" /><span class="spunta"></span></span><span class="t-card__nome">Valentina</span><span class="t-card__num">01</span></div>
+              </li>
+              <li class="t-card v-2">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" transform="translate(4 -3)" d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/><path d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/></g></svg><span class="t-card__luogo">Percorso</span></div>
+                <blockquote>Ero scettica, con i piedi di piombo. E invece non vedo l'ora di continuare questo percorso.</blockquote>
+                <div class="t-card__piede"><span class="avatar" aria-hidden="true" style="background: #F6ECD3">C<span class="spunta"></span></span><span class="t-card__nome">Camilla</span><span class="t-card__num">02</span></div>
+              </li>
+              <li class="t-card v-3">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" transform="translate(4 -3)" d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/><path d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/></g></svg><span class="t-card__luogo">Percorso</span></div>
+                <blockquote>Con mio babbo sento un po' più di complicità. Sto vedendo i miei genitori da un'altra prospettiva.</blockquote>
+                <div class="t-card__piede"><span class="avatar avatar--foto" aria-hidden="true"><img src="/assets/img/foto/avatar-francesco.webp" alt="" width="64" height="64" loading="lazy" /><span class="spunta"></span></span><span class="t-card__nome">Francesco</span><span class="t-card__num">03</span></div>
+              </li>
+              <li class="t-card v-scura">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" transform="translate(4 -3)" d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/><path d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/></g></svg><span class="t-card__luogo">Una seduta</span></div>
+                <blockquote>Dopo 50 anni con quel nodo alla gola, finalmente respiro.</blockquote>
+                <div class="t-card__piede"><span class="avatar avatar--anonimo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="spunta"></span></span><span class="t-card__nome">Testimonianza verificata</span><span class="t-card__num">04</span></div>
+              </li>
+              <li class="t-card v-5">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" transform="translate(4 -3)" d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/><path d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/></g></svg><span class="t-card__luogo">Percorso</span></div>
+                <blockquote>Quel blocco di cui parlavo all'inizio, alla fine è fluito, da solo.</blockquote>
+                <div class="t-card__piede"><span class="avatar avatar--foto" aria-hidden="true"><img src="/assets/img/foto/avatar-annaluna.webp" alt="" width="64" height="64" loading="lazy" /><span class="spunta"></span></span><span class="t-card__nome">Annaluna</span><span class="t-card__num">05</span></div>
+              </li>
+              <li class="t-card v-6">
+                <div class="t-card__testa"><svg class="t-card__virgolette" viewBox="0 0 56 44" aria-hidden="true"><g fill="none" stroke-width="1.5" stroke-linejoin="round"><path class="ombra" transform="translate(4 -3)" d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/><path d="M6 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9H6a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z M32 6h14a3 3 0 0 1 3 3v12c0 9-5 15-12 18l-2-4c4-2 6-5 7-9h-10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z"/></g></svg><span class="t-card__luogo">Armonizzazioni</span></div>
+                <blockquote>Ho sempre visto le mie emozioni come un difetto. Ora scopro quanta pace possono portarmi parole e gesti sinceri.</blockquote>
+                <div class="t-card__piede"><span class="avatar avatar--foto" aria-hidden="true"><img src="/assets/img/foto/avatar-giuly.webp" alt="" width="64" height="64" loading="lazy" /><span class="spunta"></span></span><span class="t-card__nome">Giuly</span><span class="t-card__num">06</span></div>
+              </li>
+            </ul>
+            <div class="fiducia">
+              <span class="fiducia__volti" aria-hidden="true"><i><img src="/assets/img/foto/avatar-valentina.webp" alt="" width="64" height="64" loading="lazy" /></i><i><img src="/assets/img/foto/avatar-giuly.webp" alt="" width="64" height="64" loading="lazy" /></i><i><img src="/assets/img/foto/avatar-francesco.webp" alt="" width="64" height="64" loading="lazy" /></i><i><img src="/assets/img/foto/avatar-annaluna.webp" alt="" width="64" height="64" loading="lazy" /></i></span>
+              <span class="fiducia__testo"><strong>Vent'anni di incontri.</strong><br />Più di 500 persone accompagnate.</span>
+            </div>
+          </div>
+        </section>
 
-              <!-- Testo breve -->
-              <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--color-text-muted)]">
-                Mi scrivi su WhatsApp, ti leggo con calma e insieme troviamo qual è il passo
-                più gentile per te in questo momento, senza fretta e senza pressioni.
-              </p>
+        <!-- SEZIONE SCURA: il concetto della rete -->
+        <section class="sezione sezione-scura banda">
+          <figure class="sezione-scura__sfondo" aria-hidden="true">
+            <img src="/assets/img/foto/sfondo-ragnatela-1200.webp" srcset="/assets/img/foto/sfondo-ragnatela-1200.webp 1200w, /assets/img/foto/sfondo-ragnatela-2400.webp 2400w" sizes="100vw" width="1200" height="1800" loading="lazy" alt="" style="object-position: 60% 40%" />
+          </figure>
+          <div class="contenitore">
+            <h2 class="titolo-sezione">Ogni volta che rimandi, <em>la rete si stringe</em></h2>
+            <p class="testo-lead">Testo provvisorio: qui va il passaggio che dice perché vale la pena muoversi adesso, senza fretta e senza paura.</p>
+            <a class="btn btn-chiaro" data-wa-key="consulenze">Scrivimi su WhatsApp</a>
+          </div>
+        </section>
 
-              <!-- 3 step -->
-              <div class="mt-8 border-t border-[var(--color-border-soft)] pt-8">
-                <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-center">
-                  
-                  <!-- Step 1 -->
-                  <div class="flex-1 min-w-[0] md:max-w-[220px]">
-                    <div class="flex flex-col items-center text-center gap-2">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-[var(--color-accent-strong)]">
-                        <span>1</span>
-                      </div>
-                      <h3 class="text-sm font-semibold">
-                        Scrivimi su WhatsApp
-                      </h3>
-                      <p class="text-xs md:text-sm leading-relaxed text-[var(--color-text-muted)]">
-                        Inviami un messaggio raccontandomi, in poche parole, cosa stai vivendo adesso.
-                      </p>
+        <!-- VIDEO IN MOVIMENTO -->
+        <section class="sezione">
+          <div class="contenitore">
+            <figure class="video-movimento">
+              <div class="video-movimento__schermo">
+                <img src="/assets/img/foto/sentiero-1200.webp" srcset="/assets/img/foto/sentiero-1200.webp 1200w, /assets/img/foto/sentiero-2400.webp 2400w" sizes="(min-width: 1180px) 1180px, 100vw" width="1200" height="800" loading="lazy" alt="Giorgia cammina su un sentiero di campagna con uno scialle rosso" />
+                <span class="video-movimento__segnaposto">Qui il video delle testimonianze, in montaggio</span>
+              </div>
+              <figcaption>
+                <h2 class="titolo-sezione">Sentirlo raccontare <em>da chi c'è stato</em></h2>
+                <p class="testo-lead" style="margin-inline: auto">Un video breve che parte da solo, senza audio, come una foto in movimento.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="sezione sezione--avorio">
+          <div class="contenitore">
+            <div class="faq__testa al-centro">
+              <p class="occhiello">Rispondo alle domande più frequenti</p>
+              <h2 class="titolo-sezione">Buone domande. <em>Risposte sincere</em></h2>
+              <div class="faq__tabs" role="tablist" aria-label="Argomenti"><button class="faq__tab attivo" type="button" role="tab" aria-selected="true" data-faq-tab="lavoro">Il lavoro</button><button class="faq__tab" type="button" role="tab" aria-selected="false" data-faq-tab="consulenze">Consulenze individuali</button><button class="faq__tab" type="button" role="tab" aria-selected="false" data-faq-tab="armonizzazioni">Armonizzazioni di Gruppo</button><button class="faq__tab" type="button" role="tab" aria-selected="false" data-faq-tab="pratiche">Prenotare e regalare</button></div>
+              <label class="faq__cerca">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="search" placeholder="Oppure cerca tra tutte le domande" aria-label="Cerca tra le domande frequenti" data-faq-cerca />
+              </label>
+              <p class="faq__conta" data-faq-conta aria-live="polite"></p>
+            </div>
+            <div class="faq" data-faq>
+              <details data-faq-cat="lavoro">
+                <summary>È una terapia?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>No. Non è terapia psicologica e non sostituisce percorsi psicologici, psicoterapeutici o cure mediche: sta accanto a loro. Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="lavoro">
+                <summary>Su cosa si lavora?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="lavoro">
+                <summary>Per chi è questo lavoro?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="lavoro">
+                <summary>Quello che racconto resta riservato?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="consulenze" hidden>
+                <summary>Quanto dura un incontro?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>In presenza {{ consulenze.durataPresenza }}, online {{ consulenze.durataOnline }}. Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="consulenze" hidden>
+                <summary>Quanti incontri servono?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="consulenze" hidden>
+                <summary>Cosa succede nel primo incontro?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="consulenze" hidden>
+                <summary>Funziona anche online?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Sì. In presenza il lavoro è più pieno, e spesso dopo qualche incontro online le persone scelgono di venire di persona. Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="armonizzazioni" hidden>
+                <summary>Come si svolge un pomeriggio di gruppo?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="armonizzazioni" hidden>
+                <summary>Devo parlare davanti a tutti?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="armonizzazioni" hidden>
+                <summary>Dove si tengono?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="armonizzazioni" hidden>
+                <summary>Quante persone ci sono?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="pratiche" hidden>
+                <summary>Come prenoto?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="pratiche" hidden>
+                <summary>Posso regalare un incontro?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="pratiche" hidden>
+                <summary>Devo prepararmi in qualche modo?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <details data-faq-cat="pratiche" hidden>
+                <summary>Posso venire con il mio partner?</summary>
+                <div class="faq__risposta" data-faq-risposta><p>Testo segnaposto: qui andrà la risposta completa, chiara e lunga, scritta anche per Google con parole semplici.</p></div>
+              </details>
+              <p class="faq__vuota" data-faq-vuota hidden>Nessuna domanda con queste parole. Puoi scrivermi su WhatsApp e ti rispondo io.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- INVITO FINALE: un'azione sola, Giorgia accanto -->
+        <div class="fondo-finale" data-fondo-finale>
+          <section class="sezione porte" id="porte">
+            <div class="contenitore porte__griglia">
+              <div class="porte__testo">
+                <h2 class="titolo-sezione">Da dove vuoi <em>iniziare?</em></h2>
+                <p class="testo-lead">Il modo più semplice è scrivermi. Un messaggio, anche breve. Ti rispondo io, di persona.</p>
+                <a class="btn btn-accento" data-wa-key="generico">Scrivimi su WhatsApp</a>
+                <div class="porte__guida">
+                  <p>Preferisci prenderti tempo? Lascia la mail e ricevi la guida gratuita.</p>
+                  <form class="modulo-guida" action="#" novalidate>
+                    <div class="campo-mail">
+                      <input id="mail-guida" type="email" name="email" placeholder="La tua mail" aria-label="La tua mail" autocomplete="email" required />
+                      <button class="btn btn-primary" type="submit">Ricevi la guida</button>
                     </div>
-                  </div>
-
-                  <!-- Step 2 -->
-                  <div class="flex-1 min-w-[0] md:max-w-[220px]">
-                    <div class="flex flex-col items-center text-center gap-2">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-[var(--color-accent-strong)]">
-                        <span>2</span>
-                      </div>
-                      <h3 class="text-sm font-semibold">
-                        Ti ascolto e ti rispondo
-                      </h3>
-                      <p class="text-xs md:text-sm leading-relaxed text-[var(--color-text-muted)]">
-                        Ti rispondo entro breve con uno spazio di ascolto reale, senza frasi fatte
-                        e senza fretta.
-                      </p>
-                    </div>
-                  </div>
-
-                  <!-- Step 3 -->
-                  <div class="flex-1 min-w-[0] md:max-w-[220px]">
-                    <div class="flex flex-col items-center text-center gap-2">
-                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-[var(--color-accent-strong)]">
-                        <span>3</span>
-                      </div>
-                      <h3 class="text-sm font-semibold">
-                        Decidiamo il primo passo
-                      </h3>
-                      <p class="text-xs md:text-sm leading-relaxed text-[var(--color-text-muted)]">
-                        Insieme capiamo se iniziare con Unity Connection, un cerchio di gruppo
-                        o un altro passo più adatto a te.
-                      </p>
-                    </div>
-                  </div>
-
+                    <label class="porta__consenso"><input type="checkbox" required /> Acconsento a ricevere la guida e poche mail utili.</label>
+                  </form>
                 </div>
               </div>
-
-                <!-- CTA + reassurance -->
-              <div class="mt-10">
-                <a
-                  href="#"
-                  class="btn btn-primary w-full md:w-auto"
-                  data-wa-key="generico"
-                >
-                  Scrivimi su WhatsApp
-                </a>
-                <p class="mt-3 text-xs md:text-sm text-[var(--color-text-muted)]">
-                  Ti rispondo entro 24 ore nei giorni feriali. Nessun impegno, solo un primo contatto.
-                </p>
-              </div>
+              <img class="porte__figura" src="/assets/img/foto/giorgia-scontornata-mani-900.webp" srcset="/assets/img/foto/giorgia-scontornata-mani-900.webp 1x, /assets/img/foto/giorgia-scontornata-mani-1600.webp 2x" width="448" height="900" loading="lazy" alt="Giorgia sorride con le mani giunte, giacca di pelle chiara" />
             </div>
-          </div>
-        </section>
-
-
+          </section>
+        </div>
       </main>
 
-      <!-- FOOTER (iniettato da JS) -->
+      <dialog class="invito-guida" aria-labelledby="invito-titolo"><div class="invito-guida__corpo">
+        <button class="invito-guida__chiudi" type="button" aria-label="Chiudi">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <p class="invito-guida__titolo" id="invito-titolo">Una guida gratuita, <em>da leggere con calma.</em></p>
+        <p class="invito-guida__testo">Lasci solo la mail e la ricevi subito.</p>
+        <form class="campo-mail modulo-guida" action="#" novalidate>
+          <input type="email" name="email" placeholder="La tua mail" aria-label="La tua mail" autocomplete="email" required />
+          <button class="btn btn-primary" type="submit">Ricevila</button>
+        </form>
+      </div></dialog>
+
       <footer data-site-footer></footer>
     </div>
-
-    <!-- Entry Vite: unico script da caricare -->
-    <script type="module" src="/assets/js/main.js"></script>
   </body>
 </html>

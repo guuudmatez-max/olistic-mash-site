@@ -1580,6 +1580,8 @@ h1.titolo-sezione { font-weight: 700; }
 .cta__nota, .cambia__azione .cta__nota { margin: 0; font-size: 0.6875rem; line-height: 1.35; text-align: center; color: var(--color-text-muted); opacity: 0.8; }
 .cambia__azione .cta, .prove__azione .cta { align-items: center; }
 @media (max-width: 899px) { .cta { align-items: center; text-align: center; } }
+/* Telefono: il bottone della lettera al centro della pagina, non allineato al testo */
+@media (max-width: 899px) { .lettera .cta { display: flex; align-self: stretch; } }
 
 /* Tra testimonianze scritte e video: macchie di colore tenui che legano le due parti */
 .cta--chiara { margin-top: 2rem; }
