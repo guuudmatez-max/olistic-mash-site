@@ -225,36 +225,25 @@ function initCercaFaq() {
   campo?.addEventListener("input", aggiorna);
 }
 
-// Testimonianze, sul computer: le colonne partono allineate in alto; scorrendo, le più corte scendono piano
-// fino a finire pari con la più lunga quando il fondo della sezione arriva in fondo allo schermo.
-// Nessuna colonna sale oltre l'inizio della sezione, quindi niente sovrapposizioni con il titolo.
+// Testimonianze, sul computer: ogni colonna si sposta appena, a velocità diversa, mentre la sezione attraversa lo schermo.
+// Le colonne partono sfalsate (dal CSS) e restano sfalsate: un movimento accennato, non un allineamento.
 function initParallasse() {
   const box = document.querySelector("[data-parallasse]");
   if (!box) return;
   const mq = matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
   const colonne = [...box.children];
-  let scarti = []; // quanto deve scendere ogni colonna per pareggiare la più lunga
+  const velocita = [-40, 30, -20]; // spostamento massimo in px
   let attesa = false;
-  const misura = () => {
-    colonne.forEach((c) => (c.style.transform = ""));
-    const alte = colonne.map((c) => c.offsetHeight);
-    const massima = Math.max(...alte);
-    scarti = alte.map((h) => massima - h);
-  };
   const muovi = () => {
     attesa = false;
     if (!mq.matches) return colonne.forEach((c) => (c.style.transform = ""));
     const r = box.getBoundingClientRect();
-    // 0 quando l'inizio della sezione è a metà schermo, 1 quando il suo fondo tocca il fondo dello schermo
-    const t = Math.min(1, Math.max(0, (innerHeight * 0.5 - r.top) / Math.max(1, r.height - innerHeight * 0.5)));
-    colonne.forEach((c, i) => (c.style.transform = `translateY(${(t * scarti[i]).toFixed(1)}px)`));
+    const p = Math.min(0.5, Math.max(-0.5, (innerHeight - r.top) / (innerHeight + r.height) - 0.5)); // da -0.5 a 0.5
+    colonne.forEach((c, i) => (c.style.transform = `translateY(${(p * 2 * (velocita[i] ?? 0)).toFixed(1)}px)`));
   };
   const chiedi = () => { if (!attesa) { attesa = true; requestAnimationFrame(muovi); } };
   addEventListener("scroll", chiedi, { passive: true });
-  addEventListener("resize", () => { misura(); chiedi(); });
-  mq.addEventListener("change", () => { misura(); chiedi(); });
-  document.fonts?.ready.then(() => { misura(); muovi(); });
-  misura();
+  mq.addEventListener("change", chiedi);
   muovi();
 }
 
