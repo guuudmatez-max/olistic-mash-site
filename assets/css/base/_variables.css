@@ -67,7 +67,7 @@
 
   /* RITMO VERTICALE DELLE SEZIONI */
   --section-y: clamp(5rem, 3.5rem + 6vw, 9.5rem);
-  --gutter: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+  --gutter: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
 
   /* SPACING SCALE */
   --space-4: 4px;
