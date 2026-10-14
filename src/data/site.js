@@ -22,6 +22,8 @@ export const site = {
 
   // Scheda Google (anche per le recensioni)
   schedaGoogle: "https://share.google/GOnwBlaUq2f0BB9we",
+  // Link diretto che apre la finestra per scrivere una recensione (Google Business Profile → Chiedi recensioni)
+  recensioneGoogle: "https://g.page/r/CXkFdxziq8z8EBM/review",
 
   // Profili social: compaiono come icone nel piede, in quest'ordine
   social: [
