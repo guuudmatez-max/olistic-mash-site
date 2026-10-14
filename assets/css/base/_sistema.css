@@ -943,7 +943,8 @@ p { text-wrap: pretty; }
 .sigillo__link:hover { background: rgba(255, 255, 255, 0.7); }
 .sigillo__link:hover .sigillo__libro { text-decoration: underline; text-underline-offset: 0.2em; }
 .sigillo img { width: 3.6rem; height: auto; }
-.sigillo .sigillo__logo { width: 1.9rem; }
+.sigillo .sigillo__logo { width: 6.2rem; margin-top: 0.15rem; }
+.sigillo__sopra { white-space: nowrap; }
 
 /* La frase del sollievo, sola, su vino scuro (una delle rare fasce scure) */
 .fascia-vino { margin: 0 var(--margine-banda); border-radius: clamp(18px, 1rem + 1vw, 28px); background: radial-gradient(60% 80% at 15% 20%, rgba(142, 66, 88, 0.55), transparent 70%), var(--color-bordeaux-scuro); padding: clamp(4rem, 3rem + 5vw, 8rem) var(--gutter); }
