@@ -225,29 +225,36 @@ function initCercaFaq() {
   campo?.addEventListener("input", aggiorna);
 }
 
-// Testimonianze: sul computer le colonne partono allineate in alto; scorrendo, le più lunghe salgono più veloci
-// e le tre finiscono pari quando il fondo della sezione arriva in fondo allo schermo
+// Testimonianze, sul computer: le colonne partono allineate in alto; scorrendo, le più corte scendono piano
+// fino a finire pari con la più lunga quando il fondo della sezione arriva in fondo allo schermo.
+// Nessuna colonna sale oltre l'inizio della sezione, quindi niente sovrapposizioni con il titolo.
 function initParallasse() {
   const box = document.querySelector("[data-parallasse]");
   if (!box) return;
   const mq = matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
   const colonne = [...box.children];
+  let scarti = []; // quanto deve scendere ogni colonna per pareggiare la più lunga
   let attesa = false;
+  const misura = () => {
+    colonne.forEach((c) => (c.style.transform = ""));
+    const alte = colonne.map((c) => c.offsetHeight);
+    const massima = Math.max(...alte);
+    scarti = alte.map((h) => massima - h);
+  };
   const muovi = () => {
     attesa = false;
-    if (!mq.matches) { box.style.height = ""; return colonne.forEach((c) => (c.style.transform = "")); }
-    const alte = colonne.map((c) => c.offsetHeight);
-    const minima = Math.min(...alte);
-    box.style.height = `${minima}px`; // la sezione è alta quanto la colonna più corta: le altre la raggiungono salendo
+    if (!mq.matches) return colonne.forEach((c) => (c.style.transform = ""));
     const r = box.getBoundingClientRect();
-    // 0 quando la sezione entra dal basso, 1 quando il suo fondo tocca il fondo dello schermo
-    const t = Math.min(1, Math.max(0, (innerHeight - r.top) / Math.max(1, r.height)));
-    colonne.forEach((c, i) => (c.style.transform = `translateY(${(-t * (alte[i] - minima)).toFixed(1)}px)`));
+    // 0 quando l'inizio della sezione è a metà schermo, 1 quando il suo fondo tocca il fondo dello schermo
+    const t = Math.min(1, Math.max(0, (innerHeight * 0.5 - r.top) / Math.max(1, r.height - innerHeight * 0.5)));
+    colonne.forEach((c, i) => (c.style.transform = `translateY(${(t * scarti[i]).toFixed(1)}px)`));
   };
   const chiedi = () => { if (!attesa) { attesa = true; requestAnimationFrame(muovi); } };
   addEventListener("scroll", chiedi, { passive: true });
-  addEventListener("resize", chiedi);
-  mq.addEventListener("change", chiedi);
+  addEventListener("resize", () => { misura(); chiedi(); });
+  mq.addEventListener("change", () => { misura(); chiedi(); });
+  document.fonts?.ready.then(() => { misura(); muovi(); });
+  misura();
   muovi();
 }
 

@@ -797,13 +797,13 @@ p { text-wrap: pretty; }
 .passaggi__barra { display: block; height: 2px; margin: 0.9rem 0 0 3.4rem; border-radius: 2px; background: rgba(138, 101, 38, 0.15); overflow: hidden; visibility: hidden; }
 .passaggi__voce.attivo .passaggi__barra { visibility: visible; }
 .passaggi__barra span { display: block; height: 100%; width: 100%; background: var(--color-primary); transform-origin: left; transform: scaleX(var(--avanzamento, 0)); }
-.passaggi__piede { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(138, 101, 38, 0.2); }
+.passaggi__piede { display: flex; flex-direction: column; align-items: flex-start; gap: 2.25rem; margin-top: 2.75rem; }
 .passaggi__scena { position: relative; width: min(100%, 26rem); justify-self: center; aspect-ratio: 4 / 5; border-radius: var(--radius-card); overflow: hidden; perspective: 900px; }
 .passaggi__foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: var(--grado-foto); opacity: 0; transform: translateY(14%) rotateX(-12deg); transition: opacity 600ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1); }
 .passaggi__foto.attivo { opacity: 1; transform: none; }
 .passaggi__foto.esce { opacity: 0; transform: translateY(-14%) rotateX(12deg); }
 @media (max-width: 899px) { .passaggi__scena { order: -1; aspect-ratio: 4 / 3; } .passaggi__piede { justify-content: center; } }
-.incontri__prove { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, auto); gap: 0 clamp(1.25rem, 3vw, 2.5rem); }
+.incontri__prove { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, auto); gap: 0 clamp(2rem, 4.5vw, 4rem); }
 .incontri__prove li { display: flex; flex-direction: column; gap: 0.3rem; font-size: var(--text-label); line-height: 1.3; color: var(--color-text-soft); }
 .incontri__prove strong { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: 1.6rem; line-height: 1; color: var(--color-gold-ink); }
 /* Cosa cambia, concretamente: titolo centrato, una foto grande, tre passaggi sotto divisi da un filo verticale */
@@ -899,8 +899,6 @@ p { text-wrap: pretty; }
 .premio__sotto { margin: 0.6rem 0 0; font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-soft); }
 .scorre { display: flex; justify-content: center; align-items: flex-start; gap: 1.5rem; margin-top: 3rem; text-align: left; }
 .scorre__colonna { width: min(100%, 22rem); display: flex; flex-direction: column; gap: 1.5rem; will-change: transform; }
-.scorre__colonna:nth-child(2) { margin-top: 0; }
-.scorre__colonna:nth-child(3) { margin-top: 0; }
 .scorre__carta { margin: 0; padding: 1.75rem; border-radius: var(--radius-card); background: #FFFFFF; box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 24px 50px -30px rgba(142, 66, 88, 0.3); }
 .scorre__carta h3 { margin: 0 0 0.75rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: 1.2rem; line-height: 1.2; color: var(--color-bordeaux); }
 .scorre__carta blockquote { margin: 0; font-family: var(--font-body); font-weight: 380; font-size: 0.84rem; line-height: 1.55; color: var(--color-text-soft); color: var(--color-text); }
@@ -1513,7 +1511,10 @@ p { text-wrap: pretty; }
   .scorri-passi { height: 200vh; }
   .scorri-passi > .sezione { position: sticky; top: 4.5rem; min-height: calc(100vh - 4.5rem); padding-block: 2rem; display: flex; align-items: center; }
   .scorri-passi .passaggi__lato .titolo-sezione { margin-bottom: 1.1rem; }
-  .scorri-passi .passaggi__piede { margin-top: 1.75rem; }
+  .scorri-passi .passaggi__piede { margin-top: 2.25rem; }
+  .scorri-passi .passaggi { align-items: start; }
+  .scorri-passi .passaggi__scena { margin-top: 6.75rem; }
+  .scorri-passi > .sezione { align-items: flex-start; padding-top: 3rem; }
 }
 
 /* Nota piccola sotto i bottoni: una spinta in più, senza rubare la scena */
