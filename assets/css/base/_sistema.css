@@ -1283,7 +1283,7 @@ h1.titolo-sezione { font-weight: 700; }
 .apertura__titolo { grid-area: titolo; }
 .apertura__testo { grid-area: testo; }
 .apertura__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; margin-top: 1.5rem; }
-.apertura__testo .testo-lead { margin: 1.5rem 0 0; }
+.apertura__testo .testo-lead { margin: 1.5rem 0 0; text-wrap: balance; }
 /* Telefono: apertura centrata come in Consulenze (titolo, bottoni, testo) */
 @media (max-width: 899px) { .apertura__titolo, .apertura__testo { text-align: center; } .apertura__azioni { justify-content: center; } .apertura__testo .testo-lead { margin-inline: auto; } }
 .apertura__figura {
