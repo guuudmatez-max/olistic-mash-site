@@ -2,7 +2,7 @@
 // IMPORTS VITE
 // ----------------------------
 import "@fontsource-variable/inter";
-import "@fontsource/pinyon-script/400.css";
+import "@fontsource/allura/400.css"; // firma provvisoria: verrà sostituita dalla firma vera di Giorgia
 import "@fontsource-variable/bodoni-moda/opsz.css";
 import "@fontsource-variable/bodoni-moda/opsz-italic.css";
 import "../css/main.css";

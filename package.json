@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/fpglanza/olistic-mash-site#readme",
   "devDependencies": {
-    "@fontsource/pinyon-script": "^5.3.0",
+    "@fontsource/allura": "^5.3.0",
     "autoprefixer": "^10.4.22",
     "node-html-parser": "^9.0.4",
     "postcss": "^8.5.6",

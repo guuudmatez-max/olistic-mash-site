@@ -765,7 +765,7 @@ p { text-wrap: pretty; }
 .lettera__corpo .titolo-sezione { margin: 0 0 0.5rem; }
 .lettera__corpo p { margin: 0; font-size: var(--text-lead); line-height: 1.75; color: var(--color-text-soft); }
 .lettera__corpo strong { color: var(--color-text); font-weight: 600; }
-.lettera__corpo .lettera__firma { align-self: flex-end; margin-top: 0.25rem; font-family: "Pinyon Script", var(--font-heading); font-size: 2.6rem; line-height: 1; color: var(--color-gold-ink); }
+.lettera__corpo .lettera__firma { align-self: flex-end; margin-top: 0.25rem; font-family: "Allura", var(--font-heading); font-size: 2.6rem; line-height: 1; color: var(--color-gold-ink); }
 .lettera__corpo .btn { margin-top: 0.75rem; }
 .lettera__figura { position: relative; margin: 0; display: flex; justify-content: center; align-items: flex-end; height: clamp(28.5rem, 22rem + 17.5vw, 39.5rem); }
 .lettera__macchia { position: absolute; left: -15%; right: -15%; bottom: 0; height: 90%; background: radial-gradient(45% 40% at 40% 45%, rgba(236, 196, 120, 0.55), transparent 70%), radial-gradient(40% 38% at 65% 60%, rgba(214, 140, 168, 0.5), transparent 70%); filter: blur(10px); pointer-events: none; }
@@ -953,7 +953,7 @@ p { text-wrap: pretty; }
 .fascia-vino--luna .fascia-vino__dentro { margin: 0; max-width: 44rem; margin-left: max(0px, calc((100% - var(--container-max-width)) / 2)); }
 .fascia-vino blockquote { margin: 0; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-style: italic; font-weight: 400; font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2.1rem); line-height: 1.45; letter-spacing: 0.005em; color: var(--color-on-earth); }
 .fascia-vino blockquote::first-letter { font-size: 1.9em; line-height: 0.8; font-style: normal; color: var(--oro-su-scuro); }
-.fascia-vino figcaption { margin-top: 1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; font-family: "Pinyon Script", var(--font-heading); font-size: 2.4rem; line-height: 1; color: var(--oro-su-scuro); }
+.fascia-vino figcaption { margin-top: 1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; font-family: "Allura", var(--font-heading); font-size: 2.4rem; line-height: 1; color: var(--oro-su-scuro); }
 .fascia-vino figcaption::before { content: none; }
 
 /* Come si inizia: l'offerta a sinistra, cosa succede dopo il messaggio a destra */
