@@ -231,7 +231,7 @@ function initParallasse() {
   if (!box) return;
   const mq = matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
   const colonne = [...box.children];
-  const velocita = [-60, 50, -30]; // spostamento massimo in px, verso alto o basso
+  const velocita = [-160, 120, -90]; // spostamento massimo in px, verso alto o basso
   let attesa = false;
   const muovi = () => {
     attesa = false;
