@@ -771,20 +771,39 @@ p { text-wrap: pretty; }
 .lettera__macchia { position: absolute; left: -15%; right: -15%; bottom: 0; height: 90%; background: radial-gradient(45% 40% at 40% 45%, rgba(236, 196, 120, 0.55), transparent 70%), radial-gradient(40% 38% at 65% 60%, rgba(214, 140, 168, 0.5), transparent 70%); filter: blur(10px); pointer-events: none; }
 .lettera__figura img { position: relative; height: 100%; width: auto; object-fit: contain; object-position: bottom; filter: var(--grado-foto); -webkit-mask-image: radial-gradient(85% 100% at 50% 0%, #000 72%, transparent 98%); mask-image: radial-gradient(85% 100% at 50% 0%, #000 72%, transparent 98%); }
 
-/* Cosa sono, a cosa servono, cosa ti porti a casa: titolo, numeri e bottone a sinistra; testi lunghi a destra */
-.incontri { display: grid; gap: 2.5rem; }
-@media (min-width: 900px) { .incontri { grid-template-columns: 0.85fr 1.15fr; gap: clamp(3rem, 7vw, 7rem); align-items: start; } .incontri__lato { position: sticky; top: 7rem; } }
-.incontri__lato { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; }
-.incontri__titolo { margin: 0; max-width: 16ch; }
+/* Cosa sono gli incontri: tre passaggi che si alternano da soli (si fermano al passaggio del mouse);
+   quello attivo è pieno, gli altri tenui; a destra la foto cambia salendo */
+.passaggi { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 900px) { .passaggi { grid-template-columns: 1.05fr 0.95fr; gap: clamp(3rem, 7vw, 7rem); } }
+.passaggi__lato .titolo-sezione { max-width: 16ch; margin: 0 0 2rem; }
+.passaggi__elenco { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.passaggi__voce { position: relative; opacity: 0.38; transition: opacity 500ms ease; }
+.passaggi__voce.attivo, .passaggi__voce:hover { opacity: 1; }
+.passaggi__capo { display: flex; align-items: center; gap: 1rem; padding: 0; border: 0; background: none; cursor: pointer; text-align: left; color: inherit; }
+.passaggi__capo h3 { margin: 0; font-size: clamp(1.3rem, 1.15rem + 0.5vw, 1.55rem); font-weight: 500; }
+.passaggi__segno { position: relative; display: grid; place-items: center; flex: none; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.3); color: var(--color-gold-ink); font-size: var(--text-small); font-weight: 600; transition: background-color 400ms ease, transform 400ms cubic-bezier(0.22, 1, 0.36, 1); }
+.passaggi__segno svg { position: absolute; width: 1rem; height: 1rem; fill: none; stroke: #FFFFFF; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+.passaggi__voce.attivo .passaggi__segno { background: var(--color-bordeaux); box-shadow: none; color: #FFFFFF; transform: scale(1.08); }
+.passaggi__voce.fatto .passaggi__segno { background: var(--tinta-oro); }
+.passaggi__voce.fatto .passaggi__num { opacity: 0; }
+.passaggi__voce.fatto .passaggi__segno svg { opacity: 1; stroke: var(--color-gold-ink); }
+.passaggi__testo { display: grid; grid-template-rows: 0fr; margin-left: 3.4rem; transition: grid-template-rows 500ms cubic-bezier(0.22, 1, 0.36, 1); }
+.passaggi__testo > * { overflow: hidden; }
+.passaggi__voce.attivo .passaggi__testo { grid-template-rows: 1fr; }
+.passaggi__testo p { margin: 0.6rem 0 0; font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-soft); }
+.passaggi__testo { min-height: 0; }
+.passaggi__barra { display: block; height: 2px; margin: 0.9rem 0 0 3.4rem; border-radius: 2px; background: rgba(138, 101, 38, 0.15); overflow: hidden; visibility: hidden; }
+.passaggi__voce.attivo .passaggi__barra { visibility: visible; }
+.passaggi__barra span { display: block; height: 100%; width: 100%; background: var(--color-primary); transform-origin: left; transform: scaleX(var(--avanzamento, 0)); }
+.passaggi__piede { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(138, 101, 38, 0.2); }
+.passaggi__scena { position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius-card); overflow: hidden; perspective: 900px; }
+.passaggi__foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: var(--grado-foto); opacity: 0; transform: translateY(14%) rotateX(-12deg); transition: opacity 600ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1); }
+.passaggi__foto.attivo { opacity: 1; transform: none; }
+.passaggi__foto.esce { opacity: 0; transform: translateY(-14%) rotateX(12deg); }
+@media (max-width: 899px) { .passaggi__scena { order: -1; aspect-ratio: 4 / 3; } .passaggi__piede { justify-content: center; } }
 .incontri__prove { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
 .incontri__prove li { display: flex; align-items: baseline; gap: 0.6rem; font-size: var(--text-small); color: var(--color-text-soft); }
 .incontri__prove strong { min-width: 3.2rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: 1.6rem; line-height: 1; color: var(--color-gold-ink); }
-.incontri__voci { display: grid; gap: 2.25rem; }
-.incontri__voce { padding-top: 1.5rem; border-top: 1px solid rgba(138, 101, 38, 0.3); }
-.incontri__voce h3 { margin: 0 0 0.75rem; font-size: var(--text-h3); }
-.incontri__voce p { margin: 0; line-height: 1.75; color: var(--color-text-soft); }
-.incontri__voce p + p { margin-top: 0.75rem; }
-
 /* Cosa cambia, concretamente: titolo centrato, una foto grande, tre passaggi sotto divisi da un filo verticale */
 .cambia__testa { max-width: 40rem; margin: 0 auto; text-align: center; }
 .cambia__testa .titolo-sezione { margin: 0 0 1rem; }
@@ -1469,6 +1488,7 @@ p { text-wrap: pretty; }
   .js .stacco[data-apri] { clip-path: none; transition: none; }
   .timbro svg { animation: none; }
   .barra-wa { transition: none; }
+  .passaggi__foto, .passaggi__testo, .passaggi__voce { transition: none; }
   .btn, .btn::before, .btn::after, .servizio, .servizio::before, .t-card, .faq summary::after, .invito-guida, .nav__sotto { transition: none; }
 }
 

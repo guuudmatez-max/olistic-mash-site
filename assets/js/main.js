@@ -280,7 +280,48 @@ function initVoci() {
   });
 }
 
+// Cosa sono gli incontri: i passaggi si alternano da soli ogni 6 secondi, con la barra che si riempie;
+// si fermano al passaggio del mouse; un clic sceglie il passaggio. Con meno movimento non partono da soli.
+function initPassaggi() {
+  const box = document.querySelector("[data-passaggi]");
+  if (!box) return;
+  const voci = [...box.querySelectorAll("[data-passo]")];
+  const foto = [...box.querySelectorAll(".passaggi__foto")];
+  const DURATA = 6000;
+  // sul telefono si cambia solo toccando: il testo che si apre e chiude da solo farebbe saltare la pagina mentre si legge
+  const fermo = matchMedia("(prefers-reduced-motion: reduce), (max-width: 899px)").matches;
+  let attivo = 0, inizio = performance.now(), pausa = false, visibile = false;
+  const mostra = (i) => {
+    voci.forEach((v, k) => {
+      v.classList.toggle("attivo", k === i);
+      v.classList.toggle("fatto", k < i);
+      v.querySelector(".passaggi__capo").setAttribute("aria-expanded", String(k === i));
+      v.style.setProperty("--avanzamento", 0);
+    });
+    foto.forEach((f, k) => {
+      f.classList.toggle("esce", f.classList.contains("attivo") && k !== i);
+      f.classList.toggle("attivo", k === i);
+    });
+    attivo = i; inizio = performance.now();
+  };
+  voci.forEach((v, i) => v.querySelector(".passaggi__capo").addEventListener("click", () => mostra(i)));
+  box.addEventListener("mouseenter", () => (pausa = true));
+  box.addEventListener("mouseleave", () => { pausa = false; inizio = performance.now(); });
+  new IntersectionObserver(([e]) => { visibile = e.isIntersecting; inizio = performance.now(); }).observe(box);
+  if (fermo) return;
+  const giro = (t) => {
+    if (visibile && !pausa) {
+      const p = Math.min(1, (t - inizio) / DURATA);
+      voci[attivo].style.setProperty("--avanzamento", p.toFixed(3));
+      if (p >= 1) mostra((attivo + 1) % voci.length);
+    } else inizio = t - (Number(voci[attivo].style.getPropertyValue("--avanzamento")) || 0) * DURATA;
+    requestAnimationFrame(giro);
+  };
+  requestAnimationFrame(giro);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initPassaggi();
   initVoci();
   initParallasse();
   initBarraWhatsapp();
