@@ -344,6 +344,8 @@ p { text-wrap: pretty; }
   width: min(78%, 24rem);
   height: auto;
   filter: var(--grado-foto);
+  /* centro ottico: la testa di Giorgia sull'asse della pagina, non il centro del file (il braccio allarga a sinistra) */
+  translate: -18% 0;
   -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
 }
