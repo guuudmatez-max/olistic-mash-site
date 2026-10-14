@@ -253,28 +253,24 @@
         <!-- Punto che fa comparire l'invito alla guida, una volta sola -->
         <div data-invito-guida aria-hidden="true"></div>
 
-        <!-- 8. COME SI INIZIA: una strada, il rischio tolto, cosa succede dopo il messaggio -->
+        <!-- 8. COME SI INIZIA: un invito di Giorgia, non una procedura. Foto, valore del primo incontro, una prova, un solo gesto -->
         <section class="sezione" id="come-funziona">
-          <div class="contenitore">
-            <h2 class="titolo-sezione inizio__titolo">Si comincia da <em>un incontro.</em></h2>
-            <div class="inizio">
-            <div class="inizio__offerta">
-              <div class="inizio__scheda">
-                <h3>Il primo incontro</h3>
-                <p class="inizio__lead">Non è un colloquio per conoscerci: è già una seduta vera. Porti quello che hai addosso, una relazione che fa male, una decisione che non riesci a prendere, una strada che non vedi, e si lavora da subito.</p>
-                <p class="inizio__durata">{{ consulenze.durataPresenza }} in presenza · {{ consulenze.durataOnline }} online · <strong>non ti impegna a continuare</strong></p>
-                <p class="inizio__poi">Se senti di andare avanti, scegliamo insieme come: un percorso, {{ consulenze.incontriPercorso }}, in cui puoi scrivermi anche tra un incontro e l'altro; oppure un incontro alla volta. Tra uno e l'altro lasciamo passare una o due settimane, perché quello che si è mosso ha bisogno di tempo per assestarsi.</p>
-              </div>
-            </div>
-            <div class="inizio__dopo">
-              <h3>Scrivermi è semplice</h3>
-              <ol class="momenti momenti--piccoli">
-                <li><span class="momenti__num">1</span><div><p>Mi scrivi due righe su WhatsApp, come ti vengono. Anche solo “vorrei capire se fa per me”.</p></div></li>
-                <li><span class="momenti__num">2</span><div><p>Ti rispondo io, di persona: ti ascolto, ti racconto come lavoro e quanto costa.</p></div></li>
-                <li><span class="momenti__num">3</span><div><p>Scegliamo insieme il giorno, in presenza o online. E se senti che non è il momento, va bene così.</p></div></li>
-              </ol>
-              <a class="btn btn-accento" data-wa-key="consulenze">Fissa il primo incontro</a>
-            </div>
+          <div class="contenitore invito">
+            <figure class="invito__foto">
+              <img src="/assets/img/foto/giorgia-prato-sciarpa-1600.webp" srcset="/assets/img/foto/giorgia-prato-sciarpa-800.webp 800w, /assets/img/foto/giorgia-prato-sciarpa-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" alt="Giorgia seduta nel prato, sorride" width="1600" height="2400" loading="lazy" />
+            </figure>
+            <div class="invito__testo">
+              <h2 class="titolo-sezione">Si comincia da <em>un incontro.</em></h2>
+              <p class="invito__lead">Non è un colloquio per conoscerci: è già una seduta vera. Porti quello che hai addosso, una relazione che fa male, una decisione che non riesci a prendere, una strada che non vedi, e si lavora da subito.</p>
+              <p class="invito__intro">Da quel primo incontro torni a casa con:</p>
+              <ul class="invito__doni">
+                <li><strong>Uno sguardo nuovo</strong> su quello che pesa: da dove viene, e perché si ripete.</li>
+                <li><strong>Qualcosa che si muove</strong>, nel corpo prima ancora che nella testa.</li>
+                <li><strong>Il passo successivo chiaro</strong>: un percorso, un incontro alla volta, oppure niente.</li>
+              </ul>
+              <blockquote class="invito__voce"><p>“Dopo 50 anni con quel nodo alla gola, finalmente respiro.”</p><footer>Testimonianza verificata, dopo una seduta</footer></blockquote>
+              <div class="cta invito__cta"><a class="btn btn-accento" data-wa-key="consulenze">Fissa il primo incontro</a><p class="cta__nota">Ti rispondo io, di persona. Scrivermi non ti impegna.</p></div>
+              <p class="invito__pratico">{{ consulenze.durataPresenza }} in presenza · {{ consulenze.durataOnline }} online. Se senti di continuare, scegliamo insieme: un percorso, {{ consulenze.incontriPercorso }}, a una o due settimane l'uno dall'altro, oppure un incontro alla volta.</p>
             </div>
           </div>
         </section>
