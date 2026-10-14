@@ -946,7 +946,8 @@ p { text-wrap: pretty; }
 /* La frase del sollievo, sola, su vino scuro (una delle rare fasce scure) */
 .fascia-vino { margin: 0 var(--margine-banda); border-radius: clamp(18px, 1rem + 1vw, 28px); background: radial-gradient(60% 80% at 15% 20%, rgba(142, 66, 88, 0.55), transparent 70%), var(--color-bordeaux-scuro); padding: clamp(4rem, 3rem + 5vw, 8rem) var(--gutter); }
 .fascia-vino__dentro { max-width: 52rem; margin: 0 auto; }
-.fascia-vino--luna { position: relative; isolation: isolate; overflow: hidden; padding-bottom: clamp(2rem, 1.5rem + 1.5vw, 3.25rem); }
+.fascia-vino--luna { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(2.5rem, 2rem + 2vw, 4rem) clamp(2rem, 1.5rem + 1.5vw, 3.25rem); }
+@media (max-width: 899px) { .fascia-vino--luna .cta { display: flex; } }
 .fascia-vino__sfondo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }
 .fascia-vino--luna::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to right, rgba(20, 22, 48, 0.55) 0%, rgba(20, 22, 48, 0.25) 45%, rgba(20, 22, 48, 0) 70%); }
 .btn-luna { --fondo-btn: transparent; --filo-btn: rgba(255, 255, 255, 0.7); --tinta-btn: var(--color-primary); --freccia-btn: var(--color-text); color: #FFFFFF; margin-top: 2rem; }
