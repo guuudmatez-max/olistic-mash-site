@@ -225,23 +225,28 @@ function initCercaFaq() {
   campo?.addEventListener("input", aggiorna);
 }
 
-// Testimonianze: sul computer le colonne si muovono con la pagina a velocità diverse
+// Testimonianze: sul computer le colonne partono allineate in alto; scorrendo, le più lunghe salgono più veloci
+// e le tre finiscono pari quando il fondo della sezione arriva in fondo allo schermo
 function initParallasse() {
   const box = document.querySelector("[data-parallasse]");
   if (!box) return;
   const mq = matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
   const colonne = [...box.children];
-  const velocita = [70, -300, 35]; // la centrale è più lunga: sale più delle altre, così le tre colonne finiscono insieme // spostamento massimo in px, verso alto o basso
   let attesa = false;
   const muovi = () => {
     attesa = false;
-    if (!mq.matches) return colonne.forEach((c) => (c.style.transform = ""));
+    if (!mq.matches) { box.style.height = ""; return colonne.forEach((c) => (c.style.transform = "")); }
+    const alte = colonne.map((c) => c.offsetHeight);
+    const minima = Math.min(...alte);
+    box.style.height = `${minima}px`; // la sezione è alta quanto la colonna più corta: le altre la raggiungono salendo
     const r = box.getBoundingClientRect();
-    const p = Math.min(0.5, Math.max(-0.5, (innerHeight - r.top) / (innerHeight + r.height) - 0.5)); // da -0.5 a 0.5 mentre attraversa lo schermo
-    colonne.forEach((c, i) => (c.style.transform = `translateY(${(p * 2 * (velocita[i] ?? 0)).toFixed(1)}px)`));
+    // 0 quando la sezione entra dal basso, 1 quando il suo fondo tocca il fondo dello schermo
+    const t = Math.min(1, Math.max(0, (innerHeight - r.top) / Math.max(1, r.height)));
+    colonne.forEach((c, i) => (c.style.transform = `translateY(${(-t * (alte[i] - minima)).toFixed(1)}px)`));
   };
   const chiedi = () => { if (!attesa) { attesa = true; requestAnimationFrame(muovi); } };
   addEventListener("scroll", chiedi, { passive: true });
+  addEventListener("resize", chiedi);
   mq.addEventListener("change", chiedi);
   muovi();
 }
