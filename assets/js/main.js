@@ -280,44 +280,54 @@ function initVoci() {
   });
 }
 
-// Cosa sono gli incontri: i passaggi si alternano da soli ogni 6 secondi, con la barra che si riempie;
-// si fermano al passaggio del mouse; un clic sceglie il passaggio. Con meno movimento non partono da soli.
+// Cosa sono gli incontri: sul computer la sezione si ferma e i passaggi cambiano scorrendo
+// (la barra d'oro mostra quanto manca al prossimo); un clic porta al passaggio scelto; sul telefono si cambia toccando.
 function initPassaggi() {
   const box = document.querySelector("[data-passaggi]");
   if (!box) return;
   const voci = [...box.querySelectorAll("[data-passo]")];
   const foto = [...box.querySelectorAll(".passaggi__foto")];
-  const DURATA = 6000;
-  // sul telefono si cambia solo toccando: il testo che si apre e chiude da solo farebbe saltare la pagina mentre si legge
-  const fermo = matchMedia("(prefers-reduced-motion: reduce), (max-width: 899px)").matches;
-  let attivo = 0, inizio = performance.now(), pausa = false, visibile = false;
+  const pista = document.querySelector("[data-scorri-passi]");
+  const mq = matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
+  let attivo = 0;
   const mostra = (i) => {
+    if (i === attivo && voci[i].classList.contains("attivo")) return;
     voci.forEach((v, k) => {
       v.classList.toggle("attivo", k === i);
       v.classList.toggle("fatto", k < i);
       v.querySelector(".passaggi__capo").setAttribute("aria-expanded", String(k === i));
-      v.style.setProperty("--avanzamento", 0);
     });
     foto.forEach((f, k) => {
       f.classList.toggle("esce", f.classList.contains("attivo") && k !== i);
       f.classList.toggle("attivo", k === i);
     });
-    attivo = i; inizio = performance.now();
+    attivo = i;
   };
-  voci.forEach((v, i) => v.querySelector(".passaggi__capo").addEventListener("click", () => mostra(i)));
-  box.addEventListener("mouseenter", () => (pausa = true));
-  box.addEventListener("mouseleave", () => { pausa = false; inizio = performance.now(); });
-  new IntersectionObserver(([e]) => { visibile = e.isIntersecting; inizio = performance.now(); }).observe(box);
-  if (fermo) return;
-  const giro = (t) => {
-    if (visibile && !pausa) {
-      const p = Math.min(1, (t - inizio) / DURATA);
-      voci[attivo].style.setProperty("--avanzamento", p.toFixed(3));
-      if (p >= 1) mostra((attivo + 1) % voci.length);
-    } else inizio = t - (Number(voci[attivo].style.getPropertyValue("--avanzamento")) || 0) * DURATA;
-    requestAnimationFrame(giro);
+  const avanzamento = () => {
+    if (!mq.matches || !pista) return null;
+    const r = pista.getBoundingClientRect();
+    const corsa = r.height - innerHeight;
+    return Math.min(0.9999, Math.max(0, -r.top / corsa));
   };
-  requestAnimationFrame(giro);
+  voci.forEach((v, i) =>
+    v.querySelector(".passaggi__capo").addEventListener("click", () => {
+      if (avanzamento() === null) return mostra(i);
+      const r = pista.getBoundingClientRect();
+      scrollTo({ top: scrollY + r.top + ((i + 0.05) / voci.length) * (r.height - innerHeight), behavior: "smooth" });
+    }),
+  );
+  let attesa = false;
+  const aggiorna = () => {
+    attesa = false;
+    const p = avanzamento();
+    if (p === null) return voci.forEach((v) => v.style.removeProperty("--avanzamento"));
+    const pos = p * voci.length;
+    mostra(Math.floor(pos));
+    voci.forEach((v, k) => v.style.setProperty("--avanzamento", k === attivo ? (pos - attivo).toFixed(3) : 0));
+  };
+  addEventListener("scroll", () => { if (!attesa) { attesa = true; requestAnimationFrame(aggiorna); } }, { passive: true });
+  mq.addEventListener("change", aggiorna);
+  aggiorna();
 }
 
 document.addEventListener("DOMContentLoaded", () => {

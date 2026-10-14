@@ -730,16 +730,16 @@ p { text-wrap: pretty; }
   .accoglienza::after { content: ""; position: relative; inset: auto; z-index: 1; grid-area: 1 / 1; align-self: end; height: 40%; border-radius: 0 0 clamp(18px, 1rem + 1vw, 28px) clamp(18px, 1rem + 1vw, 28px); background: linear-gradient(to top, rgba(38, 26, 24, 0.8) 0%, rgba(38, 26, 24, 0.4) 50%, rgba(38, 26, 24, 0) 100%); pointer-events: none; }
   .accoglienza__foto { position: relative; inset: auto; z-index: 0; grid-area: 1 / 1; align-self: end; width: 100%; height: 84%; border-radius: 0 0 clamp(18px, 1rem + 1vw, 28px) clamp(18px, 1rem + 1vw, 28px); object-position: 40% 38%; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%); mask-image: linear-gradient(to bottom, transparent 0%, #000 16%); }
   .accoglienza__testo { display: contents; text-shadow: none; }
-  .accoglienza__capo { grid-area: 1 / 1; align-self: start; z-index: 2; padding: 1.5rem calc(var(--gutter) - var(--margine-banda)) 0; text-align: right; text-shadow: none; }
+  .accoglienza__capo { grid-area: 1 / 1; align-self: start; z-index: 2; padding: 1.5rem calc(var(--gutter) - var(--margine-banda)) 0; text-align: center; text-shadow: none; }
   .accoglienza__titolo { font-size: clamp(1.9rem, 1.3rem + 3vw, 2.5rem); color: var(--color-text); }
   .accoglienza__titolo em { color: var(--color-gold-ink); }
-  .accoglienza__sotto { display: block; max-width: 34ch; margin: 0.5rem 0 0 auto; font-size: 0.78rem; font-weight: 380; line-height: 1.4; color: var(--color-text-soft) !important; }
+  .accoglienza__sotto { display: block; max-width: 34ch; margin: 0.5rem auto 0; font-size: 0.78rem; font-weight: 380; line-height: 1.4; color: var(--color-text-soft) !important; }
   .accoglienza__lead { display: none; }
-  .accoglienza__azioni { grid-area: 1 / 1; align-self: end; z-index: 2; flex-direction: column; align-items: flex-end; margin: 0; padding: 0 calc(var(--gutter) - var(--margine-banda)) 1.5rem; gap: 0.6rem; }
+  .accoglienza__azioni { grid-area: 1 / 1; align-self: end; z-index: 2; flex-direction: column; align-items: center; margin: 0; padding: 0 calc(var(--gutter) - var(--margine-banda)) 1.5rem; gap: 0.6rem; }
   main .accoglienza__azioni .btn { margin-inline: 0; }
   .accoglienza .btn-accento { --fondo-btn: #FFFFFF; --tinta-btn: var(--color-bordeaux); --freccia-btn: #FFFFFF; color: var(--color-bordeaux); box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.45); }
   .accoglienza .btn-accento:is(:hover, :focus-visible) { color: #FFFFFF; box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.45); }
-  .accoglienza__prova { text-align: right; color: var(--color-on-earth-soft); text-shadow: 0 1px 12px rgba(38, 26, 24, 0.6); }
+  .accoglienza__prova { text-align: center; color: var(--color-on-earth-soft); text-shadow: 0 1px 12px rgba(38, 26, 24, 0.6); }
   .accoglienza__prova strong { color: #FFFFFF; }
 }
 
@@ -795,15 +795,15 @@ p { text-wrap: pretty; }
 .passaggi__barra { display: block; height: 2px; margin: 0.9rem 0 0 3.4rem; border-radius: 2px; background: rgba(138, 101, 38, 0.15); overflow: hidden; visibility: hidden; }
 .passaggi__voce.attivo .passaggi__barra { visibility: visible; }
 .passaggi__barra span { display: block; height: 100%; width: 100%; background: var(--color-primary); transform-origin: left; transform: scaleX(var(--avanzamento, 0)); }
-.passaggi__piede { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(138, 101, 38, 0.2); }
-.passaggi__scena { position: relative; aspect-ratio: 4 / 5; border-radius: var(--radius-card); overflow: hidden; perspective: 900px; }
+.passaggi__piede { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(138, 101, 38, 0.2); }
+.passaggi__scena { position: relative; width: min(100%, 26rem); justify-self: center; aspect-ratio: 4 / 5; border-radius: var(--radius-card); overflow: hidden; perspective: 900px; }
 .passaggi__foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: var(--grado-foto); opacity: 0; transform: translateY(14%) rotateX(-12deg); transition: opacity 600ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1); }
 .passaggi__foto.attivo { opacity: 1; transform: none; }
 .passaggi__foto.esce { opacity: 0; transform: translateY(-14%) rotateX(12deg); }
 @media (max-width: 899px) { .passaggi__scena { order: -1; aspect-ratio: 4 / 3; } .passaggi__piede { justify-content: center; } }
-.incontri__prove { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
-.incontri__prove li { display: flex; align-items: baseline; gap: 0.6rem; font-size: var(--text-small); color: var(--color-text-soft); }
-.incontri__prove strong { min-width: 3.2rem; font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: 1.6rem; line-height: 1; color: var(--color-gold-ink); }
+.incontri__prove { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, auto); gap: 0 clamp(1.25rem, 3vw, 2.5rem); }
+.incontri__prove li { display: flex; flex-direction: column; gap: 0.3rem; font-size: var(--text-label); line-height: 1.3; color: var(--color-text-soft); }
+.incontri__prove strong { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: 1.6rem; line-height: 1; color: var(--color-gold-ink); }
 /* Cosa cambia, concretamente: titolo centrato, una foto grande, tre passaggi sotto divisi da un filo verticale */
 .cambia__testa { max-width: 40rem; margin: 0 auto; text-align: center; }
 .cambia__testa .titolo-sezione { margin: 0 0 1rem; }
@@ -836,7 +836,7 @@ p { text-wrap: pretty; }
 /* Le loro voci: fila di video che scorre di lato (dito o frecce), sfuma ai bordi; YouTube si carica solo al clic */
 .voci { margin-top: clamp(5rem, 4rem + 4vw, 8rem); text-align: left; }
 .voci__testa { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
-.voci__titolo { margin: 0; font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.3rem); font-weight: 450; }
+.voci__titolo { margin: 0; font-size: var(--text-h2); font-weight: 500; line-height: 1.02; }
 .voci__sotto { margin: 0.4rem 0 0; font-size: var(--text-small); color: var(--color-text-soft); }
 .voci__frecce { display: flex; gap: 0.5rem; }
 .voci__freccia { width: 2.8rem; height: 2.8rem; border-radius: 50%; border: 0; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(142, 66, 88, 0.35); color: var(--color-bordeaux); display: grid; place-items: center; cursor: pointer; transition: background-color 250ms ease, color 250ms ease; }
@@ -929,16 +929,17 @@ p { text-wrap: pretty; }
 .numeri dt { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 500; font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem); line-height: 1; color: var(--color-gold-ink); }
 .numeri dd { margin: 0.5rem 0 0; font-size: var(--text-small); color: var(--color-text-soft); }
 /* Sigilli: piccoli timbri con doppio filo d'oro, etichetta sopra, valore in Bodoni, riga sotto */
-.sigilli { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; width: 100%; }
+.sigilli { list-style: none; margin: 1.25rem 0 0; padding: 1.25rem 0 0; border-top: 1px solid rgba(138, 101, 38, 0.2); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; width: 100%; }
 @media (max-width: 599px) { .sigilli { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.sigillo { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3rem; min-height: 7.5rem; padding: 0.9rem 0.6rem; text-align: center; border-radius: 1.1rem; background: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(138, 101, 38, 0.35); }
-.sigillo::before { content: ""; position: absolute; inset: 4px; border-radius: calc(1.1rem - 4px); border: 1px dashed rgba(138, 101, 38, 0.3); pointer-events: none; }
+.sigillo, .sigillo__link { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.35rem; padding: 0.75rem 0.25rem; text-align: center; }
+.sigillo + .sigillo::after { content: ""; position: absolute; left: -0.375rem; top: 20%; bottom: 20%; width: 1px; background: rgba(138, 101, 38, 0.22); }
 .sigillo__sopra, .sigillo__sotto { font-size: 0.625rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-gold-ink); }
 .sigillo__sotto { color: var(--color-text-muted); letter-spacing: 0.12em; }
 .sigillo strong { font-family: var(--font-heading); font-variation-settings: "opsz" 11; font-weight: 600; font-size: 1.55rem; line-height: 1; color: var(--color-text); }
 .sigillo .sigillo__libro { font-size: 1.05rem; line-height: 1.05; font-style: italic; color: var(--color-bordeaux); }
-.sigillo a { text-decoration: none; }
-.sigillo a:hover .sigillo__libro { text-decoration: underline; text-underline-offset: 0.2em; }
+.sigillo__link { text-decoration: none; color: inherit; padding: 0; border-radius: 12px; transition: background-color 250ms ease; }
+.sigillo__link:hover { background: rgba(255, 255, 255, 0.7); }
+.sigillo__link:hover .sigillo__libro { text-decoration: underline; text-underline-offset: 0.2em; }
 .sigillo img { width: 3.6rem; height: auto; opacity: 0.85; }
 
 /* La frase del sollievo, sola, su vino scuro (una delle rare fasce scure) */
@@ -1502,3 +1503,22 @@ p { text-wrap: pretty; }
   main .btn:not(.campo-mail .btn):not(.barra-wa .btn) { display: flex; width: fit-content; margin-inline: auto; }
   .accoglienza__azioni, .apertura__azioni, .cambia__azione, .passi__azione { justify-content: center; text-align: center; }
 }
+
+/* Cosa sono gli incontri, sul computer: la sezione si ferma e i passaggi cambiano scorrendo; la barra d'oro segna quanto manca al prossimo */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .scorri-passi { height: 240vh; }
+  .scorri-passi > .sezione { position: sticky; top: 4.5rem; min-height: calc(100vh - 4.5rem); padding-block: 2rem; display: flex; align-items: center; }
+  .scorri-passi .passaggi__lato .titolo-sezione { margin-bottom: 1.5rem; }
+  .scorri-passi .passaggi__piede { margin-top: 1.75rem; }
+}
+
+/* Nota piccola sotto i bottoni: una spinta in più, senza rubare la scena */
+.cta { display: flex; flex-direction: column; align-items: flex-start; gap: 0.55rem; }
+.cta__nota, .cambia__azione .cta__nota { margin: 0; font-size: 0.75rem; line-height: 1.4; color: var(--color-text-muted); opacity: 0.85; }
+.cambia__azione .cta, .prove__azione .cta { align-items: center; }
+@media (max-width: 899px) { .cta { align-items: center; text-align: center; } }
+
+/* Tra testimonianze scritte e video: macchie di colore tenui che legano le due parti */
+.voci { position: relative; isolation: isolate; }
+.voci::before { content: ""; position: absolute; z-index: -1; inset: -6rem -10% -2rem; pointer-events: none; background: radial-gradient(40% 45% at 15% 30%, rgba(236, 196, 120, 0.22), transparent 70%), radial-gradient(35% 40% at 85% 20%, rgba(214, 140, 168, 0.2), transparent 70%); filter: blur(30px); }
+.voci__titolo em { font-style: italic; color: var(--color-gold-ink); }
