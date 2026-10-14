@@ -1729,3 +1729,9 @@ h1.titolo-sezione { font-weight: 700; }
 .contatti-social .social-scheda__icona svg { width: 1rem; height: 1rem; }
 .contatti-social .social-scheda__testo strong { font-size: 0.9rem; }
 .contatti-social .social-scheda__testo small { font-size: 0.75rem; }
+
+/* Contatti: invito a lasciare una recensione su Google, fascia oro come quella del regalo */
+.regalo--recensioni { background: var(--tinta-oro); margin-bottom: var(--section-y); }
+.regalo--recensioni .regalo__titolo em { color: var(--color-gold-ink); }
+.recensioni__stelle { display: flex; gap: 0.2rem; margin: 0 0 0.75rem !important; }
+.recensioni__stelle svg { width: 1.1rem; height: 1.1rem; fill: var(--color-gold-ink); }
