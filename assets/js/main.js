@@ -247,6 +247,26 @@ function initParallasse() {
   muovi();
 }
 
+// Home, temi attorno a Giorgia: scorrendo, le pillole escono dalla figura come nebbia che si dirada
+function initNebbia() {
+  const scena = document.querySelector("[data-nebbia]");
+  if (!scena) return;
+  const mq = matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
+  let attesa = false;
+  const muovi = () => {
+    attesa = false;
+    if (!mq.matches) return scena.style.removeProperty("--apertura");
+    const r = scena.getBoundingClientRect();
+    const centro = r.top + r.height * 0.55; // all'altezza delle pillole
+    const p = Math.min(1, Math.max(0, (innerHeight - centro) / (innerHeight * 0.45))); // 0 quando entrano dal basso, 1 a metà schermo
+    scena.style.setProperty("--apertura", (1 - (1 - p) ** 3).toFixed(3)); // ease-out: si apre subito, si posa piano
+  };
+  const chiedi = () => { if (!attesa) { attesa = true; requestAnimationFrame(muovi); } };
+  addEventListener("scroll", chiedi, { passive: true });
+  mq.addEventListener("change", chiedi);
+  muovi();
+}
+
 // Barra WhatsApp sul telefono: visibile dopo l'apertura, nascosta quando si vede l'invito finale
 function initBarraWhatsapp() {
   const barra = document.querySelector("[data-barra-wa]");
@@ -335,6 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPassaggi();
   initVoci();
   initParallasse();
+  initNebbia();
   initBarraWhatsapp();
   initStacchi();
   initCercaFaq();

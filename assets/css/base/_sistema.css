@@ -412,12 +412,17 @@ h1.titolo-sezione { font-weight: 700; }
   .figura-centrale__scena img { width: 19.5rem; }
   .temi { position: absolute; inset: 0; margin: 0; display: block; pointer-events: none; }
   .tema { position: absolute; white-space: nowrap; pointer-events: auto; }
-  /* attorno a Giorgia, sfalsate: tre a sinistra, due a destra; la mano con la penna resta libera */
+  /* attorno a Giorgia, sfalsate: tre per lato; la mano con la penna resta libera */
   .tema:nth-child(1) { right: 70%; top: 26%; }
   .tema:nth-child(2) { right: 62%; top: 52%; }
   .tema:nth-child(3) { right: 65%; top: 78%; }
-  .tema:nth-child(4) { left: 61%; top: 36%; }
-  .tema:nth-child(5) { left: 63%; top: 66%; }
+  .tema:nth-child(4) { left: 63%; top: 16%; }
+  .tema:nth-child(5) { left: 61%; top: 44%; }
+  .tema:nth-child(6) { left: 63%; top: 72%; }
+  /* Nebbia che si dissolve dalla figura: scorrendo, le pillole partono vicine a Giorgia,
+     sfocate e tenui, e si allargano verso i lati. --apertura va da 0 a 1 (main.js) */
+  .tema { --verso: 1; translate: calc((1 - var(--apertura, 1)) * var(--verso) * 5rem) 0; opacity: calc(0.15 + 0.85 * var(--apertura, 1)); filter: blur(calc((1 - var(--apertura, 1)) * 8px)); }
+  .tema:nth-child(n + 4) { --verso: -1; }
 }
 
 .sottotitolo-fine {
@@ -599,6 +604,8 @@ h1.titolo-sezione { font-weight: 700; }
 }
 .fiducia__volti i:nth-child(2n) { background: var(--tinta-oro); }
 .fiducia__volti i:first-child { margin-left: 0; }
+.fiducia__volti img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.fiducia__volti i:has(img) { overflow: hidden; }
 .fiducia__testo { padding-left: 1.25rem; border-left: 1px solid rgba(46, 47, 51, 0.15); font-size: var(--text-small); color: var(--color-text-soft); }
 .fiducia__testo strong { color: var(--color-text); }
 
@@ -1274,6 +1281,8 @@ h1.titolo-sezione { font-weight: 700; }
 .apertura__testo { grid-area: testo; }
 .apertura__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; margin-top: 1.5rem; }
 .apertura__testo .testo-lead { margin: 1.5rem 0 0; }
+/* Telefono: apertura centrata come in Consulenze (titolo, bottoni, testo) */
+@media (max-width: 899px) { .apertura__titolo, .apertura__testo { text-align: center; } .apertura__azioni { justify-content: center; } .apertura__testo .testo-lead { margin-inline: auto; } }
 .apertura__figura {
   grid-area: figura;
   justify-self: center;
