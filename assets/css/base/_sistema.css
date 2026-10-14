@@ -966,14 +966,20 @@ p { text-wrap: pretty; }
 .invito__lead { margin: 1.25rem 0 0; font-size: var(--text-lead); line-height: 1.55; color: var(--color-text); max-width: 36rem; }
 .invito__intro { margin: 1.75rem 0 0; color: var(--color-text-soft); }
 .invito__doni { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.85rem; max-width: 36rem; }
-.invito__doni li { position: relative; padding-left: 1.5rem; color: var(--color-text-soft); line-height: 1.55; }
-.invito__doni li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 0.7rem; height: 1px; background: var(--color-gold-ink); }
+.invito__doni li { display: flex; align-items: center; gap: 0.9rem; color: var(--color-text-soft); line-height: 1.5; }
+.invito__doni .icona { width: 2.25rem; height: 2.25rem; }
+.invito__doni .icona svg { width: 1.05rem; height: 1.05rem; }
 .invito__doni strong { font-weight: 600; color: var(--color-text); }
 .invito__voce { margin: 2rem 0 0; max-width: 34rem; }
 .invito__voce p { margin: 0; font-family: var(--font-heading); font-style: italic; font-size: clamp(1.35rem, 1.15rem + 0.8vw, 1.75rem); line-height: 1.3; color: var(--color-bordeaux); text-wrap: balance; }
 .invito__voce footer { margin-top: 0.5rem; font-size: var(--text-small); color: var(--color-text-muted); }
 .invito__cta { margin-top: 2.25rem; }
-.invito__pratico { margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid rgba(138, 101, 38, 0.18); max-width: 36rem; font-size: var(--text-small); line-height: 1.6; color: var(--color-text-muted); }
+.invito__pratico { margin: 1.5rem 0 0; max-width: 36rem; font-size: var(--text-small); line-height: 1.6; color: var(--color-text-muted); }
+@media (max-width: 899px) {
+  .invito__voce { margin-inline: auto; text-align: center; }
+  .cta.invito__cta { display: flex; }
+  .invito__pratico { text-align: center; }
+}
 @media (min-width: 900px) {
   .invito { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); gap: clamp(3rem, 6vw, 6rem); align-items: center; }
   .invito__foto { aspect-ratio: 4 / 5; }
