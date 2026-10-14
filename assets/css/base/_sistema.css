@@ -1358,7 +1358,9 @@ h1.titolo-sezione { font-weight: 700; }
     column-gap: clamp(4rem, 7vw, 8rem);
   }
   .apertura--specchio .apertura__titolo { font-size: clamp(2.6rem, 0.9rem + 2.9vw, 3.9rem); line-height: 1.04; }
-  .apertura--specchio .apertura__titolo { align-self: start; margin-top: calc(min(calc(100svh - 7.5rem), 52rem) * 0.34); }
+  /* il confine tra la riga nera e quella in oro cade all'altezza della mano alzata (circa il 41% dell'apertura);
+     2.1em = le due righe che il tema può occupare */
+  .apertura--specchio .apertura__titolo { align-self: start; margin-top: max(0px, calc(min(calc(100svh - 7.5rem), 52rem) * 0.415 - 2.1em)); }
   /* più grande della fascia: il bordo sotto la taglia sopra i fianchi (resta visibile l'80% della foto) */
   .apertura--specchio .apertura__figura {
     /* la colonna prende la larghezza della foto: mai deformata. Su schermi stretti cala con la larghezza */
@@ -1605,5 +1607,9 @@ h1.titolo-sezione { font-weight: 700; }
 .ruota--linea { display: inline-grid; justify-items: start; vertical-align: bottom; }
 @media (max-width: 899px) { .ruota--linea { justify-items: center; } }
 /* computer: la riga d'arrivo un po' più piccola, così «può diventare la tua direzione» sta su una riga */
-@media (min-width: 900px) { .apertura__titolo em { font-size: 0.82em; margin-top: 0.1em; } }
+@media (min-width: 900px) {
+  /* la riga in oro sta sempre su una riga: si rimpicciolisce con la larghezza del titolo (cqi) */
+  .apertura__titolo { container-type: inline-size; }
+  .apertura__titolo em { font-size: min(0.82em, 7.2cqi); margin-top: 0.1em; white-space: nowrap; }
+}
 @media (prefers-reduced-motion: reduce) { .ruota > span { transition: none; } }
