@@ -744,6 +744,11 @@ p { text-wrap: pretty; }
   .accoglienza__prova { text-align: center; color: var(--color-on-earth-soft); text-shadow: 0 1px 12px rgba(38, 26, 24, 0.6); }
   .accoglienza__prova strong { color: #FFFFFF; }
 }
+/* Tablet: sottotitolo su una riga, foto un po' più bassa perché il testo resti sul chiaro */
+@media (min-width: 600px) and (max-width: 899px) {
+  .accoglienza__sotto { max-width: none; }
+  .accoglienza__foto { height: 78%; }
+}
 
 /* Fiducia sotto l'apertura: i fatti in fila, divisi da un filo, al posto dei loghi */
 .fiducia-fila { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 0; padding-top: clamp(1.75rem, 1.5rem + 1vw, 2.5rem); font-size: var(--text-small); color: var(--color-text-soft); }
@@ -947,7 +952,14 @@ p { text-wrap: pretty; }
 .fascia-vino { margin: 0 var(--margine-banda); border-radius: clamp(18px, 1rem + 1vw, 28px); background: radial-gradient(60% 80% at 15% 20%, rgba(142, 66, 88, 0.55), transparent 70%), var(--color-bordeaux-scuro); padding: clamp(4rem, 3rem + 5vw, 8rem) var(--gutter); }
 .fascia-vino__dentro { max-width: 52rem; margin: 0 auto; }
 .fascia-vino--luna { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(2.5rem, 2rem + 2vw, 4rem) clamp(2rem, 1.5rem + 1.5vw, 3.25rem); }
-@media (max-width: 899px) { .fascia-vino--luna .cta { display: flex; } }
+.fascia-vino__luna { display: none; }
+/* Su telefono la luna dello sfondo finirebbe dietro il testo: sfondo senza luna, luna piccola in alto a destra */
+@media (max-width: 899px) {
+  .fascia-vino--luna { padding-top: 5.5rem; }
+  .fascia-vino--luna .cta { display: flex; }
+  .fascia-vino--luna .fascia-vino__sfondo { object-position: 0 50%; }
+  .fascia-vino__luna { display: block; position: absolute; top: 1.5rem; right: 1.5rem; z-index: -1; width: 3.5rem; height: 3.5rem; }
+}
 .fascia-vino__sfondo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 100% 50%; }
 .fascia-vino--luna::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to right, rgba(20, 22, 48, 0.55) 0%, rgba(20, 22, 48, 0.25) 45%, rgba(20, 22, 48, 0) 70%); }
 .btn-luna { --fondo-btn: transparent; --filo-btn: rgba(255, 255, 255, 0.7); --tinta-btn: var(--color-primary); --freccia-btn: var(--color-text); color: #FFFFFF; margin-top: 2rem; }
