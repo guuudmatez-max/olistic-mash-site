@@ -1224,7 +1224,7 @@ h1.titolo-sezione { font-weight: 700; }
 .stacco__frase { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
 .stacco__testo { max-width: 30ch; text-wrap: balance; }
 /* la frase è lunga: velo più scuro e più alto sotto il testo, per leggerla sopra l'acqua chiara */
-.stacco:has(.stacco__testo) .stacco__frase { padding-top: 8rem; background: linear-gradient(to top, rgba(38, 30, 30, 0.82), rgba(38, 30, 30, 0.55) 50%, rgba(38, 30, 30, 0)); text-shadow: 0 1px 16px rgba(30, 24, 24, 0.6); }
+.stacco:has(.stacco__testo) .stacco__frase { padding-top: 8rem; background: linear-gradient(to top, rgba(38, 30, 30, 0.62), rgba(38, 30, 30, 0.32) 50%, rgba(38, 30, 30, 0)); text-shadow: 0 1px 16px rgba(30, 24, 24, 0.6); }
 @media (max-width: 899px) { .stacco:has(.stacco__testo) .stacco__frase { font-size: 1.25rem; } }
 .stacco__firma { display: block; margin-top: 0.35em; font-family: "Allura", var(--font-heading); font-style: normal; font-size: 1.1em; line-height: 1; color: var(--oro-su-scuro); }
 .stacco__azione { font-family: var(--font-body); font-style: normal; font-size: 0.975rem; text-shadow: none; }
@@ -1287,10 +1287,10 @@ h1.titolo-sezione { font-weight: 700; }
 }
 .apertura__titolo { grid-area: titolo; }
 .apertura__testo { grid-area: testo; }
-.apertura__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; margin-top: 1.5rem; }
-.apertura__testo .testo-lead { margin: 1.5rem 0 0; text-wrap: balance; }
+.apertura__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; margin-top: 2rem; }
+.apertura__testo .testo-lead { margin: 1.25rem 0 0; text-wrap: balance; }
 /* Telefono: apertura centrata come in Consulenze (titolo, bottoni, testo) */
-@media (max-width: 899px) { .apertura__titolo, .apertura__testo { text-align: center; } .apertura__azioni { justify-content: center; } .apertura__testo .testo-lead { margin-inline: auto; } }
+@media (max-width: 899px) { .apertura__titolo, .apertura__testo { text-align: center; } .apertura__azioni { flex-direction: column; justify-content: center; } .apertura__testo .testo-lead { margin-inline: auto; } }
 .apertura__figura {
   grid-area: figura;
   justify-self: center;
@@ -1612,7 +1612,8 @@ h1.titolo-sezione { font-weight: 700; }
 .apertura__titolo em { display: block; }
 /* la seconda riga cambia insieme alla prima: «può diventare» resta, cambia solo la parola d'arrivo */
 .ruota--linea { display: inline-grid; justify-items: start; vertical-align: bottom; }
-@media (max-width: 899px) { .ruota--linea { justify-items: center; } }
+/* telefono e tablet: l'arrivo va sempre su una riga sua, centrato (niente buco quando ci starebbe accanto) */
+@media (max-width: 899px) { .ruota--linea { display: grid; justify-items: center; } }
 /* computer: la riga d'arrivo un po' più piccola, così «può diventare la tua direzione» sta su una riga */
 @media (min-width: 900px) {
   /* la riga in oro sta sempre su una riga: si rimpicciolisce con la larghezza del titolo (cqi) */
