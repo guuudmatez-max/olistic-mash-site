@@ -346,7 +346,7 @@ p { text-wrap: pretty; }
   height: auto;
   filter: var(--grado-foto);
   /* centro ottico: la testa di Giorgia sull'asse della pagina, non il centro del file (il braccio allarga a sinistra) */
-  translate: -18% 0;
+  translate: -12% 0;
   -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
 }
@@ -388,7 +388,7 @@ h1.titolo-sezione { font-weight: 700; }
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.7rem 1.2rem 0.7rem 1.25rem;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
   border-radius: 999px;
   font-size: 1rem;
   color: var(--color-text);
@@ -411,10 +411,11 @@ h1.titolo-sezione { font-weight: 700; }
   .figura-centrale__scena img { width: 19.5rem; }
   .temi { position: absolute; inset: 0; margin: 0; display: block; pointer-events: none; }
   .tema { position: absolute; white-space: nowrap; pointer-events: auto; }
-  .tema:nth-child(1) { right: 60%; top: 63%; }
-  .tema:nth-child(2) { right: 64%; top: 82%; }
-  .tema:nth-child(3) { left: 60%; top: 63%; }
-  .tema:nth-child(4) { left: 64%; top: 82%; }
+  /* attorno a Giorgia, sfalsate: non un triangolo in basso ma un giro intorno alla figura */
+  .tema:nth-child(1) { right: 71%; top: 36%; }
+  .tema:nth-child(2) { right: 61%; top: 70%; }
+  .tema:nth-child(3) { left: 61%; top: 44%; }
+  .tema:nth-child(4) { left: 60%; top: 80%; }
 }
 
 .sottotitolo-fine {
