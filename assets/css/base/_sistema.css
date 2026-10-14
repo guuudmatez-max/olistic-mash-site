@@ -1225,7 +1225,7 @@ h1.titolo-sezione { font-weight: 700; }
 .stacco__testo { max-width: 30ch; text-wrap: balance; }
 /* la frase è lunga: velo più scuro e più alto sotto il testo, per leggerla sopra l'acqua chiara */
 .stacco:has(.stacco__testo) .stacco__frase { font-size: clamp(1.325rem, 1.075rem + 0.9vw, 1.875rem); line-height: 1.12; padding-top: 8rem; padding-bottom: var(--gutter); background: linear-gradient(to top, rgba(38, 30, 30, 0.62), rgba(38, 30, 30, 0.32) 50%, rgba(38, 30, 30, 0)); text-shadow: 0 1px 16px rgba(30, 24, 24, 0.6); }
-@media (max-width: 899px) { .stacco:has(.stacco__testo) .stacco__frase { font-size: 1.25rem; } }
+@media (max-width: 899px) { .stacco:has(.stacco__testo) .stacco__frase { font-size: 1.25rem; justify-content: center; text-align: center; } .stacco__testo { margin-inline: auto; } }
 .stacco__firma { display: block; margin-top: 0.35em; font-family: "Allura", var(--font-heading); font-style: normal; font-size: 1.1em; line-height: 1; color: var(--oro-su-scuro); }
 .stacco__azione { font-family: var(--font-body); font-style: normal; font-size: 0.975rem; text-shadow: none; }
 
