@@ -281,6 +281,45 @@ function initRuota() {
   }, 3500);
 }
 
+// Contatti: il modulo parte senza ricaricare la pagina (Netlify Forms); l'argomento si può
+// scegliere dall'indirizzo, per esempio /contatti.html?argomento=regalo#scrivimi
+function initModuloContatti() {
+  const form = document.querySelector("[data-modulo-contatti]");
+  if (!form) return;
+  const scelta = new URLSearchParams(location.search).get("argomento");
+  if (scelta) {
+    const voce = [...form.querySelectorAll('input[name="argomento"]')].find((i) => i.value.toLowerCase().includes(scelta.toLowerCase()));
+    if (voce) voce.checked = true;
+  }
+  const errore = form.querySelector("[data-modulo-errore]");
+  form.addEventListener("invalid", () => form.classList.add("provato"), true); // segna i campi mancanti dopo il primo tentativo
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    form.classList.add("provato");
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    errore.hidden = true;
+    const bottone = form.querySelector('button[type="submit"]');
+    bottone.disabled = true;
+    try {
+      const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(form)).toString() });
+      if (!r.ok) throw new Error(r.status);
+      const nome = (form.elements.nome.value || "").trim().split(" ")[0];
+      form.classList.add("inviato");
+      setTimeout(() => {
+        const grazie = document.createElement("div");
+        grazie.className = "grazie-contatti";
+        grazie.setAttribute("role", "status");
+        grazie.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><strong></strong><p>Il tuo messaggio è arrivato. Lo leggo io e ti rispondo per mail.</p>';
+        grazie.querySelector("strong").textContent = nome ? `Grazie, ${nome}` : "Grazie";
+        form.replaceWith(grazie);
+      }, 380);
+    } catch {
+      errore.hidden = false;
+      bottone.disabled = false;
+    }
+  });
+}
+
 // Barra WhatsApp sul telefono: visibile dopo l'apertura, nascosta quando si vede l'invito finale
 function initBarraWhatsapp() {
   const barra = document.querySelector("[data-barra-wa]");
@@ -371,6 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initParallasse();
   initNebbia();
   initRuota();
+  initModuloContatti();
   initBarraWhatsapp();
   initStacchi();
   initCercaFaq();

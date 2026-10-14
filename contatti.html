@@ -2,109 +2,148 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <title>Contatti – Coach Olistica</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-
+    <title>Contatti · Giorgia Boccadifuoco</title>
+    <meta name="description" content="Scrivi a Giorgia Boccadifuoco su WhatsApp o con il modulo: ti risponde lei, di persona. Consulenze individuali e armonizzazioni di gruppo in Veneto e online." />
+    <script>document.documentElement.classList.add("js");</script>
+    <script type="module" src="/assets/js/main.js"></script>
   </head>
   <body>
     <div class="site">
-      <!-- HEADER -->
       <header data-site-header></header>
 
       <main class="site-main">
-        <!-- CTA FINALE -->
-        <section
-          class="section section--contact"
-          id="contatti"
-          style="
-            background: linear-gradient(
-              180deg,
-              var(--color-bg) 0%,
-              var(--color-primary-light) 100%
-            );
-          "
-        >
-          <div class="container">
-            <div class="mx-auto max-w-3xl text-center">
-              <!-- Titolo pagina -->
-              <h1 class="text-2xl font-semibold leading-tight md:text-3xl">
-                Contatti
-              </h1>
-
-              <!-- Sottotitolo -->
-              <p class="mx-auto mt-4 max-w-2xl text-sm md:text-base leading-relaxed text-[var(--color-text-muted)]">
-                Se senti che è il momento di chiedere supporto, puoi scrivermi e raccontarmi in poche parole
-                cosa stai vivendo. Ti aiuterò a capire quale percorso, trattamento o spazio di lavoro
-                può sostenerti meglio adesso.
-              </p>
-            </div>
-
-            <!-- BLOCCO WHATSAPP (principale) -->
-            <div class="mx-auto mt-8 max-w-xl">
-              <article class="rounded-[24px] border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-7 shadow-sm md:p-8">
-                <!-- Label canale principale -->
-                <p class="text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-strong)]">
-                  Canale principale · WhatsApp
-                </p>
-
-                <h2 class="mt-3 text-lg font-semibold md:text-xl">
-                  Scrivimi su WhatsApp
-                </h2>
-
-                <p class="mt-3 text-sm md:text-base leading-relaxed text-[var(--color-text-muted)]">
-                  Puoi mandarmi un messaggio raccontandomi, con le parole che hai ora, in che fase ti trovi
-                  e che tipo di sostegno stai cercando. Da lì, vediamo insieme qual è il passo più gentile
-                  per te in questo momento.
-                </p>
-
-                <div class="mt-6">
-                  <a
-                    href="#"
-                    class="btn btn-primary w-full md:w-auto"
-                    data-wa-key="generico"
-                  >
-                    Scrivimi su WhatsApp
-                  </a>
-                  <p class="mt-3 text-xs md:text-sm text-[var(--color-text-muted)]">
-                    Ti rispondo entro 24 ore nei giorni feriali. Nessun impegno, solo orientamento.
-                  </p>
-                </div>
-              </article>
-            </div>
-
-            <!-- BLOCCO INSTAGRAM (secondario) -->
-            <div class="mx-auto mt-8 max-w-xl text-center">
-              <p class="text-xs md:text-sm text-[var(--color-text-muted)]">
-                Preferisci seguirmi o scrivermi su Instagram?
-              </p>
-
-              <div class="mt-4 flex flex-col items-center gap-2">
-                <div class="flex items-center gap-2 text-sm md:text-base text-[var(--color-text)]">
-                  <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-surface)] border border-[var(--color-border-soft)]">
-                    📷
-                  </span>
-                  <span>@giorgiaboccadifuoco</span> <!-- aggiorna handle quando definitivo -->
-                </div>
-
-                <a
-                  href="https://www.instagram.com/giorgiaboccadifuoco?igsh=b2JnYnUzNTN1OWUz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center rounded-full border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-4 py-2 text-xs md:text-sm text-[var(--color-text-muted)] hover:bg-[var(--color-bg)]"
-                >
-                  Vai al mio profilo Instagram
-                </a>
+        <!-- APERTURA: un invito solo, Giorgia con la penna in mano -->
+        <section class="sezione sfumato contatti-apertura">
+          <div class="contenitore contatti-apertura__griglia">
+            <div class="contatti-apertura__testo">
+              <h1 class="titolo-display">Scrivimi. <em>Ti rispondo io</em></h1>
+              <p class="testo-lead">Il modo più semplice è un messaggio su WhatsApp, anche di due righe. Se preferisci scrivere con calma, più sotto trovi il modulo: arriva dritto nella mia casella di posta.</p>
+              <div class="contatti-apertura__azioni">
+                <div class="cta"><a class="btn btn-accento" data-wa-key="generico">Scrivimi su WhatsApp</a><p class="cta__nota">Scrivermi non ti impegna.</p></div>
+                <a class="link" href="#scrivimi">Preferisco la mail</a>
               </div>
             </div>
+            <figure class="contatti-apertura__figura">
+              <img src="/assets/img/foto/giorgia-bianco-mani-900.webp" srcset="/assets/img/foto/giorgia-bianco-mani-900.webp 1x, /assets/img/foto/giorgia-bianco-mani-1600.webp 2x" width="406" height="900" alt="Giorgia in abito bianco, con una penna tra le mani, sorride" fetchpriority="high" />
+            </figure>
           </div>
         </section>
 
+        <!-- I fatti in fila, come nelle altre pagine -->
+        <div class="contenitore fiducia-fila" aria-label="In breve">
+          <span>In presenza in <strong>{{ zona }}</strong></span>
+          <span><strong>Online</strong> da tutta Italia</span>
+          <span><strong>Buoni regalo</strong> per chi ami</span>
+        </div>
 
-      <!-- FOOTER -->
+        <!-- MODULO: l'unico posto del sito con la mail -->
+        <section class="sezione" id="scrivimi">
+          <div class="contenitore contatti-modulo">
+            <div class="contatti-modulo__intro">
+              <h2 class="titolo-sezione">Se preferisci, <em>scrivimi con calma</em></h2>
+              <p class="testo-lead">Il modulo è il posto giusto per una domanda lunga, per un buono regalo o per una collaborazione. Lo leggo io e ti rispondo per mail.</p>
+              <dl class="contatti-dati">
+                <div><dt>Dove ricevo</dt><dd>{{ zona }}</dd></div>
+                <div><dt>Online</dt><dd>Da tutta Italia, in videochiamata</dd></div>
+                <div><dt>Chi ti risponde</dt><dd>Io, di persona</dd></div>
+              </dl>
+            </div>
+
+            <form class="modulo-contatti" name="contatti" method="POST" action="/contatti.html?grazie" data-netlify="true" netlify-honeypot="indirizzo" data-modulo-contatti>
+              <input type="hidden" name="form-name" value="contatti" />
+              <p class="solo-lettori"><label>Non compilare questo campo <input name="indirizzo" tabindex="-1" autocomplete="off" /></label></p>
+
+              <fieldset class="campo">
+                <legend>Di cosa vuoi parlarmi</legend>
+                <div class="scelte">
+                  <label class="scelta"><input type="radio" name="argomento" value="Consulenze individuali" checked /><span>Consulenze individuali</span></label>
+                  <label class="scelta"><input type="radio" name="argomento" value="Armonizzazioni di gruppo" /><span>Armonizzazioni di gruppo</span></label>
+                  <label class="scelta"><input type="radio" name="argomento" value="Un buono regalo" /><span>Un buono regalo</span></label>
+                  <label class="scelta"><input type="radio" name="argomento" value="Altro" /><span>Altro</span></label>
+                </div>
+              </fieldset>
+
+              <div class="campi-due">
+                <label class="campo">
+                  <span class="campo__etichetta">Come ti chiami</span>
+                  <input type="text" name="nome" autocomplete="name" required />
+                </label>
+                <label class="campo">
+                  <span class="campo__etichetta">La tua mail</span>
+                  <input type="email" name="email" autocomplete="email" required />
+                </label>
+              </div>
+
+              <label class="campo">
+                <span class="campo__etichetta">Il tuo numero <small>(facoltativo, se preferisci un messaggio)</small></span>
+                <input type="tel" name="telefono" autocomplete="tel" inputmode="tel" />
+              </label>
+
+              <label class="campo">
+                <span class="campo__etichetta">Cosa ti porta da me</span>
+                <textarea name="messaggio" rows="5" required placeholder="Anche solo due righe. Anche solo “vorrei capire se fa per me”."></textarea>
+              </label>
+
+              <label class="consenso"><input type="checkbox" name="consenso" required /> <span>Ho letto l'<a class="link" href="https://www.iubenda.com/privacy-policy/12385559/full-legal" target="_blank" rel="noopener noreferrer">informativa sulla privacy</a> e acconsento a essere ricontattata o ricontattato.</span></label>
+
+              <div class="modulo-contatti__invio">
+                <button class="btn btn-accento" type="submit">Invia il messaggio</button>
+                <p class="cta__nota">Ti rispondo io, di persona.</p>
+              </div>
+              <p class="modulo-contatti__errore" data-modulo-errore role="alert" hidden>Il messaggio non è partito. Riprova tra poco, oppure <a class="link" data-wa-key="generico">scrivimi su WhatsApp</a>.</p>
+            </form>
+          </div>
+        </section>
+
+        <!-- SOCIAL: tutti i profili, dallo stesso elenco del piede -->
+        <section class="sezione sezione--avorio">
+          <div class="contenitore">
+            <div class="intesta-centro">
+              <h2 class="titolo-sezione">Dove trovarmi, <em>anche fuori da qui</em></h2>
+              <p class="testo-lead">Video, riflessioni, meditazioni e le parole di chi ha già fatto il primo passo.</p>
+            </div>
+            <div class="social-schede"></div>
+          </div>
+        </section>
+
+        <!-- DOMANDE prima di scrivere -->
+        <section class="sezione">
+          <div class="contenitore">
+            <div class="intesta-centro">
+              <h2 class="titolo-sezione">Prima di <em>scrivermi</em></h2>
+            </div>
+            <div class="faq">
+              <details>
+                <summary>Devo già sapere cosa chiedere?</summary>
+                <div class="faq__risposta"><p>No. Anche solo “vorrei capire se fa per me” va benissimo. Il resto lo vediamo insieme.</p></div>
+              </details>
+              <details>
+                <summary>Ricevi in presenza o online?</summary>
+                <div class="faq__risposta"><p>Tutti e due. In presenza ricevo in {{ zona }}, online da tutta Italia. In presenza il lavoro è più pieno, e spesso dopo qualche incontro online le persone scelgono di venire di persona.</p></div>
+              </details>
+              <details>
+                <summary>Quanto costa?</summary>
+                <div class="faq__risposta"><p>I costi te li dico io, insieme alla strada che ha più senso per te. Così sai subito tutto, e se non è il momento basta dirmelo.</p></div>
+              </details>
+              <details>
+                <summary>Posso regalare un incontro?</summary>
+                <div class="faq__risposta"><p>Sì: un primo incontro o un percorso intero, in un buono da consegnare a chi ami. Scegli “Un buono regalo” nel modulo, oppure <a class="link" data-wa-key="regalo">scrivimi su WhatsApp</a> e lo prepariamo insieme.</p></div>
+              </details>
+              <details>
+                <summary>È una terapia?</summary>
+                <div class="faq__risposta"><p>No. {{ disclaimer }} Sta accanto a loro, non al loro posto.</p></div>
+              </details>
+              <details>
+                <summary>Collaborazioni e interviste</summary>
+                <div class="faq__risposta"><p>Per eventi, interviste o progetti insieme usa il modulo e scegli “Altro”: così ho tutto per scritto e ti rispondo con calma.</p></div>
+              </details>
+            </div>
+          </div>
+        </section>
+      </main>
+
       <footer data-site-footer></footer>
     </div>
-
-    <script type="module" src="/assets/js/main.js"></script>
   </body>
 </html>

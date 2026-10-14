@@ -53,6 +53,31 @@ export function renderHeader() {
 </header>`;
 }
 
+function iconaSocial(p) {
+  const i = icone[p.icona];
+  if (!i) throw new Error(`Icona sconosciuta: ${p.icona} (vedi simple-icons)`);
+  return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${i.path}"/></svg>`;
+}
+
+// Nome del profilo letto dall'indirizzo: instagram.com/giorgiaboccadifuoco/ → @giorgiaboccadifuoco
+function profilo(p) {
+  if (p.icona === "siGooglemaps") return "Leggi le recensioni";
+  const ultimo = new URL(p.url).pathname.split("/").filter(Boolean).pop() ?? "";
+  return "@" + ultimo.replace(/^@/, "");
+}
+
+// Pagina Contatti: una scheda per ogni profilo social, dallo stesso elenco del piede
+export function renderSocialSchede() {
+  const tinte = ["oro", "cipria", "salvia", "lilla"];
+  return site.social
+    .map((p, n) => `<a class="social-scheda social-scheda--${tinte[n % tinte.length]}" href="${p.url}" target="_blank" rel="noopener noreferrer">
+  <span class="social-scheda__icona">${iconaSocial(p)}</span>
+  <span class="social-scheda__testo"><strong>${escapeHtml(p.nome)}</strong><small>${escapeHtml(profilo(p))}</small></span>
+  <svg class="social-scheda__freccia" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+</a>`)
+    .join("\n");
+}
+
 export function renderFooter() {
   const year = new Date().getFullYear();
   const esterno = 'target="_blank" rel="noopener noreferrer"';
@@ -64,11 +89,7 @@ export function renderFooter() {
         <a class="btn btn-chiaro" href="${whatsappUrl("generico")}" ${esterno}>Scrivimi su WhatsApp</a>
         <div class="piede__icone">
           ${site.social
-            .map((p) => {
-              const i = icone[p.icona];
-              if (!i) throw new Error(`Icona sconosciuta: ${p.icona} (vedi simple-icons)`);
-              return `<a href="${p.url}" ${esterno} aria-label="${escapeHtml(p.nome)}" title="${escapeHtml(p.nome)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${i.path}"/></svg></a>`;
-            })
+            .map((p) => `<a href="${p.url}" ${esterno} aria-label="${escapeHtml(p.nome)}" title="${escapeHtml(p.nome)}">${iconaSocial(p)}</a>`)
             .join("")}
         </div>
       </div>
@@ -128,6 +149,7 @@ export function renderPage(html) {
     .replace(/<header data-site-header><\/header>/, renderHeader)
     .replace(/<footer data-site-footer><\/footer>/, renderFooter)
     .replace(/(<div id="events-list"[^>]*>)(<\/div>)/, (_, open, close) => open + renderEvents() + close)
+    .replace(/(<div class="social-schede"[^>]*>)(<\/div>)/, (_, open, close) => open + renderSocialSchede() + close)
     .replace(/<a\b([^>]*?)\sdata-wa-key="([^"]+)"([^>]*)>/g, (_, before, key, after) => {
       const attrs = (before + after).replace(/\s(href|target|rel)="[^"]*"/g, "");
       const extra = attrs.match(/\sdata-wa-text="([^"]*)"/)?.[1] ?? "";

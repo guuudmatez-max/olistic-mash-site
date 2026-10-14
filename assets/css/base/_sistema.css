@@ -1622,3 +1622,100 @@ h1.titolo-sezione { font-weight: 700; }
 }
 @media (prefers-reduced-motion: reduce) { .ruota > span { transition: none; } }
 
+
+/* ================= CONTATTI ================= */
+/* Apertura: testo a sinistra, Giorgia con la penna a destra che poggia sul fondo e sfuma */
+.contatti-apertura { padding-bottom: 0; }
+.contatti-apertura__griglia { display: grid; gap: 2rem; align-items: end; }
+.contatti-apertura__testo { padding-bottom: clamp(1rem, 4vw, 4rem); }
+.contatti-apertura h1 em { display: block; }
+.contatti-apertura__testo .testo-lead { margin: 1.25rem 0 0; max-width: 34rem; text-wrap: pretty; }
+.contatti-apertura__azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 2rem; }
+.contatti-apertura__azioni .cta { align-items: flex-start; }
+.contatti-apertura__figura { margin: 0; justify-self: center; position: relative; isolation: isolate; }
+.contatti-apertura__figura::before { content: ""; position: absolute; inset: 12% -10% 10%; z-index: -1; border-radius: 50%; background: radial-gradient(circle, rgba(244, 227, 230, 0.9), rgba(246, 236, 211, 0.45) 50%, transparent 72%); filter: blur(24px); }
+.contatti-apertura__figura img { display: block; width: min(72vw, 21rem); height: auto; filter: var(--grado-foto); -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent); mask-image: linear-gradient(to bottom, #000 78%, transparent); }
+@media (min-width: 900px) {
+  .contatti-apertura__griglia { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); column-gap: clamp(2rem, 5vw, 5rem); }
+  .contatti-apertura__testo { align-self: center; padding-bottom: 0; }
+  .contatti-apertura__figura img { width: min(100%, 23rem); }
+}
+@media (max-width: 899px) {
+  .contatti-apertura__testo { text-align: center; }
+  .contatti-apertura__testo .testo-lead { margin-inline: auto; }
+  .contatti-apertura__azioni { flex-direction: column; }
+  .contatti-apertura__azioni .cta { align-items: center; }
+}
+
+/* Modulo: introduzione e dati a sinistra, il modulo su una scheda bianca a destra */
+.contatti-modulo { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
+@media (min-width: 900px) { .contatti-modulo { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); align-items: start; } .contatti-modulo__intro { position: sticky; top: 6rem; } }
+.contatti-modulo__intro .testo-lead { margin: 0; max-width: 30rem; }
+.contatti-dati { margin: 2rem 0 0; display: grid; gap: 0; max-width: 30rem; }
+.contatti-dati > div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; border-top: 1px solid rgba(138, 101, 38, 0.18); }
+.contatti-dati > div:last-child { border-bottom: 1px solid rgba(138, 101, 38, 0.18); }
+.contatti-dati dt { font-size: var(--text-label); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-gold-ink); }
+.contatti-dati dd { margin: 0; text-align: right; color: var(--color-text); }
+
+.modulo-contatti { display: grid; gap: 1.25rem; padding: clamp(1.5rem, 1rem + 2.5vw, 2.75rem); border-radius: var(--radius-card); background: #FFFFFF; box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 30px 60px -36px rgba(46, 47, 51, 0.35); transition: opacity 380ms var(--curva), transform 380ms var(--curva); }
+.modulo-contatti.inviato { opacity: 0; transform: translateY(6px); }
+.campo { display: grid; gap: 0.45rem; margin: 0; padding: 0; border: 0; min-width: 0; }
+.campo__etichetta, .campo legend { font-size: var(--text-small); font-weight: 600; color: var(--color-text); padding: 0; }
+.campo__etichetta small { font-weight: 400; color: var(--color-text-muted); }
+.campo legend { margin-bottom: 0.6rem; }
+.campi-due { display: grid; gap: 1.25rem; }
+@media (min-width: 640px) { .campi-due { grid-template-columns: 1fr 1fr; } }
+.campo input, .campo textarea {
+  width: 100%; font: inherit; color: var(--color-text);
+  padding: 0.8rem 1rem; border-radius: 0.9rem; border: 0;
+  background: var(--color-bg-soft); box-shadow: inset 0 0 0 1px var(--color-border-soft);
+  transition: box-shadow 200ms ease, background-color 200ms ease;
+}
+.campo textarea { resize: vertical; min-height: 8.5rem; line-height: 1.55; }
+.campo input::placeholder, .campo textarea::placeholder { color: var(--color-text-muted); opacity: 0.85; }
+.campo input:focus-visible, .campo textarea:focus-visible { outline: none; background: #FFFFFF; box-shadow: inset 0 0 0 1.5px var(--color-bordeaux), 0 0 0 4px rgba(142, 66, 88, 0.12); }
+/* dopo un tentativo di invio, i campi vuoti obbligatori si segnano in vino */
+.modulo-contatti.provato .campo :is(input, textarea):invalid { box-shadow: inset 0 0 0 1.5px var(--color-bordeaux); }
+
+/* Scelta dell'argomento: pillole come quelle dei temi in home */
+.scelte { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.scelta { position: relative; cursor: pointer; }
+.scelta input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.scelta span { display: inline-block; padding: 0.55rem 1.05rem; border-radius: 999px; font-size: var(--text-small); background: var(--color-bg-soft); box-shadow: inset 0 0 0 1px var(--color-border-soft); transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease, transform 300ms var(--curva); }
+.scelta:hover span { transform: translateY(-1px); }
+.scelta input:checked + span { background: var(--tinta-cipria); color: var(--color-bordeaux); font-weight: 600; box-shadow: inset 0 0 0 1px rgba(142, 66, 88, 0.35); }
+.scelta input:focus-visible + span { outline: 2px solid var(--color-bordeaux); outline-offset: 2px; }
+
+.consenso { display: flex; gap: 0.65rem; align-items: flex-start; font-size: var(--text-small); line-height: 1.5; color: var(--color-text-soft); }
+.consenso input { flex: none; width: 1.1rem; height: 1.1rem; margin-top: 0.15rem; accent-color: var(--color-bordeaux); }
+.modulo-contatti__invio { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-top: 0.25rem; }
+.modulo-contatti__invio .cta__nota { text-align: left; }
+.modulo-contatti__errore { margin: 0; font-size: var(--text-small); color: var(--color-bordeaux); }
+.grazie-contatti { display: grid; place-items: center; gap: 0.75rem; text-align: center; padding: clamp(2rem, 1.5rem + 3vw, 4rem); border-radius: var(--radius-card); background: var(--tinta-cipria); animation: compari 600ms var(--curva) both; }
+.grazie-contatti svg { width: 2.6rem; height: 2.6rem; padding: 0.6rem; border-radius: 50%; background: #FFFFFF; fill: none; stroke: var(--color-bordeaux); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.grazie-contatti p { margin: 0; max-width: 26rem; color: var(--color-text); }
+.grazie-contatti strong { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; }
+@keyframes compari { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Social: una scheda per profilo, tinte del sistema, si solleva al passaggio */
+.intesta-centro { text-align: center; max-width: 40rem; margin: 0 auto clamp(2rem, 4vw, 3rem); }
+.intesta-centro .testo-lead { margin: 0 auto; }
+.social-schede { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; max-width: 74rem; margin: 0 auto; }
+/* quattro per riga sul computer, l'ultima riga centrata; una per riga sul telefono */
+.social-schede > * { flex: 1 1 100%; }
+@media (min-width: 640px) { .social-schede > * { flex: 0 1 calc((100% - 0.75rem) / 2); } }
+@media (min-width: 1100px) { .social-schede > * { flex: 0 1 calc((100% - 2.25rem) / 4); } }
+.social-scheda { display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1.1rem; border-radius: 1.1rem; color: var(--color-text); background: #FFFFFF; box-shadow: 0 1px 2px rgba(46, 47, 51, 0.05), 0 14px 30px -22px rgba(46, 47, 51, 0.35); text-decoration: none; transition: transform 400ms var(--curva), box-shadow 400ms var(--curva); }
+.social-scheda:hover, .social-scheda:focus-visible { transform: translateY(-3px); box-shadow: 0 1px 2px rgba(46, 47, 51, 0.06), 0 22px 36px -20px rgba(46, 47, 51, 0.4); }
+.social-scheda__icona { flex: none; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; color: var(--color-bordeaux); }
+.social-scheda--oro .social-scheda__icona { background: var(--tinta-oro); color: var(--color-gold-ink); }
+.social-scheda--cipria .social-scheda__icona { background: var(--tinta-cipria); }
+.social-scheda--salvia .social-scheda__icona { background: var(--tinta-salvia); color: #4E6A4C; }
+.social-scheda--lilla .social-scheda__icona { background: var(--tinta-lilla); color: #5E5287; }
+.social-scheda__icona svg { width: 1.2rem; height: 1.2rem; fill: currentColor; }
+.social-scheda__testo { flex: 1; display: grid; min-width: 0; }
+.social-scheda__testo strong { font-weight: 600; }
+.social-scheda__testo small { font-size: var(--text-small); color: var(--color-text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.social-scheda__freccia { flex: none; width: 0.9rem; height: 0.9rem; fill: none; stroke: var(--color-text-muted); stroke-width: 1.5; stroke-linecap: round; transition: transform 400ms var(--curva), stroke 200ms ease; }
+.social-scheda:hover .social-scheda__freccia { transform: translate(2px, -2px); stroke: var(--color-bordeaux); }
+@media (prefers-reduced-motion: reduce) { .social-scheda, .scelta span, .modulo-contatti, .grazie-contatti { transition: none; animation: none; } }
